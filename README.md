@@ -11,7 +11,7 @@
 - 2b *Locating where safety lives* and *Circuit-level interventions*
 - 2b *Safety-aware compression*
 
-**Team.** Sushovit Nanda (project lead; laptop lane; GitHub `SushovitNanda`, Hugging Face `SushiOrbit`) and Manish Shaw (Mac lane).
+**Team.** Sushovit Nanda (project lead; laptop lane; GitHub `SushovitNanda`, Hugging Face https://huggingface.co/SushiOrbit) and Manish Shaw (Mac lane).
 
 **Content note.** This work evaluates refusals on harmful medical and general prompts. No harmful model answer appears anywhere in this repository: per-answer records are text-free, and only labels, counts and rates are published.
 
@@ -22,6 +22,7 @@
 | Hugging Face dataset collection | https://huggingface.co/collections/SushiOrbit/safe-from-fine-tune-to-phone-datasets |
 | Hugging Face model collection | https://huggingface.co/collections/SushiOrbit/safe-from-fine-tune-to-phone-models |
 | GitHub repository (this write-up and the code) | https://github.com/SushovitNanda/Safe-from-Fine-Tune-to-Phone |
+| Hugging Face profile (all repositories and both collections) | https://huggingface.co/SushiOrbit |
 
 ---
 
