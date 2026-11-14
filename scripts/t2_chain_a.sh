@@ -4,7 +4,7 @@
 # Resumable: rerun the script and every finished prompt / cell is skipped.
 cd .
 export PYTHONUTF8=1 HF_HUB_OFFLINE=1 HF_HOME="models/hf_cache" PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
-P=/c/lexsi/.venv/Scripts/python.exe
+P=python
 TEST="aya_en_test aya_hi_test aya_hinglish_test clinicsafe_hi_en clinicsafe_hi_hi clinicsafe_hi_hinglish xstest_en_test xstest_hi_test xstest_hinglish_test"
 MQT=Datasets/final/medmcqa_test_500/prompts.jsonl
 MQD=Datasets/final/medmcqa_dev_1000/prompts.jsonl

@@ -1,6 +1,6 @@
 # Pinned to the environment every result in this repo was produced with (see ENV.md).
-# Install torch FIRST from the CUDA index (see Startup.md), then: pip install -r requirements.txt
-# The three Lexsi kits (CuratorKIT, SafeTune, CircuitKIT) are installed editable from KITS/ at pinned commits (Startup.md).
+# Install torch FIRST from the CUDA index (pip install torch==2.11.0 --index-url https://download.pytorch.org/whl/cu128), then: pip install -r requirements.txt
+# The three Lexsi kits (CuratorKIT, SafeTune, CircuitKIT) are installed from their GitHub repositories at the commits pinned in ENV.md (install block in README.md, section 14).
 transformers==5.22.1
 peft==0.21.2
 accelerate==1.15.0

@@ -7,7 +7,7 @@
 # New ZIPs take priority between steps.   bash scripts/t2_overnight.sh   log: logs/t2_overnight.log
 cd .
 export PYTHONUTF8=1 HF_HUB_OFFLINE=1 HF_HOME="models/hf_cache" PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
-P=/c/lexsi/.venv/Scripts/python.exe
+P=python
 SYS_PY="python"
 B=origin/manishshaw-nov9
 CUTOFF=${CUTOFF:-0745}

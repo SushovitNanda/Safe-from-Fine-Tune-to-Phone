@@ -5,7 +5,7 @@
 #   bash scripts/t2_chain_c.sh
 cd .
 export PYTHONUTF8=1 HF_HUB_OFFLINE=1 HF_HOME="models/hf_cache" PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
-P=/c/lexsi/.venv/Scripts/python.exe
+P=python
 MED=models/merged/med
 dp () { echo "STEP devpass $1 $(date +%H:%M)"; $P harness/dev_pass.py --name "$@" >> logs/t2_chain_c_devpass.log 2>&1; echo "exit $?"; }
 for a in 0.10 0.15 0.20 0.25 0.30 0.40; do dp resta_a$a --model $MED --resta $a; done

@@ -6,8 +6,8 @@ when the first author runs it.
 
 Sources: Datasets/final (prompt sets), Datasets/interim (specifications), models/runs/*/adapter (LoRA adapters),
 handoff/D5b (control vector), models/steer (calibration tensor), release/ (GGUF card and manifest), and the sanitised
-results tree of Lexsi_Submissions/ (text-free records, labels, statistics). The three Q3_K_M GGUF files live on the
-Mac; their repo folder gets the card, the manifest and a FILES_NEEDED list, and the upload script checks their SHA-256.
+results tree of Lexsi_Submissions/ (text-free records, labels, statistics). The GGUF repository folder gets the card, the manifest of the evaluated Q3_K_M builds, the control vector and the
+tensor-type rules; the F16 GGUF and the merged FP16 weights are uploaded from their original locations by scripts/hf_upload_large.py.
 """
 from __future__ import annotations
 import hashlib
@@ -54,10 +54,48 @@ def yaml_configs(sets: list[str], base: str = "data") -> str:
     return "\n".join(lines)
 
 
+GITHUB = "https://github.com/SushovitNanda/Safe-from-Fine-Tune-to-Phone"
+COL_MODELS = "https://huggingface.co/collections/SushiOrbit/safe-from-fine-tune-to-phone-models"
+COL_DATASETS = "https://huggingface.co/collections/SushiOrbit/safe-from-fine-tune-to-phone-datasets"
+
+
 def common_header() -> str:
     return (f"**Lexsi AI Safety and Alignment Hackathon, Track 2.** Team: {TEAM}. Project: *Safe from Fine-Tune to Phone*. "
             f"Claim: {CLAIM}\n\nAll repositories of this project are public and un-gated. No model completion on a harmful prompt is published anywhere; "
-            "prompt sets carry prompts and labels only, and evaluation logs are text-free records.\n")
+            "prompt sets carry prompts and labels only, and evaluation logs are text-free records. "
+            f"Write-up, code and reproduction instructions: {GITHUB}. Collections: [models]({COL_MODELS}), [datasets]({COL_DATASETS}).\n")
+
+
+def strip_head(body: str) -> str:
+    """Drop everything before the first '## ' heading (the source card's own title and team line)."""
+    i = body.find("\n## ")
+    return body[i + 1:] if i >= 0 else body
+
+
+def drop_section(body: str, heading: str) -> str:
+    """Remove a '## heading' section up to the next '## ' heading."""
+    start = body.find(f"## {heading}")
+    if start < 0: return body
+    nxt = body.find("\n## ", start + 1)
+    return body[:start] + (body[nxt + 1:] if nxt >= 0 else "")
+
+
+def sets_table(sets: list[str]) -> str:
+    rows = ["| config | file | rows | sets | languages |", "|---|---|---|---|---|"]
+    for s in sets:
+        for f in sorted((ROOT / "Datasets/final" / s).glob("*.jsonl")):
+            recs = [json.loads(l) for l in f.read_text(encoding="utf-8").splitlines() if l.strip()]
+            by_set, by_lang = {}, {}
+            for r in recs:
+                if r.get("set"): by_set[r["set"]] = by_set.get(r["set"], 0) + 1
+                if r.get("lang"): by_lang[r["lang"]] = by_lang.get(r["lang"], 0) + 1
+            fmt = lambda d: ", ".join(f"{k}: {v}" for k, v in sorted(d.items())) or "contrast pairs"
+            rows.append(f"| `{s}` | `{f.name}` | {len(recs)} | {fmt(by_set)} | {fmt(by_lang)} |")
+    return "\n".join(rows)
+
+
+def load_snippet(repo: str, config: str) -> str:
+    return f"```python\nfrom datasets import load_dataset\nds = load_dataset(\"{NS}/{repo}\", \"{config}\")\n```\n"
 
 
 # ------------------------------------------------------------------ datasets
@@ -67,7 +105,8 @@ def ds_clinicsafe():
     for f in ["SPEC.md", "qwen3guard_labels.jsonl", "qwen3guard_recheck.jsonl", "qwen3guard_disagreements.jsonl", "review_decisions.jsonl", "changed_ids.jsonl"]:
         copy(ROOT / "Datasets/interim/clinicsafe_hi" / f, d / "construction" / f)
     copy(ROOT / "Datasets/interim/HINGLISH_STYLE.md", d / "construction/HINGLISH_STYLE.md")
-    card_body = (ROOT / "scripts/data/clinicsafe_hi_card.md").read_text(encoding="utf-8").split("---", 2)[2].strip()
+    card_body = strip_head((ROOT / "scripts/data/clinicsafe_hi_card.md").read_text(encoding="utf-8").split("---", 2)[2].strip())
+    card_body = drop_section(card_body, "Other sets").strip()
     write(d / "README.md", f"""---
 license: cc-by-nc-4.0
 language:
@@ -94,6 +133,7 @@ size_categories:
 {common_header()}
 **This repository** holds the benchmark itself: 102 harmful clinical requests paired with 102 benign twins per language (test, `data/clinicsafe_hi_*`), the 30-pair development sets per language (`data/clinicsafe_dev_*`), and the construction record (`construction/`: the written specification, the Hinglish style guide, the Qwen3Guard prompt-moderation check and the review decisions). Schema of every row: {SCHEMA}. The companion evaluation sets (Aya Red-teaming, XSTest, MedMCQA, calibration and circuit pairs) are in the dataset `{NS}/tinyaya-safety-eval` of the same collection.
 
+{load_snippet("clinicsafe-hi", "clinicsafe_hi_en")}
 {card_body}
 """)
 
@@ -108,7 +148,10 @@ def ds_eval():
         copy(ROOT / "Datasets/final" / f, d / "reports" / f)
     copy(ROOT / "Datasets/interim/XSTEST_POSTEDIT_SPEC.md", d / "construction/XSTEST_POSTEDIT_SPEC.md")
     copy(ROOT / "Datasets/interim/HINGLISH_STYLE.md", d / "construction/HINGLISH_STYLE.md")
-    card_body = (ROOT / "Datasets/final/README.md").read_text(encoding="utf-8").split("---", 2)[2].strip()
+    card_body = strip_head((ROOT / "Datasets/final/README.md").read_text(encoding="utf-8").split("---", 2)[2].strip())
+    card_body = drop_section(card_body, "ClinicSafe-Hi")
+    t0 = card_body.find("| set | rows |"); t1 = card_body.find("\n\n", t0)
+    card_body = (card_body[:t0] + sets_table(EVAL_SETS) + card_body[t1:]).strip()
     write(d / "README.md", f"""---
 license: cc-by-nc-4.0
 language:
@@ -136,6 +179,7 @@ size_categories:
 {common_header()}
 **This repository** holds every evaluation set other than ClinicSafe-Hi (which has its own repository, `{NS}/clinicsafe-hi`): Aya Red-teaming test and dev splits in English and Hindi with the Hinglish rewrites; XSTest safe prompts in English with post-edited Hindi and Hinglish versions; MedMCQA test (500), dev (300) and the 995-item selection set; the steering calibration pairs; the circuit contrast pairs; the fidelity-50 subset; the fixed dev-pass ids; the 300-item hand-label sample with its rubric outputs (labels only, no answers, under `hand_labels/`); and the leak-check and token-matching reports (`reports/`). Schema of every prompt row: {SCHEMA}.
 
+{load_snippet("tinyaya-safety-eval", "aya_en_test")}
 {card_body}
 """)
 
@@ -178,7 +222,8 @@ Sources: MedMCQA (openlifescienceai/medmcqa, Apache-2.0) and Alpaca-cleaned (yah
 
 Fine-tuning recipe that used these sets: LoRA rank 16, alpha 32, dropout 0.05 on all linear modules; one epoch; learning rate 2e-4, cosine schedule, 3 % warm-up; batch 1 with 16 accumulation steps; FP16 mixed precision; seed 13; loss on assistant tokens only. The resulting adapters are in the model collection of this project.
 
-{chr(10).join(cards)}
+{load_snippet("tinyaya-sft", "sft_medical")}
+`rejected.jsonl` holds source rows (MedMCQA explanations, Alpaca instructions) that the Detoxify gate removed for anatomy, abuse or death vocabulary; they are public source data, not model output. CuratorKIT's own per-set statistics and provenance records are in `data/<set>/stats.json`, `manifest.json` and `lexsi_provenance.json`.
 """)
 
 
@@ -211,7 +256,7 @@ viewer: false
 # Safe from Fine-Tune to Phone: evaluation logs, judge labels and derived statistics
 
 {common_header()}
-**This repository** holds the traces behind every number of the project, text-free: for each of the {n_cells} evaluation cells (one model in one setting over the frozen 1,612-prompt test set, or a development subset) the per-answer records (`cells/<cell>/records.jsonl`: prompt id, set, language, token count, settings and run fingerprint; no prompt or answer text), the Qwen3Guard and WildGuard labels (`labels_*.jsonl`: safety, refusal and the judge's short verdict string), the run information and MedMCQA predictions; the judge-validation tables (`judges/`); every derived number of the thesis (`final_stats/final.json` and the validity audits); the stage summaries (`drift`, `repair_dev`, `repair_test`, `probe_dev`, `circuits`); the Mac lane's deployment evidence and D8 report (`mac/`, `mac_judged/`, `mac_report/`); the lane hand-offs (`handoff/`); the independent re-derivation of the statistics and the integrity audit (`review_final/`); and the pre-registrations and decision log. Cell names starting with `mac__` were generated on the Mac with llama.cpp and judged centrally on the laptop with the same judges as every other cell.
+**This repository** holds the traces behind every number of the project, text-free: for each of the {n_cells} evaluation cells (one model in one setting over the frozen 1,612-prompt test set, or a development subset) the per-answer records (`cells/<cell>/records.jsonl`: prompt id, set, language, token count, settings and run fingerprint; no prompt or answer text), the Qwen3Guard and WildGuard labels (`labels_*.jsonl`: safety, refusal and the judge's short verdict string), the run information and MedMCQA predictions; the judge-validation tables (`judges/`); the final statistics and validity audits (`final_stats/`) and the stage summaries that hold the laptop drift, repair and probe numbers (`drift/summary.json`, `repair_dev/`, `repair_test/summary.json`, `probe_dev/`, `circuits/`); the Mac lane's deployment evidence and D8 report (`mac/`, `mac_judged/`, `mac_report/`); the lane hand-offs (`handoff/`); the independent re-derivation of the statistics and the integrity audit (`review_final/`); and the pre-registrations and decision log. Cell names starting with `mac__` were generated on the Mac with llama.cpp and judged centrally on the laptop with the same judges as every other cell.
 
 Raw model answers to harmful prompts and their back-translations are not published; the records above are sufficient to recompute every rate, interval and test in the project from the labels.
 """)
@@ -289,6 +334,7 @@ tags:
   - safety
   - llama.cpp
   - lexsi-hackathon
+pipeline_tag: text-generation
 ---
 
 # Tiny Aya Global refusal-direction steering vector (layer 24), as a llama.cpp control vector
@@ -322,26 +368,9 @@ def model_gguf():
     for f in ["d4_v2_protected.tensor-types.txt", "d4_v2_random.tensor-types.txt"]:
         src = ROOT / "configs/mac/nov9/d4_v2" / f
         if src.exists(): copy(src, d / "tensor_types" / f)
-    card = (ROOT / "release/README.md").read_text(encoding="utf-8")
-    card = card.replace("**Prepared release card; no public upload has been performed.**", "**Public, un-gated release of the project's deployed medical GGUF builds.**", 1)
-    present = all((ROOT / "models/gguf" / Path(a["local_path"]).name).exists() or (d / Path(a["local_path"]).name).exists() for k, a in man["artifacts"].items() if k != "steering_vector")
-    if not present:
-        head, body = card.split("---", 2)[1], card.split("---", 2)[2]
-        nl = chr(10)
-        body = (nl + nl + "> **Status (15 Nov 2026):** this repository holds `med-f16.gguf`, the F16 GGUF conversion of the merged medical weights made on the laptop with the pinned llama.cpp build "
-                "(SHA-256 ff62c5916267f4cd4b4a462f7e44bb5047e028e8dd89ea3321ff3c05345a9791; the Mac lane's own F16 conversion of its merge, from which the evaluated Q3_K_M builds were made, has SHA-256 "
-                "52e48f490dfef25a5e0e8ec2cd024e9e7a8790cf5cb424b3d940c55d6425132e, the two merges differing by the small numeric amounts measured in hand-off D2), the model card, the artifact manifest with the "
-                "sizes and SHA-256 values of the three evaluated Q3_K_M builds (stock, protected, random), the control vector and the tensor-type rules. The three evaluated Q3_K_M files are being added from the Mac lane. "
-                "To rebuild equivalent files from the F16: `llama-quantize med-f16.gguf med-q3km.gguf Q3_K_M`, and `llama-quantize --tensor-type-file tensor_types/d4_v2_protected.tensor-types.txt med-f16.gguf protected-q3km.gguf Q3_K_M` "
-                "(likewise for random)." + nl) + body
-        card = "---" + head + "---" + body
-    write(d / "README.md", card)
-    need = ["# Files to place in this folder before upload (built on the Mac lane)", "",
-            "The upload script refuses to upload this repository until every file below is present with the SHA-256 given in `artifact_manifest.json`.", ""]
-    for key, a in man["artifacts"].items():
-        if key == "steering_vector": continue
-        need.append(f"- `{Path(a['local_path']).name}` as `{key}`: {a['bytes']:,} bytes, SHA-256 `{a['sha256']}` (Mac path `{a['local_path']}`)")
-    write(d / "FILES_NEEDED.md", "\n".join(need) + "\n")
+    # the card (release/README.md) describes what the repository holds: the F16 GGUF (uploaded from its original location by
+    # scripts/hf_upload_large.py), the control vector, the tensor-type rules and the manifest of the evaluated Q3_K_M builds
+    write(d / "README.md", (ROOT / "release/README.md").read_text(encoding="utf-8"))
 
 
 # ------------------------------------------------------------------ top level
@@ -368,9 +397,9 @@ Nothing in this folder has been uploaded. Run `python upload_hf.py` (dry run, pr
 | `models/tinyaya-global-medical-lora` | one-epoch medical LoRA adapter (PEFT) with tokenizer and chat template |
 | `models/tinyaya-global-control-lora` | one-epoch token-matched control LoRA adapter |
 | `models/tinyaya-global-refusal-steering-vector` | layer-24 refusal direction as a llama.cpp control vector, its metadata and the all-layer calibration tensor |
-| `models/tinyaya-global-medical-gguf-q3km` | model card, manifest, control vector and tensor-type rules for the medical Q3_K_M builds (stock, protected, random); **the three GGUF files must be copied in from the Mac, see `FILES_NEEDED.md`** |
+| `models/tinyaya-global-medical-gguf-q3km` | model card, manifest of the evaluated Q3_K_M builds (stock, protected, random), control vector and tensor-type rules; the F16 GGUF itself is uploaded from its original location by `scripts/hf_upload_large.py` |
 
-Not released, by the project's ethics statement: the merged FP16 weights, the reference tensors, raw model answers to harmful prompts and their back-translations.
+Also uploaded from their original locations by `scripts/hf_upload_large.py`: the laptop F16 GGUF (into the Q3_K_M repository) and the merged FP16 medical and control weights (`tinyaya-global-medical-fp16`, `tinyaya-global-control-fp16`). Not released: the reference tensors, raw model answers to harmful prompts and their back-translations.
 
 ## After upload
 

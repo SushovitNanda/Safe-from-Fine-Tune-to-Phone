@@ -3,7 +3,7 @@
 #   bash scripts/t2_d7.sh     log: logs/t2_d7.log     (run scripts/import_mac_cells.py first)
 cd .
 export PYTHONUTF8=1 HF_HUB_OFFLINE=1 HF_HOME="models/hf_cache" PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
-P=/c/lexsi/.venv/Scripts/python.exe
+P=python
 SYS_PY="python"
 DEADLINE=${DEADLINE:-0920}
 MAC=$(ls -d results/cells/mac__* | xargs -n1 basename)

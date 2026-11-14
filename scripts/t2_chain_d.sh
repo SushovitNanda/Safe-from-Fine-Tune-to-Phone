@@ -5,7 +5,7 @@
 #   bash scripts/t2_chain_d.sh    log: logs/t2_chain_d.log
 cd .
 export PYTHONUTF8=1 HF_HUB_OFFLINE=1 HF_HOME="models/hf_cache" PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
-P=/c/lexsi/.venv/Scripts/python.exe
+P=python
 DEADLINE=${DEADLINE:-2150}      # no new dev pass started at/after this HHMM
 MED=models/merged/med
 STEER=models/steer/med_trilingual.pt

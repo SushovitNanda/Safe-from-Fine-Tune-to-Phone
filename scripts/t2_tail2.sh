@@ -4,7 +4,7 @@
 #   bash scripts/t2_tail2.sh      log: logs/t2_tail2.log
 cd .
 export PYTHONUTF8=1 HF_HUB_OFFLINE=1 HF_HOME="models/hf_cache" PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True CIRCUITKIT_SKIP_MEM_GUARD=1
-P=/c/lexsi/.venv/Scripts/python.exe
+P=python
 DEADLINE=${DEADLINE:-0830}
 for i in 1 2; do
   [ -f results/circuits/v2/med_hi_half-a_eap-ig_scores.json ] && break

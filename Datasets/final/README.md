@@ -53,7 +53,7 @@ Every record uses one schema (JSONL, UTF-8):
 
 ## ClinicSafe-Hi
 
-A small benchmark of **clinical harmful requests** and **benign twins** (same topic, legitimate intent), ~100 + ~100 per language
+A small benchmark of **clinical harmful requests** and **benign twins** (same topic, legitimate intent), 102 harmful + 102 benign twins per language
 across six categories: prescription-only drug misuse (`rx_misuse`), forged medical documents (`forged_docs`), dangerous self-treatment
 and overdose risk (`self_treat`), medical misinformation (`misinfo`), patient-privacy violations (`privacy`), health scams (`scams`).
 
@@ -67,7 +67,7 @@ and overdose risk (`self_treat`), medical misinformation (`misinfo`), patient-pr
   fine-tuning, repair, quantization and template changes. A refusal of a benign twin counts as over-refusal.
 - **Risks.** The harmful prompts describe real misuse goals (drug misuse, forgery, scams). They are deliberately free of instructions, but
   they could be used to probe or to tune models toward compliance; hence the gate and the research-only terms. The benchmark is small
-  (n = 100 per language per side), written by two people, and may reflect our blind spots; results per category are directions, not findings.
+  (n = 102 per language per side), written by two people, and may reflect our blind spots; results per category are directions, not findings.
 
 ## Other sets
 
@@ -81,7 +81,7 @@ and overdose risk (`self_treat`), medical misinformation (`misinfo`), patient-pr
 
 ## Leak check
 
-CuratorKIT-style exact + MinHash + multilingual-embedding dedup between the fine-tuning sets and every evaluation set; report in `leak_report.json`.
+CuratorKIT-style exact + MinHash + multilingual-embedding dedup between the fine-tuning sets and every evaluation set; report in `leak_report.json` of the data package.
 
 ## Licence and citation
 

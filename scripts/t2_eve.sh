@@ -3,7 +3,7 @@
 # alpha 0.20 test cell.   bash scripts/t2_eve.sh   log: logs/t2_eve.log
 cd .
 export PYTHONUTF8=1 HF_HUB_OFFLINE=1 HF_HOME="models/hf_cache" PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
-P=/c/lexsi/.venv/Scripts/python.exe
+P=python
 SYS_PY="python"
 C=btcheck16__med__fp16
 echo "STEP bt_batch_check $(date +%H:%M)"

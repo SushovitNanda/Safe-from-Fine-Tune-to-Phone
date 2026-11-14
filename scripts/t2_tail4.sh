@@ -4,7 +4,7 @@
 #   bash scripts/t2_tail4.sh    log: logs/t2_tail4.log
 cd .
 export PYTHONUTF8=1 HF_HUB_OFFLINE=1 HF_HOME="models/hf_cache" PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
-P=/c/lexsi/.venv/Scripts/python.exe
+P=python
 DEADLINE=${DEADLINE:-0920}
 MED=models/merged/med
 while ! grep -q "T2_D7_DONE" logs/t2_d7.log 2>/dev/null; do sleep 30; done

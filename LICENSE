@@ -27,6 +27,6 @@ configurations and tests). The datasets under Datasets/ (ClinicSafe-Hi and the
 derived evaluation and fine-tuning sets) are released under CC-BY-NC-4.0; their
 sources keep their own licences (Aya Red-teaming and MedMCQA: Apache-2.0;
 XSTest: CC-BY-4.0; Alpaca-cleaned: CC-BY-NC-4.0). Model artifacts derived from
-Tiny Aya Global (adapters, quantized GGUF files, control vector) are released
-on Hugging Face under the base model's CC-BY-NC-4.0 licence. The thesis under
-Report/ is CC-BY-4.0.
+Tiny Aya Global (adapters, merged weights, GGUF files, control vector) are released
+on Hugging Face under the base model's CC-BY-NC-4.0 licence. The thesis PDF
+submitted with the entry is CC-BY-4.0.

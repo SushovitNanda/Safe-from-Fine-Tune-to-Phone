@@ -4,7 +4,7 @@
 #   bash scripts/t2_chain_b.sh stage1 | stage2 | all
 cd .
 export PYTHONUTF8=1 HF_HUB_OFFLINE=1 HF_HOME="models/hf_cache" PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True CIRCUITKIT_SKIP_MEM_GUARD=1
-P=/c/lexsi/.venv/Scripts/python.exe
+P=python
 STAGE=${1:-all}
 run_ck () {  # tag model lang [half]
   local tag=$1 model=$2 lang=$3 half=$4 extra="" suf=""

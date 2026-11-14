@@ -33,7 +33,7 @@ BW, STEP, X0 = 1.86, 2.14, 0.15          # box width, column pitch, left margin 
 # ---- band 1: toolkits
 ax.text(X0, 8.25, "Toolkits", fontsize=12, weight="bold", va="top")
 kits = [("CuratorKIT", "prompt sets, twins,\nClinicSafe-Hi, SFT corpora"), ("Transformers + PEFT", "LoRA fine-tunes,\nmerges"), ("CircuitKIT", "EAP-IG circuits,\nnecessity / sufficiency"),
-        ("SafeTune", "ReSta, restricted ReSta,\nrefusal steering"), ("AuditKIT", "cells, judges,\nback-translation, stats"), ("llama.cpp", "GGUF, K-quants,\ncontrol vector, server")]
+        ("SafeTune", "reference for ReSta;\nsteering recipe"), ("AuditKIT", "cells, judges,\nback-translation, stats"), ("llama.cpp", "GGUF, K-quants,\ncontrol vector, server")]
 for i, (t, b) in enumerate(kits): box(X0 + i * STEP, 6.95, BW, 1.05, t, b, fc=C["kit"], fs=8.0, ts=9.0)
 
 # ---- band 2: pipeline with RQ chain

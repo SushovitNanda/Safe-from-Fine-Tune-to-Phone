@@ -13,7 +13,7 @@
 set -uo pipefail
 cd . || exit 1
 export PYTHONUTF8=1 HF_HUB_OFFLINE=1 HF_HOME="models/hf_cache" PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
-P=/c/lexsi/.venv/Scripts/python.exe
+P=python
 SYS_PY="python"
 STAMP=$(date +%Y%m%d_%H%M%S)
 L=logs/judge_new_zips_$STAMP

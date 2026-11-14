@@ -4,7 +4,7 @@
 #   bash scripts/t2_tail3.sh      log: logs/t2_tail3.log
 cd .
 export PYTHONUTF8=1 HF_HUB_OFFLINE=1 HF_HOME="models/hf_cache" PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True CIRCUITKIT_SKIP_MEM_GUARD=1
-P=/c/lexsi/.venv/Scripts/python.exe
+P=python
 DEADLINE=${DEADLINE:-0830}
 while ! grep -q "T2_TAIL2_DONE" logs/t2_tail2.log 2>/dev/null; do sleep 30; done
 echo "tail2 done $(date +%H:%M)"

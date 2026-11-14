@@ -4,7 +4,7 @@
 #   bash scripts/t2_cresta_prereg.sh    log: logs/t2_cresta_prereg.log
 cd .
 export PYTHONUTF8=1 HF_HUB_OFFLINE=1 HF_HOME="models/hf_cache" PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
-P=/c/lexsi/.venv/Scripts/python.exe
+P=python
 DEADLINE=${DEADLINE:-2155}
 while ! grep -q "T2_CHAIN_E_DONE" logs/t2_chain_e2.log 2>/dev/null; do sleep 20; done
 for a in 0.20 0.10 0.30; do

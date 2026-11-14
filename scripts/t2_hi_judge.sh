@@ -6,7 +6,7 @@
 # reference cell whose Hindi answers lack WildGuard labels.
 cd .
 export PYTHONUTF8=1 HF_HUB_OFFLINE=1 HF_HOME="models/hf_cache" PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
-P=/c/lexsi/.venv/Scripts/python.exe
+P=python
 SYS_PY="python"          # system Python 3.13: transformers 4.57 + IndicTransToolkit, CUDA
 CELLS="orig__fp16__f16__tpl-official med__fp16__f16__tpl-official ctrl__fp16__f16__tpl-official orig__nf4__f16__tpl-official med__nf4__f16__tpl-official dev_pass__orig__fp16 dev_pass__med__fp16 dev_pass__ctrl__fp16"
 ARGS=""; for c in $CELLS; do ARGS="$ARGS --cell $c"; done

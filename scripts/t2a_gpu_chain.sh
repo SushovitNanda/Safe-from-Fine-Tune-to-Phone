@@ -2,7 +2,7 @@
 # Task 2a GPU chain: dev drift probe -> judge -> stats -> hand-label answers -> ctrl_e2 -> merges
 cd .
 export PYTHONUTF8=1 HF_HUB_OFFLINE=1 HF_HOME="models/hf_cache" PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
-P=/c/lexsi/.venv/Scripts/python.exe
+P=python
 SETS="aya_en_dev aya_hi_dev aya_hinglish_dev xstest_en_dev"
 echo "STEP probe_orig $(date +%H:%M)"; $P harness/run_cell.py --cell probe_dev__orig__fp16 --model CohereLabs/tiny-aya-global --sets $SETS > logs/t2a_probe_orig.log 2>&1; echo "exit $?"
 echo "STEP probe_ctrl $(date +%H:%M)"; $P harness/run_cell.py --cell probe_dev__ctrl__fp16 --model models/merged/ctrl --sets $SETS > logs/t2a_probe_ctrl.log 2>&1; echo "exit $?"

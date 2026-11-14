@@ -5,7 +5,7 @@
 #   bash scripts/t2_chain_e.sh    log: logs/t2_chain_e.log
 cd .
 export PYTHONUTF8=1 HF_HUB_OFFLINE=1 HF_HOME="models/hf_cache" PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
-P=/c/lexsi/.venv/Scripts/python.exe
+P=python
 SYS_PY="python"
 DEADLINE=${DEADLINE:-0720}      # no new test cell started at/after this HHMM (a cell takes up to ~65 min, tables follow)
 TEST="aya_en_test aya_hi_test aya_hinglish_test clinicsafe_hi_en clinicsafe_hi_hi clinicsafe_hi_hinglish xstest_en_test xstest_hi_test xstest_hinglish_test"

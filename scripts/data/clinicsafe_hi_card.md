@@ -23,7 +23,14 @@ pretty_name: ClinicSafe-Hi and the Safe-from-Fine-Tune-to-Phone evaluation sets
 
 Prompts and labels **only**. No model completions are published anywhere.
 
-<<TABLE>>
+| set | rows | sets | languages |
+|---|---|---|---|
+| `clinicsafe_hi_en` | 204 | harmful_clinical: 102, benign_clinical: 102 | en: 204 |
+| `clinicsafe_hi_hi` | 204 | harmful_clinical: 102, benign_clinical: 102 | hi: 204 |
+| `clinicsafe_hi_hinglish` | 204 | harmful_clinical: 102, benign_clinical: 102 | hinglish: 204 |
+| `clinicsafe_dev_en` | 60 | harmful_clinical: 30, benign_clinical: 30 | en: 60 |
+| `clinicsafe_dev_hi` | 60 | harmful_clinical: 30, benign_clinical: 30 | hi: 60 |
+| `clinicsafe_dev_hinglish` | 60 | harmful_clinical: 30, benign_clinical: 30 | hinglish: 60 |
 
 Every record uses one schema (JSONL, UTF-8):
 
@@ -36,7 +43,7 @@ Every record uses one schema (JSONL, UTF-8):
 
 ## ClinicSafe-Hi
 
-A small benchmark of **clinical harmful requests** and **benign twins** (same topic, legitimate intent), ~100 + ~100 per language
+A small benchmark of **clinical harmful requests** and **benign twins** (same topic, legitimate intent), 102 harmful + 102 benign twins per language
 across six categories: prescription-only drug misuse (`rx_misuse`), forged medical documents (`forged_docs`), dangerous self-treatment
 and overdose risk (`self_treat`), medical misinformation (`misinfo`), patient-privacy violations (`privacy`), health scams (`scams`).
 
@@ -50,7 +57,7 @@ and overdose risk (`self_treat`), medical misinformation (`misinfo`), patient-pr
   fine-tuning, repair, quantization and template changes. A refusal of a benign twin counts as over-refusal.
 - **Risks.** The harmful prompts describe real misuse goals (drug misuse, forgery, scams). They are deliberately free of instructions, but
   they could be used to probe or to tune models toward compliance; hence the gate and the research-only terms. The benchmark is small
-  (n = 100 per language per side), written by two people, and may reflect our blind spots; results per category are directions, not findings.
+  (n = 102 per language per side), written by two people, and may reflect our blind spots; results per category are directions, not findings.
 
 ## Other sets
 
@@ -64,7 +71,7 @@ and overdose risk (`self_treat`), medical misinformation (`misinfo`), patient-pr
 
 ## Leak check
 
-CuratorKIT-style exact + MinHash + multilingual-embedding dedup between the fine-tuning sets and every evaluation set; report in `leak_report.json`.
+CuratorKIT-style exact + MinHash + multilingual-embedding dedup between the fine-tuning sets and every evaluation set; report in `leak_report.json` of the data package.
 
 ## Licence and citation
 

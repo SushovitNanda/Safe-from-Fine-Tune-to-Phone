@@ -3,7 +3,7 @@
 # outside the pre-registered grid, logged as exploratory) while the GPU is still free before the user's 10:00 deadline.
 cd .
 export PYTHONUTF8=1 HF_HUB_OFFLINE=1 HF_HOME="models/hf_cache" PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
-P=/c/lexsi/.venv/Scripts/python.exe
+P=python
 DEADLINE=${DEADLINE:-0945}
 while ! grep -q "T2_TAIL4_DONE" logs/t2_tail4.log 2>/dev/null; do sleep 30; done
 dp () { echo "STEP devpass $1 $(date +%H:%M)"; $P harness/dev_pass.py --name "$@" >> logs/t2_chain_c_devpass.log 2>&1; echo "exit $?"; }
