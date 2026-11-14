@@ -11,6 +11,11 @@ from decimal import Decimal, ROUND_HALF_UP
 def hu(v, d=1):
     q = Decimal(1).scaleb(-d); r = Decimal(str(v)).quantize(q, rounding=ROUND_HALF_UP)
     return f"{r:+.{d}f}" if False else f"{r:.{d}f}"
+def r1(x, d=1):
+    """Rate rounded half-up from the exact count when n is known (avoids double rounding of 2-decimal summary values)."""
+    if isinstance(x, dict) and x.get("n") and "rate" in x:
+        return hu(round(x["rate"] * x["n"] / 100) / x["n"] * 100, d)
+    return hu(x["rate"] if isinstance(x, dict) else x, d)
 def ci(x, k="ci95", d=1): return f"[{hu(x[k][0], d)}, {hu(x[k][1], d)}]"
 def sg(v, d=1): return (("+" if v >= 0 else "") + hu(v, d)).replace("-", "$-$")
 def dci(x, bold=True):
@@ -46,7 +51,7 @@ T["rq1"] = tab("tab:rq1", "The original model's gaps on test, in points of attac
 # ---- rates
 rows = []
 for m_, n in (("orig", "Original"), ("ctrl", "Control"), ("med", "Medical"), ("orig_nf4", "Original NF4"), ("med_nf4", "Medical NF4")):
-    r = D["rates"][m_]; rows.append(f"{n} & {r['asr|all|all']['rate']:.1f} {ci(r['asr|all|all'])} & " + " & ".join(f"{r[f'asr|all|{l}']['rate']:.1f}" for l in L3) + f" & {r['asr|general|all']['rate']:.1f} & {r['asr|clinical|all']['rate']:.1f} & {r['asr|all|all']['rate_sensitivity']:.1f} & {r['medmcqa_test500']:.1f} \\\\")
+    r = D["rates"][m_]; rows.append(f"{n} & {r1(r['asr|all|all'])} {ci(r['asr|all|all'])} & " + " & ".join(f"{r1(r[f'asr|all|{l}'])}" for l in L3) + f" & {r1(r['asr|general|all'])} & {r1(r['asr|clinical|all'])} & {r['asr|all|all']['rate_sensitivity']:.1f} & {r['medmcqa_test500']:.1f} \\\\")
 T["rates"] = tab("tab:rates", "Attack success on the 856 harmful test prompts (\\%), by language and harm type; sensitivity also counts Qwen3Guard's Controversial as unsafe. MedMCQA is test-500 accuracy.", "lrrrrrrrr".replace("rrrrrrrr", "lrrrrrrr"), "Model & Pooled & EN & HI & Hinglish & General & Clinical & Sens. & MedMCQA", rows)
 # ---- RQ2
 rows = []
@@ -58,7 +63,7 @@ T["rq2"] = tab("tab:rq2", "Paired differences in attack success on test (points,
 # ---- ORR
 rows = []
 for m_, n in (("orig", "Original"), ("ctrl", "Control"), ("med", "Medical"), ("orig_nf4", "Original NF4"), ("med_nf4", "Medical NF4")):
-    r = D["rates"][m_]; rows.append(f"{n} & " + " & ".join(f"{r[f'orr|general|{l}']['rate']:.1f} / {r[f'orr|clinical|{l}']['rate']:.1f}" for l in LS) + " \\\\")
+    r = D["rates"][m_]; rows.append(f"{n} & " + " & ".join(f"{r1(r[f'orr|general|{l}'])} / {r1(r[f'orr|clinical|{l}'])}" for l in LS) + " \\\\")
 T["orr"] = tab("tab:orr", "Over-refusal on benign test prompts, general / clinical (\\%). Hinglish is directional only, because the refusal judge has $\\kappa = 0.31$ there.", "lrrrr", "Model & Pooled & EN & HI & Hinglish", rows)
 # ---- degeneracy
 dg = V["degeneracy"]; rows = []
@@ -95,13 +100,13 @@ for x in sorted(sw, key=lambda z: z["asr_all"]):
 T["sweep"] = tab("tab:sweep", "Every repair setting tried on the 360-prompt dev pass, sorted by pooled attack success (dev references: original 21.0, medical 35.7, MedMCQA medical 43.6). Language triples are EN/HI/Hinglish. ``Rule'' is the pre-registered selection rule; ``Am.~3'' is the trade-off rule defined after the sweep.", "lrrlllrll".replace("lrrlllrll", "lrrlllrcc"), "Setting & ASR & vs med. & ASR by lang. & ORR gen. & ORR clin. & MedMCQA ($\\Delta$, $p$) & Rule & Am.~3", rows, size="scriptsize")
 # ---- RQ4
 names4 = [("ReSta a0.05", "ReSta 0.05 (primary, out of grid)"), ("Steer L24 s0.5", "Steering L24 0.5 (primary)"), ("ReSta a0.10", "ReSta 0.10"), ("ReSta a0.20", "ReSta 0.20"), ("Restricted a0.25 top20", "Restricted 0.25, top 20\\,\\%"), ("Steer L24 s1.0", "Steering L24 1.0")]
-rows = [f"Original & {S['asr']['Original']['all']['rate']:.1f} & {S['asr']['Original']['en']['rate']:.1f} & {S['asr']['Original']['hi']['rate']:.1f} & {S['asr']['Original']['hinglish']['rate']:.1f} & -- & {S['orr']['Original']['general|all']['rate']:.1f} / {S['orr']['Original']['clinical|all']['rate']:.1f} & {S['medmcqa']['Original']['accuracy']:.1f} \\\\",
-        f"Medical & {S['asr']['Medical']['all']['rate']:.1f} & {S['asr']['Medical']['en']['rate']:.1f} & {S['asr']['Medical']['hi']['rate']:.1f} & {S['asr']['Medical']['hinglish']['rate']:.1f} & -- & {S['orr']['Medical']['general|all']['rate']:.1f} / {S['orr']['Medical']['clinical|all']['rate']:.1f} & {S['medmcqa']['Medical']['accuracy']:.1f} \\\\", "\\midrule"]
+rows = [f"Original & {r1(S['asr']['Original']['all'])} & {r1(S['asr']['Original']['en'])} & {r1(S['asr']['Original']['hi'])} & {r1(S['asr']['Original']['hinglish'])} & -- & {r1(S['orr']['Original']['general|all'])} / {r1(S['orr']['Original']['clinical|all'])} & {S['medmcqa']['Original']['accuracy']:.1f} \\\\",
+        f"Medical & {r1(S['asr']['Medical']['all'])} & {r1(S['asr']['Medical']['en'])} & {r1(S['asr']['Medical']['hi'])} & {r1(S['asr']['Medical']['hinglish'])} & -- & {r1(S['orr']['Medical']['general|all'])} / {r1(S['orr']['Medical']['clinical|all'])} & {S['medmcqa']['Medical']['accuracy']:.1f} \\\\", "\\midrule"]
 for k_, n in names4:
     if k_ not in S["asr"]: continue
-    a = S["asr"][k_]; rows.append(f"{n} & {a['all']['rate']:.1f} & {a['en']['rate']:.1f} & {a['hi']['rate']:.1f} & {a['hinglish']['rate']:.1f} & {dci(S['vs_med'][k_]['all'])} & {S['orr'][k_]['general|all']['rate']:.1f} / {S['orr'][k_]['clinical|all']['rate']:.1f} & {S['medmcqa'][k_]['accuracy']:.1f} \\\\")
+    a = S["asr"][k_]; rows.append(f"{n} & {r1(a['all'])} & {r1(a['en'])} & {r1(a['hi'])} & {r1(a['hinglish'])} & {dci(S['vs_med'][k_]['all'])} & {r1(S['orr'][k_]['general|all'])} / {r1(S['orr'][k_]['clinical|all'])} & {S['medmcqa'][k_]['accuracy']:.1f} \\\\")
 if "cr20" in F.get("extra_cells", {}):
-    e = F["extra_cells"]["cr20"]; rows.append(f"Restricted 0.20, top 20\\,\\% (late) & {e['asr']['all']['rate']:.1f} & {e['asr']['en']['rate']:.1f} & {e['asr']['hi']['rate']:.1f} & {e['asr']['hinglish']['rate']:.1f} & {dci(e['vs_med']['all'])} & -- & {e['medmcqa']['acc']:.1f} \\\\")
+    e = F["extra_cells"]["cr20"]; rows.append(f"Restricted 0.20, top 20\\,\\% (late) & {r1(e['asr']['all'])} & {r1(e['asr']['en'])} & {r1(e['asr']['hi'])} & {r1(e['asr']['hinglish'])} & {dci(e['vs_med']['all'])} & -- & {e['medmcqa']['acc']:.1f} \\\\")
 T["rq4"] = tab("tab:rq4", "Repair test cells at FP16: attack success (\\%, 856 harmful prompts), paired difference from the medical model (points), over-refusal general / clinical (\\%, pooled; Hinglish directional) and MedMCQA test-500. Settings were fixed on dev before generation, except the last row.", "lrrrrlrr", "Model & ASR & EN & HI & Hinglish & vs medical & ORR & MedMCQA", rows)
 rows = []
 for k_, n in names4:
@@ -126,7 +131,7 @@ if "gguf" in F:
     G = F["gguf"]; N = {"f16": "F16", "q4km": "Q4\\_K\\_M", "q3km": "Q3\\_K\\_M", "q4km-nopre": "Q4\\_K\\_M, no preamble", "budget-phone": "Budget-phone"}; rows = []
     for s, n in N.items():
         if s not in G["rates"]: continue
-        rows.append(f"{n} & {G['rates'][s]['med']['all']['rate']:.1f} & {G['rates'][s]['steer']['all']['rate']:.1f} & " + " & ".join(dci(G["steer_effect"][s][l]) for l in LS) + " \\\\")
+        rows.append(f"{n} & {r1(G['rates'][s]['med']['all'])} & {r1(G['rates'][s]['steer']['all'])} & " + " & ".join(dci(G["steer_effect"][s][l]) for l in LS) + " \\\\")
     T["gguf"] = tab("tab:gguf", "Mac GGUF cells: pooled attack success of the medical model without and with the steering vector (\\%), and the paired effect of the vector by language (points, 95\\,\\% interval; bold is a claim).", "lrrllll", "Setting & Med. & +vector & Pooled & EN & HI & Hinglish", rows, size="scriptsize")
     rows = []
     for s, n in N.items():
@@ -145,12 +150,12 @@ if "gguf" in F:
     T["lastmile"] = tab("tab:lastmile", "Preamble removal, last-mile gap and difference-in-differences on GGUF (points, 95\\,\\% interval; bold is a claim). $\\Delta\\Delta$ uses the laptop FP16 cells as the FP16 reference, because no original Mac F16 cell exists.", "lllll", "Contrast & Pooled & EN & HI & Hinglish", rows, size="scriptsize")
 if F["rq6"].get("available"):
     R6 = F["rq6"]; rows = []
-    for k_, n in (("stock", "Stock"), ("protected", "Protected"), ("random", "Random")): rows.append(f"{n} & " + " & ".join(f"{R6['rates'][k_][l]['rate']:.1f}" for l in LS) + " \\\\")
+    for k_, n in (("stock", "Stock"), ("protected", "Protected"), ("random", "Random")): rows.append(f"{n} & " + " & ".join(f"{r1(R6['rates'][k_][l])}" for l in LS) + " \\\\")
     for k_, n in (("protected_minus_stock", "Protected $-$ stock"), ("protected_minus_random", "Protected $-$ random"), ("random_minus_stock", "Random $-$ stock")): rows.append(f"{n} & " + " & ".join(dci(R6[k_][l]) for l in LS) + " \\\\")
     if "retention" in R6:
         rows.append(r"Retention $R$, stock / protected / random & \multicolumn{4}{l}{" +" / ".join(f"{hu(R6['retention'][k_]['all']['R'], 2)} [{hu(R6['retention'][k_]['all']['ci95'][0], 2)}, {hu(R6['retention'][k_]['all']['ci95'][1], 2)}]" if R6['retention'][k_]['all'].get('R') is not None else "n/a" for k_ in ("stock", "protected", "random")) + "} \\\\")
     for b, n in (("general", "general"), ("clinical", "clinical")):
-        o = R6["orr"][f"{b}|all"]; rows.append(f"ORR {n}, stock / protected / random & \\multicolumn{{4}}{{l}}{{{o['stock']['rate']:.1f} / {o['protected']['rate']:.1f} / {o['random']['rate']:.1f}; protected $-$ random {dci(o['protected_minus_random'], False)}}} \\\\")
+        o = R6["orr"][f"{b}|all"]; rows.append(f"ORR {n}, stock / protected / random & \\multicolumn{{4}}{{l}}{{{r1(o['stock'])} / {r1(o['protected'])} / {r1(o['random'])}; protected $-$ random {dci(o['protected_minus_random'], False)}}} \\\\")
     T["rq6"] = tab("tab:rq6", r"RQ6 on the Mac at Q3\_K\_M with the steering vector attached: attack success (\%), paired differences (points, 95\,\% interval; bold is a claim), pooled retention and pooled over-refusal (\%).", "lllll", "Build & Pooled & EN & HI & Hinglish", rows, size="scriptsize")
 # ---- RQ6 ORR per language
 if F["rq6"].get("available"):
@@ -158,7 +163,7 @@ if F["rq6"].get("available"):
     for b in ("general", "clinical"):
         for l in LS:
             o = F["rq6"]["orr"][f"{b}|{l}"]
-            rows.append(f"{LN6[b]} & {LN6[l]} & {o['stock']['rate']:.1f} & {o['protected']['rate']:.1f} & {o['random']['rate']:.1f} & {dci(o['protected_minus_stock'])} & {dci(o['protected_minus_random'])} \\\\")
+            rows.append(f"{LN6[b]} & {LN6[l]} & {r1(o['stock'])} & {r1(o['protected'])} & {r1(o['random'])} & {dci(o['protected_minus_stock'])} & {dci(o['protected_minus_random'])} \\\\")
     T["rq6orr"] = tab("tab:rq6orr", r"RQ6 over-refusal (\%) on benign prompts per language, with paired differences (points, 95\,\% interval; bold is a claim). Hinglish is directional only.", "llrrrll", "Set & Language & Stock & Protected & Random & Protected $-$ stock & Protected $-$ random", rows, size="scriptsize")
 # ---- 58-test union (Mac lane, D8 evidence)
 D8 = ROOT / "reports/D8/d8_evidence.json"
