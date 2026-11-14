@@ -80,7 +80,7 @@ if R6.get("available"):
            r"Protection did not beat a matched random allocation of the same bits by the margin (Section~\ref{sec:rq6}).")
 else:
     r6 = (r"\paragraph{Status.} The protected and random builds are complete and checked (Section~\ref{sec:exp}): both files are 1,797,062,144 bytes against 1,799,740,928 for stock, every unselected tensor is byte-identical to stock, and both passed a 100-prompt operational check with no errors. "
-          r"The test cells for the protected and random builds with the steering vector attached had not been generated when this thesis was written, so \textbf{RQ6 is not answered here}. "
+          r"The test cells for the protected and random builds with the steering vector attached had not been generated when this report was written, so \textbf{RQ6 is not answered here}. "
           r"RQ5 already sets the bar that protection has to clear. Stock Q3\_K\_M keeps the steering effect (retention 1.01, interval 0.74 to 1.36), so there is little loss for protection to recover. Because the circuit map did not explain the drift, we expect protection and the random control to perform alike. That is a prediction, not a result.")
     r6d = r"RQ6 is not yet answered. Because stock Q3\_K\_M already keeps the repair, protection has little to recover."
 c5 = (r"\item An equal-size protection test for GGUF with a matched random control." if R6.get("available")

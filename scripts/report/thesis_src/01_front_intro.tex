@@ -9,7 +9,7 @@
 \usepackage{xcolor}
 \usepackage{url}
 \usepackage[hypertexnames=false]{hyperref}
-\hypersetup{colorlinks=true,linkcolor=blue!55!black,urlcolor=blue!55!black,citecolor=blue!55!black}
+\hypersetup{pdftitle={Safe from Fine-Tune to Phone},pdfauthor={Sushovit Nanda and Manish Shaw},pdfsubject={Lexsi AI Safety and Alignment Hackathon, Track 2},colorlinks=true,linkcolor=blue!55!black,urlcolor=blue!55!black,citecolor=blue!55!black}
 \renewcommand\UrlFont{\color{blue!55!black}\rmfamily}
 \newcommand{\code}[1]{\texttt{#1}}
 \newcommand{\ASR}{\mathrm{ASR}}
@@ -46,7 +46,7 @@
 
 A small clinic that wants a language model faces a chain of decisions that nobody measures end to end. It picks an open model, fine-tunes it on medical text, and compresses it until it fits on modest hardware. Its users then write in the languages they actually use. In India that often means Hindi or Hinglish, a mix of Hindi grammar and English vocabulary typed in Latin script. Each step can change whether the model still refuses harmful requests. Published safety numbers usually describe the first step only: the full-precision model, the official system prompt, and English.
 
-This thesis follows one model through that whole chain. The model is Tiny Aya Global~\cite{tinyaya}, a 3.35-billion-parameter multilingual model from Cohere Labs with a built-in safety preamble. We ask six questions, each designed to use what the previous one produced (Fig.~\ref{fig:chain}); Section~\ref{sec:discussion} reports which links held.
+This report follows one model through that whole chain. The model is Tiny Aya Global~\cite{tinyaya}, a 3.35-billion-parameter multilingual model from Cohere Labs with a built-in safety preamble. We ask six questions, each designed to use what the previous one produced (Fig.~\ref{fig:chain}); Section~\ref{sec:discussion} reports which links held.
 
 \begin{figure}[tbp]
 \centering
@@ -79,7 +79,7 @@ The work was done by two people in two lanes, a lane being one machine, its infe
 \item An account of the validity problems we found in our own pipeline, including degenerate output and judge failure, with the checks that exposed them.
 \end{enumerate}
 
-\paragraph{Reading guide.} A reader with twenty minutes should read the Executive Summary (the one-minute box, Table~\ref{tab:beforeafter} and the Hypotheses with their outcomes), then Section~\ref{sec:valres}, which says how far the labels can be trusted, then the \emph{Verdict} paragraph that closes each of Sections~\ref{sec:rq1} to~\ref{sec:rq6}, then Table~\ref{tab:confidence}, which ranks every finding by how far we would rely on it, the practitioner implications at the end of Section~\ref{sec:discussion}, and the Limitations (Section~\ref{sec:limits}). That reader can skip Sections~\ref{sec:related} and~\ref{sec:background}, the Methodology (Section~\ref{sec:method}) apart from Table~\ref{tab:cells}, the dev sweeps and gate details inside each results subsection, Section~\ref{sec:holm}, and the appendices. A reader with two hours should add Section~\ref{sec:method} in full (the amendments in Section~\ref{sec:amend} explain every departure from the plan), the results subsections in chain order, the Threats to Validity (Section~\ref{sec:threats}), and Appendix~\ref{app:repro} if they intend to rerun anything. Related work (Section~\ref{sec:related}) is for the reader who wants to know what is new; Table~\ref{tab:closest} summarises it. Sections~\ref{sec:conclusion} and~\ref{sec:future} conclude. Harmful prompts and answers are never quoted in this thesis.
+\paragraph{Reading guide.} A reader with twenty minutes should read the Executive Summary (the one-minute box, Table~\ref{tab:beforeafter} and the Hypotheses with their outcomes), then Section~\ref{sec:valres}, which says how far the labels can be trusted, then the \emph{Verdict} paragraph that closes each of Sections~\ref{sec:rq1} to~\ref{sec:rq6}, then Table~\ref{tab:confidence}, which ranks every finding by how far we would rely on it, the practitioner implications at the end of Section~\ref{sec:discussion}, and the Limitations (Section~\ref{sec:limits}). That reader can skip Sections~\ref{sec:related} and~\ref{sec:background}, the Methodology (Section~\ref{sec:method}) apart from Table~\ref{tab:cells}, the dev sweeps and gate details inside each results subsection, Section~\ref{sec:holm}, and the appendices. A reader with two hours should add Section~\ref{sec:method} in full (the amendments in Section~\ref{sec:amend} explain every departure from the plan), the results subsections in chain order, the Threats to Validity (Section~\ref{sec:threats}), and Appendix~\ref{app:repro} if they intend to rerun anything. Related work (Section~\ref{sec:related}) is for the reader who wants to know what is new; Table~\ref{tab:closest} summarises it. Sections~\ref{sec:conclusion} and~\ref{sec:future} conclude. Harmful prompts and answers are never quoted in this report.
 
 % =====================================================================
 \section{Related Work}\label{sec:related}

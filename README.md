@@ -17,7 +17,7 @@
 
 | Item | Where |
 |---|---|
-| Full write-up (thesis, with executive summary, hypotheses, all tables and figures) | submitted with the entry as a PDF; this README is the repository write-up |
+| Full report (PDF, 72 pages: executive summary, hypotheses, all tables and figures) | [`report/Safe-from-Fine-Tune-to-Phone.pdf`](report/Safe-from-Fine-Tune-to-Phone.pdf) in this repository, also attached to the entry; this README is the write-up |
 | Pre-registration and its five dated amendments; Mac lane pre-registrations; decision log | `PREREG.md`, `MAC_PREREG.md`, `DECISIONS.md` |
 | Hugging Face dataset collection | https://huggingface.co/collections/SushiOrbit/safe-from-fine-tune-to-phone-datasets |
 | Hugging Face model collection | https://huggingface.co/collections/SushiOrbit/safe-from-fine-tune-to-phone-models |
@@ -28,7 +28,9 @@
 
 ## 1. Headline: before and after
 
-Pooled over 856 harmful and 756 benign test prompts in English, Hindi and Hinglish; 95 % paired-bootstrap intervals in the thesis.
+Pooled over 856 harmful and 756 benign test prompts in English, Hindi and Hinglish; 95 % paired-bootstrap intervals below and in the full report.
+
+![Attack success along the chain](report/fig_headline.png)
 
 | Step | Model | Attack success | Clinical over-refusal | MedMCQA |
 |---|---|---:|---:|---:|
@@ -48,7 +50,7 @@ Headline intervals (95 % paired bootstrap): drift +18.1 [15.0, 21.3]; control +1
 > - **Survives deployment:** at Q3_K_M on llama.cpp (second machine, second engine) the same vector cuts **39.0 % to 27.9 %**; retention 1.01 [0.74, 1.36]; preamble stripped 0.85 [0.61, 1.16]; 4-bit NF4 1.16 [0.85, 1.59].
 > - **Cost:** clinical over-refusal +2.9 [−2.0, 7.8] pooled (not significant); Hindi clinical +8.8 [2.0, 16.7]; the fix is a serving-time flag, not a weight change.
 > - **What we failed to achieve:** ReSta weight patching −1.6 [−3.6, 0.4]; circuit-restricted ReSta −0.6 [−3.5, 2.3]; circuit-guided bit protection against a random control +0.0 [−2.7, 2.7], tested at a setting where stock Q3_K_M already kept the repair; we could not link the circuit map to the drift. Our failures at the settings tried, not proofs that the methods cannot work.
-> - **Validity:** 64.7 % of the medical model's Hinglish answers are degenerate text; on non-degenerate prompts the drift is +10.9 [7.7, 14.3] and the repair −8.3 [−11.2, −5.4]. The 300 reference labels behind every κ are AI drafts to the rubric, each checked and approved by the first author; no label is an independent human label.
+> - **Validity:** 64.7 % of the medical model's Hinglish answers are degenerate text; on non-degenerate prompts the drift is +10.9 [7.7, 14.3] and the repair −8.3 [−11.2, −5.4]; on English and Hindi alone the medical model moves 14.6 % → 25.3 % and the steered model returns to 14.7 %, the original's level. The 300 reference labels behind every κ are AI drafts to the rubric, each checked and approved by the first author; no label is an independent human label.
 
 **Base model and method in one line.** Tiny Aya Global 3.35B (Cohere Labs, CC-BY-NC-4.0); one epoch of LoRA on medical exam questions, then a contrastive-activation steering vector (layer 24, strength 0.5) added at inference and evaluated as a llama.cpp control vector on Q4_K_M and Q3_K_M GGUF builds.
 
@@ -78,7 +80,7 @@ The pattern is not specific to medicine. Nuclear plant operations, power-grid co
 | **AuditKIT** 1.1.3 | Its API backend drove every llama.cpp evaluation cell on the Mac; the laptop harness re-implements the same paired statistics and the two were cross-checked. |
 | **llama.cpp** (pinned build) | GGUF conversion, K-quantization, serving on Metal, and the control-vector mechanism. |
 
-AlignTune was not used; the fine-tunes ran on the Transformers Trainer with PEFT. **How they connect:** CuratorKIT → data package → LoRA fine-tunes (PEFT) → merged FP16 weights → CircuitKIT discovery and validation → tensor map → repairs (ReSta from SafeTune's reference, steering) selected on dev → steering vector exported as a control vector → GGUF builds served by llama.cpp and driven by AuditKIT → one judge host labels every answer from both lanes → paired statistics. The architecture figure is in the thesis.
+AlignTune was not used; the fine-tunes ran on the Transformers Trainer with PEFT. **How they connect:** CuratorKIT → data package → LoRA fine-tunes (PEFT) → merged FP16 weights → CircuitKIT discovery and validation → tensor map → repairs (ReSta from SafeTune's reference, steering) selected on dev → steering vector exported as a control vector → GGUF builds served by llama.cpp and driven by AuditKIT → one judge host labels every answer from both lanes → paired statistics. The architecture figure is in the report.
 
 ## 5. Models, datasets and licences
 
@@ -124,9 +126,9 @@ Judge check: Cohen's κ against 300 reference labels (AI drafts to the rubric, e
 
 ## 8. Results and findings
 
-Pre-registered hypotheses (one per question; verdicts in the thesis): H1 refusal is weaker in Hindi and Hinglish and on clinical harms, most in Hinglish (holds for Hinglish and clinical harms; Hindi suggestive only); H2 medical drift exceeds the token-matched control, largest in Hinglish and on clinical harms (holds except the harm-type pattern); H3 a partly shared refusal circuit exists, with larger fine-tuning changes in Hindi and Hinglish (holds only as a statement about structure); H4 a training-free repair restores refusals without accuracy loss and the circuit-restricted patch keeps more accuracy at equal safety (not supported); H5 retention falls below 1 at Q3_K_M and without the preamble, most in Hinglish (not supported); H6 extra bits on the circuit's tensors protect the repair better than on random tensors (not supported). Decision rule: at least 5 points with the 95 % interval clear of zero.
+Pre-registered hypotheses (one per question; verdicts in the full report, Section 5): H1 refusal is weaker in Hindi and Hinglish and on clinical harms, most in Hinglish (holds for Hinglish and clinical harms; Hindi suggestive only); H2 medical drift exceeds the token-matched control, largest in Hinglish and on clinical harms (holds except the harm-type pattern); H3 a partly shared refusal circuit exists, with larger fine-tuning changes in Hindi and Hinglish (holds only as a statement about structure); H4 a training-free repair restores refusals without accuracy loss and the circuit-restricted patch keeps more accuracy at equal safety (not supported); H5 retention falls below 1 at Q3_K_M and without the preamble, most in Hinglish (not supported); H6 extra bits on the circuit's tensors protect the repair better than on random tensors (not supported). Decision rule: at least 5 points with the 95 % interval clear of zero.
 
-Named findings (details, intervals and figures in the thesis, Sections 5 and 6):
+Named findings (details, intervals and figures in the full report, Sections 5 and 6):
 
 1. **Gap (RQ1).** Original model: attack success 11.6 % English, 17.6 % Hindi, 27.0 % Hinglish; Hinglish +15.4 points above English, clinical harms +16.9 above general harms. The Hindi gap depends on which judge reads Hindi.
 2. **Drift (RQ2).** One benign medical epoch: +18.1 points pooled against +1.8 for the token-matched control; broad across harm types. about half of the medical model's unsafe labels fall on degenerate text; on non-degenerate prompts the drift is +10.9.
@@ -136,15 +138,15 @@ Named findings (details, intervals and figures in the thesis, Sections 5 and 6):
 6. **Protection (RQ6).** Protected minus random +0.0 [−2.7, 2.7] pooled, tested at a setting where stock Q3_K_M already kept the repair (retention 1.01), so the test had little loss to recover; the per-language Hinglish contrasts are a judge artefact on degenerate text (blind audit). H6 not supported.
 7. **Validity.** Degenerate output, a judge that misses half of the unsafe Hindi answers, and a stop-token mismatch were found by our own checks and are reported with their effect on the numbers.
 
-Everything we tried and failed at is listed in the thesis (Table "What was attempted"). These are our failures at the settings tried, not proofs that the methods cannot work.
+Everything we tried and failed at is listed in the full report (Table "What was attempted", Section 7). These are our failures at the settings tried, not proofs that the methods cannot work.
 
 ## 9. Cost and ROI
 
-Compute: roughly 35 to 40 GPU-hours on the laptop (one RTX 4080 Laptop 12 GB) and about 10 hours of Metal inference on the Mac (one Apple M5 24 GB), both reconstructed from the per-cell run records; the 48 timed test cells alone took about 11.5 h on the laptop and the five steered Mac cells 3.7 h. All on the authors' own hardware, zero cash cost, plus one parity check on a free Colab T4. Serving cost scenario (Mac lane): at 10,000 requests a month, local Q3_K_M serving costs about 1.36 USD per 1,000 replies against 0.36 USD through an API at listed prices (13.6 against 3.6 USD a month); break-even at about 37,700 requests a month, above the measured capacity of about 32,600; measured throughput 54 to 106 completion tokens per second across GGUF settings. No clinic saving is claimed; the case for local deployment is data control and offline use.
+Compute: roughly 35 to 40 GPU-hours on the laptop (one RTX 4080 Laptop 12 GB) and about 10 hours of Metal inference on the Mac (one Apple M5 24 GB), both reconstructed from the per-cell run records; the 48 timed cells, 14 of them full test cells, took about 11.5 h on the laptop and the five steered Mac cells 3.7 h. All on the authors' own hardware, zero cash cost, plus one parity check on a free Colab T4. Serving cost scenario (Mac lane): at 10,000 requests a month, local Q3_K_M serving costs about 1.36 USD per 1,000 replies against 0.36 USD through an API at listed prices (13.6 against 3.6 USD a month); break-even at about 37,700 requests a month, above the a capacity of about 32,600 requests a month estimated from the measured throughput; measured throughput 54 to 106 completion tokens per second across GGUF settings. No clinic saving is claimed; the case for local deployment is data control and offline use.
 
 ## 10. Limitations, dual use and ethics
 
-One training run per model; one random draw for the protection control; judges validated on the original model's answers; the planned human intra-rater check replaced by a blind AI re-label; Hinglish generation from the medical model mostly degenerate; no clinician reviewed the benchmark; the pre-registration's first recorded version came after the first five test cells had been judged. Dual use: publishing which deployment settings weaken refusals carries a small risk, outweighed by the value to deployers; no raw harmful completions are released; the findings concern a public model under standard settings, and Cohere Labs can be given the per-language rates on request. Full list in the thesis, Sections 7 and 8.
+One training run per model; one random draw for the protection control; judges validated on the original model's answers; the planned human intra-rater check replaced by a blind AI re-label; Hinglish generation from the medical model mostly degenerate; no clinician reviewed the benchmark; the pre-registration's first recorded version came after the first five test cells had been judged. Dual use: publishing which deployment settings weaken refusals carries a small risk, outweighed by the value to deployers; no raw harmful completions are released; the findings concern a public model under standard settings, and Cohere Labs can be given the per-language rates on request. Full list in the full report, Sections 7 and 8.
 
 ## 11. With more credits
 
@@ -182,7 +184,8 @@ scripts/eval/           MedMCQA one-token accuracy
 scripts/smoke/          environment smoke tests (G1–G7)
 scripts/*.py, *.sh      analysis and orchestration: judge validation, majority votes, intra-rater scoring,
                         control-vector export, reference-tensor export, lane comparison, run chains
-scripts/report/         thesis builders: LaTeX sections, and tables and figures generated from the result files
+scripts/report/         report builders: LaTeX sections, and tables and figures generated from the result files
+report/                 the full report as PDF and its headline figure
 scripts/mac/            Mac lane: model preparation, GGUF conversion, serving, resumable cells through AuditKIT,
                         template and EOS audits, equal-size protection builds, deployment statistics, ROI, D8 report
 configs/mac/            Mac lane inputs: tensor inventories, protection rules, run manifests
@@ -191,7 +194,7 @@ tests/                  Mac lane unit tests
 colab/                  Colab parity check (free T4) and its results
 results/cells/<cell>/   per-cell text-free records (prompt id, tokens, settings), judge labels, run info,
                         MedMCQA predictions; laptop cells and mac__* cells
-results/final_stats/    every derived number in the thesis (final.json) and the validation audits
+results/final_stats/    the final statistics (final.json) and the validation audits
 results/judges/         kappa tables; results/drift, repair_dev, repair_test, probe_dev: stage summaries
 results/circuits/       EAP-IG scores, tables and validation per language
 results/mac/, mac_judged/  Mac lane evidence (builds, fidelity gates, operational checks) and central label summaries
@@ -279,15 +282,15 @@ python scripts/mac/roi.py && python scripts/mac/build_d8_tables.py && python scr
 ```
 Mac answers travel to the laptop as ZIPs (D6); the laptop judges them centrally (`scripts/judge_new_zips.sh`, `scripts/import_mac_cells.py`) and returns labels (D7).
 
-**Thesis tables and figures.** `python scripts/report/make_thesis_figures.py && python scripts/report/make_architecture_figure.py && python scripts/report/make_rq6_figures.py && python scripts/report/build_thesis.py` regenerate every table and figure of the thesis from the result files (the LaTeX build itself is not part of this repository).
+**Report tables and figures.** `python scripts/report/make_thesis_figures.py && python scripts/report/make_architecture_figure.py && python scripts/report/make_rq6_figures.py && python scripts/report/build_thesis.py` regenerate every table and figure of the report from the result files (the LaTeX build itself is not part of this repository).
 
 ## 15. Declaration of work done outside the hackathon
 
-None. The repository history begins on 3 November 2026 and the decision log begins the same day with environment set-up; every dataset, script, fine-tune, evaluation cell, label, figure and the thesis were produced between 3 and 15 November 2026 by the two authors. The only pre-existing code is third-party: the track toolkits at pinned versions, llama.cpp, TransformerLens, and the public models and benchmarks cited above.
+None. The project's working repository (private; this public repository is its whitelist export, first pushed on 15 November 2026) begins on 3 November 2026 with environment set-up, as does the decision log; every dataset, script, fine-tune, evaluation cell, label, figure and the report were produced between 3 and 15 November 2026 by the two authors. The only pre-existing code is third-party: the track toolkits at pinned versions, llama.cpp, TransformerLens, and the public models and benchmarks cited above.
 
 ## 16. Author contributions
 
-**Sushovit Nanda (project lead; laptop lane).** Led the project from start to finish: conceived and designed the study, set its six questions, its pre-registration and its decision rules, directed both lanes and all of the AI-assisted engineering, and owns every judgement call and every reported result. Wrote the plan, the pre-registration and its amendments and the decision log; built the data sets and the benchmark specifications; ran the fine-tunes, merges, repair sweeps, steering, NF4 and every laptop test cell; ran circuit discovery and validation and produced the tensor map; designed the labelling rubric, drew the 300-item sample and checked and approved every hand label; holds sole authority over and responsibility for every judgement call in the decision log; ran all judging centrally for both lanes, the statistics, the validity audits and the majority votes; validated every reported result; wrote the thesis.
+**Sushovit Nanda (project lead; laptop lane).** Led the project from start to finish: conceived and designed the study, set its six questions, its pre-registration and its decision rules, directed both lanes and all of the AI-assisted engineering, and owns every judgement call and every reported result. Wrote the plan, the pre-registration and its amendments and the decision log; built the data sets and the benchmark specifications; ran the fine-tunes, merges, repair sweeps, steering, NF4 and every laptop test cell; ran circuit discovery and validation and produced the tensor map; designed the labelling rubric, drew the 300-item sample and checked and approved every hand label; holds sole authority over and responsibility for every judgement call in the decision log; ran all judging centrally for both lanes, the statistics, the validity audits and the majority votes; validated every reported result; wrote the report.
 
 **Manish Shaw (Mac lane).** Built the GGUF conversion and quantization pipeline, the llama.cpp serving and generation harness, the template and EOS audits and the Mac pre-registrations; converted and quantized the models, ran the fidelity gates and every Mac deployment cell; designed and built the equal-size protected and random builds with their size, type and byte-identity checks; measured the numeric differences between the two lanes' merges; independently reproduced the deployment and RQ6 statistics from the central labels, computed the conservative 58-test Holm union, ran the throughput and cost analysis, prepared the model card and licence check, and wrote the Mac lane reports.
 

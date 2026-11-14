@@ -1,4 +1,4 @@
-\textbf{Context and Motivation.} Clinics fine-tune small open models and compress them for cheap hardware; their users often write in Hindi or Hinglish. For Tiny Aya Global, our model, public safety numbers cover only full-precision English with the system prompt.
+\textbf{Context and Motivation.} Clinics fine-tune small open models and compress them for cheap hardware; their users often write in Hindi or Hinglish. Public safety numbers for Tiny Aya Global do not cover Hindi, Hinglish, quantization or a stripped system prompt.
 
 \textbf{Question and Problem.} We follow it (3.35B) through that chain. Where are its refusals weakest? Does benign medical fine-tuning widen the gaps? Which components carry refusal? Can a repair without retraining restore it, and does that repair survive quantization, a stripped prompt and equal-size protection?
 

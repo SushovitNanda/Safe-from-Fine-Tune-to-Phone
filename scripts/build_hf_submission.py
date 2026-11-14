@@ -403,7 +403,7 @@ Also uploaded from their original locations by `scripts/hf_upload_large.py`: the
 
 ## After upload
 
-Paste the two collection URLs into the submission form, the repository README (Artifacts) and the thesis (Artifacts section), and rebuild the thesis.
+Paste the two collection URLs into the submission form, the repository README (Artifacts) and the report (Artifacts section), and rebuild the report.
 """)
 
 
