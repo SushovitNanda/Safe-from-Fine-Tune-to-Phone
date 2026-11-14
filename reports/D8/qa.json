@@ -1,0 +1,12 @@
+{
+  "report_pages": 5,
+  "pdf_sha256": "52a8382ad502b268123008d64fa2bc11452ddb61ebba6b8ac3c0c3d60a0b38b9",
+  "all_final_report_pages_visually_reviewed": true,
+  "figure_count": 5,
+  "all_figures_visually_reviewed": true,
+  "latex_overfull_underfull_warnings": 0,
+  "RQ6_status": "Complete with central labels; H6 unsupported, blind-audit and multiplicity limits explicit",
+  "tables_source": "reports/D8/d8_evidence.json",
+  "graph_environment": "isolated /tmp/lexsi-plot-env; model environment unchanged",
+  "tests_passed": 27
+}

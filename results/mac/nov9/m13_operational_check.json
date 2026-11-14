@@ -1,0 +1,28 @@
+{
+  "protected": {
+    "rows": 100,
+    "exact_ids_verified": true,
+    "stop_token_ids": [
+      3,
+      6
+    ],
+    "control_vector": null,
+    "fingerprint": "9bc078d2f893905088b0c48eb7140aeaf2f462ccc653356220e2f569fb8022fe",
+    "response_sha256": "89f253057bb3e2752993a17609cfb4c70bf7419421a7c94798b9221848dc1c5c",
+    "capped_at_256": 37,
+    "nonreported": true
+  },
+  "random": {
+    "rows": 100,
+    "exact_ids_verified": true,
+    "stop_token_ids": [
+      3,
+      6
+    ],
+    "control_vector": null,
+    "fingerprint": "e9fd417bc33e88bff8c3654690ead740707c5841a524205b6c37cd618cd00b74",
+    "response_sha256": "712cf5d398c057d54714f798fafb65d89d0b58a4e44cd75e1b197a2984a9a6c4",
+    "capped_at_256": 39,
+    "nonreported": true
+  }
+}

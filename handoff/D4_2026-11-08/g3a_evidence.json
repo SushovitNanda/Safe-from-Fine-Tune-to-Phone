@@ -1,0 +1,269 @@
+{
+ "G3a_rule": "necessity drop of the top-40 nodes (mean-ablation, preamble on, 100 harmful dev prompts) beats all 5 random same-size sets in at least one language",
+ "G3a_pass": true,
+ "per_language": {
+  "en": {
+   "G3a_pass_k40": true,
+   "verdict": {
+    "k20": {
+     "necessity_top": -3.0385,
+     "necessity_random": [
+      0.191,
+      0.8339,
+      -0.0854,
+      0.3105,
+      0.7312
+     ],
+     "necessity_beats_all_random": false,
+     "sufficiency_top": 0.5732,
+     "sufficiency_random": [
+      0.2904,
+      0.2278,
+      -0.0247,
+      0.0621,
+      0.2022
+     ],
+     "sufficiency_beats_all_random": true
+    },
+    "k40": {
+     "necessity_top": 2.461,
+     "necessity_random": [
+      1.4506,
+      0.7818,
+      2.4327,
+      0.6587,
+      0.7416
+     ],
+     "necessity_beats_all_random": true,
+     "sufficiency_top": 0.8461,
+     "sufficiency_random": [
+      0.0661,
+      0.2522,
+      0.2892,
+      0.0656,
+      0.2161
+     ],
+     "sufficiency_beats_all_random": true
+    },
+    "k60": {
+     "necessity_top": 3.7465,
+     "necessity_random": [
+      0.8333,
+      2.8197,
+      1.7281,
+      1.763,
+      0.919
+     ],
+     "necessity_beats_all_random": true,
+     "sufficiency_top": 1.3471,
+     "sufficiency_random": [
+      0.1268,
+      0.4821,
+      0.1547,
+      0.2124,
+      0.3426
+     ],
+     "sufficiency_beats_all_random": true
+    }
+   },
+   "n_prompts": 100,
+   "method": "heads in z-space (hook_z; patch = zero z_h + add r_h on hook_attn_out); MLPs on hook_mlp_out; preamble on; decision position = last prompt token"
+  },
+  "hi": {
+   "G3a_pass_k40": false,
+   "verdict": {
+    "k20": {
+     "necessity_top": -4.0305,
+     "necessity_random": [
+      0.2725,
+      0.098,
+      0.2101,
+      0.3153,
+      0.65
+     ],
+     "necessity_beats_all_random": false,
+     "sufficiency_top": 0.4805,
+     "sufficiency_random": [
+      0.184,
+      0.0159,
+      -0.0551,
+      0.0584,
+      -0.1811
+     ],
+     "sufficiency_beats_all_random": true
+    },
+    "k40": {
+     "necessity_top": -0.8162,
+     "necessity_random": [
+      0.1496,
+      -0.2188,
+      0.7618,
+      -0.7634,
+      0.7135
+     ],
+     "necessity_beats_all_random": false,
+     "sufficiency_top": 0.3937,
+     "sufficiency_random": [
+      -0.002,
+      -0.0055,
+      0.2609,
+      0.1565,
+      0.0533
+     ],
+     "sufficiency_beats_all_random": true
+    },
+    "k60": {
+     "necessity_top": 1.9958,
+     "necessity_random": [
+      -0.0593,
+      0.9091,
+      0.3098,
+      0.2944,
+      0.4709
+     ],
+     "necessity_beats_all_random": true,
+     "sufficiency_top": 0.4376,
+     "sufficiency_random": [
+      0.1417,
+      -0.074,
+      0.1031,
+      0.1147,
+      0.3596
+     ],
+     "sufficiency_beats_all_random": true
+    }
+   },
+   "n_prompts": 100,
+   "method": "heads in z-space (hook_z; patch = zero z_h + add r_h on hook_attn_out); MLPs on hook_mlp_out; preamble on; decision position = last prompt token"
+  },
+  "hinglish": {
+   "G3a_pass_k40": true,
+   "verdict": {
+    "k20": {
+     "necessity_top": 0.3766,
+     "necessity_random": [
+      -0.603,
+      -1.1619,
+      -0.6233,
+      0.4109,
+      0.1341
+     ],
+     "necessity_beats_all_random": false,
+     "sufficiency_top": 0.9293,
+     "sufficiency_random": [
+      0.0528,
+      0.2609,
+      0.4215,
+      0.0704,
+      0.0503
+     ],
+     "sufficiency_beats_all_random": true
+    },
+    "k40": {
+     "necessity_top": 4.7043,
+     "necessity_random": [
+      0.2765,
+      -0.3354,
+      0.5131,
+      1.4658,
+      0.3741
+     ],
+     "necessity_beats_all_random": true,
+     "sufficiency_top": 0.73,
+     "sufficiency_random": [
+      0.1527,
+      0.5718,
+      0.398,
+      0.1924,
+      0.2541
+     ],
+     "sufficiency_beats_all_random": true
+    },
+    "k60": {
+     "necessity_top": 2.8214,
+     "necessity_random": [
+      0.8965,
+      0.4669,
+      1.2336,
+      -0.1098,
+      0.1396
+     ],
+     "necessity_beats_all_random": true,
+     "sufficiency_top": 0.7436,
+     "sufficiency_random": [
+      0.4154,
+      0.5093,
+      0.0059,
+      0.2445,
+      0.3389
+     ],
+     "sufficiency_beats_all_random": true
+    }
+   },
+   "n_prompts": 100,
+   "method": "heads in z-space (hook_z; patch = zero z_h + add r_h on hook_attn_out); MLPs on hook_mlp_out; preamble on; decision position = last prompt token"
+  }
+ },
+ "overlap_and_floors": {
+  "top_k": 60,
+  "mlp0_excluded": true,
+  "jaccard_full_runs": {
+   "med_en_eap-ig": {
+    "med_en_eap-ig": 1.0,
+    "med_hi_eap-ig": 0.348,
+    "med_hinglish_eap-ig": 0.176,
+    "orig_en_eap-ig": 0.765,
+    "orig_hi_eap-ig": 0.364,
+    "orig_hinglish_eap-ig": 0.212
+   },
+   "med_hi_eap-ig": {
+    "med_en_eap-ig": 0.348,
+    "med_hi_eap-ig": 1.0,
+    "med_hinglish_eap-ig": 0.212,
+    "orig_en_eap-ig": 0.304,
+    "orig_hi_eap-ig": 0.644,
+    "orig_hinglish_eap-ig": 0.263
+   },
+   "med_hinglish_eap-ig": {
+    "med_en_eap-ig": 0.176,
+    "med_hi_eap-ig": 0.212,
+    "med_hinglish_eap-ig": 1.0,
+    "orig_en_eap-ig": 0.143,
+    "orig_hi_eap-ig": 0.154,
+    "orig_hinglish_eap-ig": 0.364
+   },
+   "orig_en_eap-ig": {
+    "med_en_eap-ig": 0.765,
+    "med_hi_eap-ig": 0.304,
+    "med_hinglish_eap-ig": 0.143,
+    "orig_en_eap-ig": 1.0,
+    "orig_hi_eap-ig": 0.364,
+    "orig_hinglish_eap-ig": 0.212
+   },
+   "orig_hi_eap-ig": {
+    "med_en_eap-ig": 0.364,
+    "med_hi_eap-ig": 0.644,
+    "med_hinglish_eap-ig": 0.154,
+    "orig_en_eap-ig": 0.364,
+    "orig_hi_eap-ig": 1.0,
+    "orig_hinglish_eap-ig": 0.29
+   },
+   "orig_hinglish_eap-ig": {
+    "med_en_eap-ig": 0.212,
+    "med_hi_eap-ig": 0.263,
+    "med_hinglish_eap-ig": 0.364,
+    "orig_en_eap-ig": 0.212,
+    "orig_hi_eap-ig": 0.29,
+    "orig_hinglish_eap-ig": 1.0
+   }
+  },
+  "split_half_floor": {
+   "med_en_eap-ig": 0.579,
+   "med_hi_eap-ig": 0.538,
+   "med_hinglish_eap-ig": 0.277,
+   "orig_en_eap-ig": 0.519,
+   "orig_hi_eap-ig": 0.519,
+   "orig_hinglish_eap-ig": 0.348
+  }
+ }
+}

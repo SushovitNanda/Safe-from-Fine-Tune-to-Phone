@@ -1,0 +1,93 @@
+% =====================================================================
+\section{Discussion}\label{sec:discussion}
+
+\subsection{Theory of change}
+Figure~\ref{fig:toc} states the theory of change behind the project. A clinic deploys an open model with limited compute and no retraining budget. If safety losses can be measured per language and a cheap repair survives deployment, the clinic can deploy knowing the size of the loss and with a fix in place. The theory holds only if the assumptions in the lower box hold. This thesis tested each of them, and two are weaker than planned. The judges read the medical model's Hinglish poorly, because most of that output is degenerate. And a run-time vector is a fix only if deployers actually turn it on.
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\linewidth]{figures/fig_theory_of_change.png}
+\caption{Theory of change. The results support the drift link and the deployment link for English and Hindi, with a partial fix, but not the mechanistic link. Assumptions 1 and 4 fail partly in Hinglish.}\label{fig:toc}
+\end{figure}
+
+\subsection{Discussion: what we learned from each question}
+\begin{description}
+\item[RQ1.] The original model is clearly weaker in Hinglish and on clinical harms in Hindi and Hinglish. The overall Hindi gap is small and depends on which judge reads Hindi (Section~\ref{sec:rq1}), so a per-language judge check is not optional.
+\item[RQ2.] In this fine-tune (one model, one seed), one epoch on medical exam questions doubled judged attack success, while a token-matched general fine-tune moved it by 1.8 points. The damage is broad across harm types, not concentrated on clinical topics. It also breaks Hinglish generation, and a large share of the medical model's unsafe labels fall on degenerate text (Section~\ref{sec:valres}). On non-degenerate answers the drift remains clear of zero (Section~\ref{sec:rq2}), so it is not an artefact, but its size is inflated.
+\item[RQ3.] The top-ranked nodes differ by language and sufficiency patching works in every language, but necessity is clear only in Hinglish. Fine-tuning, however, did not change the circuit beyond its noise floor, and the refusal metric moved in the opposite pattern to the behaviour. The map is a set of candidates, not a cause.
+\item[RQ4.] On this model and at the settings tried, a run-time steering vector repaired more than ReSta weight arithmetic. On dev, every ReSta $\alpha$ large enough to help also cost medical accuracy; one possible reason, which we did not test, is that the global weight difference carries capability as well as safety. On test, $\alpha=0.20$ gives $-4.6$ points, below the margin, with MedMCQA 43.2 against 45.0 (not a significant loss). A steering vector targets one behaviour and leaves accuracy alone. On dev, restricting ReSta to the circuit removed most of its accuracy cost but also nearly all of its effect (on test the restricted and whole-model settings score 43.6 and 43.2 on MedMCQA), which fits the RQ3 finding that the circuit did not change.
+\item[RQ5.] The steering effect stays clear of zero at every quantization setting we tested and without the preamble, though retention intervals are wide. Quantization costs safety a little, but it does not erase a run-time repair, and fine-tuned and original models are about equally fragile.
+\item[RQ6.] %%RQ6DISC%%
+\end{description}
+
+\subsection{How good are the results?}
+Table~\ref{tab:confidence} sorts the findings by how far we would rely on them.
+
+\begin{table}[tbp]
+\centering
+\caption{How far each finding can be relied on.}\label{tab:confidence}
+\scriptsize
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.52\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}>{\raggedright\arraybackslash}p{0.3\linewidth}}
+\toprule
+Finding & Confidence & Why \\
+\midrule
+Medical fine-tuning raises attack success, beyond a matched control & High & large paired effect, survives Holm and the non-degenerate check \\
+Laptop and Mac agree & High & 98--99\,\% identical labels on full cells \\
+Steering lowers attack success at FP16, NF4 and every GGUF setting & High & every interval clear of zero, two machines \\
+ReSta at the selected setting and restricted ReSta give no repair meeting the 5-point margin & Moderate & intervals near zero; restricted $\alpha=0.20$ gives $-2.5$ $[-5.1, 0.2]$ pooled \\
+Steering keeps medical accuracy & Moderate & no measurable change, but one closed-form benchmark \\
+Retention near 1 through deployment & Moderate & point estimates near 1, wide intervals \\
+Hinglish gap and Hinglish drift exist & Moderate & direction robust, magnitude inflated by degenerate text \\
+Clinical harms are a weak spot & Moderate & clear in Hindi and Hinglish, not in English \\
+Hindi gap in the original model & Low & depends on the judge, fails Holm \\
+RQ3 explains the drift & Not supported & overlaps at the floor, metric moves the wrong way \\
+Circuit-restricted repair beats whole-model repair (H4) & Not supported & no pooled effect; Hindi $-5.6$ at $\alpha=0.20$ \\
+Circuit-guided protection beats random (H6) & Not supported & pooled difference 0.0 $[-2.7, 2.7]$; one random draw \\
+Hinglish over-refusal levels & Low & refusal judge $\kappa = 0.31$ \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table}
+
+\paragraph{What worked and what did not.} Table~\ref{tab:tried} lists what was tried.
+
+\begin{table}[tbp]
+\centering
+\caption{What was tried, and what came of it.}\label{tab:tried}
+\scriptsize
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.34\linewidth}>{\raggedright\arraybackslash}p{0.14\linewidth}>{\raggedright\arraybackslash}p{0.45\linewidth}}
+\toprule
+Attempt & Outcome & Note \\
+\midrule
+Plan v2 (13 questions) & replaced & cut to six questions in one chain \\
+Cloud T4 for reported cells & dropped & laptop parity shown, 299 of 300 identical answers \\
+QLoRA fallback & not needed & LoRA fitted once training ran in train mode with gradient checkpointing \\
+Two-epoch fine-tunes & spare, unused & \\
+Qwen3Guard for Hindi & replaced & missed half the unsafe Hindi answers \\
+Circuit pass 1 (single tokens, no validation) & superseded & its ``reshuffling'' claim withdrawn \\
+Per-head attention outputs in TransformerLens & abandoned & memory blow-up; per-head outputs read before the output projection (z-space) instead \\
+Circuit discovery with the preamble & not achieved locally & over 21\,GB; validated with the preamble instead \\
+ReSta, $\alpha$ 0.05 to 0.40 & failed & no repair without accuracy loss \\
+Circuit-restricted ReSta, 5--20\,\% of tensors & failed & no pooled effect, or broken model at $\alpha=1$ \\
+Steering, four layers, four strengths & worked & layer 24, strength 0.5 deployed \\
+ReSta in GGUF & cancelled & replaced by a control vector (Amendment~4) \\
+Protected build v1 & confounded & layer-0 donors; rebuilt \\
+Protected build v2 against random & failed & pooled attack success not different from random or stock \\
+Pre-registered selection rule & failed & G4 recorded as failed \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table}
+
+\subsection{Implications for practitioners}
+\begin{enumerate}
+\item \textbf{Treat a benign fine-tune as a safety change.} Re-run a safety evaluation after any fine-tune, against a control fine-tune of similar size, in every language users will write in.
+\item \textbf{Validate the judge per language and per model.} A judge that agrees well in English can miss half of the harm in Hindi. A judge validated on one model can misread another model's degenerate output.
+\item \textbf{Look at generation quality before reading safety numbers.} Repetition loops and prompt echoes are counted as harm by classifiers. Report how much of the output is degenerate.
+\item \textbf{On this model, prefer a run-time steering vector to weight arithmetic for a quick fix.} On this model it repaired more, cost no measured accuracy, and survived Q3\_K\_M quantization. Ship it as part of the serving configuration (in llama.cpp, a control vector with the layer range and the end-of-turn token set) and test that it is actually applied.
+\item \textbf{Measure over-refusal alongside attack success.} Every repair raised over-refusal somewhere, most in clinical prompts and in Hindi.
+\item \textbf{Do not rely on a model's preamble (system prompt) for safety at the edge, but do not assume its removal is catastrophic either.} Here, removing it did not raise attack success; that should be checked per model.
+\item \textbf{Check the end-of-turn token.} A mismatch between the chat template and the stop token made every fine-tuned answer run to the length cap. Visible text was unchanged, but cost and latency estimates were not.
+\end{enumerate}

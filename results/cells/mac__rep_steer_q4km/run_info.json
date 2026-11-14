@@ -1,0 +1,21 @@
+{
+ "cell": "mac__rep_steer_q4km",
+ "source_zip": "D6_Manish_2026-11-10_rep_steer_q4km.zip",
+ "member": "cells/rep_steer_q4km.jsonl",
+ "n": 1612,
+ "unknown_prompt_ids": 0,
+ "sha256_zip": "fb274f51199d5c7800d5b6d3f587382c3a13c22721c3bf020a0a937aff39213b",
+ "stop_token_ids": [
+  3,
+  6
+ ],
+ "control_vector": {
+  "path": "handoff/D5b_steering_2026-11-09/steer_L24.cvec",
+  "sha256": "e27b7449e5d38b7b112ecbdef7ed6cbf33f651d6604f07cf18e8909af6543bd8",
+  "strength": 0.5,
+  "layer_range": [
+   24,
+   24
+  ]
+ }
+}

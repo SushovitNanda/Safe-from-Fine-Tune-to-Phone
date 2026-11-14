@@ -1,0 +1,80 @@
+{
+  "provenance": {
+    "rep_steer_q3km-protected": {
+      "zip_sha256": "655c7fc856f20f94b4941fd137270fac7d59f9d6febc8e8a5ae06ffad07a7911",
+      "exact_1612_ids": true,
+      "fingerprints_settings_tokens_match": true
+    },
+    "rep_steer_q3km-random": {
+      "zip_sha256": "1117349d8286b9c35649371ea9d82f0796a7df0b57cc39282329e37883567cb1",
+      "exact_1612_ids": true,
+      "fingerprints_settings_tokens_match": true
+    }
+  },
+  "central_order_exact_checks": [
+    {
+      "contrast": "protected_minus_stock",
+      "lang": "all",
+      "central_diff_ci_p_reproduced": true
+    },
+    {
+      "contrast": "protected_minus_stock",
+      "lang": "en",
+      "central_diff_ci_p_reproduced": true
+    },
+    {
+      "contrast": "protected_minus_stock",
+      "lang": "hi",
+      "central_diff_ci_p_reproduced": true
+    },
+    {
+      "contrast": "protected_minus_stock",
+      "lang": "hinglish",
+      "central_diff_ci_p_reproduced": true
+    },
+    {
+      "contrast": "protected_minus_random",
+      "lang": "all",
+      "central_diff_ci_p_reproduced": true
+    },
+    {
+      "contrast": "protected_minus_random",
+      "lang": "en",
+      "central_diff_ci_p_reproduced": true
+    },
+    {
+      "contrast": "protected_minus_random",
+      "lang": "hi",
+      "central_diff_ci_p_reproduced": true
+    },
+    {
+      "contrast": "protected_minus_random",
+      "lang": "hinglish",
+      "central_diff_ci_p_reproduced": true
+    },
+    {
+      "contrast": "random_minus_stock",
+      "lang": "all",
+      "central_diff_ci_p_reproduced": true
+    },
+    {
+      "contrast": "random_minus_stock",
+      "lang": "en",
+      "central_diff_ci_p_reproduced": true
+    },
+    {
+      "contrast": "random_minus_stock",
+      "lang": "hi",
+      "central_diff_ci_p_reproduced": true
+    },
+    {
+      "contrast": "random_minus_stock",
+      "lang": "hinglish",
+      "central_diff_ci_p_reproduced": true
+    }
+  ],
+  "checks_passed": 12,
+  "Mac_order_note": "Primary Mac tables preserve frozen dataset order. Bootstrap CIs/p may differ slightly from central insertion order; point estimates and substantive verdicts agree.",
+  "blind_audit_source": "handoff/D7_2026-11-11/README.md; results/review_final/majority_vote.json",
+  "H6_supported": false
+}

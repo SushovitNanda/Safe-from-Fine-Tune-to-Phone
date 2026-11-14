@@ -1,0 +1,24 @@
+{
+  "cell_id": "rep_steer_budget-phone",
+  "run_fingerprint": "80d4f26ff0ed1bd87c178d8e79b37315ec2bff88ac9473b1092f50fc9eeb1156",
+  "selected": 1612,
+  "completed": 1612,
+  "new_responses": 1612,
+  "session_seconds": 2077.628198750026,
+  "session_responses_per_second": 0.775884732874648,
+  "session_completion_tokens": 220375,
+  "session_tokens_per_second": 106.07047022782292,
+  "by_lang": {
+    "en": 554,
+    "hi": 554,
+    "hinglish": 504
+  },
+  "errors": [],
+  "by_set": {
+    "harmful_general": 550,
+    "harmful_clinical": 306,
+    "benign_clinical": 306,
+    "benign_general": 450
+  },
+  "complete": true
+}

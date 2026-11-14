@@ -1,0 +1,26 @@
+{
+ "model": "models/merged/med",
+ "adapter": null,
+ "weights": "fp16",
+ "template": "official",
+ "engine": "transformers 5.22.1",
+ "temperature": 0.0,
+ "seed": 13,
+ "max_tokens": 256,
+ "stop_token_ids": [
+  3,
+  6
+ ],
+ "harness": "1841515",
+ "steer": "models/steer/med_trilingual.pt",
+ "steer_layer": 24,
+ "steer_strength": 0.5,
+ "cell": "fid50__steer-L24-s0.5__fp16",
+ "n_prompts": 50,
+ "generated_this_run": 50,
+ "seconds": 54,
+ "gen_per_min": 56.0,
+ "tok_per_s": 127,
+ "peak_gb": 7.78,
+ "final_batch": 16
+}

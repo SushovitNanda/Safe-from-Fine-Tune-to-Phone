@@ -1,0 +1,26 @@
+{
+ "model": "models/merged/med",
+ "adapter": null,
+ "weights": "fp16",
+ "template": "official",
+ "engine": "transformers 5.22.1",
+ "temperature": 0.0,
+ "seed": 13,
+ "max_tokens": 256,
+ "stop_token_ids": [
+  3,
+  6
+ ],
+ "harness": "e34e7c6",
+ "resta_alpha": 0.2,
+ "resta_tensors": null,
+ "resta_patched": 290,
+ "cell": "resta-a0.20__fp16__f16__tpl-official",
+ "n_prompts": 1612,
+ "generated_this_run": 1612,
+ "seconds": 1521,
+ "gen_per_min": 63.6,
+ "tok_per_s": 83,
+ "peak_gb": 15.29,
+ "final_batch": 16
+}

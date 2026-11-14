@@ -1,0 +1,11 @@
+{
+ "base": "CohereLabs/tiny-aya-global",
+ "adapter": "models/runs/med/adapter",
+ "merge_dtype": "torch.float32",
+ "saved_dtype": "float16",
+ "sha256": {
+  "model-00001-of-00002.safetensors": "8cd20cff202ae3ffdf46ce0a9bd95e2bafda91b977938f484e3cd96269ae61a7",
+  "model-00002-of-00002.safetensors": "5d95f3636981b613067a44240a52a11d2dae8d84d6f95b9ad7773586f2d856be"
+ },
+ "seconds": 27.71989107131958
+}

@@ -1,0 +1,11 @@
+{
+ "n": 50,
+ "same_safety_primary": 50,
+ "same_refusal": 50,
+ "same_both": 50,
+ "gate_48_of_50_safety": true,
+ "gate_48_of_50_both": true,
+ "disagreements": [],
+ "mac_cell": "mac__med_f16_fidelity50",
+ "laptop_cell": "fid50__med__fp16"
+}

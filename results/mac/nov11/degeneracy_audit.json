@@ -1,0 +1,657 @@
+{
+  "cells": {
+    "med_f16": {
+      "all": {
+        "n": 856,
+        "flag_counts": {
+          "repetition": 129,
+          "echo": 116,
+          "too_short": 1
+        },
+        "degenerate_pct": 28.7,
+        "primary_ASR_pct": 36.799065420560744,
+        "non_degenerate_n": 610,
+        "non_degenerate_ASR_pct": 25.737704918032787
+      },
+      "en": {
+        "n": 302,
+        "flag_counts": {
+          "repetition": 24,
+          "echo": 2
+        },
+        "degenerate_pct": 8.6,
+        "primary_ASR_pct": 24.834437086092716,
+        "non_degenerate_n": 276,
+        "non_degenerate_ASR_pct": 21.3768115942029
+      },
+      "hi": {
+        "n": 302,
+        "flag_counts": {
+          "repetition": 38,
+          "echo": 19
+        },
+        "degenerate_pct": 18.9,
+        "primary_ASR_pct": 27.483443708609272,
+        "non_degenerate_n": 245,
+        "non_degenerate_ASR_pct": 19.591836734693878
+      },
+      "hinglish": {
+        "n": 252,
+        "flag_counts": {
+          "repetition": 67,
+          "echo": 95,
+          "too_short": 1
+        },
+        "degenerate_pct": 64.7,
+        "primary_ASR_pct": 62.301587301587304,
+        "non_degenerate_n": 89,
+        "non_degenerate_ASR_pct": 56.17977528089887
+      }
+    },
+    "med_q4km": {
+      "all": {
+        "n": 856,
+        "flag_counts": {
+          "repetition": 96,
+          "echo": 128,
+          "too_short": 1
+        },
+        "degenerate_pct": 26.3,
+        "primary_ASR_pct": 39.36915887850467,
+        "non_degenerate_n": 631,
+        "non_degenerate_ASR_pct": 29.4770206022187
+      },
+      "en": {
+        "n": 302,
+        "flag_counts": {
+          "repetition": 21,
+          "echo": 3
+        },
+        "degenerate_pct": 7.9,
+        "primary_ASR_pct": 28.14569536423841,
+        "non_degenerate_n": 278,
+        "non_degenerate_ASR_pct": 25.53956834532374
+      },
+      "hi": {
+        "n": 302,
+        "flag_counts": {
+          "repetition": 21,
+          "echo": 22
+        },
+        "degenerate_pct": 14.2,
+        "primary_ASR_pct": 30.132450331125828,
+        "non_degenerate_n": 259,
+        "non_degenerate_ASR_pct": 23.93822393822394
+      },
+      "hinglish": {
+        "n": 252,
+        "flag_counts": {
+          "repetition": 54,
+          "echo": 103,
+          "too_short": 1
+        },
+        "degenerate_pct": 62.7,
+        "primary_ASR_pct": 63.888888888888886,
+        "non_degenerate_n": 94,
+        "non_degenerate_ASR_pct": 56.38297872340426
+      }
+    },
+    "med_q3km": {
+      "all": {
+        "n": 856,
+        "flag_counts": {
+          "repetition": 157,
+          "echo": 116
+        },
+        "degenerate_pct": 31.9,
+        "primary_ASR_pct": 39.018691588785046,
+        "non_degenerate_n": 583,
+        "non_degenerate_ASR_pct": 24.871355060034304
+      },
+      "en": {
+        "n": 302,
+        "flag_counts": {
+          "repetition": 20,
+          "echo": 3
+        },
+        "degenerate_pct": 7.6,
+        "primary_ASR_pct": 20.198675496688743,
+        "non_degenerate_n": 279,
+        "non_degenerate_ASR_pct": 17.921146953405017
+      },
+      "hi": {
+        "n": 302,
+        "flag_counts": {
+          "repetition": 37,
+          "echo": 22
+        },
+        "degenerate_pct": 19.5,
+        "primary_ASR_pct": 31.788079470198674,
+        "non_degenerate_n": 243,
+        "non_degenerate_ASR_pct": 23.45679012345679
+      },
+      "hinglish": {
+        "n": 252,
+        "flag_counts": {
+          "repetition": 100,
+          "echo": 91
+        },
+        "degenerate_pct": 75.8,
+        "primary_ASR_pct": 70.23809523809524,
+        "non_degenerate_n": 61,
+        "non_degenerate_ASR_pct": 62.295081967213115
+      }
+    },
+    "med_q4km-nopre": {
+      "all": {
+        "n": 856,
+        "flag_counts": {
+          "repetition": 85,
+          "echo": 112,
+          "too_short": 1
+        },
+        "degenerate_pct": 23.1,
+        "primary_ASR_pct": 33.177570093457945,
+        "non_degenerate_n": 658,
+        "non_degenerate_ASR_pct": 23.10030395136778
+      },
+      "en": {
+        "n": 302,
+        "flag_counts": {
+          "repetition": 11,
+          "echo": 3
+        },
+        "degenerate_pct": 4.6,
+        "primary_ASR_pct": 19.205298013245034,
+        "non_degenerate_n": 288,
+        "non_degenerate_ASR_pct": 17.36111111111111
+      },
+      "hi": {
+        "n": 302,
+        "flag_counts": {
+          "repetition": 11,
+          "echo": 11
+        },
+        "degenerate_pct": 7.3,
+        "primary_ASR_pct": 24.172185430463575,
+        "non_degenerate_n": 280,
+        "non_degenerate_ASR_pct": 20.357142857142858
+      },
+      "hinglish": {
+        "n": 252,
+        "flag_counts": {
+          "repetition": 63,
+          "echo": 98,
+          "too_short": 1
+        },
+        "degenerate_pct": 64.3,
+        "primary_ASR_pct": 60.714285714285715,
+        "non_degenerate_n": 90,
+        "non_degenerate_ASR_pct": 50.0
+      }
+    },
+    "med_budget-phone": {
+      "all": {
+        "n": 856,
+        "flag_counts": {
+          "repetition": 135,
+          "echo": 107
+        },
+        "degenerate_pct": 28.3,
+        "primary_ASR_pct": 34.81308411214953,
+        "non_degenerate_n": 614,
+        "non_degenerate_ASR_pct": 22.63843648208469
+      },
+      "en": {
+        "n": 302,
+        "flag_counts": {
+          "repetition": 9,
+          "echo": 1
+        },
+        "degenerate_pct": 3.3,
+        "primary_ASR_pct": 16.887417218543046,
+        "non_degenerate_n": 292,
+        "non_degenerate_ASR_pct": 16.095890410958905
+      },
+      "hi": {
+        "n": 302,
+        "flag_counts": {
+          "repetition": 28,
+          "echo": 17
+        },
+        "degenerate_pct": 14.9,
+        "primary_ASR_pct": 26.490066225165563,
+        "non_degenerate_n": 257,
+        "non_degenerate_ASR_pct": 20.622568093385215
+      },
+      "hinglish": {
+        "n": 252,
+        "flag_counts": {
+          "repetition": 98,
+          "echo": 89
+        },
+        "degenerate_pct": 74.2,
+        "primary_ASR_pct": 66.26984126984127,
+        "non_degenerate_n": 65,
+        "non_degenerate_ASR_pct": 60.0
+      }
+    },
+    "rep_steer_f16": {
+      "all": {
+        "n": 856,
+        "flag_counts": {
+          "repetition": 103,
+          "echo": 96
+        },
+        "degenerate_pct": 23.2,
+        "primary_ASR_pct": 25.817757009345794,
+        "non_degenerate_n": 657,
+        "non_degenerate_ASR_pct": 15.82952815829528
+      },
+      "en": {
+        "n": 302,
+        "flag_counts": {
+          "repetition": 18,
+          "echo": 3
+        },
+        "degenerate_pct": 7.0,
+        "primary_ASR_pct": 16.225165562913908,
+        "non_degenerate_n": 281,
+        "non_degenerate_ASR_pct": 13.523131672597865
+      },
+      "hi": {
+        "n": 302,
+        "flag_counts": {
+          "repetition": 28,
+          "echo": 9
+        },
+        "degenerate_pct": 12.3,
+        "primary_ASR_pct": 13.245033112582782,
+        "non_degenerate_n": 265,
+        "non_degenerate_ASR_pct": 9.056603773584905
+      },
+      "hinglish": {
+        "n": 252,
+        "flag_counts": {
+          "repetition": 57,
+          "echo": 84
+        },
+        "degenerate_pct": 56.0,
+        "primary_ASR_pct": 52.38095238095238,
+        "non_degenerate_n": 111,
+        "non_degenerate_ASR_pct": 37.83783783783784
+      }
+    },
+    "rep_steer_q4km": {
+      "all": {
+        "n": 856,
+        "flag_counts": {
+          "repetition": 99,
+          "echo": 112
+        },
+        "degenerate_pct": 24.6,
+        "primary_ASR_pct": 27.2196261682243,
+        "non_degenerate_n": 645,
+        "non_degenerate_ASR_pct": 17.674418604651162
+      },
+      "en": {
+        "n": 302,
+        "flag_counts": {
+          "repetition": 18,
+          "echo": 3
+        },
+        "degenerate_pct": 7.0,
+        "primary_ASR_pct": 16.887417218543046,
+        "non_degenerate_n": 281,
+        "non_degenerate_ASR_pct": 15.658362989323843
+      },
+      "hi": {
+        "n": 302,
+        "flag_counts": {
+          "repetition": 24,
+          "echo": 10
+        },
+        "degenerate_pct": 11.3,
+        "primary_ASR_pct": 13.57615894039735,
+        "non_degenerate_n": 268,
+        "non_degenerate_ASR_pct": 10.82089552238806
+      },
+      "hinglish": {
+        "n": 252,
+        "flag_counts": {
+          "repetition": 57,
+          "echo": 99
+        },
+        "degenerate_pct": 61.9,
+        "primary_ASR_pct": 55.95238095238095,
+        "non_degenerate_n": 96,
+        "non_degenerate_ASR_pct": 42.708333333333336
+      }
+    },
+    "rep_steer_q3km": {
+      "all": {
+        "n": 856,
+        "flag_counts": {
+          "repetition": 128,
+          "echo": 115
+        },
+        "degenerate_pct": 28.4,
+        "primary_ASR_pct": 27.92056074766355,
+        "non_degenerate_n": 613,
+        "non_degenerate_ASR_pct": 15.66068515497553
+      },
+      "en": {
+        "n": 302,
+        "flag_counts": {
+          "repetition": 24,
+          "echo": 3
+        },
+        "degenerate_pct": 8.9,
+        "primary_ASR_pct": 10.264900662251655,
+        "non_degenerate_n": 275,
+        "non_degenerate_ASR_pct": 8.0
+      },
+      "hi": {
+        "n": 302,
+        "flag_counts": {
+          "repetition": 28,
+          "echo": 15
+        },
+        "degenerate_pct": 14.2,
+        "primary_ASR_pct": 17.880794701986755,
+        "non_degenerate_n": 259,
+        "non_degenerate_ASR_pct": 14.671814671814673
+      },
+      "hinglish": {
+        "n": 252,
+        "flag_counts": {
+          "repetition": 76,
+          "echo": 97
+        },
+        "degenerate_pct": 68.7,
+        "primary_ASR_pct": 61.111111111111114,
+        "non_degenerate_n": 79,
+        "non_degenerate_ASR_pct": 45.56962025316456
+      }
+    },
+    "rep_steer_q4km-nopre": {
+      "all": {
+        "n": 856,
+        "flag_counts": {
+          "repetition": 90,
+          "echo": 83
+        },
+        "degenerate_pct": 20.2,
+        "primary_ASR_pct": 23.83177570093458,
+        "non_degenerate_n": 683,
+        "non_degenerate_ASR_pct": 15.373352855051245
+      },
+      "en": {
+        "n": 302,
+        "flag_counts": {
+          "repetition": 12,
+          "echo": 2
+        },
+        "degenerate_pct": 4.6,
+        "primary_ASR_pct": 12.913907284768213,
+        "non_degenerate_n": 288,
+        "non_degenerate_ASR_pct": 11.458333333333334
+      },
+      "hi": {
+        "n": 302,
+        "flag_counts": {
+          "repetition": 21,
+          "echo": 4
+        },
+        "degenerate_pct": 8.3,
+        "primary_ASR_pct": 13.57615894039735,
+        "non_degenerate_n": 277,
+        "non_degenerate_ASR_pct": 11.552346570397113
+      },
+      "hinglish": {
+        "n": 252,
+        "flag_counts": {
+          "repetition": 57,
+          "echo": 77
+        },
+        "degenerate_pct": 53.2,
+        "primary_ASR_pct": 49.20634920634921,
+        "non_degenerate_n": 118,
+        "non_degenerate_ASR_pct": 33.898305084745765
+      }
+    },
+    "rep_steer_budget-phone": {
+      "all": {
+        "n": 856,
+        "flag_counts": {
+          "repetition": 121,
+          "echo": 90,
+          "too_short": 2
+        },
+        "degenerate_pct": 24.9,
+        "primary_ASR_pct": 26.16822429906542,
+        "non_degenerate_n": 643,
+        "non_degenerate_ASR_pct": 14.307931570762053
+      },
+      "en": {
+        "n": 302,
+        "flag_counts": {
+          "repetition": 14
+        },
+        "degenerate_pct": 4.6,
+        "primary_ASR_pct": 9.933774834437086,
+        "non_degenerate_n": 288,
+        "non_degenerate_ASR_pct": 8.680555555555555
+      },
+      "hi": {
+        "n": 302,
+        "flag_counts": {
+          "repetition": 17,
+          "echo": 5
+        },
+        "degenerate_pct": 7.3,
+        "primary_ASR_pct": 15.2317880794702,
+        "non_degenerate_n": 280,
+        "non_degenerate_ASR_pct": 12.857142857142858
+      },
+      "hinglish": {
+        "n": 252,
+        "flag_counts": {
+          "repetition": 90,
+          "echo": 85,
+          "too_short": 2
+        },
+        "degenerate_pct": 70.2,
+        "primary_ASR_pct": 58.73015873015873,
+        "non_degenerate_n": 75,
+        "non_degenerate_ASR_pct": 41.333333333333336
+      }
+    },
+    "orig_q4km": {
+      "all": {
+        "n": 856,
+        "flag_counts": {
+          "repetition": 31,
+          "echo": 12
+        },
+        "degenerate_pct": 5.0,
+        "primary_ASR_pct": 18.3411214953271,
+        "non_degenerate_n": 813,
+        "non_degenerate_ASR_pct": 17.097170971709716
+      },
+      "en": {
+        "n": 302,
+        "flag_counts": {
+          "repetition": 2
+        },
+        "degenerate_pct": 0.7,
+        "primary_ASR_pct": 11.589403973509933,
+        "non_degenerate_n": 300,
+        "non_degenerate_ASR_pct": 11.333333333333334
+      },
+      "hi": {
+        "n": 302,
+        "flag_counts": {
+          "echo": 3
+        },
+        "degenerate_pct": 1.0,
+        "primary_ASR_pct": 16.225165562913908,
+        "non_degenerate_n": 299,
+        "non_degenerate_ASR_pct": 15.719063545150501
+      },
+      "hinglish": {
+        "n": 252,
+        "flag_counts": {
+          "repetition": 29,
+          "echo": 9
+        },
+        "degenerate_pct": 15.1,
+        "primary_ASR_pct": 28.96825396825397,
+        "non_degenerate_n": 214,
+        "non_degenerate_ASR_pct": 27.102803738317757
+      }
+    },
+    "orig_q4km-nopre": {
+      "all": {
+        "n": 856,
+        "flag_counts": {
+          "repetition": 45,
+          "echo": 12
+        },
+        "degenerate_pct": 6.7,
+        "primary_ASR_pct": 19.742990654205606,
+        "non_degenerate_n": 799,
+        "non_degenerate_ASR_pct": 17.02127659574468
+      },
+      "en": {
+        "n": 302,
+        "flag_counts": {},
+        "degenerate_pct": 0.0,
+        "primary_ASR_pct": 12.582781456953642,
+        "non_degenerate_n": 302,
+        "non_degenerate_ASR_pct": 12.582781456953642
+      },
+      "hi": {
+        "n": 302,
+        "flag_counts": {
+          "repetition": 1,
+          "echo": 1
+        },
+        "degenerate_pct": 0.7,
+        "primary_ASR_pct": 15.894039735099337,
+        "non_degenerate_n": 300,
+        "non_degenerate_ASR_pct": 15.333333333333334
+      },
+      "hinglish": {
+        "n": 252,
+        "flag_counts": {
+          "repetition": 44,
+          "echo": 11
+        },
+        "degenerate_pct": 21.8,
+        "primary_ASR_pct": 32.93650793650794,
+        "non_degenerate_n": 197,
+        "non_degenerate_ASR_pct": 26.395939086294415
+      }
+    },
+    "rep_steer_q3km-protected": {
+      "all": {
+        "n": 856,
+        "flag_counts": {
+          "repetition": 136,
+          "echo": 96,
+          "too_short": 3
+        },
+        "degenerate_pct": 27.5,
+        "primary_ASR_pct": 27.570093457943926,
+        "non_degenerate_n": 621,
+        "non_degenerate_ASR_pct": 14.331723027375201
+      },
+      "en": {
+        "n": 302,
+        "flag_counts": {
+          "repetition": 19,
+          "echo": 2
+        },
+        "degenerate_pct": 7.0,
+        "primary_ASR_pct": 12.913907284768213,
+        "non_degenerate_n": 281,
+        "non_degenerate_ASR_pct": 11.387900355871887
+      },
+      "hi": {
+        "n": 302,
+        "flag_counts": {
+          "repetition": 26,
+          "echo": 8
+        },
+        "degenerate_pct": 11.3,
+        "primary_ASR_pct": 14.900662251655628,
+        "non_degenerate_n": 268,
+        "non_degenerate_ASR_pct": 11.567164179104477
+      },
+      "hinglish": {
+        "n": 252,
+        "flag_counts": {
+          "repetition": 91,
+          "echo": 86,
+          "too_short": 3
+        },
+        "degenerate_pct": 71.4,
+        "primary_ASR_pct": 60.317460317460316,
+        "non_degenerate_n": 72,
+        "non_degenerate_ASR_pct": 36.111111111111114
+      }
+    },
+    "rep_steer_q3km-random": {
+      "all": {
+        "n": 856,
+        "flag_counts": {
+          "repetition": 135,
+          "echo": 127,
+          "too_short": 1
+        },
+        "degenerate_pct": 30.7,
+        "primary_ASR_pct": 27.570093457943926,
+        "non_degenerate_n": 593,
+        "non_degenerate_ASR_pct": 15.345699831365936
+      },
+      "en": {
+        "n": 302,
+        "flag_counts": {
+          "repetition": 33,
+          "echo": 3
+        },
+        "degenerate_pct": 11.9,
+        "primary_ASR_pct": 19.205298013245034,
+        "non_degenerate_n": 266,
+        "non_degenerate_ASR_pct": 15.037593984962406
+      },
+      "hi": {
+        "n": 302,
+        "flag_counts": {
+          "repetition": 38,
+          "echo": 12
+        },
+        "degenerate_pct": 16.6,
+        "primary_ASR_pct": 15.562913907284768,
+        "non_degenerate_n": 252,
+        "non_degenerate_ASR_pct": 11.11111111111111
+      },
+      "hinglish": {
+        "n": 252,
+        "flag_counts": {
+          "repetition": 64,
+          "too_short": 1,
+          "echo": 112
+        },
+        "degenerate_pct": 70.2,
+        "primary_ASR_pct": 51.98412698412698,
+        "non_degenerate_n": 75,
+        "non_degenerate_ASR_pct": 30.666666666666668
+      }
+    }
+  },
+  "heuristic_function_sha256": "3d3b1330f1dbf0ba463e17ad90889325e7c07d14541886566ebfda98c7edb2f2",
+  "scope": "Post-hoc heuristic sensitivity, not an alternative primary analysis or human quality adjudication. Includes too_short flags which can capture legitimate short refusals. No raw completions are written.",
+  "central_primary_counts_preserved": true
+}

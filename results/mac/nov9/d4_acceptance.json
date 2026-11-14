@@ -1,0 +1,18 @@
+{
+  "accepted": true,
+  "source": "handoff/D4_2026-11-08/d4_aggregated_layer_x_matrix.json",
+  "score_sha256": "d6075854b765fd5a62f26f4ad874e2ba744c04e1de0b9897076a490a8f90a36a",
+  "G3a_pass": true,
+  "score_kind_parser_note": "The raw table has no kind key, so export report retains generic parser fallback unvalidated_D4_table. Actual acceptance is documented here with the handoff G3a evidence and verified CRLF-normalized manifest.",
+  "family_ranking": true,
+  "boundary_family": "layer20 attention, Q only fills last of 8 slots; equal scores do not imply Q-specific importance",
+  "upgraded": 8,
+  "downgraded": 15,
+  "unchanged_per_build": 267,
+  "validation_limits": [
+    "Hindi k40 necessity failed",
+    "English k40 marginal",
+    "Hinglish circuit weak split-half floor",
+    "No causal explanation of medical drift beyond noise"
+  ]
+}

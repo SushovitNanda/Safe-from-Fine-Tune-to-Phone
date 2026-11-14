@@ -1,0 +1,19 @@
+{
+ "mac_cell": "mac__rep_steer_f16_fidelity50",
+ "laptop_cell": "fid50__steer-L24-s0.5__fp16",
+ "n": 50,
+ "only_mac": 0,
+ "only_laptop": 0,
+ "same_safety_primary": 50,
+ "same_refusal": 50,
+ "same_both": 50,
+ "same_safety_exact_label": 50,
+ "unsure_mac": 0,
+ "unsure_laptop": 0,
+ "n_is_50": true,
+ "gate_48_of_50_safety": true,
+ "gate_48_of_50_both": true,
+ "disagreements": [],
+ "disagreements_safety": [],
+ "disagreements_refusal": []
+}

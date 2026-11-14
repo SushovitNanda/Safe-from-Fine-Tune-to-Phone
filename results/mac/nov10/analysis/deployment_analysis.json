@@ -1,0 +1,2739 @@
+{
+  "available_labelled_cells": [
+    "orig_q4km",
+    "orig_q4km-nopre",
+    "med_f16",
+    "med_q4km",
+    "med_q3km",
+    "med_q4km-nopre",
+    "med_budget-phone"
+  ],
+  "p_method": "Laptop-compatible two-sided percentile paired-bootstrap tail p, bounded below by1/10000",
+  "seed": 13,
+  "bootstrap_resamples": 10000,
+  "comparisons": [
+    {
+      "n": 856,
+      "difference_pp": 2.570093457943925,
+      "ci95_pp": [
+        0.23364485981308408,
+        4.906542056074766
+      ],
+      "p_boot": 0.038,
+      "noninferiority_upper_below_5": true,
+      "a": "med_q4km",
+      "b": "med_f16",
+      "metric": "asr",
+      "subset": "pooled",
+      "lang": "all",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 856,
+      "difference_pp": 2.219626168224299,
+      "ci95_pp": [
+        -0.35046728971962615,
+        4.789719626168224
+      ],
+      "p_boot": 0.1008,
+      "noninferiority_upper_below_5": true,
+      "a": "med_q3km",
+      "b": "med_f16",
+      "metric": "asr",
+      "subset": "pooled",
+      "lang": "all",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 856,
+      "difference_pp": -6.191588785046729,
+      "ci95_pp": [
+        -8.761682242990654,
+        -3.6214953271028034
+      ],
+      "p_boot": 0.0001,
+      "noninferiority_upper_below_5": true,
+      "a": "med_q4km-nopre",
+      "b": "med_q4km",
+      "metric": "asr",
+      "subset": "pooled",
+      "lang": "all",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 0.012
+    },
+    {
+      "n": 856,
+      "difference_pp": -4.205607476635514,
+      "ci95_pp": [
+        -6.775700934579438,
+        -1.7523364485981308
+      ],
+      "p_boot": 0.0008,
+      "noninferiority_upper_below_5": true,
+      "a": "med_budget-phone",
+      "b": "med_q3km",
+      "metric": "asr",
+      "subset": "pooled",
+      "lang": "all",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 0.0896
+    },
+    {
+      "n": 856,
+      "difference_pp": 1.4018691588785046,
+      "ci95_pp": [
+        -0.7009345794392523,
+        3.5046728971962615
+      ],
+      "p_boot": 0.2112,
+      "noninferiority_upper_below_5": true,
+      "a": "orig_q4km-nopre",
+      "b": "orig_q4km",
+      "metric": "asr",
+      "subset": "pooled",
+      "lang": "all",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 856,
+      "difference_pp": -1.9859813084112148,
+      "ci95_pp": [
+        -4.789719626168224,
+        0.8177570093457943
+      ],
+      "p_boot": 0.1748,
+      "noninferiority_upper_below_5": true,
+      "a": "med_budget-phone",
+      "b": "med_f16",
+      "metric": "asr",
+      "subset": "pooled",
+      "lang": "all",
+      "directional_Hinglish_included": false
+    },
+    {
+      "n": 302,
+      "difference_pp": 3.3112582781456954,
+      "ci95_pp": [
+        -0.33112582781456956,
+        6.95364238410596
+      ],
+      "p_boot": 0.0852,
+      "noninferiority_upper_below_5": false,
+      "a": "med_q4km",
+      "b": "med_f16",
+      "metric": "asr",
+      "subset": "pooled",
+      "lang": "en",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 302,
+      "difference_pp": -4.635761589403973,
+      "ci95_pp": [
+        -8.609271523178808,
+        -0.6622516556291391
+      ],
+      "p_boot": 0.0256,
+      "noninferiority_upper_below_5": true,
+      "a": "med_q3km",
+      "b": "med_f16",
+      "metric": "asr",
+      "subset": "pooled",
+      "lang": "en",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 302,
+      "difference_pp": -8.940397350993377,
+      "ci95_pp": [
+        -13.245033112582782,
+        -4.966887417218543
+      ],
+      "p_boot": 0.0001,
+      "noninferiority_upper_below_5": true,
+      "a": "med_q4km-nopre",
+      "b": "med_q4km",
+      "metric": "asr",
+      "subset": "pooled",
+      "lang": "en",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 0.012
+    },
+    {
+      "n": 302,
+      "difference_pp": -3.3112582781456954,
+      "ci95_pp": [
+        -6.95364238410596,
+        0.33112582781456956
+      ],
+      "p_boot": 0.0774,
+      "noninferiority_upper_below_5": true,
+      "a": "med_budget-phone",
+      "b": "med_q3km",
+      "metric": "asr",
+      "subset": "pooled",
+      "lang": "en",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 302,
+      "difference_pp": 0.9933774834437087,
+      "ci95_pp": [
+        -2.3178807947019866,
+        4.304635761589404
+      ],
+      "p_boot": 0.613,
+      "noninferiority_upper_below_5": true,
+      "a": "orig_q4km-nopre",
+      "b": "orig_q4km",
+      "metric": "asr",
+      "subset": "pooled",
+      "lang": "en",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 302,
+      "difference_pp": -7.9470198675496695,
+      "ci95_pp": [
+        -12.582781456953644,
+        -3.3112582781456954
+      ],
+      "p_boot": 0.0012,
+      "noninferiority_upper_below_5": true,
+      "a": "med_budget-phone",
+      "b": "med_f16",
+      "metric": "asr",
+      "subset": "pooled",
+      "lang": "en",
+      "directional_Hinglish_included": false
+    },
+    {
+      "n": 302,
+      "difference_pp": 2.6490066225165565,
+      "ci95_pp": [
+        -0.9933774834437087,
+        6.291390728476822
+      ],
+      "p_boot": 0.1948,
+      "noninferiority_upper_below_5": false,
+      "a": "med_q4km",
+      "b": "med_f16",
+      "metric": "asr",
+      "subset": "pooled",
+      "lang": "hi",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 302,
+      "difference_pp": 4.304635761589404,
+      "ci95_pp": [
+        0.0,
+        8.609271523178808
+      ],
+      "p_boot": 0.0638,
+      "noninferiority_upper_below_5": false,
+      "a": "med_q3km",
+      "b": "med_f16",
+      "metric": "asr",
+      "subset": "pooled",
+      "lang": "hi",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 302,
+      "difference_pp": -5.960264900662252,
+      "ci95_pp": [
+        -10.264900662251655,
+        -1.9867549668874174
+      ],
+      "p_boot": 0.0052,
+      "noninferiority_upper_below_5": true,
+      "a": "med_q4km-nopre",
+      "b": "med_q4km",
+      "metric": "asr",
+      "subset": "pooled",
+      "lang": "hi",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 0.5564
+    },
+    {
+      "n": 302,
+      "difference_pp": -5.298013245033113,
+      "ci95_pp": [
+        -9.933774834437086,
+        -0.6622516556291391
+      ],
+      "p_boot": 0.0258,
+      "noninferiority_upper_below_5": true,
+      "a": "med_budget-phone",
+      "b": "med_q3km",
+      "metric": "asr",
+      "subset": "pooled",
+      "lang": "hi",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 302,
+      "difference_pp": -0.33112582781456956,
+      "ci95_pp": [
+        -2.6490066225165565,
+        1.9867549668874174
+      ],
+      "p_boot": 0.8918,
+      "noninferiority_upper_below_5": true,
+      "a": "orig_q4km-nopre",
+      "b": "orig_q4km",
+      "metric": "asr",
+      "subset": "pooled",
+      "lang": "hi",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 302,
+      "difference_pp": -0.9933774834437087,
+      "ci95_pp": [
+        -5.629139072847682,
+        3.642384105960265
+      ],
+      "p_boot": 0.7208,
+      "noninferiority_upper_below_5": true,
+      "a": "med_budget-phone",
+      "b": "med_f16",
+      "metric": "asr",
+      "subset": "pooled",
+      "lang": "hi",
+      "directional_Hinglish_included": false
+    },
+    {
+      "n": 252,
+      "difference_pp": 1.5873015873015872,
+      "ci95_pp": [
+        -3.571428571428571,
+        6.746031746031746
+      ],
+      "p_boot": 0.5896,
+      "noninferiority_upper_below_5": false,
+      "a": "med_q4km",
+      "b": "med_f16",
+      "metric": "asr",
+      "subset": "pooled",
+      "lang": "hinglish",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 252,
+      "difference_pp": 7.936507936507936,
+      "ci95_pp": [
+        3.1746031746031744,
+        12.698412698412698
+      ],
+      "p_boot": 0.0012,
+      "noninferiority_upper_below_5": false,
+      "a": "med_q3km",
+      "b": "med_f16",
+      "metric": "asr",
+      "subset": "pooled",
+      "lang": "hinglish",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 0.13319999999999999
+    },
+    {
+      "n": 252,
+      "difference_pp": -3.1746031746031744,
+      "ci95_pp": [
+        -8.333333333333332,
+        1.984126984126984
+      ],
+      "p_boot": 0.2634,
+      "noninferiority_upper_below_5": true,
+      "a": "med_q4km-nopre",
+      "b": "med_q4km",
+      "metric": "asr",
+      "subset": "pooled",
+      "lang": "hinglish",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 252,
+      "difference_pp": -3.968253968253968,
+      "ci95_pp": [
+        -8.73015873015873,
+        0.7936507936507936
+      ],
+      "p_boot": 0.123,
+      "noninferiority_upper_below_5": true,
+      "a": "med_budget-phone",
+      "b": "med_q3km",
+      "metric": "asr",
+      "subset": "pooled",
+      "lang": "hinglish",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 252,
+      "difference_pp": 3.968253968253968,
+      "ci95_pp": [
+        -1.5873015873015872,
+        9.126984126984127
+      ],
+      "p_boot": 0.17,
+      "noninferiority_upper_below_5": false,
+      "a": "orig_q4km-nopre",
+      "b": "orig_q4km",
+      "metric": "asr",
+      "subset": "pooled",
+      "lang": "hinglish",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 252,
+      "difference_pp": 3.968253968253968,
+      "ci95_pp": [
+        -1.1904761904761905,
+        9.126984126984127
+      ],
+      "p_boot": 0.1578,
+      "noninferiority_upper_below_5": false,
+      "a": "med_budget-phone",
+      "b": "med_f16",
+      "metric": "asr",
+      "subset": "pooled",
+      "lang": "hinglish",
+      "directional_Hinglish_included": false
+    },
+    {
+      "n": 550,
+      "difference_pp": 2.181818181818182,
+      "ci95_pp": [
+        -0.9090909090909091,
+        5.2727272727272725
+      ],
+      "p_boot": 0.1692,
+      "noninferiority_upper_below_5": false,
+      "a": "med_q4km",
+      "b": "med_f16",
+      "metric": "asr",
+      "subset": "general",
+      "lang": "all",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 550,
+      "difference_pp": 2.3636363636363638,
+      "ci95_pp": [
+        -0.7272727272727273,
+        5.454545454545454
+      ],
+      "p_boot": 0.1472,
+      "noninferiority_upper_below_5": false,
+      "a": "med_q3km",
+      "b": "med_f16",
+      "metric": "asr",
+      "subset": "general",
+      "lang": "all",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 550,
+      "difference_pp": -6.363636363636363,
+      "ci95_pp": [
+        -9.636363636363637,
+        -3.272727272727273
+      ],
+      "p_boot": 0.0002,
+      "noninferiority_upper_below_5": true,
+      "a": "med_q4km-nopre",
+      "b": "med_q4km",
+      "metric": "asr",
+      "subset": "general",
+      "lang": "all",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 0.0228
+    },
+    {
+      "n": 550,
+      "difference_pp": -4.545454545454546,
+      "ci95_pp": [
+        -7.636363636363637,
+        -1.6363636363636365
+      ],
+      "p_boot": 0.0036,
+      "noninferiority_upper_below_5": true,
+      "a": "med_budget-phone",
+      "b": "med_q3km",
+      "metric": "asr",
+      "subset": "general",
+      "lang": "all",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 0.39239999999999997
+    },
+    {
+      "n": 550,
+      "difference_pp": 1.4545454545454546,
+      "ci95_pp": [
+        -0.9090909090909091,
+        4.0
+      ],
+      "p_boot": 0.2494,
+      "noninferiority_upper_below_5": true,
+      "a": "orig_q4km-nopre",
+      "b": "orig_q4km",
+      "metric": "asr",
+      "subset": "general",
+      "lang": "all",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 550,
+      "difference_pp": -2.181818181818182,
+      "ci95_pp": [
+        -5.636363636363637,
+        1.090909090909091
+      ],
+      "p_boot": 0.2138,
+      "noninferiority_upper_below_5": true,
+      "a": "med_budget-phone",
+      "b": "med_f16",
+      "metric": "asr",
+      "subset": "general",
+      "lang": "all",
+      "directional_Hinglish_included": false
+    },
+    {
+      "n": 200,
+      "difference_pp": 1.5,
+      "ci95_pp": [
+        -3.0,
+        6.0
+      ],
+      "p_boot": 0.614,
+      "noninferiority_upper_below_5": false,
+      "a": "med_q4km",
+      "b": "med_f16",
+      "metric": "asr",
+      "subset": "general",
+      "lang": "en",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 200,
+      "difference_pp": -3.5000000000000004,
+      "ci95_pp": [
+        -8.5,
+        1.5
+      ],
+      "p_boot": 0.181,
+      "noninferiority_upper_below_5": true,
+      "a": "med_q3km",
+      "b": "med_f16",
+      "metric": "asr",
+      "subset": "general",
+      "lang": "en",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 200,
+      "difference_pp": -9.0,
+      "ci95_pp": [
+        -14.499999999999998,
+        -4.0
+      ],
+      "p_boot": 0.0004,
+      "noninferiority_upper_below_5": true,
+      "a": "med_q4km-nopre",
+      "b": "med_q4km",
+      "metric": "asr",
+      "subset": "general",
+      "lang": "en",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 0.045200000000000004
+    },
+    {
+      "n": 200,
+      "difference_pp": -4.0,
+      "ci95_pp": [
+        -8.5,
+        0.0
+      ],
+      "p_boot": 0.0844,
+      "noninferiority_upper_below_5": true,
+      "a": "med_budget-phone",
+      "b": "med_q3km",
+      "metric": "asr",
+      "subset": "general",
+      "lang": "en",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 200,
+      "difference_pp": 0.5,
+      "ci95_pp": [
+        -3.5000000000000004,
+        4.5
+      ],
+      "p_boot": 0.8952,
+      "noninferiority_upper_below_5": true,
+      "a": "orig_q4km-nopre",
+      "b": "orig_q4km",
+      "metric": "asr",
+      "subset": "general",
+      "lang": "en",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 200,
+      "difference_pp": -7.5,
+      "ci95_pp": [
+        -13.0,
+        -2.0
+      ],
+      "p_boot": 0.009,
+      "noninferiority_upper_below_5": true,
+      "a": "med_budget-phone",
+      "b": "med_f16",
+      "metric": "asr",
+      "subset": "general",
+      "lang": "en",
+      "directional_Hinglish_included": false
+    },
+    {
+      "n": 200,
+      "difference_pp": 2.5,
+      "ci95_pp": [
+        -2.0,
+        7.000000000000001
+      ],
+      "p_boot": 0.3246,
+      "noninferiority_upper_below_5": false,
+      "a": "med_q4km",
+      "b": "med_f16",
+      "metric": "asr",
+      "subset": "general",
+      "lang": "hi",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 200,
+      "difference_pp": 3.5000000000000004,
+      "ci95_pp": [
+        -2.0,
+        8.5
+      ],
+      "p_boot": 0.229,
+      "noninferiority_upper_below_5": false,
+      "a": "med_q3km",
+      "b": "med_f16",
+      "metric": "asr",
+      "subset": "general",
+      "lang": "hi",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 200,
+      "difference_pp": -5.5,
+      "ci95_pp": [
+        -10.5,
+        -0.5
+      ],
+      "p_boot": 0.0332,
+      "noninferiority_upper_below_5": true,
+      "a": "med_q4km-nopre",
+      "b": "med_q4km",
+      "metric": "asr",
+      "subset": "general",
+      "lang": "hi",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 200,
+      "difference_pp": -4.0,
+      "ci95_pp": [
+        -9.5,
+        1.5
+      ],
+      "p_boot": 0.1772,
+      "noninferiority_upper_below_5": true,
+      "a": "med_budget-phone",
+      "b": "med_q3km",
+      "metric": "asr",
+      "subset": "general",
+      "lang": "hi",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 200,
+      "difference_pp": -1.0,
+      "ci95_pp": [
+        -3.5000000000000004,
+        1.5
+      ],
+      "p_boot": 0.5338,
+      "noninferiority_upper_below_5": true,
+      "a": "orig_q4km-nopre",
+      "b": "orig_q4km",
+      "metric": "asr",
+      "subset": "general",
+      "lang": "hi",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 200,
+      "difference_pp": -0.5,
+      "ci95_pp": [
+        -6.0,
+        5.0
+      ],
+      "p_boot": 0.92,
+      "noninferiority_upper_below_5": false,
+      "a": "med_budget-phone",
+      "b": "med_f16",
+      "metric": "asr",
+      "subset": "general",
+      "lang": "hi",
+      "directional_Hinglish_included": false
+    },
+    {
+      "n": 150,
+      "difference_pp": 2.666666666666667,
+      "ci95_pp": [
+        -4.0,
+        9.333333333333334
+      ],
+      "p_boot": 0.4772,
+      "noninferiority_upper_below_5": false,
+      "a": "med_q4km",
+      "b": "med_f16",
+      "metric": "asr",
+      "subset": "general",
+      "lang": "hinglish",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 150,
+      "difference_pp": 8.666666666666668,
+      "ci95_pp": [
+        2.666666666666667,
+        14.666666666666666
+      ],
+      "p_boot": 0.0044,
+      "noninferiority_upper_below_5": false,
+      "a": "med_q3km",
+      "b": "med_f16",
+      "metric": "asr",
+      "subset": "general",
+      "lang": "hinglish",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 0.4752
+    },
+    {
+      "n": 150,
+      "difference_pp": -4.0,
+      "ci95_pp": [
+        -10.666666666666668,
+        2.666666666666667
+      ],
+      "p_boot": 0.2706,
+      "noninferiority_upper_below_5": true,
+      "a": "med_q4km-nopre",
+      "b": "med_q4km",
+      "metric": "asr",
+      "subset": "general",
+      "lang": "hinglish",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 150,
+      "difference_pp": -6.0,
+      "ci95_pp": [
+        -12.666666666666668,
+        0.0
+      ],
+      "p_boot": 0.0798,
+      "noninferiority_upper_below_5": true,
+      "a": "med_budget-phone",
+      "b": "med_q3km",
+      "metric": "asr",
+      "subset": "general",
+      "lang": "hinglish",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 150,
+      "difference_pp": 6.0,
+      "ci95_pp": [
+        0.0,
+        12.666666666666668
+      ],
+      "p_boot": 0.0638,
+      "noninferiority_upper_below_5": false,
+      "a": "orig_q4km-nopre",
+      "b": "orig_q4km",
+      "metric": "asr",
+      "subset": "general",
+      "lang": "hinglish",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 150,
+      "difference_pp": 2.666666666666667,
+      "ci95_pp": [
+        -4.0,
+        9.333333333333334
+      ],
+      "p_boot": 0.4846,
+      "noninferiority_upper_below_5": false,
+      "a": "med_budget-phone",
+      "b": "med_f16",
+      "metric": "asr",
+      "subset": "general",
+      "lang": "hinglish",
+      "directional_Hinglish_included": false
+    },
+    {
+      "n": 306,
+      "difference_pp": 3.2679738562091507,
+      "ci95_pp": [
+        -0.6535947712418301,
+        7.18954248366013
+      ],
+      "p_boot": 0.1244,
+      "noninferiority_upper_below_5": false,
+      "a": "med_q4km",
+      "b": "med_f16",
+      "metric": "asr",
+      "subset": "clinical",
+      "lang": "all",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 306,
+      "difference_pp": 1.9607843137254901,
+      "ci95_pp": [
+        -2.6143790849673203,
+        6.535947712418301
+      ],
+      "p_boot": 0.4382,
+      "noninferiority_upper_below_5": false,
+      "a": "med_q3km",
+      "b": "med_f16",
+      "metric": "asr",
+      "subset": "clinical",
+      "lang": "all",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 306,
+      "difference_pp": -5.88235294117647,
+      "ci95_pp": [
+        -10.457516339869281,
+        -1.6339869281045754
+      ],
+      "p_boot": 0.0092,
+      "noninferiority_upper_below_5": true,
+      "a": "med_q4km-nopre",
+      "b": "med_q4km",
+      "metric": "asr",
+      "subset": "clinical",
+      "lang": "all",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 0.966
+    },
+    {
+      "n": 306,
+      "difference_pp": -3.594771241830065,
+      "ci95_pp": [
+        -7.8431372549019605,
+        0.9803921568627451
+      ],
+      "p_boot": 0.132,
+      "noninferiority_upper_below_5": true,
+      "a": "med_budget-phone",
+      "b": "med_q3km",
+      "metric": "asr",
+      "subset": "clinical",
+      "lang": "all",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 306,
+      "difference_pp": 1.3071895424836601,
+      "ci95_pp": [
+        -2.6143790849673203,
+        5.555555555555555
+      ],
+      "p_boot": 0.5778,
+      "noninferiority_upper_below_5": false,
+      "a": "orig_q4km-nopre",
+      "b": "orig_q4km",
+      "metric": "asr",
+      "subset": "clinical",
+      "lang": "all",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 306,
+      "difference_pp": -1.6339869281045754,
+      "ci95_pp": [
+        -6.535947712418301,
+        3.2679738562091507
+      ],
+      "p_boot": 0.5716,
+      "noninferiority_upper_below_5": true,
+      "a": "med_budget-phone",
+      "b": "med_f16",
+      "metric": "asr",
+      "subset": "clinical",
+      "lang": "all",
+      "directional_Hinglish_included": false
+    },
+    {
+      "n": 102,
+      "difference_pp": 6.862745098039216,
+      "ci95_pp": [
+        1.9607843137254901,
+        12.745098039215685
+      ],
+      "p_boot": 0.0158,
+      "noninferiority_upper_below_5": false,
+      "a": "med_q4km",
+      "b": "med_f16",
+      "metric": "asr",
+      "subset": "clinical",
+      "lang": "en",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 102,
+      "difference_pp": -6.862745098039216,
+      "ci95_pp": [
+        -13.725490196078432,
+        0.0
+      ],
+      "p_boot": 0.0768,
+      "noninferiority_upper_below_5": true,
+      "a": "med_q3km",
+      "b": "med_f16",
+      "metric": "asr",
+      "subset": "clinical",
+      "lang": "en",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 102,
+      "difference_pp": -8.823529411764707,
+      "ci95_pp": [
+        -15.686274509803921,
+        -1.9607843137254901
+      ],
+      "p_boot": 0.0112,
+      "noninferiority_upper_below_5": true,
+      "a": "med_q4km-nopre",
+      "b": "med_q4km",
+      "metric": "asr",
+      "subset": "clinical",
+      "lang": "en",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 102,
+      "difference_pp": -1.9607843137254901,
+      "ci95_pp": [
+        -7.8431372549019605,
+        3.9215686274509802
+      ],
+      "p_boot": 0.6412,
+      "noninferiority_upper_below_5": true,
+      "a": "med_budget-phone",
+      "b": "med_q3km",
+      "metric": "asr",
+      "subset": "clinical",
+      "lang": "en",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 102,
+      "difference_pp": 1.9607843137254901,
+      "ci95_pp": [
+        -2.941176470588235,
+        7.8431372549019605
+      ],
+      "p_boot": 0.5952,
+      "noninferiority_upper_below_5": false,
+      "a": "orig_q4km-nopre",
+      "b": "orig_q4km",
+      "metric": "asr",
+      "subset": "clinical",
+      "lang": "en",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 102,
+      "difference_pp": -8.823529411764707,
+      "ci95_pp": [
+        -17.647058823529413,
+        0.0
+      ],
+      "p_boot": 0.0548,
+      "noninferiority_upper_below_5": true,
+      "a": "med_budget-phone",
+      "b": "med_f16",
+      "metric": "asr",
+      "subset": "clinical",
+      "lang": "en",
+      "directional_Hinglish_included": false
+    },
+    {
+      "n": 102,
+      "difference_pp": 2.941176470588235,
+      "ci95_pp": [
+        -3.9215686274509802,
+        9.803921568627452
+      ],
+      "p_boot": 0.4866,
+      "noninferiority_upper_below_5": false,
+      "a": "med_q4km",
+      "b": "med_f16",
+      "metric": "asr",
+      "subset": "clinical",
+      "lang": "hi",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 102,
+      "difference_pp": 5.88235294117647,
+      "ci95_pp": [
+        -1.9607843137254901,
+        13.725490196078432
+      ],
+      "p_boot": 0.1858,
+      "noninferiority_upper_below_5": false,
+      "a": "med_q3km",
+      "b": "med_f16",
+      "metric": "asr",
+      "subset": "clinical",
+      "lang": "hi",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 102,
+      "difference_pp": -6.862745098039216,
+      "ci95_pp": [
+        -14.705882352941178,
+        0.9803921568627451
+      ],
+      "p_boot": 0.1106,
+      "noninferiority_upper_below_5": true,
+      "a": "med_q4km-nopre",
+      "b": "med_q4km",
+      "metric": "asr",
+      "subset": "clinical",
+      "lang": "hi",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 102,
+      "difference_pp": -7.8431372549019605,
+      "ci95_pp": [
+        -16.666666666666664,
+        0.9803921568627451
+      ],
+      "p_boot": 0.1064,
+      "noninferiority_upper_below_5": true,
+      "a": "med_budget-phone",
+      "b": "med_q3km",
+      "metric": "asr",
+      "subset": "clinical",
+      "lang": "hi",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 102,
+      "difference_pp": 0.9803921568627451,
+      "ci95_pp": [
+        -3.9215686274509802,
+        5.88235294117647
+      ],
+      "p_boot": 0.8438,
+      "noninferiority_upper_below_5": false,
+      "a": "orig_q4km-nopre",
+      "b": "orig_q4km",
+      "metric": "asr",
+      "subset": "clinical",
+      "lang": "hi",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 102,
+      "difference_pp": -1.9607843137254901,
+      "ci95_pp": [
+        -10.784313725490197,
+        6.862745098039216
+      ],
+      "p_boot": 0.7416,
+      "noninferiority_upper_below_5": false,
+      "a": "med_budget-phone",
+      "b": "med_f16",
+      "metric": "asr",
+      "subset": "clinical",
+      "lang": "hi",
+      "directional_Hinglish_included": false
+    },
+    {
+      "n": 102,
+      "difference_pp": 0.0,
+      "ci95_pp": [
+        -7.8431372549019605,
+        7.8431372549019605
+      ],
+      "p_boot": 1.0,
+      "noninferiority_upper_below_5": false,
+      "a": "med_q4km",
+      "b": "med_f16",
+      "metric": "asr",
+      "subset": "clinical",
+      "lang": "hinglish",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 102,
+      "difference_pp": 6.862745098039216,
+      "ci95_pp": [
+        -0.9803921568627451,
+        15.686274509803921
+      ],
+      "p_boot": 0.1236,
+      "noninferiority_upper_below_5": false,
+      "a": "med_q3km",
+      "b": "med_f16",
+      "metric": "asr",
+      "subset": "clinical",
+      "lang": "hinglish",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 102,
+      "difference_pp": -1.9607843137254901,
+      "ci95_pp": [
+        -9.803921568627452,
+        5.88235294117647
+      ],
+      "p_boot": 0.7366,
+      "noninferiority_upper_below_5": false,
+      "a": "med_q4km-nopre",
+      "b": "med_q4km",
+      "metric": "asr",
+      "subset": "clinical",
+      "lang": "hinglish",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 102,
+      "difference_pp": -0.9803921568627451,
+      "ci95_pp": [
+        -8.823529411764707,
+        6.862745098039216
+      ],
+      "p_boot": 0.916,
+      "noninferiority_upper_below_5": false,
+      "a": "med_budget-phone",
+      "b": "med_q3km",
+      "metric": "asr",
+      "subset": "clinical",
+      "lang": "hinglish",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 102,
+      "difference_pp": 0.9803921568627451,
+      "ci95_pp": [
+        -8.823529411764707,
+        10.784313725490197
+      ],
+      "p_boot": 0.921,
+      "noninferiority_upper_below_5": false,
+      "a": "orig_q4km-nopre",
+      "b": "orig_q4km",
+      "metric": "asr",
+      "subset": "clinical",
+      "lang": "hinglish",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 102,
+      "difference_pp": 5.88235294117647,
+      "ci95_pp": [
+        -2.941176470588235,
+        14.705882352941178
+      ],
+      "p_boot": 0.214,
+      "noninferiority_upper_below_5": false,
+      "a": "med_budget-phone",
+      "b": "med_f16",
+      "metric": "asr",
+      "subset": "clinical",
+      "lang": "hinglish",
+      "directional_Hinglish_included": false
+    },
+    {
+      "n": 756,
+      "difference_pp": -1.8518518518518516,
+      "ci95_pp": [
+        -4.62962962962963,
+        0.7936507936507936
+      ],
+      "p_boot": 0.1938,
+      "noninferiority_upper_below_5": true,
+      "a": "med_q4km",
+      "b": "med_f16",
+      "metric": "orr",
+      "subset": "pooled",
+      "lang": "all",
+      "directional_Hinglish_included": true,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 756,
+      "difference_pp": 3.1746031746031744,
+      "ci95_pp": [
+        0.26455026455026454,
+        6.084656084656085
+      ],
+      "p_boot": 0.0396,
+      "noninferiority_upper_below_5": false,
+      "a": "med_q3km",
+      "b": "med_f16",
+      "metric": "orr",
+      "subset": "pooled",
+      "lang": "all",
+      "directional_Hinglish_included": true,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 756,
+      "difference_pp": -2.380952380952381,
+      "ci95_pp": [
+        -5.026455026455026,
+        0.13227513227513227
+      ],
+      "p_boot": 0.079,
+      "noninferiority_upper_below_5": true,
+      "a": "med_q4km-nopre",
+      "b": "med_q4km",
+      "metric": "orr",
+      "subset": "pooled",
+      "lang": "all",
+      "directional_Hinglish_included": true,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 756,
+      "difference_pp": -2.7777777777777777,
+      "ci95_pp": [
+        -5.6878306878306875,
+        0.26455026455026454
+      ],
+      "p_boot": 0.0756,
+      "noninferiority_upper_below_5": true,
+      "a": "med_budget-phone",
+      "b": "med_q3km",
+      "metric": "orr",
+      "subset": "pooled",
+      "lang": "all",
+      "directional_Hinglish_included": true,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 756,
+      "difference_pp": 4.761904761904762,
+      "ci95_pp": [
+        2.513227513227513,
+        7.142857142857142
+      ],
+      "p_boot": 0.0001,
+      "noninferiority_upper_below_5": false,
+      "a": "orig_q4km-nopre",
+      "b": "orig_q4km",
+      "metric": "orr",
+      "subset": "pooled",
+      "lang": "all",
+      "directional_Hinglish_included": true,
+      "holm_boot_partial_120": 0.012
+    },
+    {
+      "n": 756,
+      "difference_pp": 0.3968253968253968,
+      "ci95_pp": [
+        -2.513227513227513,
+        3.3068783068783065
+      ],
+      "p_boot": 0.8276,
+      "noninferiority_upper_below_5": true,
+      "a": "med_budget-phone",
+      "b": "med_f16",
+      "metric": "orr",
+      "subset": "pooled",
+      "lang": "all",
+      "directional_Hinglish_included": true
+    },
+    {
+      "n": 252,
+      "difference_pp": -1.984126984126984,
+      "ci95_pp": [
+        -5.952380952380952,
+        1.984126984126984
+      ],
+      "p_boot": 0.393,
+      "noninferiority_upper_below_5": true,
+      "a": "med_q4km",
+      "b": "med_f16",
+      "metric": "orr",
+      "subset": "pooled",
+      "lang": "en",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 252,
+      "difference_pp": 2.380952380952381,
+      "ci95_pp": [
+        -1.984126984126984,
+        7.142857142857142
+      ],
+      "p_boot": 0.3346,
+      "noninferiority_upper_below_5": false,
+      "a": "med_q3km",
+      "b": "med_f16",
+      "metric": "orr",
+      "subset": "pooled",
+      "lang": "en",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 252,
+      "difference_pp": -2.7777777777777777,
+      "ci95_pp": [
+        -6.349206349206349,
+        0.7936507936507936
+      ],
+      "p_boot": 0.1376,
+      "noninferiority_upper_below_5": true,
+      "a": "med_q4km-nopre",
+      "b": "med_q4km",
+      "metric": "orr",
+      "subset": "pooled",
+      "lang": "en",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 252,
+      "difference_pp": -0.3968253968253968,
+      "ci95_pp": [
+        -5.555555555555555,
+        4.761904761904762
+      ],
+      "p_boot": 0.9286,
+      "noninferiority_upper_below_5": true,
+      "a": "med_budget-phone",
+      "b": "med_q3km",
+      "metric": "orr",
+      "subset": "pooled",
+      "lang": "en",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 252,
+      "difference_pp": 1.5873015873015872,
+      "ci95_pp": [
+        -0.7936507936507936,
+        3.968253968253968
+      ],
+      "p_boot": 0.25,
+      "noninferiority_upper_below_5": true,
+      "a": "orig_q4km-nopre",
+      "b": "orig_q4km",
+      "metric": "orr",
+      "subset": "pooled",
+      "lang": "en",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 252,
+      "difference_pp": 1.984126984126984,
+      "ci95_pp": [
+        -2.7777777777777777,
+        6.746031746031746
+      ],
+      "p_boot": 0.4602,
+      "noninferiority_upper_below_5": false,
+      "a": "med_budget-phone",
+      "b": "med_f16",
+      "metric": "orr",
+      "subset": "pooled",
+      "lang": "en",
+      "directional_Hinglish_included": false
+    },
+    {
+      "n": 252,
+      "difference_pp": -0.3968253968253968,
+      "ci95_pp": [
+        -3.571428571428571,
+        2.7777777777777777
+      ],
+      "p_boot": 0.9126,
+      "noninferiority_upper_below_5": true,
+      "a": "med_q4km",
+      "b": "med_f16",
+      "metric": "orr",
+      "subset": "pooled",
+      "lang": "hi",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 252,
+      "difference_pp": 0.0,
+      "ci95_pp": [
+        -3.571428571428571,
+        3.571428571428571
+      ],
+      "p_boot": 1.0,
+      "noninferiority_upper_below_5": true,
+      "a": "med_q3km",
+      "b": "med_f16",
+      "metric": "orr",
+      "subset": "pooled",
+      "lang": "hi",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 252,
+      "difference_pp": -2.7777777777777777,
+      "ci95_pp": [
+        -6.746031746031746,
+        0.7936507936507936
+      ],
+      "p_boot": 0.1676,
+      "noninferiority_upper_below_5": true,
+      "a": "med_q4km-nopre",
+      "b": "med_q4km",
+      "metric": "orr",
+      "subset": "pooled",
+      "lang": "hi",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 252,
+      "difference_pp": -3.968253968253968,
+      "ci95_pp": [
+        -7.5396825396825395,
+        -0.7936507936507936
+      ],
+      "p_boot": 0.0276,
+      "noninferiority_upper_below_5": true,
+      "a": "med_budget-phone",
+      "b": "med_q3km",
+      "metric": "orr",
+      "subset": "pooled",
+      "lang": "hi",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 252,
+      "difference_pp": 4.365079365079365,
+      "ci95_pp": [
+        1.984126984126984,
+        7.142857142857142
+      ],
+      "p_boot": 0.0001,
+      "noninferiority_upper_below_5": false,
+      "a": "orig_q4km-nopre",
+      "b": "orig_q4km",
+      "metric": "orr",
+      "subset": "pooled",
+      "lang": "hi",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 0.012
+    },
+    {
+      "n": 252,
+      "difference_pp": -3.968253968253968,
+      "ci95_pp": [
+        -7.142857142857142,
+        -0.7936507936507936
+      ],
+      "p_boot": 0.0174,
+      "noninferiority_upper_below_5": true,
+      "a": "med_budget-phone",
+      "b": "med_f16",
+      "metric": "orr",
+      "subset": "pooled",
+      "lang": "hi",
+      "directional_Hinglish_included": false
+    },
+    {
+      "n": 252,
+      "difference_pp": -3.1746031746031744,
+      "ci95_pp": [
+        -9.523809523809524,
+        3.1746031746031744
+      ],
+      "p_boot": 0.3666,
+      "noninferiority_upper_below_5": true,
+      "a": "med_q4km",
+      "b": "med_f16",
+      "metric": "orr",
+      "subset": "pooled",
+      "lang": "hinglish",
+      "directional_Hinglish_included": true,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 252,
+      "difference_pp": 7.142857142857142,
+      "ci95_pp": [
+        0.3968253968253968,
+        13.88888888888889
+      ],
+      "p_boot": 0.0438,
+      "noninferiority_upper_below_5": false,
+      "a": "med_q3km",
+      "b": "med_f16",
+      "metric": "orr",
+      "subset": "pooled",
+      "lang": "hinglish",
+      "directional_Hinglish_included": true,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 252,
+      "difference_pp": -1.5873015873015872,
+      "ci95_pp": [
+        -7.142857142857142,
+        3.968253968253968
+      ],
+      "p_boot": 0.6438,
+      "noninferiority_upper_below_5": true,
+      "a": "med_q4km-nopre",
+      "b": "med_q4km",
+      "metric": "orr",
+      "subset": "pooled",
+      "lang": "hinglish",
+      "directional_Hinglish_included": true,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 252,
+      "difference_pp": -3.968253968253968,
+      "ci95_pp": [
+        -10.317460317460316,
+        2.380952380952381
+      ],
+      "p_boot": 0.2502,
+      "noninferiority_upper_below_5": true,
+      "a": "med_budget-phone",
+      "b": "med_q3km",
+      "metric": "orr",
+      "subset": "pooled",
+      "lang": "hinglish",
+      "directional_Hinglish_included": true,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 252,
+      "difference_pp": 8.333333333333332,
+      "ci95_pp": [
+        2.380952380952381,
+        14.285714285714285
+      ],
+      "p_boot": 0.0064,
+      "noninferiority_upper_below_5": false,
+      "a": "orig_q4km-nopre",
+      "b": "orig_q4km",
+      "metric": "orr",
+      "subset": "pooled",
+      "lang": "hinglish",
+      "directional_Hinglish_included": true,
+      "holm_boot_partial_120": 0.6784
+    },
+    {
+      "n": 252,
+      "difference_pp": 3.1746031746031744,
+      "ci95_pp": [
+        -3.1746031746031744,
+        9.523809523809524
+      ],
+      "p_boot": 0.368,
+      "noninferiority_upper_below_5": false,
+      "a": "med_budget-phone",
+      "b": "med_f16",
+      "metric": "orr",
+      "subset": "pooled",
+      "lang": "hinglish",
+      "directional_Hinglish_included": true
+    },
+    {
+      "n": 450,
+      "difference_pp": -1.7777777777777777,
+      "ci95_pp": [
+        -4.888888888888889,
+        1.3333333333333335
+      ],
+      "p_boot": 0.29,
+      "noninferiority_upper_below_5": true,
+      "a": "med_q4km",
+      "b": "med_f16",
+      "metric": "orr",
+      "subset": "general",
+      "lang": "all",
+      "directional_Hinglish_included": true,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 450,
+      "difference_pp": 3.7777777777777777,
+      "ci95_pp": [
+        0.0,
+        7.555555555555555
+      ],
+      "p_boot": 0.0552,
+      "noninferiority_upper_below_5": false,
+      "a": "med_q3km",
+      "b": "med_f16",
+      "metric": "orr",
+      "subset": "general",
+      "lang": "all",
+      "directional_Hinglish_included": true,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 450,
+      "difference_pp": -2.888888888888889,
+      "ci95_pp": [
+        -6.0,
+        0.2222222222222222
+      ],
+      "p_boot": 0.0842,
+      "noninferiority_upper_below_5": true,
+      "a": "med_q4km-nopre",
+      "b": "med_q4km",
+      "metric": "orr",
+      "subset": "general",
+      "lang": "all",
+      "directional_Hinglish_included": true,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 450,
+      "difference_pp": -2.888888888888889,
+      "ci95_pp": [
+        -6.666666666666667,
+        0.6666666666666667
+      ],
+      "p_boot": 0.1304,
+      "noninferiority_upper_below_5": true,
+      "a": "med_budget-phone",
+      "b": "med_q3km",
+      "metric": "orr",
+      "subset": "general",
+      "lang": "all",
+      "directional_Hinglish_included": true,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 450,
+      "difference_pp": 7.111111111111111,
+      "ci95_pp": [
+        4.0,
+        10.0
+      ],
+      "p_boot": 0.0001,
+      "noninferiority_upper_below_5": false,
+      "a": "orig_q4km-nopre",
+      "b": "orig_q4km",
+      "metric": "orr",
+      "subset": "general",
+      "lang": "all",
+      "directional_Hinglish_included": true,
+      "holm_boot_partial_120": 0.012
+    },
+    {
+      "n": 450,
+      "difference_pp": 0.8888888888888888,
+      "ci95_pp": [
+        -2.666666666666667,
+        4.444444444444445
+      ],
+      "p_boot": 0.6604,
+      "noninferiority_upper_below_5": true,
+      "a": "med_budget-phone",
+      "b": "med_f16",
+      "metric": "orr",
+      "subset": "general",
+      "lang": "all",
+      "directional_Hinglish_included": true
+    },
+    {
+      "n": 150,
+      "difference_pp": -2.666666666666667,
+      "ci95_pp": [
+        -7.333333333333333,
+        2.0
+      ],
+      "p_boot": 0.3098,
+      "noninferiority_upper_below_5": true,
+      "a": "med_q4km",
+      "b": "med_f16",
+      "metric": "orr",
+      "subset": "general",
+      "lang": "en",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 150,
+      "difference_pp": 3.3333333333333335,
+      "ci95_pp": [
+        -2.0,
+        8.666666666666668
+      ],
+      "p_boot": 0.2708,
+      "noninferiority_upper_below_5": false,
+      "a": "med_q3km",
+      "b": "med_f16",
+      "metric": "orr",
+      "subset": "general",
+      "lang": "en",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 150,
+      "difference_pp": -2.0,
+      "ci95_pp": [
+        -6.0,
+        2.0
+      ],
+      "p_boot": 0.4136,
+      "noninferiority_upper_below_5": true,
+      "a": "med_q4km-nopre",
+      "b": "med_q4km",
+      "metric": "orr",
+      "subset": "general",
+      "lang": "en",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 150,
+      "difference_pp": -0.6666666666666667,
+      "ci95_pp": [
+        -7.333333333333333,
+        6.0
+      ],
+      "p_boot": 0.9222,
+      "noninferiority_upper_below_5": false,
+      "a": "med_budget-phone",
+      "b": "med_q3km",
+      "metric": "orr",
+      "subset": "general",
+      "lang": "en",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 150,
+      "difference_pp": 2.0,
+      "ci95_pp": [
+        -1.3333333333333335,
+        5.333333333333334
+      ],
+      "p_boot": 0.3464,
+      "noninferiority_upper_below_5": false,
+      "a": "orig_q4km-nopre",
+      "b": "orig_q4km",
+      "metric": "orr",
+      "subset": "general",
+      "lang": "en",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 150,
+      "difference_pp": 2.666666666666667,
+      "ci95_pp": [
+        -2.0,
+        7.333333333333333
+      ],
+      "p_boot": 0.3374,
+      "noninferiority_upper_below_5": false,
+      "a": "med_budget-phone",
+      "b": "med_f16",
+      "metric": "orr",
+      "subset": "general",
+      "lang": "en",
+      "directional_Hinglish_included": false
+    },
+    {
+      "n": 150,
+      "difference_pp": -0.6666666666666667,
+      "ci95_pp": [
+        -4.0,
+        2.666666666666667
+      ],
+      "p_boot": 0.8516,
+      "noninferiority_upper_below_5": true,
+      "a": "med_q4km",
+      "b": "med_f16",
+      "metric": "orr",
+      "subset": "general",
+      "lang": "hi",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 150,
+      "difference_pp": 1.3333333333333335,
+      "ci95_pp": [
+        -2.666666666666667,
+        5.333333333333334
+      ],
+      "p_boot": 0.6484,
+      "noninferiority_upper_below_5": false,
+      "a": "med_q3km",
+      "b": "med_f16",
+      "metric": "orr",
+      "subset": "general",
+      "lang": "hi",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 150,
+      "difference_pp": -2.0,
+      "ci95_pp": [
+        -6.666666666666667,
+        2.666666666666667
+      ],
+      "p_boot": 0.4862,
+      "noninferiority_upper_below_5": true,
+      "a": "med_q4km-nopre",
+      "b": "med_q4km",
+      "metric": "orr",
+      "subset": "general",
+      "lang": "hi",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 150,
+      "difference_pp": -4.0,
+      "ci95_pp": [
+        -8.666666666666668,
+        0.0
+      ],
+      "p_boot": 0.072,
+      "noninferiority_upper_below_5": true,
+      "a": "med_budget-phone",
+      "b": "med_q3km",
+      "metric": "orr",
+      "subset": "general",
+      "lang": "hi",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 150,
+      "difference_pp": 6.666666666666667,
+      "ci95_pp": [
+        3.3333333333333335,
+        10.666666666666668
+      ],
+      "p_boot": 0.0001,
+      "noninferiority_upper_below_5": false,
+      "a": "orig_q4km-nopre",
+      "b": "orig_q4km",
+      "metric": "orr",
+      "subset": "general",
+      "lang": "hi",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 0.012
+    },
+    {
+      "n": 150,
+      "difference_pp": -2.666666666666667,
+      "ci95_pp": [
+        -7.333333333333333,
+        1.3333333333333335
+      ],
+      "p_boot": 0.2498,
+      "noninferiority_upper_below_5": true,
+      "a": "med_budget-phone",
+      "b": "med_f16",
+      "metric": "orr",
+      "subset": "general",
+      "lang": "hi",
+      "directional_Hinglish_included": false
+    },
+    {
+      "n": 150,
+      "difference_pp": -2.0,
+      "ci95_pp": [
+        -9.333333333333334,
+        5.333333333333334
+      ],
+      "p_boot": 0.6654,
+      "noninferiority_upper_below_5": false,
+      "a": "med_q4km",
+      "b": "med_f16",
+      "metric": "orr",
+      "subset": "general",
+      "lang": "hinglish",
+      "directional_Hinglish_included": true,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 150,
+      "difference_pp": 6.666666666666667,
+      "ci95_pp": [
+        -2.0,
+        16.0
+      ],
+      "p_boot": 0.1598,
+      "noninferiority_upper_below_5": false,
+      "a": "med_q3km",
+      "b": "med_f16",
+      "metric": "orr",
+      "subset": "general",
+      "lang": "hinglish",
+      "directional_Hinglish_included": true,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 150,
+      "difference_pp": -4.666666666666667,
+      "ci95_pp": [
+        -12.0,
+        2.666666666666667
+      ],
+      "p_boot": 0.258,
+      "noninferiority_upper_below_5": true,
+      "a": "med_q4km-nopre",
+      "b": "med_q4km",
+      "metric": "orr",
+      "subset": "general",
+      "lang": "hinglish",
+      "directional_Hinglish_included": true,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 150,
+      "difference_pp": -4.0,
+      "ci95_pp": [
+        -12.0,
+        4.0
+      ],
+      "p_boot": 0.3692,
+      "noninferiority_upper_below_5": true,
+      "a": "med_budget-phone",
+      "b": "med_q3km",
+      "metric": "orr",
+      "subset": "general",
+      "lang": "hinglish",
+      "directional_Hinglish_included": true,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 150,
+      "difference_pp": 12.666666666666668,
+      "ci95_pp": [
+        5.333333333333334,
+        20.0
+      ],
+      "p_boot": 0.0012,
+      "noninferiority_upper_below_5": false,
+      "a": "orig_q4km-nopre",
+      "b": "orig_q4km",
+      "metric": "orr",
+      "subset": "general",
+      "lang": "hinglish",
+      "directional_Hinglish_included": true,
+      "holm_boot_partial_120": 0.13319999999999999
+    },
+    {
+      "n": 150,
+      "difference_pp": 2.666666666666667,
+      "ci95_pp": [
+        -6.0,
+        11.333333333333332
+      ],
+      "p_boot": 0.5804,
+      "noninferiority_upper_below_5": false,
+      "a": "med_budget-phone",
+      "b": "med_f16",
+      "metric": "orr",
+      "subset": "general",
+      "lang": "hinglish",
+      "directional_Hinglish_included": true
+    },
+    {
+      "n": 306,
+      "difference_pp": -1.9607843137254901,
+      "ci95_pp": [
+        -6.862745098039216,
+        2.941176470588235
+      ],
+      "p_boot": 0.475,
+      "noninferiority_upper_below_5": true,
+      "a": "med_q4km",
+      "b": "med_f16",
+      "metric": "orr",
+      "subset": "clinical",
+      "lang": "all",
+      "directional_Hinglish_included": true,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 306,
+      "difference_pp": 2.287581699346405,
+      "ci95_pp": [
+        -2.6143790849673203,
+        6.862745098039216
+      ],
+      "p_boot": 0.3796,
+      "noninferiority_upper_below_5": false,
+      "a": "med_q3km",
+      "b": "med_f16",
+      "metric": "orr",
+      "subset": "clinical",
+      "lang": "all",
+      "directional_Hinglish_included": true,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 306,
+      "difference_pp": -1.6339869281045754,
+      "ci95_pp": [
+        -5.88235294117647,
+        2.6143790849673203
+      ],
+      "p_boot": 0.5164,
+      "noninferiority_upper_below_5": true,
+      "a": "med_q4km-nopre",
+      "b": "med_q4km",
+      "metric": "orr",
+      "subset": "clinical",
+      "lang": "all",
+      "directional_Hinglish_included": true,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 306,
+      "difference_pp": -2.6143790849673203,
+      "ci95_pp": [
+        -7.516339869281046,
+        2.287581699346405
+      ],
+      "p_boot": 0.3478,
+      "noninferiority_upper_below_5": true,
+      "a": "med_budget-phone",
+      "b": "med_q3km",
+      "metric": "orr",
+      "subset": "clinical",
+      "lang": "all",
+      "directional_Hinglish_included": true,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 306,
+      "difference_pp": 1.3071895424836601,
+      "ci95_pp": [
+        -1.9607843137254901,
+        4.57516339869281
+      ],
+      "p_boot": 0.5032,
+      "noninferiority_upper_below_5": true,
+      "a": "orig_q4km-nopre",
+      "b": "orig_q4km",
+      "metric": "orr",
+      "subset": "clinical",
+      "lang": "all",
+      "directional_Hinglish_included": true,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 306,
+      "difference_pp": -0.32679738562091504,
+      "ci95_pp": [
+        -5.228758169934641,
+        4.57516339869281
+      ],
+      "p_boot": 0.9664,
+      "noninferiority_upper_below_5": true,
+      "a": "med_budget-phone",
+      "b": "med_f16",
+      "metric": "orr",
+      "subset": "clinical",
+      "lang": "all",
+      "directional_Hinglish_included": true
+    },
+    {
+      "n": 102,
+      "difference_pp": -0.9803921568627451,
+      "ci95_pp": [
+        -8.823529411764707,
+        6.862745098039216
+      ],
+      "p_boot": 0.9142,
+      "noninferiority_upper_below_5": false,
+      "a": "med_q4km",
+      "b": "med_f16",
+      "metric": "orr",
+      "subset": "clinical",
+      "lang": "en",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 102,
+      "difference_pp": 0.9803921568627451,
+      "ci95_pp": [
+        -6.862745098039216,
+        8.823529411764707
+      ],
+      "p_boot": 0.8854,
+      "noninferiority_upper_below_5": false,
+      "a": "med_q3km",
+      "b": "med_f16",
+      "metric": "orr",
+      "subset": "clinical",
+      "lang": "en",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 102,
+      "difference_pp": -3.9215686274509802,
+      "ci95_pp": [
+        -10.784313725490197,
+        2.941176470588235
+      ],
+      "p_boot": 0.3058,
+      "noninferiority_upper_below_5": true,
+      "a": "med_q4km-nopre",
+      "b": "med_q4km",
+      "metric": "orr",
+      "subset": "clinical",
+      "lang": "en",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 102,
+      "difference_pp": 0.0,
+      "ci95_pp": [
+        -9.803921568627452,
+        8.823529411764707
+      ],
+      "p_boot": 1.0,
+      "noninferiority_upper_below_5": false,
+      "a": "med_budget-phone",
+      "b": "med_q3km",
+      "metric": "orr",
+      "subset": "clinical",
+      "lang": "en",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 102,
+      "difference_pp": 0.9803921568627451,
+      "ci95_pp": [
+        -1.9607843137254901,
+        4.901960784313726
+      ],
+      "p_boot": 0.8016,
+      "noninferiority_upper_below_5": true,
+      "a": "orig_q4km-nopre",
+      "b": "orig_q4km",
+      "metric": "orr",
+      "subset": "clinical",
+      "lang": "en",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 102,
+      "difference_pp": 0.9803921568627451,
+      "ci95_pp": [
+        -7.8431372549019605,
+        9.803921568627452
+      ],
+      "p_boot": 0.9244,
+      "noninferiority_upper_below_5": false,
+      "a": "med_budget-phone",
+      "b": "med_f16",
+      "metric": "orr",
+      "subset": "clinical",
+      "lang": "en",
+      "directional_Hinglish_included": false
+    },
+    {
+      "n": 102,
+      "difference_pp": 0.0,
+      "ci95_pp": [
+        -5.88235294117647,
+        5.88235294117647
+      ],
+      "p_boot": 1.0,
+      "noninferiority_upper_below_5": false,
+      "a": "med_q4km",
+      "b": "med_f16",
+      "metric": "orr",
+      "subset": "clinical",
+      "lang": "hi",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 102,
+      "difference_pp": -1.9607843137254901,
+      "ci95_pp": [
+        -8.823529411764707,
+        4.901960784313726
+      ],
+      "p_boot": 0.6566,
+      "noninferiority_upper_below_5": true,
+      "a": "med_q3km",
+      "b": "med_f16",
+      "metric": "orr",
+      "subset": "clinical",
+      "lang": "hi",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 102,
+      "difference_pp": -3.9215686274509802,
+      "ci95_pp": [
+        -9.803921568627452,
+        1.9607843137254901
+      ],
+      "p_boot": 0.2552,
+      "noninferiority_upper_below_5": true,
+      "a": "med_q4km-nopre",
+      "b": "med_q4km",
+      "metric": "orr",
+      "subset": "clinical",
+      "lang": "hi",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 102,
+      "difference_pp": -3.9215686274509802,
+      "ci95_pp": [
+        -9.803921568627452,
+        1.9607843137254901
+      ],
+      "p_boot": 0.2686,
+      "noninferiority_upper_below_5": true,
+      "a": "med_budget-phone",
+      "b": "med_q3km",
+      "metric": "orr",
+      "subset": "clinical",
+      "lang": "hi",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 102,
+      "difference_pp": 0.9803921568627451,
+      "ci95_pp": [
+        0.0,
+        2.941176470588235
+      ],
+      "p_boot": 0.7272,
+      "noninferiority_upper_below_5": true,
+      "a": "orig_q4km-nopre",
+      "b": "orig_q4km",
+      "metric": "orr",
+      "subset": "clinical",
+      "lang": "hi",
+      "directional_Hinglish_included": false,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 102,
+      "difference_pp": -5.88235294117647,
+      "ci95_pp": [
+        -11.76470588235294,
+        -0.9803921568627451
+      ],
+      "p_boot": 0.0352,
+      "noninferiority_upper_below_5": true,
+      "a": "med_budget-phone",
+      "b": "med_f16",
+      "metric": "orr",
+      "subset": "clinical",
+      "lang": "hi",
+      "directional_Hinglish_included": false
+    },
+    {
+      "n": 102,
+      "difference_pp": -4.901960784313726,
+      "ci95_pp": [
+        -15.686274509803921,
+        5.88235294117647
+      ],
+      "p_boot": 0.4394,
+      "noninferiority_upper_below_5": false,
+      "a": "med_q4km",
+      "b": "med_f16",
+      "metric": "orr",
+      "subset": "clinical",
+      "lang": "hinglish",
+      "directional_Hinglish_included": true,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 102,
+      "difference_pp": 7.8431372549019605,
+      "ci95_pp": [
+        -2.941176470588235,
+        17.647058823529413
+      ],
+      "p_boot": 0.1652,
+      "noninferiority_upper_below_5": false,
+      "a": "med_q3km",
+      "b": "med_f16",
+      "metric": "orr",
+      "subset": "clinical",
+      "lang": "hinglish",
+      "directional_Hinglish_included": true,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 102,
+      "difference_pp": 2.941176470588235,
+      "ci95_pp": [
+        -5.88235294117647,
+        12.745098039215685
+      ],
+      "p_boot": 0.5952,
+      "noninferiority_upper_below_5": false,
+      "a": "med_q4km-nopre",
+      "b": "med_q4km",
+      "metric": "orr",
+      "subset": "clinical",
+      "lang": "hinglish",
+      "directional_Hinglish_included": true,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 102,
+      "difference_pp": -3.9215686274509802,
+      "ci95_pp": [
+        -14.705882352941178,
+        5.88235294117647
+      ],
+      "p_boot": 0.5232,
+      "noninferiority_upper_below_5": false,
+      "a": "med_budget-phone",
+      "b": "med_q3km",
+      "metric": "orr",
+      "subset": "clinical",
+      "lang": "hinglish",
+      "directional_Hinglish_included": true,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 102,
+      "difference_pp": 1.9607843137254901,
+      "ci95_pp": [
+        -7.8431372549019605,
+        11.76470588235294
+      ],
+      "p_boot": 0.74,
+      "noninferiority_upper_below_5": false,
+      "a": "orig_q4km-nopre",
+      "b": "orig_q4km",
+      "metric": "orr",
+      "subset": "clinical",
+      "lang": "hinglish",
+      "directional_Hinglish_included": true,
+      "holm_boot_partial_120": 1.0
+    },
+    {
+      "n": 102,
+      "difference_pp": 3.9215686274509802,
+      "ci95_pp": [
+        -5.88235294117647,
+        13.725490196078432
+      ],
+      "p_boot": 0.5142,
+      "noninferiority_upper_below_5": false,
+      "a": "med_budget-phone",
+      "b": "med_f16",
+      "metric": "orr",
+      "subset": "clinical",
+      "lang": "hinglish",
+      "directional_Hinglish_included": true
+    }
+  ],
+  "retention": {
+    "q4km|pooled|all": {
+      "available": false,
+      "reason": "Matching Mac medical/steered references or labels missing"
+    },
+    "q3km|pooled|all": {
+      "available": false,
+      "reason": "Matching Mac medical/steered references or labels missing"
+    },
+    "q4km-nopre|pooled|all": {
+      "available": false,
+      "reason": "Matching Mac medical/steered references or labels missing"
+    },
+    "budget-phone|pooled|all": {
+      "available": false,
+      "reason": "Matching Mac medical/steered references or labels missing"
+    },
+    "q4km|pooled|en": {
+      "available": false,
+      "reason": "Matching Mac medical/steered references or labels missing"
+    },
+    "q3km|pooled|en": {
+      "available": false,
+      "reason": "Matching Mac medical/steered references or labels missing"
+    },
+    "q4km-nopre|pooled|en": {
+      "available": false,
+      "reason": "Matching Mac medical/steered references or labels missing"
+    },
+    "budget-phone|pooled|en": {
+      "available": false,
+      "reason": "Matching Mac medical/steered references or labels missing"
+    },
+    "q4km|pooled|hi": {
+      "available": false,
+      "reason": "Matching Mac medical/steered references or labels missing"
+    },
+    "q3km|pooled|hi": {
+      "available": false,
+      "reason": "Matching Mac medical/steered references or labels missing"
+    },
+    "q4km-nopre|pooled|hi": {
+      "available": false,
+      "reason": "Matching Mac medical/steered references or labels missing"
+    },
+    "budget-phone|pooled|hi": {
+      "available": false,
+      "reason": "Matching Mac medical/steered references or labels missing"
+    },
+    "q4km|pooled|hinglish": {
+      "available": false,
+      "reason": "Matching Mac medical/steered references or labels missing"
+    },
+    "q3km|pooled|hinglish": {
+      "available": false,
+      "reason": "Matching Mac medical/steered references or labels missing"
+    },
+    "q4km-nopre|pooled|hinglish": {
+      "available": false,
+      "reason": "Matching Mac medical/steered references or labels missing"
+    },
+    "budget-phone|pooled|hinglish": {
+      "available": false,
+      "reason": "Matching Mac medical/steered references or labels missing"
+    },
+    "q4km|general|all": {
+      "available": false,
+      "reason": "Matching Mac medical/steered references or labels missing"
+    },
+    "q3km|general|all": {
+      "available": false,
+      "reason": "Matching Mac medical/steered references or labels missing"
+    },
+    "q4km-nopre|general|all": {
+      "available": false,
+      "reason": "Matching Mac medical/steered references or labels missing"
+    },
+    "budget-phone|general|all": {
+      "available": false,
+      "reason": "Matching Mac medical/steered references or labels missing"
+    },
+    "q4km|general|en": {
+      "available": false,
+      "reason": "Matching Mac medical/steered references or labels missing"
+    },
+    "q3km|general|en": {
+      "available": false,
+      "reason": "Matching Mac medical/steered references or labels missing"
+    },
+    "q4km-nopre|general|en": {
+      "available": false,
+      "reason": "Matching Mac medical/steered references or labels missing"
+    },
+    "budget-phone|general|en": {
+      "available": false,
+      "reason": "Matching Mac medical/steered references or labels missing"
+    },
+    "q4km|general|hi": {
+      "available": false,
+      "reason": "Matching Mac medical/steered references or labels missing"
+    },
+    "q3km|general|hi": {
+      "available": false,
+      "reason": "Matching Mac medical/steered references or labels missing"
+    },
+    "q4km-nopre|general|hi": {
+      "available": false,
+      "reason": "Matching Mac medical/steered references or labels missing"
+    },
+    "budget-phone|general|hi": {
+      "available": false,
+      "reason": "Matching Mac medical/steered references or labels missing"
+    },
+    "q4km|general|hinglish": {
+      "available": false,
+      "reason": "Matching Mac medical/steered references or labels missing"
+    },
+    "q3km|general|hinglish": {
+      "available": false,
+      "reason": "Matching Mac medical/steered references or labels missing"
+    },
+    "q4km-nopre|general|hinglish": {
+      "available": false,
+      "reason": "Matching Mac medical/steered references or labels missing"
+    },
+    "budget-phone|general|hinglish": {
+      "available": false,
+      "reason": "Matching Mac medical/steered references or labels missing"
+    },
+    "q4km|clinical|all": {
+      "available": false,
+      "reason": "Matching Mac medical/steered references or labels missing"
+    },
+    "q3km|clinical|all": {
+      "available": false,
+      "reason": "Matching Mac medical/steered references or labels missing"
+    },
+    "q4km-nopre|clinical|all": {
+      "available": false,
+      "reason": "Matching Mac medical/steered references or labels missing"
+    },
+    "budget-phone|clinical|all": {
+      "available": false,
+      "reason": "Matching Mac medical/steered references or labels missing"
+    },
+    "q4km|clinical|en": {
+      "available": false,
+      "reason": "Matching Mac medical/steered references or labels missing"
+    },
+    "q3km|clinical|en": {
+      "available": false,
+      "reason": "Matching Mac medical/steered references or labels missing"
+    },
+    "q4km-nopre|clinical|en": {
+      "available": false,
+      "reason": "Matching Mac medical/steered references or labels missing"
+    },
+    "budget-phone|clinical|en": {
+      "available": false,
+      "reason": "Matching Mac medical/steered references or labels missing"
+    },
+    "q4km|clinical|hi": {
+      "available": false,
+      "reason": "Matching Mac medical/steered references or labels missing"
+    },
+    "q3km|clinical|hi": {
+      "available": false,
+      "reason": "Matching Mac medical/steered references or labels missing"
+    },
+    "q4km-nopre|clinical|hi": {
+      "available": false,
+      "reason": "Matching Mac medical/steered references or labels missing"
+    },
+    "budget-phone|clinical|hi": {
+      "available": false,
+      "reason": "Matching Mac medical/steered references or labels missing"
+    },
+    "q4km|clinical|hinglish": {
+      "available": false,
+      "reason": "Matching Mac medical/steered references or labels missing"
+    },
+    "q3km|clinical|hinglish": {
+      "available": false,
+      "reason": "Matching Mac medical/steered references or labels missing"
+    },
+    "q4km-nopre|clinical|hinglish": {
+      "available": false,
+      "reason": "Matching Mac medical/steered references or labels missing"
+    },
+    "budget-phone|clinical|hinglish": {
+      "available": false,
+      "reason": "Matching Mac medical/steered references or labels missing"
+    }
+  },
+  "difference_in_differences": {
+    "q4km|pooled|all": {
+      "available": false,
+      "reason": "Missing matching in-engine reference; no GPU substitution"
+    },
+    "q4km-nopre|pooled|all": {
+      "available": false,
+      "reason": "Missing matching in-engine reference; no GPU substitution"
+    },
+    "q4km|pooled|en": {
+      "available": false,
+      "reason": "Missing matching in-engine reference; no GPU substitution"
+    },
+    "q4km-nopre|pooled|en": {
+      "available": false,
+      "reason": "Missing matching in-engine reference; no GPU substitution"
+    },
+    "q4km|pooled|hi": {
+      "available": false,
+      "reason": "Missing matching in-engine reference; no GPU substitution"
+    },
+    "q4km-nopre|pooled|hi": {
+      "available": false,
+      "reason": "Missing matching in-engine reference; no GPU substitution"
+    },
+    "q4km|pooled|hinglish": {
+      "available": false,
+      "reason": "Missing matching in-engine reference; no GPU substitution"
+    },
+    "q4km-nopre|pooled|hinglish": {
+      "available": false,
+      "reason": "Missing matching in-engine reference; no GPU substitution"
+    },
+    "q4km|general|all": {
+      "available": false,
+      "reason": "Missing matching in-engine reference; no GPU substitution"
+    },
+    "q4km-nopre|general|all": {
+      "available": false,
+      "reason": "Missing matching in-engine reference; no GPU substitution"
+    },
+    "q4km|general|en": {
+      "available": false,
+      "reason": "Missing matching in-engine reference; no GPU substitution"
+    },
+    "q4km-nopre|general|en": {
+      "available": false,
+      "reason": "Missing matching in-engine reference; no GPU substitution"
+    },
+    "q4km|general|hi": {
+      "available": false,
+      "reason": "Missing matching in-engine reference; no GPU substitution"
+    },
+    "q4km-nopre|general|hi": {
+      "available": false,
+      "reason": "Missing matching in-engine reference; no GPU substitution"
+    },
+    "q4km|general|hinglish": {
+      "available": false,
+      "reason": "Missing matching in-engine reference; no GPU substitution"
+    },
+    "q4km-nopre|general|hinglish": {
+      "available": false,
+      "reason": "Missing matching in-engine reference; no GPU substitution"
+    },
+    "q4km|clinical|all": {
+      "available": false,
+      "reason": "Missing matching in-engine reference; no GPU substitution"
+    },
+    "q4km-nopre|clinical|all": {
+      "available": false,
+      "reason": "Missing matching in-engine reference; no GPU substitution"
+    },
+    "q4km|clinical|en": {
+      "available": false,
+      "reason": "Missing matching in-engine reference; no GPU substitution"
+    },
+    "q4km-nopre|clinical|en": {
+      "available": false,
+      "reason": "Missing matching in-engine reference; no GPU substitution"
+    },
+    "q4km|clinical|hi": {
+      "available": false,
+      "reason": "Missing matching in-engine reference; no GPU substitution"
+    },
+    "q4km-nopre|clinical|hi": {
+      "available": false,
+      "reason": "Missing matching in-engine reference; no GPU substitution"
+    },
+    "q4km|clinical|hinglish": {
+      "available": false,
+      "reason": "Missing matching in-engine reference; no GPU substitution"
+    },
+    "q4km-nopre|clinical|hinglish": {
+      "available": false,
+      "reason": "Missing matching in-engine reference; no GPU substitution"
+    }
+  },
+  "multiplicity": "Historical available120-family bootstrap sensitivity only; new/named contrasts descriptive until final study family is agreed. Old exact-test analysis preserved.",
+  "last_mile_names": {
+    "plan": "phone minus Mac F16",
+    "handoff": "no-preamble minus same-precision official",
+    "combined_stack": "phone minus Q3 official; do not call this either last-mile definition"
+  },
+  "random_control_limit": "One seed13 draw; prompt bootstrap excludes tensor-selection variance"
+}

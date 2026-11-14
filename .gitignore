@@ -1,0 +1,53 @@
+# Secrets: never commit
+.env
+.env.*
+*.token
+
+# Local environments and tooling
+.venv/
+venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.pytest_cache/
+.vscode/
+.idea/
+.claude/
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Model files and large artifacts: hosted on Hugging Face, not in Git
+models/
+runs/
+cache/
+KITS/
+*.safetensors
+*.bin
+*.pt
+*.gguf
+*.cvec
+*.zip
+!results/circuits/**/*.pt
+!results/smoke/*.pt
+
+# Run logs and raw judge logs
+logs/
+*.log
+
+# Raw model completions on harmful prompts and back-translated text: never committed
+results/private/
+results/judges/backtranslation_*
+results/spotcheck_*
+Datasets/final/hand_labels/to_label*.csv
+Datasets/raw/
+
+# LaTeX build by-products
+*.aux
+*.bbl
+*.blg
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk

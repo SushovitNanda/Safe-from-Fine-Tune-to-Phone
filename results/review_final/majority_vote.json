@@ -1,0 +1,242 @@
+{
+ "hand_labels": {
+  "n": 300,
+  "by_kind": {
+   "unanimous": 251,
+   "approved_in_majority": 23,
+   "three_way_split": 12,
+   "approved_outvoted": 14
+  },
+  "by_kind_lang": {
+   "en": {
+    "unanimous": 90,
+    "approved_in_majority": 5,
+    "three_way_split": 4,
+    "approved_outvoted": 1
+   },
+   "hi": {
+    "unanimous": 94,
+    "approved_in_majority": 4,
+    "approved_outvoted": 2
+   },
+   "hinglish": {
+    "unanimous": 67,
+    "three_way_split": 8,
+    "approved_in_majority": 14,
+    "approved_outvoted": 11
+   }
+  },
+  "outvoted_changes": {
+   "unsure->unsafe": 5,
+   "unsafe->refusal": 1,
+   "refusal->unsure": 5,
+   "unsure->refusal": 1,
+   "over-refusal->unsure": 2
+  },
+  "outvoted_changes_by_lang": {
+   "en": {
+    "unsure->unsafe": 1
+   },
+   "hi": {
+    "unsafe->refusal": 1,
+    "unsure->unsafe": 1
+   },
+   "hinglish": {
+    "unsure->unsafe": 3,
+    "refusal->unsure": 5,
+    "unsure->refusal": 1,
+    "over-refusal->unsure": 2
+   }
+  },
+  "pairwise_exact": {
+   "approved_vs_second": 267,
+   "approved_vs_third": 258,
+   "second_vs_third": 265
+  },
+  "unsafe_flag_changes": {
+   "en": {
+    "approved_unsafe": 11,
+    "majority_unsafe": 12,
+    "flag_flips": 1
+   },
+   "hi": {
+    "approved_unsafe": 12,
+    "majority_unsafe": 12,
+    "flag_flips": 2
+   },
+   "hinglish": {
+    "approved_unsafe": 14,
+    "majority_unsafe": 17,
+    "flag_flips": 3
+   }
+  },
+  "kappa": {
+   "approved|qwen3guard|unsafe|en": {
+    "n": 55,
+    "kappa": 0.81
+   },
+   "approved|qwen3guard|unsafe|hi": {
+    "n": 57,
+    "kappa": 0.483
+   },
+   "approved|qwen3guard|unsafe|hinglish": {
+    "n": 51,
+    "kappa": 0.623
+   },
+   "approved|qwen3guard|refusal|en": {
+    "n": 95,
+    "kappa": 0.83
+   },
+   "approved|qwen3guard|refusal|hi": {
+    "n": 97,
+    "kappa": 0.853
+   },
+   "approved|qwen3guard|refusal|hinglish": {
+    "n": 91,
+    "kappa": 0.313
+   },
+   "approved|wildguard|unsafe|en": {
+    "n": 55,
+    "kappa": 0.737
+   },
+   "approved|wildguard|unsafe|hi": {
+    "n": 57,
+    "kappa": 0.837
+   },
+   "approved|wildguard|unsafe|hinglish": {
+    "n": 51,
+    "kappa": 0.508
+   },
+   "approved|wildguard|refusal|en": {
+    "n": 95,
+    "kappa": 0.851
+   },
+   "approved|wildguard|refusal|hi": {
+    "n": 97,
+    "kappa": 0.853
+   },
+   "approved|wildguard|refusal|hinglish": {
+    "n": 91,
+    "kappa": 0.113
+   },
+   "majority|qwen3guard|unsafe|en": {
+    "n": 56,
+    "kappa": 0.759
+   },
+   "majority|qwen3guard|unsafe|hi": {
+    "n": 58,
+    "kappa": 0.565
+   },
+   "majority|qwen3guard|unsafe|hinglish": {
+    "n": 50,
+    "kappa": 0.733
+   },
+   "majority|qwen3guard|refusal|en": {
+    "n": 96,
+    "kappa": 0.81
+   },
+   "majority|qwen3guard|refusal|hi": {
+    "n": 98,
+    "kappa": 0.834
+   },
+   "majority|qwen3guard|refusal|hinglish": {
+    "n": 88,
+    "kappa": 0.282
+   },
+   "majority|wildguard|unsafe|en": {
+    "n": 56,
+    "kappa": 0.759
+   },
+   "majority|wildguard|unsafe|hi": {
+    "n": 58,
+    "kappa": 0.729
+   },
+   "majority|wildguard|unsafe|hinglish": {
+    "n": 50,
+    "kappa": 0.633
+   },
+   "majority|wildguard|refusal|en": {
+    "n": 96,
+    "kappa": 0.852
+   },
+   "majority|wildguard|refusal|hi": {
+    "n": 98,
+    "kappa": 0.834
+   },
+   "majority|wildguard|refusal|hinglish": {
+    "n": 88,
+    "kappa": 0.178
+   }
+  },
+  "judge_choice_unsafe": {
+   "approved": {
+    "en": "qwen3guard",
+    "hi": "wildguard",
+    "hinglish": "qwen3guard"
+   },
+   "majority": {
+    "en": "qwen3guard",
+    "hi": "wildguard",
+    "hinglish": "qwen3guard"
+   }
+  },
+  "judge_choice_unchanged": true
+ },
+ "rq6_sample": {
+  "n": 160,
+  "by_outcome": {
+   "unanimous": 98,
+   "judge_outvoted": 61,
+   "tie_kept_judge": 1
+  },
+  "auditors_agree_with_each_other": 158,
+  "auditor_unsure": {
+   "A": 2,
+   "B": 2
+  },
+  "en": {
+   "n": 80,
+   "judge_unsafe": 32,
+   "majority_unsafe": 22,
+   "judge_equals_majority": 62,
+   "judge_unsafe_overturned": 14,
+   "judge_safe_overturned": 4,
+   "judge_unsafe_marked_degenerate_by_both": 9,
+   "judge_unsafe_overturned_and_degenerate": 8,
+   "discordant_pairs": {
+    "n": 30,
+    "judge": {
+     "random_unsafe_only": 21,
+     "protected_unsafe_only": 9
+    },
+    "majority": {
+     "random_unsafe_only": 14,
+     "neither_unsafe": 11,
+     "protected_unsafe_only": 3,
+     "both_unsafe": 2
+    }
+   }
+  },
+  "hinglish": {
+   "n": 80,
+   "judge_unsafe": 44,
+   "majority_unsafe": 1,
+   "judge_equals_majority": 37,
+   "judge_unsafe_overturned": 43,
+   "judge_safe_overturned": 0,
+   "judge_unsafe_marked_degenerate_by_both": 39,
+   "judge_unsafe_overturned_and_degenerate": 40,
+   "discordant_pairs": {
+    "n": 30,
+    "judge": {
+     "protected_unsafe_only": 19,
+     "random_unsafe_only": 11
+    },
+    "majority": {
+     "neither_unsafe": 29,
+     "protected_unsafe_only": 1
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,1131 @@
+{
+ "source": "harness/final_stats.py on central labels (paired bootstrap 10,000, seed 13); MAC_PREREG_2026-11-11 analysis",
+ "rq6": {
+  "available": true,
+  "cells": [
+   "mac__rep_steer_q3km-protected",
+   "mac__rep_steer_q3km-random"
+  ],
+  "rates": {
+   "stock": {
+    "en": {
+     "n": 302,
+     "rate": 10.26,
+     "ci95": [
+      6.95,
+      13.91
+     ]
+    },
+    "hi": {
+     "n": 302,
+     "rate": 17.88,
+     "ci95": [
+      13.58,
+      22.19
+     ]
+    },
+    "hinglish": {
+     "n": 252,
+     "rate": 61.11,
+     "ci95": [
+      55.16,
+      67.06
+     ]
+    },
+    "all": {
+     "n": 856,
+     "rate": 27.92,
+     "ci95": [
+      24.88,
+      30.96
+     ]
+    }
+   },
+   "protected": {
+    "en": {
+     "n": 302,
+     "rate": 12.91,
+     "ci95": [
+      9.27,
+      16.89
+     ]
+    },
+    "hi": {
+     "n": 302,
+     "rate": 14.9,
+     "ci95": [
+      10.93,
+      18.87
+     ]
+    },
+    "hinglish": {
+     "n": 252,
+     "rate": 60.32,
+     "ci95": [
+      54.37,
+      66.27
+     ]
+    },
+    "all": {
+     "n": 856,
+     "rate": 27.57,
+     "ci95": [
+      24.53,
+      30.61
+     ]
+    }
+   },
+   "random": {
+    "en": {
+     "n": 302,
+     "rate": 19.21,
+     "ci95": [
+      14.9,
+      23.51
+     ]
+    },
+    "hi": {
+     "n": 302,
+     "rate": 15.56,
+     "ci95": [
+      11.59,
+      19.87
+     ]
+    },
+    "hinglish": {
+     "n": 252,
+     "rate": 51.98,
+     "ci95": [
+      45.63,
+      58.33
+     ]
+    },
+    "all": {
+     "n": 856,
+     "rate": 27.57,
+     "ci95": [
+      24.53,
+      30.61
+     ]
+    }
+   }
+  },
+  "protected_minus_stock": {
+   "en": {
+    "n": 302,
+    "diff": 2.65,
+    "ci95": [
+     -0.33,
+     5.96
+    ],
+    "p": 0.1228,
+    "clear_of_zero": false,
+    "claimed": false
+   },
+   "hi": {
+    "n": 302,
+    "diff": -2.98,
+    "ci95": [
+     -6.95,
+     0.99
+    ],
+    "p": 0.1524,
+    "clear_of_zero": false,
+    "claimed": false
+   },
+   "hinglish": {
+    "n": 252,
+    "diff": -0.79,
+    "ci95": [
+     -5.95,
+     3.97
+    ],
+    "p": 0.8086,
+    "clear_of_zero": false,
+    "claimed": false
+   },
+   "all": {
+    "n": 856,
+    "diff": -0.35,
+    "ci95": [
+     -2.69,
+     1.99
+    ],
+    "p": 0.8058,
+    "clear_of_zero": false,
+    "claimed": false
+   }
+  },
+  "protected_minus_random": {
+   "en": {
+    "n": 302,
+    "diff": -6.29,
+    "ci95": [
+     -10.26,
+     -2.32
+    ],
+    "p": 0.0026,
+    "clear_of_zero": true,
+    "claimed": true
+   },
+   "hi": {
+    "n": 302,
+    "diff": -0.66,
+    "ci95": [
+     -4.3,
+     2.98
+    ],
+    "p": 0.792,
+    "clear_of_zero": false,
+    "claimed": false
+   },
+   "hinglish": {
+    "n": 252,
+    "diff": 8.33,
+    "ci95": [
+     2.38,
+     14.29
+    ],
+    "p": 0.007,
+    "clear_of_zero": true,
+    "claimed": true
+   },
+   "all": {
+    "n": 856,
+    "diff": 0.0,
+    "ci95": [
+     -2.69,
+     2.69
+    ],
+    "p": 1.0,
+    "clear_of_zero": false,
+    "claimed": false
+   }
+  },
+  "random_minus_stock": {
+   "en": {
+    "n": 302,
+    "diff": 8.94,
+    "ci95": [
+     5.3,
+     12.58
+    ],
+    "p": 0.0001,
+    "clear_of_zero": true,
+    "claimed": true
+   },
+   "hi": {
+    "n": 302,
+    "diff": -2.32,
+    "ci95": [
+     -6.29,
+     1.66
+    ],
+    "p": 0.305,
+    "clear_of_zero": false,
+    "claimed": false
+   },
+   "hinglish": {
+    "n": 252,
+    "diff": -9.13,
+    "ci95": [
+     -15.48,
+     -2.78
+    ],
+    "p": 0.0052,
+    "clear_of_zero": true,
+    "claimed": true
+   },
+   "all": {
+    "n": 856,
+    "diff": -0.35,
+    "ci95": [
+     -3.04,
+     2.34
+    ],
+    "p": 0.8312,
+    "clear_of_zero": false,
+    "claimed": false
+   }
+  },
+  "by_harm": {
+   "harmful_general": {
+    "protected_minus_random": {
+     "n": 550,
+     "diff": 1.09,
+     "ci95": [
+      -2.0,
+      4.18
+     ],
+     "p": 0.5356,
+     "clear_of_zero": false,
+     "claimed": false
+    },
+    "protected_minus_stock": {
+     "n": 550,
+     "diff": -0.36,
+     "ci95": [
+      -3.1,
+      2.36
+     ],
+     "p": 0.848,
+     "clear_of_zero": false,
+     "claimed": false
+    }
+   },
+   "harmful_clinical": {
+    "protected_minus_random": {
+     "n": 306,
+     "diff": -1.96,
+     "ci95": [
+      -6.54,
+      2.61
+     ],
+     "p": 0.4448,
+     "clear_of_zero": false,
+     "claimed": false
+    },
+    "protected_minus_stock": {
+     "n": 306,
+     "diff": -0.33,
+     "ci95": [
+      -4.25,
+      3.59
+     ],
+     "p": 0.9292,
+     "clear_of_zero": false,
+     "claimed": false
+    }
+   }
+  },
+  "H6_supported": false,
+  "orr": {
+   "general|en": {
+    "stock": {
+     "n": 150,
+     "rate": 15.33,
+     "ci95": [
+      10.0,
+      21.33
+     ]
+    },
+    "protected": {
+     "n": 150,
+     "rate": 12.0,
+     "ci95": [
+      7.33,
+      17.33
+     ]
+    },
+    "random": {
+     "n": 150,
+     "rate": 14.67,
+     "ci95": [
+      9.33,
+      20.67
+     ]
+    },
+    "protected_minus_random": {
+     "n": 150,
+     "diff": -2.67,
+     "ci95": [
+      -7.33,
+      2.0
+     ],
+     "p": 0.3418,
+     "clear_of_zero": false,
+     "claimed": false
+    },
+    "protected_minus_stock": {
+     "n": 150,
+     "diff": -3.33,
+     "ci95": [
+      -8.67,
+      1.33
+     ],
+     "p": 0.2382,
+     "clear_of_zero": false,
+     "claimed": false
+    }
+   },
+   "general|hi": {
+    "stock": {
+     "n": 150,
+     "rate": 14.0,
+     "ci95": [
+      8.67,
+      20.0
+     ]
+    },
+    "protected": {
+     "n": 150,
+     "rate": 10.67,
+     "ci95": [
+      6.0,
+      16.0
+     ]
+    },
+    "random": {
+     "n": 150,
+     "rate": 12.0,
+     "ci95": [
+      7.33,
+      17.33
+     ]
+    },
+    "protected_minus_random": {
+     "n": 150,
+     "diff": -1.33,
+     "ci95": [
+      -7.33,
+      4.67
+     ],
+     "p": 0.7242,
+     "clear_of_zero": false,
+     "claimed": false
+    },
+    "protected_minus_stock": {
+     "n": 150,
+     "diff": -3.33,
+     "ci95": [
+      -8.0,
+      1.33
+     ],
+     "p": 0.2046,
+     "clear_of_zero": false,
+     "claimed": false
+    }
+   },
+   "general|hinglish": {
+    "stock": {
+     "n": 150,
+     "rate": 56.0,
+     "ci95": [
+      48.0,
+      64.0
+     ]
+    },
+    "protected": {
+     "n": 150,
+     "rate": 50.0,
+     "ci95": [
+      42.0,
+      58.0
+     ]
+    },
+    "random": {
+     "n": 150,
+     "rate": 57.33,
+     "ci95": [
+      49.33,
+      65.33
+     ]
+    },
+    "protected_minus_random": {
+     "n": 150,
+     "diff": -7.33,
+     "ci95": [
+      -15.33,
+      0.67
+     ],
+     "p": 0.0838,
+     "clear_of_zero": false,
+     "claimed": false
+    },
+    "protected_minus_stock": {
+     "n": 150,
+     "diff": -6.0,
+     "ci95": [
+      -14.0,
+      1.33
+     ],
+     "p": 0.1464,
+     "clear_of_zero": false,
+     "claimed": false
+    }
+   },
+   "general|all": {
+    "stock": {
+     "n": 450,
+     "rate": 28.44,
+     "ci95": [
+      24.22,
+      32.67
+     ]
+    },
+    "protected": {
+     "n": 450,
+     "rate": 24.22,
+     "ci95": [
+      20.22,
+      28.22
+     ]
+    },
+    "random": {
+     "n": 450,
+     "rate": 28.0,
+     "ci95": [
+      23.99,
+      32.22
+     ]
+    },
+    "protected_minus_random": {
+     "n": 450,
+     "diff": -3.78,
+     "ci95": [
+      -7.56,
+      -0.22
+     ],
+     "p": 0.0498,
+     "clear_of_zero": true,
+     "claimed": false
+    },
+    "protected_minus_stock": {
+     "n": 450,
+     "diff": -4.22,
+     "ci95": [
+      -7.56,
+      -0.89
+     ],
+     "p": 0.0182,
+     "clear_of_zero": true,
+     "claimed": false
+    }
+   },
+   "clinical|en": {
+    "stock": {
+     "n": 102,
+     "rate": 17.65,
+     "ci95": [
+      10.78,
+      25.49
+     ]
+    },
+    "protected": {
+     "n": 102,
+     "rate": 21.57,
+     "ci95": [
+      13.73,
+      29.41
+     ]
+    },
+    "random": {
+     "n": 102,
+     "rate": 25.49,
+     "ci95": [
+      17.65,
+      34.31
+     ]
+    },
+    "protected_minus_random": {
+     "n": 102,
+     "diff": -3.92,
+     "ci95": [
+      -13.73,
+      5.88
+     ],
+     "p": 0.508,
+     "clear_of_zero": false,
+     "claimed": false
+    },
+    "protected_minus_stock": {
+     "n": 102,
+     "diff": 3.92,
+     "ci95": [
+      -4.9,
+      12.75
+     ],
+     "p": 0.4374,
+     "clear_of_zero": false,
+     "claimed": false
+    }
+   },
+   "clinical|hi": {
+    "stock": {
+     "n": 102,
+     "rate": 11.76,
+     "ci95": [
+      5.88,
+      18.63
+     ]
+    },
+    "protected": {
+     "n": 102,
+     "rate": 25.49,
+     "ci95": [
+      17.65,
+      34.31
+     ]
+    },
+    "random": {
+     "n": 102,
+     "rate": 17.65,
+     "ci95": [
+      10.78,
+      25.49
+     ]
+    },
+    "protected_minus_random": {
+     "n": 102,
+     "diff": 7.84,
+     "ci95": [
+      -1.96,
+      17.65
+     ],
+     "p": 0.15,
+     "clear_of_zero": false,
+     "claimed": false
+    },
+    "protected_minus_stock": {
+     "n": 102,
+     "diff": 13.73,
+     "ci95": [
+      5.88,
+      21.57
+     ],
+     "p": 0.0004,
+     "clear_of_zero": true,
+     "claimed": true
+    }
+   },
+   "clinical|hinglish": {
+    "stock": {
+     "n": 102,
+     "rate": 77.45,
+     "ci95": [
+      68.63,
+      85.29
+     ]
+    },
+    "protected": {
+     "n": 102,
+     "rate": 78.43,
+     "ci95": [
+      70.59,
+      86.27
+     ]
+    },
+    "random": {
+     "n": 102,
+     "rate": 78.43,
+     "ci95": [
+      69.61,
+      86.27
+     ]
+    },
+    "protected_minus_random": {
+     "n": 102,
+     "diff": 0.0,
+     "ci95": [
+      -9.8,
+      9.8
+     ],
+     "p": 1.0,
+     "clear_of_zero": false,
+     "claimed": false
+    },
+    "protected_minus_stock": {
+     "n": 102,
+     "diff": 0.98,
+     "ci95": [
+      -8.82,
+      10.78
+     ],
+     "p": 0.9354,
+     "clear_of_zero": false,
+     "claimed": false
+    }
+   },
+   "clinical|all": {
+    "stock": {
+     "n": 306,
+     "rate": 35.62,
+     "ci95": [
+      30.39,
+      40.85
+     ]
+    },
+    "protected": {
+     "n": 306,
+     "rate": 41.83,
+     "ci95": [
+      36.27,
+      47.39
+     ]
+    },
+    "random": {
+     "n": 306,
+     "rate": 40.52,
+     "ci95": [
+      34.97,
+      46.08
+     ]
+    },
+    "protected_minus_random": {
+     "n": 306,
+     "diff": 1.31,
+     "ci95": [
+      -4.58,
+      7.19
+     ],
+     "p": 0.6974,
+     "clear_of_zero": false,
+     "claimed": false
+    },
+    "protected_minus_stock": {
+     "n": 306,
+     "diff": 6.21,
+     "ci95": [
+      0.98,
+      11.44
+     ],
+     "p": 0.0232,
+     "clear_of_zero": true,
+     "claimed": true
+    }
+   }
+  },
+  "retention": {
+   "stock": {
+    "en": {
+     "n": 302,
+     "numerator": 9.93,
+     "denominator": 8.61,
+     "R": 1.154,
+     "ci95": [
+      0.667,
+      2.214
+     ],
+     "resamples_den_nonpositive": 0
+    },
+    "hi": {
+     "n": 302,
+     "numerator": 13.91,
+     "denominator": 14.24,
+     "R": 0.977,
+     "ci95": [
+      0.647,
+      1.424
+     ],
+     "resamples_den_nonpositive": 0
+    },
+    "hinglish": {
+     "n": 252,
+     "numerator": 9.13,
+     "denominator": 9.92,
+     "R": 0.92,
+     "ci95": [
+      0.37,
+      1.867
+     ],
+     "resamples_den_nonpositive": 0
+    },
+    "all": {
+     "n": 856,
+     "numerator": 11.1,
+     "denominator": 10.98,
+     "R": 1.011,
+     "ci95": [
+      0.743,
+      1.361
+     ],
+     "resamples_den_nonpositive": 0
+    }
+   },
+   "protected": {
+    "en": {
+     "n": 302,
+     "numerator": 7.28,
+     "denominator": 8.61,
+     "R": 0.846,
+     "ci95": [
+      0.36,
+      1.714
+     ],
+     "resamples_den_nonpositive": 0
+    },
+    "hi": {
+     "n": 302,
+     "numerator": 16.89,
+     "denominator": 14.24,
+     "R": 1.186,
+     "ci95": [
+      0.836,
+      1.69
+     ],
+     "resamples_den_nonpositive": 0
+    },
+    "hinglish": {
+     "n": 252,
+     "numerator": 9.92,
+     "denominator": 9.92,
+     "R": 1.0,
+     "ci95": [
+      0.439,
+      2.059
+     ],
+     "resamples_den_nonpositive": 0
+    },
+    "all": {
+     "n": 856,
+     "numerator": 11.45,
+     "denominator": 10.98,
+     "R": 1.043,
+     "ci95": [
+      0.764,
+      1.397
+     ],
+     "resamples_den_nonpositive": 0
+    }
+   },
+   "random": {
+    "en": {
+     "n": 302,
+     "numerator": 0.99,
+     "denominator": 8.61,
+     "R": 0.115,
+     "ci95": [
+      -0.4,
+      0.636
+     ],
+     "resamples_den_nonpositive": 0
+    },
+    "hi": {
+     "n": 302,
+     "numerator": 16.23,
+     "denominator": 14.24,
+     "R": 1.14,
+     "ci95": [
+      0.809,
+      1.615
+     ],
+     "resamples_den_nonpositive": 0
+    },
+    "hinglish": {
+     "n": 252,
+     "numerator": 18.25,
+     "denominator": 9.92,
+     "R": 1.84,
+     "ci95": [
+      1.062,
+      3.562
+     ],
+     "resamples_den_nonpositive": 0
+    },
+    "all": {
+     "n": 856,
+     "numerator": 11.45,
+     "denominator": 10.98,
+     "R": 1.043,
+     "ci95": [
+      0.758,
+      1.416
+     ],
+     "resamples_den_nonpositive": 0
+    }
+   }
+  },
+  "steer_effect_vs_unsteered_q3km": {
+   "stock": {
+    "en": {
+     "n": 302,
+     "diff": -9.93,
+     "ci95": [
+      -13.91,
+      -6.29
+     ],
+     "p": 0.0001,
+     "clear_of_zero": true,
+     "claimed": true
+    },
+    "hi": {
+     "n": 302,
+     "diff": -13.91,
+     "ci95": [
+      -18.54,
+      -9.27
+     ],
+     "p": 0.0001,
+     "clear_of_zero": true,
+     "claimed": true
+    },
+    "hinglish": {
+     "n": 252,
+     "diff": -9.13,
+     "ci95": [
+      -14.68,
+      -3.96
+     ],
+     "p": 0.0004,
+     "clear_of_zero": true,
+     "claimed": true
+    },
+    "all": {
+     "n": 856,
+     "diff": -11.1,
+     "ci95": [
+      -13.79,
+      -8.41
+     ],
+     "p": 0.0001,
+     "clear_of_zero": true,
+     "claimed": true
+    }
+   },
+   "protected": {
+    "en": {
+     "n": 302,
+     "diff": -7.28,
+     "ci95": [
+      -11.59,
+      -2.98
+     ],
+     "p": 0.0016,
+     "clear_of_zero": true,
+     "claimed": true
+    },
+    "hi": {
+     "n": 302,
+     "diff": -16.89,
+     "ci95": [
+      -21.53,
+      -12.25
+     ],
+     "p": 0.0001,
+     "clear_of_zero": true,
+     "claimed": true
+    },
+    "hinglish": {
+     "n": 252,
+     "diff": -9.92,
+     "ci95": [
+      -15.48,
+      -4.76
+     ],
+     "p": 0.0004,
+     "clear_of_zero": true,
+     "claimed": true
+    },
+    "all": {
+     "n": 856,
+     "diff": -11.45,
+     "ci95": [
+      -14.25,
+      -8.76
+     ],
+     "p": 0.0001,
+     "clear_of_zero": true,
+     "claimed": true
+    }
+   },
+   "random": {
+    "en": {
+     "n": 302,
+     "diff": -0.99,
+     "ci95": [
+      -4.97,
+      2.98
+     ],
+     "p": 0.6834,
+     "clear_of_zero": false,
+     "claimed": false
+    },
+    "hi": {
+     "n": 302,
+     "diff": -16.23,
+     "ci95": [
+      -20.86,
+      -11.92
+     ],
+     "p": 0.0001,
+     "clear_of_zero": true,
+     "claimed": true
+    },
+    "hinglish": {
+     "n": 252,
+     "diff": -18.25,
+     "ci95": [
+      -24.21,
+      -12.3
+     ],
+     "p": 0.0001,
+     "clear_of_zero": true,
+     "claimed": true
+    },
+    "all": {
+     "n": 856,
+     "diff": -11.45,
+     "ci95": [
+      -14.25,
+      -8.64
+     ],
+     "p": 0.0001,
+     "clear_of_zero": true,
+     "claimed": true
+    }
+   }
+  }
+ },
+ "holm_deployment_with_rq6": {
+  "m": 23,
+  "tests": {
+   "steering effect at f16": {
+    "p": 0.0001,
+    "reject": true
+   },
+   "steering effect at q4km": {
+    "p": 0.0001,
+    "reject": true
+   },
+   "steering effect at q3km": {
+    "p": 0.0001,
+    "reject": true
+   },
+   "steering effect at q4km-nopre": {
+    "p": 0.0001,
+    "reject": true
+   },
+   "steering effect at budget-phone": {
+    "p": 0.0001,
+    "reject": true
+   },
+   "steered loss q4km vs F16": {
+    "p": 0.2094,
+    "reject": false
+   },
+   "steered loss q3km vs F16": {
+    "p": 0.122,
+    "reject": false
+   },
+   "steered loss q4km-nopre vs F16": {
+    "p": 0.119,
+    "reject": false
+   },
+   "steered loss budget-phone vs F16": {
+    "p": 0.8372,
+    "reject": false
+   },
+   "medical loss q4km vs F16": {
+    "p": 0.0368,
+    "reject": false
+   },
+   "medical loss q3km vs F16": {
+    "p": 0.1038,
+    "reject": false
+   },
+   "medical loss q4km-nopre vs F16": {
+    "p": 0.0078,
+    "reject": false
+   },
+   "medical loss budget-phone vs F16": {
+    "p": 0.1792,
+    "reject": false
+   },
+   "DeltaDelta q4km": {
+    "p": 0.072,
+    "reject": false
+   },
+   "DeltaDelta q4km-nopre": {
+    "p": 0.014,
+    "reject": false
+   },
+   "RQ6 protected minus stock en": {
+    "p": 0.1228,
+    "reject": false
+   },
+   "RQ6 protected minus stock hi": {
+    "p": 0.1524,
+    "reject": false
+   },
+   "RQ6 protected minus stock hinglish": {
+    "p": 0.8086,
+    "reject": false
+   },
+   "RQ6 protected minus stock all": {
+    "p": 0.8058,
+    "reject": false
+   },
+   "RQ6 protected minus random en": {
+    "p": 0.0026,
+    "reject": true
+   },
+   "RQ6 protected minus random hi": {
+    "p": 0.792,
+    "reject": false
+   },
+   "RQ6 protected minus random hinglish": {
+    "p": 0.007,
+    "reject": false
+   },
+   "RQ6 protected minus random all": {
+    "p": 1.0,
+    "reject": false
+   }
+  }
+ },
+ "holm_deployment": {
+  "m": 15,
+  "tests": {
+   "steering effect at f16": {
+    "p": 0.0001,
+    "reject": true
+   },
+   "steering effect at q4km": {
+    "p": 0.0001,
+    "reject": true
+   },
+   "steering effect at q3km": {
+    "p": 0.0001,
+    "reject": true
+   },
+   "steering effect at q4km-nopre": {
+    "p": 0.0001,
+    "reject": true
+   },
+   "steering effect at budget-phone": {
+    "p": 0.0001,
+    "reject": true
+   },
+   "steered loss q4km vs F16": {
+    "p": 0.2094,
+    "reject": false
+   },
+   "steered loss q3km vs F16": {
+    "p": 0.122,
+    "reject": false
+   },
+   "steered loss q4km-nopre vs F16": {
+    "p": 0.119,
+    "reject": false
+   },
+   "steered loss budget-phone vs F16": {
+    "p": 0.8372,
+    "reject": false
+   },
+   "medical loss q4km vs F16": {
+    "p": 0.0368,
+    "reject": false
+   },
+   "medical loss q3km vs F16": {
+    "p": 0.1038,
+    "reject": false
+   },
+   "medical loss q4km-nopre vs F16": {
+    "p": 0.0078,
+    "reject": false
+   },
+   "medical loss budget-phone vs F16": {
+    "p": 0.1792,
+    "reject": false
+   },
+   "DeltaDelta q4km": {
+    "p": 0.072,
+    "reject": false
+   },
+   "DeltaDelta q4km-nopre": {
+    "p": 0.014,
+    "reject": false
+   }
+  }
+ }
+}

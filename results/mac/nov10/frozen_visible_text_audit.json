@@ -1,0 +1,36 @@
+{
+  "cells": {
+    "med_q4km-nopre": {
+      "rows": 1612,
+      "visible_special_marker_leaks": 0,
+      "flagged_prompt_ids": [],
+      "token_level_post_eot_reconstructible": false
+    },
+    "med_q3km": {
+      "rows": 1612,
+      "visible_special_marker_leaks": 0,
+      "flagged_prompt_ids": [],
+      "token_level_post_eot_reconstructible": false
+    },
+    "med_budget-phone": {
+      "rows": 1612,
+      "visible_special_marker_leaks": 0,
+      "flagged_prompt_ids": [],
+      "token_level_post_eot_reconstructible": false
+    },
+    "med_q4km": {
+      "rows": 1612,
+      "visible_special_marker_leaks": 0,
+      "flagged_prompt_ids": [],
+      "token_level_post_eot_reconstructible": false
+    },
+    "med_f16": {
+      "rows": 1612,
+      "visible_special_marker_leaks": 0,
+      "flagged_prompt_ids": [],
+      "token_level_post_eot_reconstructible": false
+    }
+  },
+  "scope": "Decoded response text only. No frozen output token IDs were retained, so full per-token post-EOT text equality cannot be proved retrospectively. Historical cells were not rerun. Central original50/50 gate and frozen labels remain as delivered.",
+  "no_claim_of_complete_post_eot_equality": true
+}

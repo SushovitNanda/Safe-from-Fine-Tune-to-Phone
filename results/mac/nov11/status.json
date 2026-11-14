@@ -1,0 +1,108 @@
+{
+  "started_at": "2026-11-11T08:42:41.565735+00:00",
+  "pid": 95101,
+  "status": "complete",
+  "completed_cells": {
+    "rep_steer_q3km-protected": {
+      "response_sha256": "385e06bc0cc1e4e7b2bb2ae5d5ad2046891390233a2e939d45881e2b24b03f09",
+      "response_bytes": 5023927,
+      "run_sha256": "73729719ac2f6409f7b8270f0a44ac0388eaceae475f741c44aadd558a3522f3",
+      "rows": 1612,
+      "by_set": {
+        "harmful_general": 550,
+        "harmful_clinical": 306,
+        "benign_clinical": 306,
+        "benign_general": 450
+      },
+      "provisional": false,
+      "judged": true,
+      "fidelity_gate_passed": true,
+      "archive": "models/local-results/day8/D6_Manish_2026-11-11_rep_steer_q3km-protected.zip",
+      "archive_sha256": "655c7fc856f20f94b4941fd137270fac7d59f9d6febc8e8a5ae06ffad07a7911",
+      "archive_bytes": 609843,
+      "summary": {
+        "cell_id": "rep_steer_q3km-protected",
+        "run_fingerprint": "88b989e58ddad6ad9ae047ab99b1eb7b41439acf998c4b940e4400f25ca55fe4",
+        "selected": 1612,
+        "completed": 1612,
+        "new_responses": 1612,
+        "session_seconds": 2481.83976141701,
+        "session_responses_per_second": 0.6495181619137355,
+        "session_completion_tokens": 205724,
+        "session_tokens_per_second": 82.89173346249461,
+        "by_lang": {
+          "en": 554,
+          "hi": 554,
+          "hinglish": 504
+        },
+        "errors": [],
+        "by_set": {
+          "harmful_general": 550,
+          "harmful_clinical": 306,
+          "benign_clinical": 306,
+          "benign_general": 450
+        },
+        "complete": true
+      }
+    },
+    "rep_steer_q3km-random": {
+      "response_sha256": "25411656f11dd96de54161efe31dfe82ffc544aad886b66274669ca648ec159c",
+      "response_bytes": 5054827,
+      "run_sha256": "d7dbf5a6cfffe7714a7ac488be6786107487f1cab0183615e6a39cce1329ab19",
+      "rows": 1612,
+      "by_set": {
+        "harmful_general": 550,
+        "benign_clinical": 306,
+        "harmful_clinical": 306,
+        "benign_general": 450
+      },
+      "provisional": false,
+      "judged": true,
+      "fidelity_gate_passed": true,
+      "archive": "models/local-results/day8/D6_Manish_2026-11-11_rep_steer_q3km-random.zip",
+      "archive_sha256": "1117349d8286b9c35649371ea9d82f0796a7df0b57cc39282329e37883567cb1",
+      "archive_bytes": 607929,
+      "summary": {
+        "cell_id": "rep_steer_q3km-random",
+        "run_fingerprint": "7f99fcb069749d0dbee544f6151b1bc790397670d1795ab2302bbeb0fc70b67a",
+        "selected": 1612,
+        "completed": 1612,
+        "new_responses": 1612,
+        "session_seconds": 2312.4973694999935,
+        "session_responses_per_second": 0.6970818740211348,
+        "session_completion_tokens": 202643,
+        "session_tokens_per_second": 87.62950508515186,
+        "by_lang": {
+          "en": 554,
+          "hi": 554,
+          "hinglish": 504
+        },
+        "errors": [],
+        "by_set": {
+          "harmful_general": 550,
+          "benign_clinical": 306,
+          "harmful_clinical": 306,
+          "benign_general": 450
+        },
+        "complete": true
+      }
+    }
+  },
+  "updated_at": "2026-11-11T10:03:04.743921+00:00",
+  "steering_fidelity_gate": {
+    "source": "handoff/D7_2026-11-09/fidelity50.json",
+    "sha256": "648e43d953934ce44352fe87c311439ca463efa38a889ad3309975b5888f75e1",
+    "same_safety_primary": 50
+  },
+  "active_cell": null,
+  "finished_at": "2026-11-11T10:03:04.743689+00:00",
+  "completed_responses": 3224,
+  "external_blockers": [
+    "New central D7 labels for BOTH M19 cells; final RQ6 tables then refresh",
+    "Public release is a separate action after the team go-ahead"
+  ],
+  "central_labels": "imported_and_verified_from_handoff_v4",
+  "remaining_dependencies": [
+    "M23 public release after team go-ahead"
+  ]
+}

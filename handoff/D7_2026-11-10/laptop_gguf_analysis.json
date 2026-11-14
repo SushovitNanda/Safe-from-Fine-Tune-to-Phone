@@ -1,0 +1,3123 @@
+{
+ "note": "Laptop-side analysis of the five steered GGUF cells, from the D7 labels in this folder and the earlier Mac cells (D7_2026-11-08). Paired bootstrap over prompts, 10,000 resamples, seed 13; R(s) uses the Mac F16 cells (medical and medical+vector) as the reference, per plan v3, and is computed only when that reference gain is at least 5 points. DeltaDelta uses the laptop FP16 cells as the FP16 reference because no original Mac F16 cell exists. Deployment tests form their own Holm family (holm_deployment).",
+ "cross_platform": {
+  "med F16 Mac vs FP16 laptop": {
+   "n": 1612,
+   "n_harmful": 856,
+   "same_safety_harmful": 844,
+   "same_safety_all": 1596,
+   "same_refusal_all": 1603,
+   "asr_a": 36.8,
+   "asr_b": 36.33,
+   "paired_asr_a_minus_b": {
+    "n": 856,
+    "diff": 0.47,
+    "ci95": [
+     -0.35,
+     1.29
+    ],
+    "p": 0.3136,
+    "clear_of_zero": false,
+    "claimed": false
+   }
+  },
+  "steer F16 Mac vs FP16 laptop": {
+   "n": 1612,
+   "n_harmful": 856,
+   "same_safety_harmful": 848,
+   "same_safety_all": 1599,
+   "same_refusal_all": 1602,
+   "asr_a": 25.82,
+   "asr_b": 26.29,
+   "paired_asr_a_minus_b": {
+    "n": 856,
+    "diff": -0.47,
+    "ci95": [
+     -1.17,
+     0.12
+    ],
+    "p": 0.2014,
+    "clear_of_zero": false,
+    "claimed": false
+   }
+  }
+ },
+ "gguf": {
+  "rates": {
+   "f16": {
+    "med": {
+     "en": {
+      "n": 302,
+      "rate": 24.83,
+      "ci95": [
+       19.87,
+       29.8
+      ]
+     },
+     "hi": {
+      "n": 302,
+      "rate": 27.48,
+      "ci95": [
+       22.52,
+       32.45
+      ]
+     },
+     "hinglish": {
+      "n": 252,
+      "rate": 62.3,
+      "ci95": [
+       56.35,
+       68.25
+      ]
+     },
+     "all": {
+      "n": 856,
+      "rate": 36.8,
+      "ci95": [
+       33.53,
+       39.95
+      ]
+     }
+    },
+    "steer": {
+     "en": {
+      "n": 302,
+      "rate": 16.23,
+      "ci95": [
+       12.25,
+       20.53
+      ]
+     },
+     "hi": {
+      "n": 302,
+      "rate": 13.25,
+      "ci95": [
+       9.6,
+       17.22
+      ]
+     },
+     "hinglish": {
+      "n": 252,
+      "rate": 52.38,
+      "ci95": [
+       46.03,
+       58.73
+      ]
+     },
+     "all": {
+      "n": 856,
+      "rate": 25.82,
+      "ci95": [
+       22.9,
+       28.74
+      ]
+     }
+    }
+   },
+   "q4km": {
+    "med": {
+     "en": {
+      "n": 302,
+      "rate": 28.15,
+      "ci95": [
+       23.18,
+       33.11
+      ]
+     },
+     "hi": {
+      "n": 302,
+      "rate": 30.13,
+      "ci95": [
+       25.17,
+       35.43
+      ]
+     },
+     "hinglish": {
+      "n": 252,
+      "rate": 63.89,
+      "ci95": [
+       57.94,
+       69.44
+      ]
+     },
+     "all": {
+      "n": 856,
+      "rate": 39.37,
+      "ci95": [
+       36.1,
+       42.64
+      ]
+     }
+    },
+    "steer": {
+     "en": {
+      "n": 302,
+      "rate": 16.89,
+      "ci95": [
+       12.91,
+       21.19
+      ]
+     },
+     "hi": {
+      "n": 302,
+      "rate": 13.58,
+      "ci95": [
+       9.93,
+       17.55
+      ]
+     },
+     "hinglish": {
+      "n": 252,
+      "rate": 55.95,
+      "ci95": [
+       49.6,
+       61.9
+      ]
+     },
+     "all": {
+      "n": 856,
+      "rate": 27.22,
+      "ci95": [
+       24.18,
+       30.26
+      ]
+     }
+    }
+   },
+   "q3km": {
+    "med": {
+     "en": {
+      "n": 302,
+      "rate": 20.2,
+      "ci95": [
+       15.89,
+       24.83
+      ]
+     },
+     "hi": {
+      "n": 302,
+      "rate": 31.79,
+      "ci95": [
+       26.82,
+       37.09
+      ]
+     },
+     "hinglish": {
+      "n": 252,
+      "rate": 70.24,
+      "ci95": [
+       64.68,
+       75.79
+      ]
+     },
+     "all": {
+      "n": 856,
+      "rate": 39.02,
+      "ci95": [
+       35.75,
+       42.17
+      ]
+     }
+    },
+    "steer": {
+     "en": {
+      "n": 302,
+      "rate": 10.26,
+      "ci95": [
+       6.95,
+       13.91
+      ]
+     },
+     "hi": {
+      "n": 302,
+      "rate": 17.88,
+      "ci95": [
+       13.58,
+       22.19
+      ]
+     },
+     "hinglish": {
+      "n": 252,
+      "rate": 61.11,
+      "ci95": [
+       55.16,
+       67.06
+      ]
+     },
+     "all": {
+      "n": 856,
+      "rate": 27.92,
+      "ci95": [
+       24.88,
+       30.96
+      ]
+     }
+    }
+   },
+   "q4km-nopre": {
+    "med": {
+     "en": {
+      "n": 302,
+      "rate": 19.21,
+      "ci95": [
+       14.9,
+       23.84
+      ]
+     },
+     "hi": {
+      "n": 302,
+      "rate": 24.17,
+      "ci95": [
+       19.54,
+       29.14
+      ]
+     },
+     "hinglish": {
+      "n": 252,
+      "rate": 60.71,
+      "ci95": [
+       54.76,
+       66.67
+      ]
+     },
+     "all": {
+      "n": 856,
+      "rate": 33.18,
+      "ci95": [
+       30.02,
+       36.33
+      ]
+     }
+    },
+    "steer": {
+     "en": {
+      "n": 302,
+      "rate": 12.91,
+      "ci95": [
+       9.27,
+       16.89
+      ]
+     },
+     "hi": {
+      "n": 302,
+      "rate": 13.58,
+      "ci95": [
+       9.93,
+       17.55
+      ]
+     },
+     "hinglish": {
+      "n": 252,
+      "rate": 49.21,
+      "ci95": [
+       42.86,
+       55.56
+      ]
+     },
+     "all": {
+      "n": 856,
+      "rate": 23.83,
+      "ci95": [
+       21.03,
+       26.75
+      ]
+     }
+    }
+   },
+   "budget-phone": {
+    "med": {
+     "en": {
+      "n": 302,
+      "rate": 16.89,
+      "ci95": [
+       12.91,
+       21.19
+      ]
+     },
+     "hi": {
+      "n": 302,
+      "rate": 26.49,
+      "ci95": [
+       21.52,
+       31.46
+      ]
+     },
+     "hinglish": {
+      "n": 252,
+      "rate": 66.27,
+      "ci95": [
+       60.32,
+       71.83
+      ]
+     },
+     "all": {
+      "n": 856,
+      "rate": 34.81,
+      "ci95": [
+       31.54,
+       37.97
+      ]
+     }
+    },
+    "steer": {
+     "en": {
+      "n": 302,
+      "rate": 9.93,
+      "ci95": [
+       6.62,
+       13.25
+      ]
+     },
+     "hi": {
+      "n": 302,
+      "rate": 15.23,
+      "ci95": [
+       11.26,
+       19.21
+      ]
+     },
+     "hinglish": {
+      "n": 252,
+      "rate": 58.73,
+      "ci95": [
+       52.78,
+       64.69
+      ]
+     },
+     "all": {
+      "n": 856,
+      "rate": 26.17,
+      "ci95": [
+       23.25,
+       29.09
+      ]
+     }
+    }
+   }
+  },
+  "steer_effect": {
+   "f16": {
+    "en": {
+     "n": 302,
+     "diff": -8.61,
+     "ci95": [
+      -12.58,
+      -4.64
+     ],
+     "p": 0.0001,
+     "clear_of_zero": true,
+     "claimed": true
+    },
+    "hi": {
+     "n": 302,
+     "diff": -14.24,
+     "ci95": [
+      -18.54,
+      -10.26
+     ],
+     "p": 0.0001,
+     "clear_of_zero": true,
+     "claimed": true
+    },
+    "hinglish": {
+     "n": 252,
+     "diff": -9.92,
+     "ci95": [
+      -14.68,
+      -5.16
+     ],
+     "p": 0.0001,
+     "clear_of_zero": true,
+     "claimed": true
+    },
+    "all": {
+     "n": 856,
+     "diff": -10.98,
+     "ci95": [
+      -13.55,
+      -8.53
+     ],
+     "p": 0.0001,
+     "clear_of_zero": true,
+     "claimed": true
+    }
+   },
+   "q4km": {
+    "en": {
+     "n": 302,
+     "diff": -11.26,
+     "ci95": [
+      -15.56,
+      -6.95
+     ],
+     "p": 0.0001,
+     "clear_of_zero": true,
+     "claimed": true
+    },
+    "hi": {
+     "n": 302,
+     "diff": -16.56,
+     "ci95": [
+      -21.19,
+      -12.25
+     ],
+     "p": 0.0001,
+     "clear_of_zero": true,
+     "claimed": true
+    },
+    "hinglish": {
+     "n": 252,
+     "diff": -7.94,
+     "ci95": [
+      -13.89,
+      -1.98
+     ],
+     "p": 0.0108,
+     "clear_of_zero": true,
+     "claimed": true
+    },
+    "all": {
+     "n": 856,
+     "diff": -12.15,
+     "ci95": [
+      -15.07,
+      -9.35
+     ],
+     "p": 0.0001,
+     "clear_of_zero": true,
+     "claimed": true
+    }
+   },
+   "q3km": {
+    "en": {
+     "n": 302,
+     "diff": -9.93,
+     "ci95": [
+      -13.91,
+      -6.29
+     ],
+     "p": 0.0001,
+     "clear_of_zero": true,
+     "claimed": true
+    },
+    "hi": {
+     "n": 302,
+     "diff": -13.91,
+     "ci95": [
+      -18.54,
+      -9.27
+     ],
+     "p": 0.0001,
+     "clear_of_zero": true,
+     "claimed": true
+    },
+    "hinglish": {
+     "n": 252,
+     "diff": -9.13,
+     "ci95": [
+      -14.68,
+      -3.96
+     ],
+     "p": 0.0004,
+     "clear_of_zero": true,
+     "claimed": true
+    },
+    "all": {
+     "n": 856,
+     "diff": -11.1,
+     "ci95": [
+      -13.79,
+      -8.41
+     ],
+     "p": 0.0001,
+     "clear_of_zero": true,
+     "claimed": true
+    }
+   },
+   "q4km-nopre": {
+    "en": {
+     "n": 302,
+     "diff": -6.29,
+     "ci95": [
+      -10.26,
+      -2.32
+     ],
+     "p": 0.003,
+     "clear_of_zero": true,
+     "claimed": true
+    },
+    "hi": {
+     "n": 302,
+     "diff": -10.6,
+     "ci95": [
+      -15.23,
+      -6.29
+     ],
+     "p": 0.0001,
+     "clear_of_zero": true,
+     "claimed": true
+    },
+    "hinglish": {
+     "n": 252,
+     "diff": -11.51,
+     "ci95": [
+      -16.27,
+      -6.75
+     ],
+     "p": 0.0001,
+     "clear_of_zero": true,
+     "claimed": true
+    },
+    "all": {
+     "n": 856,
+     "diff": -9.35,
+     "ci95": [
+      -11.92,
+      -6.78
+     ],
+     "p": 0.0001,
+     "clear_of_zero": true,
+     "claimed": true
+    }
+   },
+   "budget-phone": {
+    "en": {
+     "n": 302,
+     "diff": -6.95,
+     "ci95": [
+      -10.6,
+      -3.31
+     ],
+     "p": 0.0001,
+     "clear_of_zero": true,
+     "claimed": true
+    },
+    "hi": {
+     "n": 302,
+     "diff": -11.26,
+     "ci95": [
+      -15.56,
+      -6.95
+     ],
+     "p": 0.0001,
+     "clear_of_zero": true,
+     "claimed": true
+    },
+    "hinglish": {
+     "n": 252,
+     "diff": -7.54,
+     "ci95": [
+      -12.7,
+      -2.78
+     ],
+     "p": 0.0014,
+     "clear_of_zero": true,
+     "claimed": true
+    },
+    "all": {
+     "n": 856,
+     "diff": -8.64,
+     "ci95": [
+      -11.1,
+      -6.19
+     ],
+     "p": 0.0001,
+     "clear_of_zero": true,
+     "claimed": true
+    }
+   }
+  },
+  "retention": {
+   "q4km": {
+    "en": {
+     "n": 302,
+     "numerator": 11.26,
+     "denominator": 8.61,
+     "R": 1.308,
+     "ci95": [
+      0.812,
+      2.294
+     ],
+     "resamples_den_nonpositive": 0
+    },
+    "hi": {
+     "n": 302,
+     "numerator": 16.56,
+     "denominator": 14.24,
+     "R": 1.163,
+     "ci95": [
+      0.872,
+      1.568
+     ],
+     "resamples_den_nonpositive": 0
+    },
+    "hinglish": {
+     "n": 252,
+     "numerator": 7.94,
+     "denominator": 9.92,
+     "R": 0.8,
+     "ci95": [
+      0.188,
+      1.727
+     ],
+     "resamples_den_nonpositive": 0
+    },
+    "all": {
+     "n": 856,
+     "numerator": 12.15,
+     "denominator": 10.98,
+     "R": 1.106,
+     "ci95": [
+      0.847,
+      1.446
+     ],
+     "resamples_den_nonpositive": 0
+    }
+   },
+   "q3km": {
+    "en": {
+     "n": 302,
+     "numerator": 9.93,
+     "denominator": 8.61,
+     "R": 1.154,
+     "ci95": [
+      0.667,
+      2.214
+     ],
+     "resamples_den_nonpositive": 0
+    },
+    "hi": {
+     "n": 302,
+     "numerator": 13.91,
+     "denominator": 14.24,
+     "R": 0.977,
+     "ci95": [
+      0.647,
+      1.424
+     ],
+     "resamples_den_nonpositive": 0
+    },
+    "hinglish": {
+     "n": 252,
+     "numerator": 9.13,
+     "denominator": 9.92,
+     "R": 0.92,
+     "ci95": [
+      0.37,
+      1.867
+     ],
+     "resamples_den_nonpositive": 0
+    },
+    "all": {
+     "n": 856,
+     "numerator": 11.1,
+     "denominator": 10.98,
+     "R": 1.011,
+     "ci95": [
+      0.743,
+      1.361
+     ],
+     "resamples_den_nonpositive": 0
+    }
+   },
+   "q4km-nopre": {
+    "en": {
+     "n": 302,
+     "numerator": 6.29,
+     "denominator": 8.61,
+     "R": 0.731,
+     "ci95": [
+      0.27,
+      1.526
+     ],
+     "resamples_den_nonpositive": 0
+    },
+    "hi": {
+     "n": 302,
+     "numerator": 10.6,
+     "denominator": 14.24,
+     "R": 0.744,
+     "ci95": [
+      0.444,
+      1.125
+     ],
+     "resamples_den_nonpositive": 0
+    },
+    "hinglish": {
+     "n": 252,
+     "numerator": 11.51,
+     "denominator": 9.92,
+     "R": 1.16,
+     "ci95": [
+      0.636,
+      2.214
+     ],
+     "resamples_den_nonpositive": 0
+    },
+    "all": {
+     "n": 856,
+     "numerator": 9.35,
+     "denominator": 10.98,
+     "R": 0.851,
+     "ci95": [
+      0.608,
+      1.16
+     ],
+     "resamples_den_nonpositive": 0
+    }
+   },
+   "budget-phone": {
+    "en": {
+     "n": 302,
+     "numerator": 6.95,
+     "denominator": 8.61,
+     "R": 0.808,
+     "ci95": [
+      0.367,
+      1.643
+     ],
+     "resamples_den_nonpositive": 0
+    },
+    "hi": {
+     "n": 302,
+     "numerator": 11.26,
+     "denominator": 14.24,
+     "R": 0.791,
+     "ci95": [
+      0.491,
+      1.206
+     ],
+     "resamples_den_nonpositive": 0
+    },
+    "hinglish": {
+     "n": 252,
+     "numerator": 7.54,
+     "denominator": 9.92,
+     "R": 0.76,
+     "ci95": [
+      0.25,
+      1.727
+     ],
+     "resamples_den_nonpositive": 0
+    },
+    "all": {
+     "n": 856,
+     "numerator": 8.64,
+     "denominator": 10.98,
+     "R": 0.787,
+     "ci95": [
+      0.542,
+      1.111
+     ],
+     "resamples_den_nonpositive": 0
+    }
+   }
+  },
+  "loss_steered": {
+   "q4km": {
+    "en": {
+     "n": 302,
+     "diff": 0.66,
+     "ci95": [
+      -2.32,
+      3.64
+     ],
+     "p": 0.764,
+     "clear_of_zero": false,
+     "claimed": false,
+     "non_inferior": true
+    },
+    "hi": {
+     "n": 302,
+     "diff": 0.33,
+     "ci95": [
+      -2.32,
+      2.98
+     ],
+     "p": 0.9092,
+     "clear_of_zero": false,
+     "claimed": false,
+     "non_inferior": true
+    },
+    "hinglish": {
+     "n": 252,
+     "diff": 3.57,
+     "ci95": [
+      -1.59,
+      8.73
+     ],
+     "p": 0.2108,
+     "clear_of_zero": false,
+     "claimed": false,
+     "non_inferior": false
+    },
+    "all": {
+     "n": 856,
+     "diff": 1.4,
+     "ci95": [
+      -0.7,
+      3.62
+     ],
+     "p": 0.2094,
+     "clear_of_zero": false,
+     "claimed": false,
+     "non_inferior": true
+    }
+   },
+   "q3km": {
+    "en": {
+     "n": 302,
+     "diff": -5.96,
+     "ci95": [
+      -9.27,
+      -2.98
+     ],
+     "p": 0.0001,
+     "clear_of_zero": true,
+     "claimed": true,
+     "non_inferior": true
+    },
+    "hi": {
+     "n": 302,
+     "diff": 4.64,
+     "ci95": [
+      0.66,
+      8.94
+     ],
+     "p": 0.0316,
+     "clear_of_zero": true,
+     "claimed": false,
+     "non_inferior": false
+    },
+    "hinglish": {
+     "n": 252,
+     "diff": 8.73,
+     "ci95": [
+      2.78,
+      15.48
+     ],
+     "p": 0.0076,
+     "clear_of_zero": true,
+     "claimed": true,
+     "non_inferior": false
+    },
+    "all": {
+     "n": 856,
+     "diff": 2.1,
+     "ci95": [
+      -0.58,
+      4.67
+     ],
+     "p": 0.122,
+     "clear_of_zero": false,
+     "claimed": false,
+     "non_inferior": true
+    }
+   },
+   "q4km-nopre": {
+    "en": {
+     "n": 302,
+     "diff": -3.31,
+     "ci95": [
+      -6.95,
+      0.0
+     ],
+     "p": 0.0732,
+     "clear_of_zero": false,
+     "claimed": false,
+     "non_inferior": true
+    },
+    "hi": {
+     "n": 302,
+     "diff": 0.33,
+     "ci95": [
+      -3.31,
+      3.97
+     ],
+     "p": 0.9242,
+     "clear_of_zero": false,
+     "claimed": false,
+     "non_inferior": true
+    },
+    "hinglish": {
+     "n": 252,
+     "diff": -3.17,
+     "ci95": [
+      -8.73,
+      2.38
+     ],
+     "p": 0.305,
+     "clear_of_zero": false,
+     "claimed": false,
+     "non_inferior": true
+    },
+    "all": {
+     "n": 856,
+     "diff": -1.99,
+     "ci95": [
+      -4.44,
+      0.47
+     ],
+     "p": 0.119,
+     "clear_of_zero": false,
+     "claimed": false,
+     "non_inferior": true
+    }
+   },
+   "budget-phone": {
+    "en": {
+     "n": 302,
+     "diff": -6.29,
+     "ci95": [
+      -9.93,
+      -2.65
+     ],
+     "p": 0.001,
+     "clear_of_zero": true,
+     "claimed": true,
+     "non_inferior": true
+    },
+    "hi": {
+     "n": 302,
+     "diff": 1.99,
+     "ci95": [
+      -1.99,
+      5.63
+     ],
+     "p": 0.3488,
+     "clear_of_zero": false,
+     "claimed": false,
+     "non_inferior": false
+    },
+    "hinglish": {
+     "n": 252,
+     "diff": 6.35,
+     "ci95": [
+      -0.4,
+      13.1
+     ],
+     "p": 0.0658,
+     "clear_of_zero": false,
+     "claimed": false,
+     "non_inferior": false
+    },
+    "all": {
+     "n": 856,
+     "diff": 0.35,
+     "ci95": [
+      -2.34,
+      3.04
+     ],
+     "p": 0.8372,
+     "clear_of_zero": false,
+     "claimed": false,
+     "non_inferior": true
+    }
+   }
+  },
+  "loss_medical": {
+   "q4km": {
+    "en": {
+     "n": 302,
+     "diff": 3.31,
+     "ci95": [
+      -0.33,
+      6.95
+     ],
+     "p": 0.0914,
+     "clear_of_zero": false,
+     "claimed": false,
+     "non_inferior": false
+    },
+    "hi": {
+     "n": 302,
+     "diff": 2.65,
+     "ci95": [
+      -0.99,
+      6.62
+     ],
+     "p": 0.1906,
+     "clear_of_zero": false,
+     "claimed": false,
+     "non_inferior": false
+    },
+    "hinglish": {
+     "n": 252,
+     "diff": 1.59,
+     "ci95": [
+      -3.57,
+      6.35
+     ],
+     "p": 0.5984,
+     "clear_of_zero": false,
+     "claimed": false,
+     "non_inferior": false
+    },
+    "all": {
+     "n": 856,
+     "diff": 2.57,
+     "ci95": [
+      0.23,
+      4.91
+     ],
+     "p": 0.0368,
+     "clear_of_zero": true,
+     "claimed": false,
+     "non_inferior": true
+    }
+   },
+   "q3km": {
+    "en": {
+     "n": 302,
+     "diff": -4.64,
+     "ci95": [
+      -8.61,
+      -0.66
+     ],
+     "p": 0.029,
+     "clear_of_zero": true,
+     "claimed": false,
+     "non_inferior": true
+    },
+    "hi": {
+     "n": 302,
+     "diff": 4.3,
+     "ci95": [
+      0.0,
+      8.61
+     ],
+     "p": 0.0644,
+     "clear_of_zero": false,
+     "claimed": false,
+     "non_inferior": false
+    },
+    "hinglish": {
+     "n": 252,
+     "diff": 7.94,
+     "ci95": [
+      3.17,
+      12.7
+     ],
+     "p": 0.0014,
+     "clear_of_zero": true,
+     "claimed": true,
+     "non_inferior": false
+    },
+    "all": {
+     "n": 856,
+     "diff": 2.22,
+     "ci95": [
+      -0.35,
+      4.79
+     ],
+     "p": 0.1038,
+     "clear_of_zero": false,
+     "claimed": false,
+     "non_inferior": true
+    }
+   },
+   "q4km-nopre": {
+    "en": {
+     "n": 302,
+     "diff": -5.63,
+     "ci95": [
+      -9.93,
+      -1.32
+     ],
+     "p": 0.0104,
+     "clear_of_zero": true,
+     "claimed": true,
+     "non_inferior": true
+    },
+    "hi": {
+     "n": 302,
+     "diff": -3.31,
+     "ci95": [
+      -7.28,
+      0.66
+     ],
+     "p": 0.1264,
+     "clear_of_zero": false,
+     "claimed": false,
+     "non_inferior": true
+    },
+    "hinglish": {
+     "n": 252,
+     "diff": -1.59,
+     "ci95": [
+      -6.75,
+      3.57
+     ],
+     "p": 0.605,
+     "clear_of_zero": false,
+     "claimed": false,
+     "non_inferior": true
+    },
+    "all": {
+     "n": 856,
+     "diff": -3.62,
+     "ci95": [
+      -6.19,
+      -1.05
+     ],
+     "p": 0.0078,
+     "clear_of_zero": true,
+     "claimed": false,
+     "non_inferior": true
+    }
+   },
+   "budget-phone": {
+    "en": {
+     "n": 302,
+     "diff": -7.95,
+     "ci95": [
+      -12.58,
+      -3.31
+     ],
+     "p": 0.0014,
+     "clear_of_zero": true,
+     "claimed": true,
+     "non_inferior": true
+    },
+    "hi": {
+     "n": 302,
+     "diff": -0.99,
+     "ci95": [
+      -5.63,
+      3.64
+     ],
+     "p": 0.7356,
+     "clear_of_zero": false,
+     "claimed": false,
+     "non_inferior": true
+    },
+    "hinglish": {
+     "n": 252,
+     "diff": 3.97,
+     "ci95": [
+      -1.19,
+      9.13
+     ],
+     "p": 0.1518,
+     "clear_of_zero": false,
+     "claimed": false,
+     "non_inferior": false
+    },
+    "all": {
+     "n": 856,
+     "diff": -1.99,
+     "ci95": [
+      -4.79,
+      0.82
+     ],
+     "p": 0.1792,
+     "clear_of_zero": false,
+     "claimed": false,
+     "non_inferior": true
+    }
+   }
+  },
+  "no_preamble": {
+   "med": {
+    "en": {
+     "n": 302,
+     "diff": -8.94,
+     "ci95": [
+      -12.92,
+      -4.97
+     ],
+     "p": 0.0001,
+     "clear_of_zero": true,
+     "claimed": true
+    },
+    "hi": {
+     "n": 302,
+     "diff": -5.96,
+     "ci95": [
+      -10.26,
+      -1.99
+     ],
+     "p": 0.004,
+     "clear_of_zero": true,
+     "claimed": true
+    },
+    "hinglish": {
+     "n": 252,
+     "diff": -3.17,
+     "ci95": [
+      -8.33,
+      1.98
+     ],
+     "p": 0.2572,
+     "clear_of_zero": false,
+     "claimed": false
+    },
+    "all": {
+     "n": 856,
+     "diff": -6.19,
+     "ci95": [
+      -8.76,
+      -3.62
+     ],
+     "p": 0.0001,
+     "clear_of_zero": true,
+     "claimed": true
+    }
+   },
+   "steer": {
+    "en": {
+     "n": 302,
+     "diff": -3.97,
+     "ci95": [
+      -7.95,
+      -0.33
+     ],
+     "p": 0.0468,
+     "clear_of_zero": true,
+     "claimed": false
+    },
+    "hi": {
+     "n": 302,
+     "diff": 0.0,
+     "ci95": [
+      -3.31,
+      3.31
+     ],
+     "p": 1.0,
+     "clear_of_zero": false,
+     "claimed": false
+    },
+    "hinglish": {
+     "n": 252,
+     "diff": -6.75,
+     "ci95": [
+      -12.3,
+      -1.19
+     ],
+     "p": 0.0252,
+     "clear_of_zero": true,
+     "claimed": true
+    },
+    "all": {
+     "n": 856,
+     "diff": -3.39,
+     "ci95": [
+      -5.84,
+      -0.93
+     ],
+     "p": 0.0074,
+     "clear_of_zero": true,
+     "claimed": false
+    }
+   },
+   "orig": {
+    "en": {
+     "n": 302,
+     "diff": 0.99,
+     "ci95": [
+      -2.32,
+      4.3
+     ],
+     "p": 0.6268,
+     "clear_of_zero": false,
+     "claimed": false
+    },
+    "hi": {
+     "n": 302,
+     "diff": -0.33,
+     "ci95": [
+      -2.65,
+      1.99
+     ],
+     "p": 0.8766,
+     "clear_of_zero": false,
+     "claimed": false
+    },
+    "hinglish": {
+     "n": 252,
+     "diff": 3.97,
+     "ci95": [
+      -1.59,
+      9.52
+     ],
+     "p": 0.1796,
+     "clear_of_zero": false,
+     "claimed": false
+    },
+    "all": {
+     "n": 856,
+     "diff": 1.4,
+     "ci95": [
+      -0.7,
+      3.5
+     ],
+     "p": 0.2136,
+     "clear_of_zero": false,
+     "claimed": false
+    }
+   }
+  },
+  "orr": {
+   "f16": {
+    "general|en": {
+     "med": {
+      "n": 150,
+      "rate": 10.0,
+      "ci95": [
+       5.33,
+       14.67
+      ]
+     },
+     "steer": {
+      "n": 150,
+      "rate": 10.0,
+      "ci95": [
+       5.33,
+       15.33
+      ]
+     },
+     "steer_minus_med": {
+      "n": 150,
+      "diff": 0.0,
+      "ci95": [
+       -4.67,
+       4.67
+      ],
+      "p": 1.0,
+      "clear_of_zero": false,
+      "claimed": false
+     }
+    },
+    "general|hi": {
+     "med": {
+      "n": 150,
+      "rate": 8.67,
+      "ci95": [
+       4.67,
+       13.33
+      ]
+     },
+     "steer": {
+      "n": 150,
+      "rate": 10.0,
+      "ci95": [
+       5.33,
+       15.33
+      ]
+     },
+     "steer_minus_med": {
+      "n": 150,
+      "diff": 1.33,
+      "ci95": [
+       -2.0,
+       5.33
+      ],
+      "p": 0.6046,
+      "clear_of_zero": false,
+      "claimed": false
+     }
+    },
+    "general|hinglish": {
+     "med": {
+      "n": 150,
+      "rate": 47.33,
+      "ci95": [
+       39.33,
+       55.33
+      ]
+     },
+     "steer": {
+      "n": 150,
+      "rate": 42.67,
+      "ci95": [
+       34.67,
+       50.67
+      ]
+     },
+     "steer_minus_med": {
+      "n": 150,
+      "diff": -4.67,
+      "ci95": [
+       -12.0,
+       2.67
+      ],
+      "p": 0.239,
+      "clear_of_zero": false,
+      "claimed": false
+     }
+    },
+    "general|all": {
+     "med": {
+      "n": 450,
+      "rate": 22.0,
+      "ci95": [
+       18.22,
+       26.0
+      ]
+     },
+     "steer": {
+      "n": 450,
+      "rate": 20.89,
+      "ci95": [
+       17.33,
+       24.67
+      ]
+     },
+     "steer_minus_med": {
+      "n": 450,
+      "diff": -1.11,
+      "ci95": [
+       -4.44,
+       2.0
+      ],
+      "p": 0.543,
+      "clear_of_zero": false,
+      "claimed": false
+     }
+    },
+    "clinical|en": {
+     "med": {
+      "n": 102,
+      "rate": 14.71,
+      "ci95": [
+       7.84,
+       21.57
+      ]
+     },
+     "steer": {
+      "n": 102,
+      "rate": 15.69,
+      "ci95": [
+       8.82,
+       22.55
+      ]
+     },
+     "steer_minus_med": {
+      "n": 102,
+      "diff": 0.98,
+      "ci95": [
+       -7.84,
+       9.8
+      ],
+      "p": 0.911,
+      "clear_of_zero": false,
+      "claimed": false
+     }
+    },
+    "clinical|hi": {
+     "med": {
+      "n": 102,
+      "rate": 9.8,
+      "ci95": [
+       4.9,
+       15.69
+      ]
+     },
+     "steer": {
+      "n": 102,
+      "rate": 16.67,
+      "ci95": [
+       9.8,
+       24.51
+      ]
+     },
+     "steer_minus_med": {
+      "n": 102,
+      "diff": 6.86,
+      "ci95": [
+       0.0,
+       14.71
+      ],
+      "p": 0.0856,
+      "clear_of_zero": false,
+      "claimed": false
+     }
+    },
+    "clinical|hinglish": {
+     "med": {
+      "n": 102,
+      "rate": 62.75,
+      "ci95": [
+       52.94,
+       71.57
+      ]
+     },
+     "steer": {
+      "n": 102,
+      "rate": 60.78,
+      "ci95": [
+       50.98,
+       69.61
+      ]
+     },
+     "steer_minus_med": {
+      "n": 102,
+      "diff": -1.96,
+      "ci95": [
+       -11.76,
+       7.84
+      ],
+      "p": 0.761,
+      "clear_of_zero": false,
+      "claimed": false
+     }
+    },
+    "clinical|all": {
+     "med": {
+      "n": 306,
+      "rate": 29.08,
+      "ci95": [
+       24.18,
+       34.31
+      ]
+     },
+     "steer": {
+      "n": 306,
+      "rate": 31.05,
+      "ci95": [
+       25.82,
+       36.27
+      ]
+     },
+     "steer_minus_med": {
+      "n": 306,
+      "diff": 1.96,
+      "ci95": [
+       -2.94,
+       6.86
+      ],
+      "p": 0.476,
+      "clear_of_zero": false,
+      "claimed": false
+     }
+    }
+   },
+   "q4km": {
+    "general|en": {
+     "med": {
+      "n": 150,
+      "rate": 7.33,
+      "ci95": [
+       3.33,
+       11.33
+      ]
+     },
+     "steer": {
+      "n": 150,
+      "rate": 9.33,
+      "ci95": [
+       4.67,
+       14.0
+      ]
+     },
+     "steer_minus_med": {
+      "n": 150,
+      "diff": 2.0,
+      "ci95": [
+       -2.67,
+       7.33
+      ],
+      "p": 0.5088,
+      "clear_of_zero": false,
+      "claimed": false
+     }
+    },
+    "general|hi": {
+     "med": {
+      "n": 150,
+      "rate": 8.0,
+      "ci95": [
+       4.0,
+       12.67
+      ]
+     },
+     "steer": {
+      "n": 150,
+      "rate": 10.67,
+      "ci95": [
+       6.0,
+       16.0
+      ]
+     },
+     "steer_minus_med": {
+      "n": 150,
+      "diff": 2.67,
+      "ci95": [
+       -1.33,
+       7.33
+      ],
+      "p": 0.3096,
+      "clear_of_zero": false,
+      "claimed": false
+     }
+    },
+    "general|hinglish": {
+     "med": {
+      "n": 150,
+      "rate": 45.33,
+      "ci95": [
+       37.33,
+       53.33
+      ]
+     },
+     "steer": {
+      "n": 150,
+      "rate": 46.0,
+      "ci95": [
+       38.0,
+       54.0
+      ]
+     },
+     "steer_minus_med": {
+      "n": 150,
+      "diff": 0.67,
+      "ci95": [
+       -8.0,
+       8.67
+      ],
+      "p": 0.9628,
+      "clear_of_zero": false,
+      "claimed": false
+     }
+    },
+    "general|all": {
+     "med": {
+      "n": 450,
+      "rate": 20.22,
+      "ci95": [
+       16.44,
+       24.0
+      ]
+     },
+     "steer": {
+      "n": 450,
+      "rate": 22.0,
+      "ci95": [
+       18.22,
+       26.0
+      ]
+     },
+     "steer_minus_med": {
+      "n": 450,
+      "diff": 1.78,
+      "ci95": [
+       -1.78,
+       5.33
+      ],
+      "p": 0.3534,
+      "clear_of_zero": false,
+      "claimed": false
+     }
+    },
+    "clinical|en": {
+     "med": {
+      "n": 102,
+      "rate": 13.73,
+      "ci95": [
+       7.84,
+       20.59
+      ]
+     },
+     "steer": {
+      "n": 102,
+      "rate": 15.69,
+      "ci95": [
+       8.82,
+       22.55
+      ]
+     },
+     "steer_minus_med": {
+      "n": 102,
+      "diff": 1.96,
+      "ci95": [
+       -4.9,
+       8.82
+      ],
+      "p": 0.6802,
+      "clear_of_zero": false,
+      "claimed": false
+     }
+    },
+    "clinical|hi": {
+     "med": {
+      "n": 102,
+      "rate": 9.8,
+      "ci95": [
+       4.9,
+       15.69
+      ]
+     },
+     "steer": {
+      "n": 102,
+      "rate": 17.65,
+      "ci95": [
+       10.78,
+       25.49
+      ]
+     },
+     "steer_minus_med": {
+      "n": 102,
+      "diff": 7.84,
+      "ci95": [
+       0.96,
+       15.69
+      ],
+      "p": 0.05,
+      "clear_of_zero": true,
+      "claimed": true
+     }
+    },
+    "clinical|hinglish": {
+     "med": {
+      "n": 102,
+      "rate": 57.84,
+      "ci95": [
+       48.04,
+       67.65
+      ]
+     },
+     "steer": {
+      "n": 102,
+      "rate": 64.71,
+      "ci95": [
+       54.9,
+       73.53
+      ]
+     },
+     "steer_minus_med": {
+      "n": 102,
+      "diff": 6.86,
+      "ci95": [
+       -3.92,
+       17.65
+      ],
+      "p": 0.2288,
+      "clear_of_zero": false,
+      "claimed": false
+     }
+    },
+    "clinical|all": {
+     "med": {
+      "n": 306,
+      "rate": 27.12,
+      "ci95": [
+       22.22,
+       32.35
+      ]
+     },
+     "steer": {
+      "n": 306,
+      "rate": 32.68,
+      "ci95": [
+       27.78,
+       37.91
+      ]
+     },
+     "steer_minus_med": {
+      "n": 306,
+      "diff": 5.56,
+      "ci95": [
+       0.65,
+       10.46
+      ],
+      "p": 0.0338,
+      "clear_of_zero": true,
+      "claimed": true
+     }
+    }
+   },
+   "q3km": {
+    "general|en": {
+     "med": {
+      "n": 150,
+      "rate": 13.33,
+      "ci95": [
+       8.0,
+       19.33
+      ]
+     },
+     "steer": {
+      "n": 150,
+      "rate": 15.33,
+      "ci95": [
+       10.0,
+       21.33
+      ]
+     },
+     "steer_minus_med": {
+      "n": 150,
+      "diff": 2.0,
+      "ci95": [
+       -3.33,
+       8.0
+      ],
+      "p": 0.5778,
+      "clear_of_zero": false,
+      "claimed": false
+     }
+    },
+    "general|hi": {
+     "med": {
+      "n": 150,
+      "rate": 10.0,
+      "ci95": [
+       5.33,
+       14.67
+      ]
+     },
+     "steer": {
+      "n": 150,
+      "rate": 14.0,
+      "ci95": [
+       8.67,
+       20.0
+      ]
+     },
+     "steer_minus_med": {
+      "n": 150,
+      "diff": 4.0,
+      "ci95": [
+       -1.33,
+       9.33
+      ],
+      "p": 0.168,
+      "clear_of_zero": false,
+      "claimed": false
+     }
+    },
+    "general|hinglish": {
+     "med": {
+      "n": 150,
+      "rate": 54.0,
+      "ci95": [
+       46.0,
+       62.0
+      ]
+     },
+     "steer": {
+      "n": 150,
+      "rate": 56.0,
+      "ci95": [
+       48.0,
+       64.0
+      ]
+     },
+     "steer_minus_med": {
+      "n": 150,
+      "diff": 2.0,
+      "ci95": [
+       -5.33,
+       9.33
+      ],
+      "p": 0.635,
+      "clear_of_zero": false,
+      "claimed": false
+     }
+    },
+    "general|all": {
+     "med": {
+      "n": 450,
+      "rate": 25.78,
+      "ci95": [
+       21.78,
+       30.0
+      ]
+     },
+     "steer": {
+      "n": 450,
+      "rate": 28.44,
+      "ci95": [
+       24.22,
+       32.67
+      ]
+     },
+     "steer_minus_med": {
+      "n": 450,
+      "diff": 2.67,
+      "ci95": [
+       -0.67,
+       6.0
+      ],
+      "p": 0.1486,
+      "clear_of_zero": false,
+      "claimed": false
+     }
+    },
+    "clinical|en": {
+     "med": {
+      "n": 102,
+      "rate": 15.69,
+      "ci95": [
+       8.82,
+       23.53
+      ]
+     },
+     "steer": {
+      "n": 102,
+      "rate": 17.65,
+      "ci95": [
+       10.78,
+       25.49
+      ]
+     },
+     "steer_minus_med": {
+      "n": 102,
+      "diff": 1.96,
+      "ci95": [
+       -6.86,
+       10.78
+      ],
+      "p": 0.7374,
+      "clear_of_zero": false,
+      "claimed": false
+     }
+    },
+    "clinical|hi": {
+     "med": {
+      "n": 102,
+      "rate": 7.84,
+      "ci95": [
+       2.94,
+       13.73
+      ]
+     },
+     "steer": {
+      "n": 102,
+      "rate": 11.76,
+      "ci95": [
+       5.88,
+       18.63
+      ]
+     },
+     "steer_minus_med": {
+      "n": 102,
+      "diff": 3.92,
+      "ci95": [
+       -2.94,
+       10.78
+      ],
+      "p": 0.3092,
+      "clear_of_zero": false,
+      "claimed": false
+     }
+    },
+    "clinical|hinglish": {
+     "med": {
+      "n": 102,
+      "rate": 70.59,
+      "ci95": [
+       61.76,
+       79.41
+      ]
+     },
+     "steer": {
+      "n": 102,
+      "rate": 77.45,
+      "ci95": [
+       68.63,
+       85.29
+      ]
+     },
+     "steer_minus_med": {
+      "n": 102,
+      "diff": 6.86,
+      "ci95": [
+       -2.94,
+       16.67
+      ],
+      "p": 0.2018,
+      "clear_of_zero": false,
+      "claimed": false
+     }
+    },
+    "clinical|all": {
+     "med": {
+      "n": 306,
+      "rate": 31.37,
+      "ci95": [
+       26.14,
+       36.6
+      ]
+     },
+     "steer": {
+      "n": 306,
+      "rate": 35.62,
+      "ci95": [
+       30.39,
+       40.85
+      ]
+     },
+     "steer_minus_med": {
+      "n": 306,
+      "diff": 4.25,
+      "ci95": [
+       -0.65,
+       9.15
+      ],
+      "p": 0.099,
+      "clear_of_zero": false,
+      "claimed": false
+     }
+    }
+   },
+   "q4km-nopre": {
+    "general|en": {
+     "med": {
+      "n": 150,
+      "rate": 5.33,
+      "ci95": [
+       2.0,
+       9.33
+      ]
+     },
+     "steer": {
+      "n": 150,
+      "rate": 14.67,
+      "ci95": [
+       9.33,
+       20.67
+      ]
+     },
+     "steer_minus_med": {
+      "n": 150,
+      "diff": 9.33,
+      "ci95": [
+       4.0,
+       14.67
+      ],
+      "p": 0.0001,
+      "clear_of_zero": true,
+      "claimed": true
+     }
+    },
+    "general|hi": {
+     "med": {
+      "n": 150,
+      "rate": 6.0,
+      "ci95": [
+       2.67,
+       10.0
+      ]
+     },
+     "steer": {
+      "n": 150,
+      "rate": 10.0,
+      "ci95": [
+       5.33,
+       15.33
+      ]
+     },
+     "steer_minus_med": {
+      "n": 150,
+      "diff": 4.0,
+      "ci95": [
+       0.67,
+       8.0
+      ],
+      "p": 0.0316,
+      "clear_of_zero": true,
+      "claimed": false
+     }
+    },
+    "general|hinglish": {
+     "med": {
+      "n": 150,
+      "rate": 40.67,
+      "ci95": [
+       33.33,
+       48.67
+      ]
+     },
+     "steer": {
+      "n": 150,
+      "rate": 48.67,
+      "ci95": [
+       40.67,
+       56.67
+      ]
+     },
+     "steer_minus_med": {
+      "n": 150,
+      "diff": 8.0,
+      "ci95": [
+       0.67,
+       15.33
+      ],
+      "p": 0.0452,
+      "clear_of_zero": true,
+      "claimed": true
+     }
+    },
+    "general|all": {
+     "med": {
+      "n": 450,
+      "rate": 17.33,
+      "ci95": [
+       14.0,
+       20.89
+      ]
+     },
+     "steer": {
+      "n": 450,
+      "rate": 24.44,
+      "ci95": [
+       20.67,
+       28.44
+      ]
+     },
+     "steer_minus_med": {
+      "n": 450,
+      "diff": 7.11,
+      "ci95": [
+       3.78,
+       10.44
+      ],
+      "p": 0.0001,
+      "clear_of_zero": true,
+      "claimed": true
+     }
+    },
+    "clinical|en": {
+     "med": {
+      "n": 102,
+      "rate": 9.8,
+      "ci95": [
+       4.9,
+       15.69
+      ]
+     },
+     "steer": {
+      "n": 102,
+      "rate": 10.78,
+      "ci95": [
+       4.9,
+       17.65
+      ]
+     },
+     "steer_minus_med": {
+      "n": 102,
+      "diff": 0.98,
+      "ci95": [
+       -4.9,
+       6.86
+      ],
+      "p": 0.8856,
+      "clear_of_zero": false,
+      "claimed": false
+     }
+    },
+    "clinical|hi": {
+     "med": {
+      "n": 102,
+      "rate": 5.88,
+      "ci95": [
+       1.96,
+       10.78
+      ]
+     },
+     "steer": {
+      "n": 102,
+      "rate": 14.71,
+      "ci95": [
+       7.84,
+       21.57
+      ]
+     },
+     "steer_minus_med": {
+      "n": 102,
+      "diff": 8.82,
+      "ci95": [
+       2.94,
+       15.69
+      ],
+      "p": 0.0042,
+      "clear_of_zero": true,
+      "claimed": true
+     }
+    },
+    "clinical|hinglish": {
+     "med": {
+      "n": 102,
+      "rate": 60.78,
+      "ci95": [
+       50.98,
+       69.61
+      ]
+     },
+     "steer": {
+      "n": 102,
+      "rate": 69.61,
+      "ci95": [
+       60.78,
+       78.43
+      ]
+     },
+     "steer_minus_med": {
+      "n": 102,
+      "diff": 8.82,
+      "ci95": [
+       -0.98,
+       19.61
+      ],
+      "p": 0.112,
+      "clear_of_zero": false,
+      "claimed": false
+     }
+    },
+    "clinical|all": {
+     "med": {
+      "n": 306,
+      "rate": 25.49,
+      "ci95": [
+       20.59,
+       30.39
+      ]
+     },
+     "steer": {
+      "n": 306,
+      "rate": 31.7,
+      "ci95": [
+       26.47,
+       36.93
+      ]
+     },
+     "steer_minus_med": {
+      "n": 306,
+      "diff": 6.21,
+      "ci95": [
+       1.63,
+       10.78
+      ],
+      "p": 0.0076,
+      "clear_of_zero": true,
+      "claimed": true
+     }
+    }
+   },
+   "budget-phone": {
+    "general|en": {
+     "med": {
+      "n": 150,
+      "rate": 12.67,
+      "ci95": [
+       7.33,
+       18.0
+      ]
+     },
+     "steer": {
+      "n": 150,
+      "rate": 18.67,
+      "ci95": [
+       12.67,
+       25.33
+      ]
+     },
+     "steer_minus_med": {
+      "n": 150,
+      "diff": 6.0,
+      "ci95": [
+       0.0,
+       12.0
+      ],
+      "p": 0.0576,
+      "clear_of_zero": false,
+      "claimed": false
+     }
+    },
+    "general|hi": {
+     "med": {
+      "n": 150,
+      "rate": 6.0,
+      "ci95": [
+       2.67,
+       10.0
+      ]
+     },
+     "steer": {
+      "n": 150,
+      "rate": 11.33,
+      "ci95": [
+       6.67,
+       16.67
+      ]
+     },
+     "steer_minus_med": {
+      "n": 150,
+      "diff": 5.33,
+      "ci95": [
+       1.33,
+       9.33
+      ],
+      "p": 0.0102,
+      "clear_of_zero": true,
+      "claimed": true
+     }
+    },
+    "general|hinglish": {
+     "med": {
+      "n": 150,
+      "rate": 50.0,
+      "ci95": [
+       42.0,
+       58.0
+      ]
+     },
+     "steer": {
+      "n": 150,
+      "rate": 53.33,
+      "ci95": [
+       45.33,
+       61.33
+      ]
+     },
+     "steer_minus_med": {
+      "n": 150,
+      "diff": 3.33,
+      "ci95": [
+       -4.67,
+       11.33
+      ],
+      "p": 0.454,
+      "clear_of_zero": false,
+      "claimed": false
+     }
+    },
+    "general|all": {
+     "med": {
+      "n": 450,
+      "rate": 22.89,
+      "ci95": [
+       19.11,
+       26.89
+      ]
+     },
+     "steer": {
+      "n": 450,
+      "rate": 27.78,
+      "ci95": [
+       23.78,
+       32.0
+      ]
+     },
+     "steer_minus_med": {
+      "n": 450,
+      "diff": 4.89,
+      "ci95": [
+       1.11,
+       8.67
+      ],
+      "p": 0.0108,
+      "clear_of_zero": true,
+      "claimed": false
+     }
+    },
+    "clinical|en": {
+     "med": {
+      "n": 102,
+      "rate": 15.69,
+      "ci95": [
+       8.82,
+       22.55
+      ]
+     },
+     "steer": {
+      "n": 102,
+      "rate": 19.61,
+      "ci95": [
+       12.75,
+       27.45
+      ]
+     },
+     "steer_minus_med": {
+      "n": 102,
+      "diff": 3.92,
+      "ci95": [
+       -3.92,
+       11.76
+      ],
+      "p": 0.4126,
+      "clear_of_zero": false,
+      "claimed": false
+     }
+    },
+    "clinical|hi": {
+     "med": {
+      "n": 102,
+      "rate": 3.92,
+      "ci95": [
+       0.98,
+       7.84
+      ]
+     },
+     "steer": {
+      "n": 102,
+      "rate": 15.69,
+      "ci95": [
+       8.82,
+       22.55
+      ]
+     },
+     "steer_minus_med": {
+      "n": 102,
+      "diff": 11.76,
+      "ci95": [
+       3.92,
+       19.61
+      ],
+      "p": 0.0034,
+      "clear_of_zero": true,
+      "claimed": true
+     }
+    },
+    "clinical|hinglish": {
+     "med": {
+      "n": 102,
+      "rate": 66.67,
+      "ci95": [
+       57.84,
+       75.49
+      ]
+     },
+     "steer": {
+      "n": 102,
+      "rate": 76.47,
+      "ci95": [
+       67.65,
+       84.31
+      ]
+     },
+     "steer_minus_med": {
+      "n": 102,
+      "diff": 9.8,
+      "ci95": [
+       0.0,
+       19.61
+      ],
+      "p": 0.0702,
+      "clear_of_zero": false,
+      "claimed": false
+     }
+    },
+    "clinical|all": {
+     "med": {
+      "n": 306,
+      "rate": 28.76,
+      "ci95": [
+       23.86,
+       33.99
+      ]
+     },
+     "steer": {
+      "n": 306,
+      "rate": 37.25,
+      "ci95": [
+       32.03,
+       42.81
+      ]
+     },
+     "steer_minus_med": {
+      "n": 306,
+      "diff": 8.5,
+      "ci95": [
+       3.59,
+       13.73
+      ],
+      "p": 0.0001,
+      "clear_of_zero": true,
+      "claimed": true
+     }
+    }
+   }
+  },
+  "deltadelta": {
+   "q4km": {
+    "en": {
+     "n": 302,
+     "diff": 4.64,
+     "ci95": [
+      0.66,
+      8.61
+     ],
+     "p": 0.0272,
+     "clear_of_zero": true,
+     "claimed": false
+    },
+    "hi": {
+     "n": 302,
+     "diff": 4.3,
+     "ci95": [
+      -0.66,
+      8.94
+     ],
+     "p": 0.0886,
+     "clear_of_zero": false,
+     "claimed": false
+    },
+    "hinglish": {
+     "n": 252,
+     "diff": -0.79,
+     "ci95": [
+      -8.73,
+      7.14
+     ],
+     "p": 0.8742,
+     "clear_of_zero": false,
+     "claimed": false
+    },
+    "all": {
+     "n": 856,
+     "diff": 2.92,
+     "ci95": [
+      -0.23,
+      6.07
+     ],
+     "p": 0.072,
+     "clear_of_zero": false,
+     "claimed": false
+    }
+   },
+   "q4km-nopre": {
+    "en": {
+     "n": 302,
+     "diff": -5.3,
+     "ci95": [
+      -10.26,
+      -0.33
+     ],
+     "p": 0.0474,
+     "clear_of_zero": true,
+     "claimed": true
+    },
+    "hi": {
+     "n": 302,
+     "diff": -1.32,
+     "ci95": [
+      -6.63,
+      4.3
+     ],
+     "p": 0.6766,
+     "clear_of_zero": false,
+     "claimed": false
+    },
+    "hinglish": {
+     "n": 252,
+     "diff": -7.94,
+     "ci95": [
+      -16.27,
+      0.4
+     ],
+     "p": 0.0746,
+     "clear_of_zero": false,
+     "claimed": false
+    },
+    "all": {
+     "n": 856,
+     "diff": -4.67,
+     "ci95": [
+      -8.29,
+      -1.05
+     ],
+     "p": 0.014,
+     "clear_of_zero": true,
+     "claimed": false
+    }
+   }
+  },
+  "last_mile": {
+   "definition": "budget-phone stack minus the F16 reference on the same engine; laptop FP16 printed beside",
+   "medical_vs_mac_f16": {
+    "en": {
+     "n": 302,
+     "diff": -7.95,
+     "ci95": [
+      -12.58,
+      -3.31
+     ],
+     "p": 0.0014,
+     "clear_of_zero": true,
+     "claimed": true
+    },
+    "hi": {
+     "n": 302,
+     "diff": -0.99,
+     "ci95": [
+      -5.63,
+      3.64
+     ],
+     "p": 0.7356,
+     "clear_of_zero": false,
+     "claimed": false
+    },
+    "hinglish": {
+     "n": 252,
+     "diff": 3.97,
+     "ci95": [
+      -1.19,
+      9.13
+     ],
+     "p": 0.1518,
+     "clear_of_zero": false,
+     "claimed": false
+    },
+    "all": {
+     "n": 856,
+     "diff": -1.99,
+     "ci95": [
+      -4.79,
+      0.82
+     ],
+     "p": 0.1792,
+     "clear_of_zero": false,
+     "claimed": false
+    }
+   },
+   "steered_vs_mac_f16": {
+    "en": {
+     "n": 302,
+     "diff": -6.29,
+     "ci95": [
+      -9.93,
+      -2.65
+     ],
+     "p": 0.001,
+     "clear_of_zero": true,
+     "claimed": true
+    },
+    "hi": {
+     "n": 302,
+     "diff": 1.99,
+     "ci95": [
+      -1.99,
+      5.63
+     ],
+     "p": 0.3488,
+     "clear_of_zero": false,
+     "claimed": false
+    },
+    "hinglish": {
+     "n": 252,
+     "diff": 6.35,
+     "ci95": [
+      -0.4,
+      13.1
+     ],
+     "p": 0.0658,
+     "clear_of_zero": false,
+     "claimed": false
+    },
+    "all": {
+     "n": 856,
+     "diff": 0.35,
+     "ci95": [
+      -2.34,
+      3.04
+     ],
+     "p": 0.8372,
+     "clear_of_zero": false,
+     "claimed": false
+    }
+   },
+   "medical_vs_laptop_fp16": {
+    "n": 856,
+    "diff": -1.52,
+    "ci95": [
+     -4.44,
+     1.29
+    ],
+    "p": 0.3096,
+    "clear_of_zero": false,
+    "claimed": false
+   },
+   "steered_vs_laptop_fp16": {
+    "n": 856,
+    "diff": -0.12,
+    "ci95": [
+     -2.92,
+     2.57
+    ],
+    "p": 0.9548,
+    "clear_of_zero": false,
+    "claimed": false
+   }
+  }
+ },
+ "holm_deployment": {
+  "m": 15,
+  "tests": {
+   "steering effect at f16": {
+    "p": 0.0001,
+    "reject": true
+   },
+   "steering effect at q4km": {
+    "p": 0.0001,
+    "reject": true
+   },
+   "steering effect at q3km": {
+    "p": 0.0001,
+    "reject": true
+   },
+   "steering effect at q4km-nopre": {
+    "p": 0.0001,
+    "reject": true
+   },
+   "steering effect at budget-phone": {
+    "p": 0.0001,
+    "reject": true
+   },
+   "steered loss q4km vs F16": {
+    "p": 0.2094,
+    "reject": false
+   },
+   "steered loss q3km vs F16": {
+    "p": 0.122,
+    "reject": false
+   },
+   "steered loss q4km-nopre vs F16": {
+    "p": 0.119,
+    "reject": false
+   },
+   "steered loss budget-phone vs F16": {
+    "p": 0.8372,
+    "reject": false
+   },
+   "medical loss q4km vs F16": {
+    "p": 0.0368,
+    "reject": false
+   },
+   "medical loss q3km vs F16": {
+    "p": 0.1038,
+    "reject": false
+   },
+   "medical loss q4km-nopre vs F16": {
+    "p": 0.0078,
+    "reject": false
+   },
+   "medical loss budget-phone vs F16": {
+    "p": 0.1792,
+    "reject": false
+   },
+   "DeltaDelta q4km": {
+    "p": 0.072,
+    "reject": false
+   },
+   "DeltaDelta q4km-nopre": {
+    "p": 0.014,
+    "reject": false
+   }
+  }
+ },
+ "degeneracy_mac": {
+  "med_f16": {
+   "en": {
+    "n": 302,
+    "degenerate_pct": 8.6,
+    "asr_all": 24.83,
+    "asr_non_degenerate": 21.38
+   },
+   "hi": {
+    "n": 302,
+    "degenerate_pct": 18.9,
+    "asr_all": 27.48,
+    "asr_non_degenerate": 19.59
+   },
+   "hinglish": {
+    "n": 252,
+    "degenerate_pct": 64.7,
+    "asr_all": 62.3,
+    "asr_non_degenerate": 56.18
+   },
+   "all": {
+    "n": 856,
+    "degenerate_pct": 28.7,
+    "asr_all": 36.8,
+    "asr_non_degenerate": 25.74
+   }
+  },
+  "med_q4km": {
+   "en": {
+    "n": 302,
+    "degenerate_pct": 7.9,
+    "asr_all": 28.15,
+    "asr_non_degenerate": 25.54
+   },
+   "hi": {
+    "n": 302,
+    "degenerate_pct": 14.2,
+    "asr_all": 30.13,
+    "asr_non_degenerate": 23.94
+   },
+   "hinglish": {
+    "n": 252,
+    "degenerate_pct": 62.7,
+    "asr_all": 63.89,
+    "asr_non_degenerate": 56.38
+   },
+   "all": {
+    "n": 856,
+    "degenerate_pct": 26.3,
+    "asr_all": 39.37,
+    "asr_non_degenerate": 29.48
+   }
+  },
+  "med_q3km": {
+   "en": {
+    "n": 302,
+    "degenerate_pct": 7.6,
+    "asr_all": 20.2,
+    "asr_non_degenerate": 17.92
+   },
+   "hi": {
+    "n": 302,
+    "degenerate_pct": 19.5,
+    "asr_all": 31.79,
+    "asr_non_degenerate": 23.46
+   },
+   "hinglish": {
+    "n": 252,
+    "degenerate_pct": 75.8,
+    "asr_all": 70.24,
+    "asr_non_degenerate": 62.3
+   },
+   "all": {
+    "n": 856,
+    "degenerate_pct": 31.9,
+    "asr_all": 39.02,
+    "asr_non_degenerate": 24.87
+   }
+  },
+  "med_q4km-nopre": {
+   "en": {
+    "n": 302,
+    "degenerate_pct": 4.6,
+    "asr_all": 19.21,
+    "asr_non_degenerate": 17.36
+   },
+   "hi": {
+    "n": 302,
+    "degenerate_pct": 7.3,
+    "asr_all": 24.17,
+    "asr_non_degenerate": 20.36
+   },
+   "hinglish": {
+    "n": 252,
+    "degenerate_pct": 64.3,
+    "asr_all": 60.71,
+    "asr_non_degenerate": 50.0
+   },
+   "all": {
+    "n": 856,
+    "degenerate_pct": 23.1,
+    "asr_all": 33.18,
+    "asr_non_degenerate": 23.1
+   }
+  },
+  "med_budget-phone": {
+   "en": {
+    "n": 302,
+    "degenerate_pct": 3.3,
+    "asr_all": 16.89,
+    "asr_non_degenerate": 16.1
+   },
+   "hi": {
+    "n": 302,
+    "degenerate_pct": 14.9,
+    "asr_all": 26.49,
+    "asr_non_degenerate": 20.62
+   },
+   "hinglish": {
+    "n": 252,
+    "degenerate_pct": 74.2,
+    "asr_all": 66.27,
+    "asr_non_degenerate": 60.0
+   },
+   "all": {
+    "n": 856,
+    "degenerate_pct": 28.3,
+    "asr_all": 34.81,
+    "asr_non_degenerate": 22.64
+   }
+  },
+  "rep_steer_f16": {
+   "en": {
+    "n": 302,
+    "degenerate_pct": 7.0,
+    "asr_all": 16.23,
+    "asr_non_degenerate": 13.52
+   },
+   "hi": {
+    "n": 302,
+    "degenerate_pct": 12.3,
+    "asr_all": 13.25,
+    "asr_non_degenerate": 9.06
+   },
+   "hinglish": {
+    "n": 252,
+    "degenerate_pct": 56.0,
+    "asr_all": 52.38,
+    "asr_non_degenerate": 37.84
+   },
+   "all": {
+    "n": 856,
+    "degenerate_pct": 23.2,
+    "asr_all": 25.82,
+    "asr_non_degenerate": 15.83
+   }
+  },
+  "rep_steer_q4km": {
+   "en": {
+    "n": 302,
+    "degenerate_pct": 7.0,
+    "asr_all": 16.89,
+    "asr_non_degenerate": 15.66
+   },
+   "hi": {
+    "n": 302,
+    "degenerate_pct": 11.3,
+    "asr_all": 13.58,
+    "asr_non_degenerate": 10.82
+   },
+   "hinglish": {
+    "n": 252,
+    "degenerate_pct": 61.9,
+    "asr_all": 55.95,
+    "asr_non_degenerate": 42.71
+   },
+   "all": {
+    "n": 856,
+    "degenerate_pct": 24.6,
+    "asr_all": 27.22,
+    "asr_non_degenerate": 17.67
+   }
+  },
+  "rep_steer_q3km": {
+   "en": {
+    "n": 302,
+    "degenerate_pct": 8.9,
+    "asr_all": 10.26,
+    "asr_non_degenerate": 8.0
+   },
+   "hi": {
+    "n": 302,
+    "degenerate_pct": 14.2,
+    "asr_all": 17.88,
+    "asr_non_degenerate": 14.67
+   },
+   "hinglish": {
+    "n": 252,
+    "degenerate_pct": 68.7,
+    "asr_all": 61.11,
+    "asr_non_degenerate": 45.57
+   },
+   "all": {
+    "n": 856,
+    "degenerate_pct": 28.4,
+    "asr_all": 27.92,
+    "asr_non_degenerate": 15.66
+   }
+  },
+  "rep_steer_q4km-nopre": {
+   "en": {
+    "n": 302,
+    "degenerate_pct": 4.6,
+    "asr_all": 12.91,
+    "asr_non_degenerate": 11.46
+   },
+   "hi": {
+    "n": 302,
+    "degenerate_pct": 8.3,
+    "asr_all": 13.58,
+    "asr_non_degenerate": 11.55
+   },
+   "hinglish": {
+    "n": 252,
+    "degenerate_pct": 53.2,
+    "asr_all": 49.21,
+    "asr_non_degenerate": 33.9
+   },
+   "all": {
+    "n": 856,
+    "degenerate_pct": 20.2,
+    "asr_all": 23.83,
+    "asr_non_degenerate": 15.37
+   }
+  },
+  "rep_steer_budget-phone": {
+   "en": {
+    "n": 302,
+    "degenerate_pct": 4.6,
+    "asr_all": 9.93,
+    "asr_non_degenerate": 8.68
+   },
+   "hi": {
+    "n": 302,
+    "degenerate_pct": 7.3,
+    "asr_all": 15.23,
+    "asr_non_degenerate": 12.86
+   },
+   "hinglish": {
+    "n": 252,
+    "degenerate_pct": 70.2,
+    "asr_all": 58.73,
+    "asr_non_degenerate": 41.33
+   },
+   "all": {
+    "n": 856,
+    "degenerate_pct": 24.9,
+    "asr_all": 26.17,
+    "asr_non_degenerate": 14.31
+   }
+  },
+  "orig_q4km": {
+   "en": {
+    "n": 302,
+    "degenerate_pct": 0.7,
+    "asr_all": 11.59,
+    "asr_non_degenerate": 11.33
+   },
+   "hi": {
+    "n": 302,
+    "degenerate_pct": 1.0,
+    "asr_all": 16.23,
+    "asr_non_degenerate": 15.72
+   },
+   "hinglish": {
+    "n": 252,
+    "degenerate_pct": 15.1,
+    "asr_all": 28.97,
+    "asr_non_degenerate": 27.1
+   },
+   "all": {
+    "n": 856,
+    "degenerate_pct": 5.0,
+    "asr_all": 18.34,
+    "asr_non_degenerate": 17.1
+   }
+  },
+  "orig_q4km-nopre": {
+   "en": {
+    "n": 302,
+    "degenerate_pct": 0.0,
+    "asr_all": 12.58,
+    "asr_non_degenerate": 12.58
+   },
+   "hi": {
+    "n": 302,
+    "degenerate_pct": 0.7,
+    "asr_all": 15.89,
+    "asr_non_degenerate": 15.33
+   },
+   "hinglish": {
+    "n": 252,
+    "degenerate_pct": 21.8,
+    "asr_all": 32.94,
+    "asr_non_degenerate": 26.4
+   },
+   "all": {
+    "n": 856,
+    "degenerate_pct": 6.7,
+    "asr_all": 19.74,
+    "asr_non_degenerate": 17.02
+   }
+  }
+ }
+}

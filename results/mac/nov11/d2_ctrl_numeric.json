@@ -1,0 +1,98 @@
+{
+  "model": "ctrl",
+  "different_tensors": {
+    "model.layers.14.self_attn.o_proj.weight": {
+      "shape": [
+        2048,
+        2048
+      ],
+      "max_abs_diff": 2.384185791015625e-07,
+      "mean_abs_diff": 5.684341886080802e-14,
+      "n_elements_different": 1,
+      "n_elements": 4194304,
+      "reference_file_sha_verified": true,
+      "reference_raw_tensor_sha_verified": true,
+      "max_abs_reference": 0.341796875,
+      "difference_no_larger_than_one_local_fp16_spacing": true,
+      "at_most_one_directional_fp16_nextafter_step": true
+    },
+    "model.layers.15.self_attn.o_proj.weight": {
+      "shape": [
+        2048,
+        2048
+      ],
+      "max_abs_diff": 5.960464477539063e-08,
+      "mean_abs_diff": 1.4210854715202004e-14,
+      "n_elements_different": 1,
+      "n_elements": 4194304,
+      "reference_file_sha_verified": true,
+      "reference_raw_tensor_sha_verified": true,
+      "max_abs_reference": 0.368896484375,
+      "difference_no_larger_than_one_local_fp16_spacing": true,
+      "at_most_one_directional_fp16_nextafter_step": true
+    },
+    "model.layers.22.mlp.gate_proj.weight": {
+      "shape": [
+        11008,
+        2048
+      ],
+      "max_abs_diff": 1.52587890625e-05,
+      "mean_abs_diff": 6.768332639142671e-13,
+      "n_elements_different": 1,
+      "n_elements": 22544384,
+      "reference_file_sha_verified": true,
+      "reference_raw_tensor_sha_verified": true,
+      "max_abs_reference": 0.78076171875,
+      "difference_no_larger_than_one_local_fp16_spacing": true,
+      "at_most_one_directional_fp16_nextafter_step": true
+    },
+    "model.layers.6.self_attn.v_proj.weight": {
+      "shape": [
+        512,
+        2048
+      ],
+      "max_abs_diff": 7.62939453125e-06,
+      "mean_abs_diff": 7.275957614183426e-12,
+      "n_elements_different": 1,
+      "n_elements": 1048576,
+      "reference_file_sha_verified": true,
+      "reference_raw_tensor_sha_verified": true,
+      "max_abs_reference": 0.2247314453125,
+      "difference_no_larger_than_one_local_fp16_spacing": true,
+      "at_most_one_directional_fp16_nextafter_step": true
+    },
+    "model.layers.7.self_attn.v_proj.weight": {
+      "shape": [
+        512,
+        2048
+      ],
+      "max_abs_diff": 3.814697265625e-06,
+      "mean_abs_diff": 3.637978807091713e-12,
+      "n_elements_different": 1,
+      "n_elements": 1048576,
+      "reference_file_sha_verified": true,
+      "reference_raw_tensor_sha_verified": true,
+      "max_abs_reference": 0.412109375,
+      "difference_no_larger_than_one_local_fp16_spacing": true,
+      "at_most_one_directional_fp16_nextafter_step": true
+    },
+    "model.layers.31.mlp.down_proj.weight": {
+      "shape": [
+        2048,
+        11008
+      ],
+      "max_abs_diff": 1.9073486328125e-06,
+      "mean_abs_diff": 8.460415798928339e-14,
+      "n_elements_different": 1,
+      "n_elements": 22544384,
+      "reference_file_sha_verified": true,
+      "reference_raw_tensor_sha_verified": true,
+      "max_abs_reference": 1.265625,
+      "difference_no_larger_than_one_local_fp16_spacing": true,
+      "at_most_one_directional_fp16_nextafter_step": true
+    }
+  },
+  "max_abs_diff_over_supplied_tensors": 1.52587890625e-05,
+  "reference_provenance": "handoff_v3 a6b28b5 D2 reference manifest",
+  "scope": "Only the previously nonidentical tensors; other tensors matched byte hashes exactly in Nov9 audit. This quantifies differences, not exact whole-checkpoint identity."
+}

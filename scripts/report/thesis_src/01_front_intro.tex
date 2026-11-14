@@ -1,0 +1,115 @@
+\documentclass[runningheads]{llncs}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage[export]{adjustbox}
+\usepackage{rotating}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage[hypertexnames=false]{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue!55!black,urlcolor=blue!55!black,citecolor=blue!55!black}
+\renewcommand\UrlFont{\color{blue!55!black}\rmfamily}
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\ASR}{\mathrm{ASR}}
+\newcommand{\ORR}{\mathrm{ORR}}
+\sloppy
+\raggedbottom
+\setlength{\tabcolsep}{3.5pt}
+\renewcommand{\floatpagefraction}{0.75}\renewcommand{\textfraction}{0.1}
+\renewcommand{\theHsection}{\thepart.\arabic{section}}
+\usepackage{array}
+
+\begin{document}
+\title{Safe from Fine-Tune to Phone}
+\subtitle{Benign medical LoRA doubles Tiny Aya Global's pooled attack success (18.2\,\% to 36.3\,\%, most in Hinglish); a run-time steering vector cuts it to 26.3\,\% and survives GGUF quantization}
+\titlerunning{Safe from Fine-Tune to Phone}
+\author{Sushovit Nanda \and Manish Shaw}
+\authorrunning{S. Nanda and M. Shaw}
+\institute{Lexsi AI Safety and Alignment Hackathon, Track 2}
+\maketitle
+
+\begin{abstract}
+%%ABSTRACT%%
+\keywords{AI safety \and fine-tuning \and multilingual evaluation \and code-mixing \and mechanistic interpretability \and activation steering \and quantization}
+\end{abstract}
+
+%%EXEC%%
+
+\setcounter{tocdepth}{1}
+\tableofcontents
+\clearpage
+
+% =====================================================================
+\section{Introduction}\label{sec:intro}
+
+A small clinic that wants a language model faces a chain of decisions that nobody measures end to end. It picks an open model, fine-tunes it on medical text, and compresses it until it fits on modest hardware. Its users then write in the languages they actually use. In India that often means Hindi or Hinglish, a mix of Hindi grammar and English vocabulary typed in Latin script. Each step can change whether the model still refuses harmful requests. Published safety numbers usually describe the first step only: the full-precision model, the official system prompt, and English.
+
+This thesis follows one model through that whole chain. The model is Tiny Aya Global~\cite{tinyaya}, a 3.35-billion-parameter multilingual model from Cohere Labs with a built-in safety preamble. We ask six questions, each designed to use what the previous one produced (Fig.~\ref{fig:chain}); Section~\ref{sec:discussion} reports which links held.
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\linewidth]{figures/fig_rq_chain.png}
+\caption{The six research questions. Each uses the output of the previous one, so a weak result early on limits every later claim.}\label{fig:chain}
+\end{figure}
+
+\begin{description}
+\item[RQ1, the gap.] Is the original model's refusal weaker in Hindi and Hinglish than in English, and weaker on clinical harms than on general harms?
+\item[RQ2, the drift.] Does benign medical fine-tuning raise attack success beyond a token-matched control, and more where RQ1 found gaps?
+\item[RQ3, the cause.] Which components carry refusal in each language, and what did fine-tuning change in them?
+\item[RQ4, the fix.] Can a repair that needs no retraining restore refusals without losing medical accuracy, and does restricting it to the RQ3 circuit do better than patching the whole model?
+\item[RQ5, the last mile.] Does the repair survive 4-bit weights, GGUF quantization, a stripped preamble and a budget-phone configuration?
+\item[RQ6, the protection.] At Q3\_K\_M, does giving the RQ3 circuit's tensors more bits, at equal file size, protect the repair better than the same budget spent on random tensors?
+\end{description}
+
+The chain matters more than any single link. RQ1 fixes the sets, judges and baseline. RQ2 produces the drifted model and the size of the problem. RQ3 produces a map of tensors. RQ4 uses that map to build a repair. RQ5 asks whether the repair survives deployment, and RQ6 uses the same map to protect it.
+
+The work was done by two people in two lanes, a lane being one machine, its inference engine and the person who ran it: a laptop lane and a Mac lane. The laptop lane ran the data, fine-tuning, drift, circuits, repairs and 4-bit tests. The Mac lane ran llama.cpp GGUF builds and the deployment evaluation runs (cells). A single laptop judged all outputs, so every number comes from the same judges. The rules were written down in a pre-registration with dated amendments, and a separate decision log records what changed and why.
+
+\paragraph{Main findings.} Benign medical fine-tuning doubles the attack success rate (ASR, the share of harmful prompts answered unsafely; we write ASR only in formulas and tables) from 18.2\,\% to 36.3\,\% over 856 harmful prompts, while a token-matched control moves by only 1.8 points. About half of the medical model's unsafe labels fall on degenerate text (repetition loops and echoes of the prompt); on the 595 prompts where neither answer is degenerate the rise is 10.9 points, still clear of zero. Run-time refusal steering removes about 55\,\% of that drift without measurable loss of medical accuracy. The effect carries into 4-bit NF4 weights and into llama.cpp's quantized GGUF files on a different machine and engine. Its cost is over-refusal (ORR, the share of benign prompts refused; likewise written only in formulas and tables). Weight-space safety patching (ReSta, which adds a scaled safety vector to the weights) has no measurable effect at the setting that keeps medical accuracy, and no setting reaches the 5-point margin pooled on test. Restricting the patch to a circuit does not help either, and giving the circuit's tensors more bits at equal file size protects the repair no better than giving them to random tensors. Two further results limit these claims: Hinglish outputs from the medical model are mostly degenerate text, and we could not link the mechanistic map to the drift.
+
+\paragraph{Contributions.} A literature check (Section~\ref{sec:related}) narrowed our claims, and we make no unqualified claim of priority.
+\begin{enumerate}
+\item Systematic per-language and quantized Hindi and Hinglish safety rates for Tiny Aya, with judges checked per language against annotated samples.
+\item A token-matched, per-language measurement of drift from benign fine-tuning, split by harm type, with a new clinical benchmark (ClinicSafe-Hi).
+\item A head-to-head comparison of circuit-restricted and whole-model ReSta on fine-tuning drift, reported as a negative result.
+\item A test of whether a run-time steering repair keeps its effect through GGUF conversion, quantization and preamble removal, across two machines and two inference engines.
+%%C5%%
+\item An account of the validity problems we found in our own pipeline, including degenerate output and judge failure, with the checks that exposed them.
+\end{enumerate}
+
+\paragraph{Reading guide.} A reader with twenty minutes should read the Executive Summary (the one-minute box, Table~\ref{tab:beforeafter} and the Hypotheses with their outcomes), then Section~\ref{sec:valres}, which says how far the labels can be trusted, then the \emph{Verdict} paragraph that closes each of Sections~\ref{sec:rq1} to~\ref{sec:rq6}, then Table~\ref{tab:confidence}, which ranks every finding by how far we would rely on it, the practitioner implications at the end of Section~\ref{sec:discussion}, and the Limitations (Section~\ref{sec:limits}). That reader can skip Sections~\ref{sec:related} and~\ref{sec:background}, the Methodology (Section~\ref{sec:method}) apart from Table~\ref{tab:cells}, the dev sweeps and gate details inside each results subsection, Section~\ref{sec:holm}, and the appendices. A reader with two hours should add Section~\ref{sec:method} in full (the amendments in Section~\ref{sec:amend} explain every departure from the plan), the results subsections in chain order, the Threats to Validity (Section~\ref{sec:threats}), and Appendix~\ref{app:repro} if they intend to rerun anything. Related work (Section~\ref{sec:related}) is for the reader who wants to know what is new; Table~\ref{tab:closest} summarises it. Sections~\ref{sec:conclusion} and~\ref{sec:future} conclude. Harmful prompts and answers are never quoted in this thesis.
+
+% =====================================================================
+\section{Related Work}\label{sec:related}
+
+%%RELATED%%
+
+% =====================================================================
+\section{Background}\label{sec:background}
+
+\subsection{The model and its preamble}
+Tiny Aya Global~\cite{tinyaya} has 36 decoder layers, a hidden size of 2048 and a vocabulary of 262,144 tokens with tied embeddings (one matrix serves as both input and output embedding). Its chat template inserts a System Preamble of 366 tokens, the model's built-in system prompt, which carries the safety instructions; we call it the preamble. A deployment that strips this preamble removes part of the safety behaviour along with it. The chat template ends each turn with an end-of-turn token (id 6), the token that should stop generation, while the generation configuration lists the end-of-sequence token (EOS) as id 3. This small mismatch became a methodological issue (Section~\ref{sec:stop}).
+
+\subsection{Fine-tuning, LoRA and NF4}
+Fine-tuning a safety-trained model can reduce its refusals even when the training data are harmless~\cite{qi2024}. A control matters here, because any fine-tuning changes a model. We therefore compare a medical fine-tune with a control fine-tune on general instruction data matched for total tokens. LoRA~\cite{lora} trains low-rank updates to linear layers, which is cheap enough for a laptop. QLoRA~\cite{qlora} introduced the NF4 4-bit format that we use as a quantization setting.
+
+\subsection{Repairs that need no retraining}
+\paragraph{ReSta.} ReSta~\cite{resta} (restoring safety through task arithmetic) adds a scaled safety vector to the fine-tuned weights:
+\begin{equation}
+\theta_{\mathrm{rep}} = \theta_{\mathrm{med}} + \alpha\,(\theta_{\mathrm{Global}} - \theta_{\mathrm{Base}}),
+\end{equation}
+where $\theta_{\mathrm{Global}} - \theta_{\mathrm{Base}}$ is the difference between the released model and its less-aligned base, and $\alpha$ is the fraction of the safety vector added. It changes the weights once and ships as ordinary weights. A circuit-restricted version applies the patch only to tensors named by a mechanistic map.
+
+\paragraph{Steering.} Contrastive activation addition~\cite{caa} and related work on refusal directions~\cite{arditi} compute a direction in activation space from pairs of harmful and harmless prompts, then add it to the residual stream (the running hidden vector that each layer adds to) at run time:
+$h_\ell \leftarrow h_\ell + s \cdot d_\ell$ at layer $\ell$ with strength $s$. The weights do not change. llama.cpp exposes the same operation as a \emph{control vector}.
+
+\subsection{Locating refusal}
+Edge attribution patching~\cite{eap} estimates how much each component matters to a metric from gradients, and EAP-IG~\cite{eapig} improves faithfulness by integrating those gradients. Attribution alone is not evidence of causation, so a map must be validated by intervention. Two such interventions are \emph{necessity} (remove the nodes and see the behaviour change) and \emph{sufficiency} (restore only those nodes in another model).
+
+\subsection{Quantization and deployment}
+NF4 stores weights in 4 bits and computes in FP16 through bitsandbytes. GGUF is the file format of llama.cpp~\cite{llamacpp}. Its k-quantizations, Q4\_K\_M and Q3\_K\_M, assign bits per tensor and differ in file size. Earlier work shows that quantization can change safety behaviour~\cite{qresafe,kharinaev2026quantization,egashira2025mindthegap}. What matters to a deployer is whether a repair applied before or at deployment still works afterwards.
+
+\subsection{Judging safety across languages}
+Safety judges are themselves models, and they need validating in each language. We use Qwen3Guard-Gen-4B~\cite{qwen3guard}, which reads multiple languages, and WildGuard~\cite{wildguard}, which reads English only and therefore needs back-translation through IndicTrans2~\cite{indictrans2}. A judge can have good overall agreement and still miss most harm in one language, as Section~\ref{sec:judges} shows.

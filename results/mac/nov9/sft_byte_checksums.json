@@ -1,0 +1,46 @@
+{
+  "evaluation_verified": true,
+  "crlf_only_files": {
+    "sft_control/rejected.jsonl": {
+      "local_raw_sha256": "bceeb05f54cf37d94e528b4a722a38495994abdb09b45cd5ce38fa83b0aafcf6",
+      "producer_sha256": "35514a0b9b1827722806fde834dbe64f060d9cf8a20834321780d2be70c9d8e1",
+      "difference": "CRLF/LF only, producer checksum matches CRLF re-encoding"
+    },
+    "sft_control/sft_sharegpt.jsonl": {
+      "local_raw_sha256": "d8fb8ef53974668e90932b1b8492bb60b3515726265ceeec9b27d46fb690272f",
+      "producer_sha256": "2fe936d4a46b758c6f154baca2aaed7946af3b690e2af5818d01fba5cded6eec",
+      "difference": "CRLF/LF only, producer checksum matches CRLF re-encoding"
+    },
+    "sft_control/lexsi_provenance.json": {
+      "local_raw_sha256": "0d5d64dc6a979f185aac8a80df4fe288f0b87d6405ee1a05f342cd6cebd7244a",
+      "producer_sha256": "8d110cdc25f2ee636b2c2bff24521d00ede4b76a45ef70d81c70f89708207254",
+      "difference": "CRLF/LF only, producer checksum matches CRLF re-encoding"
+    },
+    "sft_control/manifest.json": {
+      "local_raw_sha256": "c78d2dac57b6fd711f821f229ee821f7faa0ca759dc24a61836a8958da01f4ee",
+      "producer_sha256": "dfc88f15f4f890838756ced6157a51fa518e102168871b34724e5f4ab1a5f78f",
+      "difference": "CRLF/LF only, producer checksum matches CRLF re-encoding"
+    },
+    "sft_medical/rejected.jsonl": {
+      "local_raw_sha256": "a8b29cde0dd1dd9eab510d6c0890017c0748b87ec077bc12f704854c232fca44",
+      "producer_sha256": "6223293db0a26cac84aa3ec485714ba101597f7cba2455bb0c5e10ad33b25a52",
+      "difference": "CRLF/LF only, producer checksum matches CRLF re-encoding"
+    },
+    "sft_medical/sft_sharegpt.jsonl": {
+      "local_raw_sha256": "365949434785886191a0c5c3a9eb75319c328c30aba7f71765f9f5275d0924f1",
+      "producer_sha256": "b0cfd19b0a01c9e73027ae6ce1996e7fd4c1cd44f96606ba9c4c25d6443e70c6",
+      "difference": "CRLF/LF only, producer checksum matches CRLF re-encoding"
+    },
+    "sft_medical/lexsi_provenance.json": {
+      "local_raw_sha256": "2ef7cb31eddf5318902c0c20d08dbefbb26f40783665a488d1cf65dd21160b1e",
+      "producer_sha256": "64d89887499b141ffeec232d68b03be26c52f309f4ac111a64f1034a0efd2e07",
+      "difference": "CRLF/LF only, producer checksum matches CRLF re-encoding"
+    },
+    "sft_medical/manifest.json": {
+      "local_raw_sha256": "9d52a521ce1ef880bc221f02aec664734d17d519d38f115e64dfbd1d49ef2237",
+      "producer_sha256": "9e1a419e302af6723a9a56b0eea881b6be4bc0531cb9ee8394f7ca4241ca94e8",
+      "difference": "CRLF/LF only, producer checksum matches CRLF re-encoding"
+    }
+  },
+  "raw_byte_policy": "Report local and producer checksums separately with newline convention. Producer manifests are not silently changed. Final shared convention requires author agreement."
+}

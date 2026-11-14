@@ -1,0 +1,37 @@
+{
+  "corrected_layer0_exclusion": true,
+  "checks": {
+    "protected": {
+      "rows": 100,
+      "exact_ids_verified": true,
+      "response_sha256": "42b675beb6e4a82474bb298cfd2e660168fd0c7cd68e10066272ebcca3daf49b",
+      "model_sha256": "7282a706b2dd9b76399198976ba7b6d59effdbf76985ec655267defbe9d52c40",
+      "stop_token_ids": [
+        3,
+        6
+      ],
+      "control_vector": null,
+      "nonreported": true,
+      "zero_final_errors": true
+    },
+    "random": {
+      "rows": 100,
+      "exact_ids_verified": true,
+      "response_sha256": "b26bde244cb2bffb3d2ff80896c395991ac597033f532e23bc0eea9e94e8fa98",
+      "model_sha256": "4040b99f4255ec5314f391d33862142eaf281660c19ae347ac6cec044771a6d0",
+      "stop_token_ids": [
+        3,
+        6
+      ],
+      "control_vector": null,
+      "nonreported": true,
+      "zero_final_errors": true
+    }
+  },
+  "M18_status": "ready_reuse_v2_medical_Q3_with_same_runtime_vector",
+  "M19_status": "reported_protected_random_generation_not_yet_run",
+  "steered_full_cells_complete": 5,
+  "full_responses": 8060,
+  "judgments": "pending_central_D7_for_new_full_cells",
+  "random_control_limit": "one seed13 draw; prompt bootstrap excludes tensor-selection variance"
+}

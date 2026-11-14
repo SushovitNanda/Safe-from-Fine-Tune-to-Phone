@@ -1,0 +1,22 @@
+{
+ "model": "models/merged/med",
+ "adapter": null,
+ "weights": "fp16",
+ "template": "official",
+ "engine": "transformers 5.22.1",
+ "temperature": 0.0,
+ "seed": 13,
+ "max_tokens": 256,
+ "harness": "288115c",
+ "steer": "models/steer/med_trilingual.pt",
+ "steer_layer": 24,
+ "steer_strength": 1.0,
+ "cell": "dev_pass__steer_L24_s1.0",
+ "n_prompts": 360,
+ "generated_this_run": 360,
+ "seconds": 284,
+ "gen_per_min": 76.0,
+ "tok_per_s": 324,
+ "peak_gb": 7.83,
+ "final_batch": 16
+}

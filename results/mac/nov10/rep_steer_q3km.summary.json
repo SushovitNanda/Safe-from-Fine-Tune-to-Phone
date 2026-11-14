@@ -1,0 +1,24 @@
+{
+  "cell_id": "rep_steer_q3km",
+  "run_fingerprint": "c42f475c355ffaeb17348343b69828b28c77e90febed7c7f837fc62b3cb4bf34",
+  "selected": 1612,
+  "completed": 1612,
+  "new_responses": 1612,
+  "session_seconds": 2672.225129875005,
+  "session_responses_per_second": 0.6032425868532275,
+  "session_completion_tokens": 205309,
+  "session_tokens_per_second": 76.83072721107276,
+  "by_lang": {
+    "en": 554,
+    "hi": 554,
+    "hinglish": 504
+  },
+  "errors": [],
+  "by_set": {
+    "harmful_general": 550,
+    "harmful_clinical": 306,
+    "benign_clinical": 306,
+    "benign_general": 450
+  },
+  "complete": true
+}

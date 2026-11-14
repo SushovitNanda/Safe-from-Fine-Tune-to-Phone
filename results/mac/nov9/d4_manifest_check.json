@@ -1,0 +1,163 @@
+{
+  "files": 31,
+  "raw_match_count": 0,
+  "crlf_match_count": 31,
+  "unexplained_mismatches": [],
+  "checks": {
+    "tables_per_language\\orig_en_eap-ig_layer_x_matrix.json": {
+      "raw_match": false,
+      "crlf_reencoded_match": true,
+      "raw_sha256": "2f35b8b638be14c33bfec72a8c0266d50c0dc6522905831da5d2a29a833506bd"
+    },
+    "tables_per_language\\orig_en_eap-ig_layer_x_matrix.csv": {
+      "raw_match": false,
+      "crlf_reencoded_match": true,
+      "raw_sha256": "8ba1ad6136ff0ceeb9cf22e89efd0ce59201be86ade8516ed35451d7439e63b8"
+    },
+    "tables_per_language\\med_en_eap-ig_layer_x_matrix.json": {
+      "raw_match": false,
+      "crlf_reencoded_match": true,
+      "raw_sha256": "d73f017c93651ef7a557c3c7521029fbccc93bc2edc3473076718c672039003f"
+    },
+    "tables_per_language\\med_en_eap-ig_layer_x_matrix.csv": {
+      "raw_match": false,
+      "crlf_reencoded_match": true,
+      "raw_sha256": "272cf08e730f9030f10cc80cb720df60362b342ac934a36b037cc892ef132d82"
+    },
+    "validation\\validation_en.json": {
+      "raw_match": false,
+      "crlf_reencoded_match": true,
+      "raw_sha256": "0a274e328b8da49052465e470b6b3a5d33e90cc7025703987d1e231bbb859f00"
+    },
+    "what_changed\\what_changed_en.json": {
+      "raw_match": false,
+      "crlf_reencoded_match": true,
+      "raw_sha256": "e0ad3a58e201cfccc3d68584394c5b139007f976400c47abf7cd750b9b428f42"
+    },
+    "tables_per_language\\orig_hi_eap-ig_layer_x_matrix.json": {
+      "raw_match": false,
+      "crlf_reencoded_match": true,
+      "raw_sha256": "8d6a6519a7e9b73e353241e1ceca80fdd67397f5515977b77514802011fdaef3"
+    },
+    "tables_per_language\\orig_hi_eap-ig_layer_x_matrix.csv": {
+      "raw_match": false,
+      "crlf_reencoded_match": true,
+      "raw_sha256": "d466bd52b94c8d48d287a317c0eadd78b498b91cc1609d4b3b289932bd3bc13c"
+    },
+    "tables_per_language\\med_hi_eap-ig_layer_x_matrix.json": {
+      "raw_match": false,
+      "crlf_reencoded_match": true,
+      "raw_sha256": "08e9b760f39ee10767d04bbf20955c0c2969d15ed7ab05c0ab81991e8959ad83"
+    },
+    "tables_per_language\\med_hi_eap-ig_layer_x_matrix.csv": {
+      "raw_match": false,
+      "crlf_reencoded_match": true,
+      "raw_sha256": "3ec1e3d3e0b95ad517fce41a31979a8ff11dc60ca9dbe143cf230f2890b6b5f5"
+    },
+    "validation\\validation_hi.json": {
+      "raw_match": false,
+      "crlf_reencoded_match": true,
+      "raw_sha256": "4f7465dde6bcf49a1b3948e190d87c680c178ccf682c41401deb08b555ab36f0"
+    },
+    "what_changed\\what_changed_hi.json": {
+      "raw_match": false,
+      "crlf_reencoded_match": true,
+      "raw_sha256": "07f426e0084f297b00b197f78e157946f5dc0d55b87c0b9cc6c7b60edfad104f"
+    },
+    "tables_per_language\\orig_hinglish_eap-ig_layer_x_matrix.json": {
+      "raw_match": false,
+      "crlf_reencoded_match": true,
+      "raw_sha256": "d49730a18b68e1833baccd79b88cb17c50f4b9b4c7783d699561280bad62a9e0"
+    },
+    "tables_per_language\\orig_hinglish_eap-ig_layer_x_matrix.csv": {
+      "raw_match": false,
+      "crlf_reencoded_match": true,
+      "raw_sha256": "0eb2dc6756c5c5cd048c55f7c64a7bb2df0b3a4d2cd5c216e385c973307130e4"
+    },
+    "tables_per_language\\med_hinglish_eap-ig_layer_x_matrix.json": {
+      "raw_match": false,
+      "crlf_reencoded_match": true,
+      "raw_sha256": "c38565830a26664f0a37e1e74c180a412b383355cab8f66d95419c3583121620"
+    },
+    "tables_per_language\\med_hinglish_eap-ig_layer_x_matrix.csv": {
+      "raw_match": false,
+      "crlf_reencoded_match": true,
+      "raw_sha256": "276310b6cc06470e0bb667b8b3f31d8f0f45b626807b336a85565018f75857dd"
+    },
+    "validation\\validation_hinglish.json": {
+      "raw_match": false,
+      "crlf_reencoded_match": true,
+      "raw_sha256": "4811cc6144203a128b28d5dc629b4fb88195c8f3de47e6b2162dc922c70ccb9f"
+    },
+    "what_changed\\what_changed_hinglish.json": {
+      "raw_match": false,
+      "crlf_reencoded_match": true,
+      "raw_sha256": "7b3ea20c39d10302ee753f75b7bd2df33088e47608bfb7f327486586ed7a9b58"
+    },
+    "overlap_jaccard.json": {
+      "raw_match": false,
+      "crlf_reencoded_match": true,
+      "raw_sha256": "86315d5a09f000c4046bc38abccca6a6f852b4b5390f2fca757006634a75cedf"
+    },
+    "tensor_lists\\cresta_tensors_v2.json": {
+      "raw_match": false,
+      "crlf_reencoded_match": true,
+      "raw_sha256": "5b42ec6986e94498cdac2ca6cb257a1cf44d0137371a7e3666290d414d696a29"
+    },
+    "tensor_lists\\cresta_tensors_v2_top10.json": {
+      "raw_match": false,
+      "crlf_reencoded_match": true,
+      "raw_sha256": "6b9d437302dd15d648c2a06fbe626515322cee24a57e4c441aa80df3bb8fd57c"
+    },
+    "tensor_lists\\cresta_tensors_v2_top20.json": {
+      "raw_match": false,
+      "crlf_reencoded_match": true,
+      "raw_sha256": "4b483d6d913c01893f813f4b3a5a1e5b50af2760050dd81d6d2498bbf549ecdc"
+    },
+    "tensor_lists\\cresta_tensors_v2_top5.json": {
+      "raw_match": false,
+      "crlf_reencoded_match": true,
+      "raw_sha256": "695b60951425e61d18ad89bf07d5bc32d3ddbd5b8aafe93965e2f2106e7ab1df"
+    },
+    "token_sets_v2.json": {
+      "raw_match": false,
+      "crlf_reencoded_match": true,
+      "raw_sha256": "86967ddec5c1171ddf8b0252ad658f47bef43741cfecba396a8877d4443c3a31"
+    },
+    "d2_hashes\\med\\tensor_sha256.json": {
+      "raw_match": false,
+      "crlf_reencoded_match": true,
+      "raw_sha256": "11c08814c54a67d421caa136a9872ec70290585b7ee80f5b1873bedc0bed4aaf"
+    },
+    "d2_hashes\\med\\merge_info.json": {
+      "raw_match": false,
+      "crlf_reencoded_match": true,
+      "raw_sha256": "4a70ae627f7aa0f53351cf6ce72c99494bd6ddd5458c4b4a052dc911d858ba2f"
+    },
+    "d2_hashes\\ctrl\\tensor_sha256.json": {
+      "raw_match": false,
+      "crlf_reencoded_match": true,
+      "raw_sha256": "d589852b9f45863fd6dd553e9e571f5195ccc113f7cc723f6a2ca55017357f63"
+    },
+    "d2_hashes\\ctrl\\merge_info.json": {
+      "raw_match": false,
+      "crlf_reencoded_match": true,
+      "raw_sha256": "739ec85eac82f87534b970228585bb0a1f4b549591f4fe44d8b0312b8a566b55"
+    },
+    "d4_aggregated_layer_x_matrix.json": {
+      "raw_match": false,
+      "crlf_reencoded_match": true,
+      "raw_sha256": "d6075854b765fd5a62f26f4ad874e2ba744c04e1de0b9897076a490a8f90a36a"
+    },
+    "g3a_evidence.json": {
+      "raw_match": false,
+      "crlf_reencoded_match": true,
+      "raw_sha256": "1b0bd3bf9e08beee7abbff24969aa76f71487d6daa37ecbcc59022713a9de197"
+    },
+    "README.md": {
+      "raw_match": false,
+      "crlf_reencoded_match": true,
+      "raw_sha256": "fd84d5f01287a109befde624b8a0749a43bdc9c11a9987cff8f4b223504f145b"
+    }
+  }
+}

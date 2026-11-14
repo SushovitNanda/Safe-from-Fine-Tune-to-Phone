@@ -1,0 +1,9 @@
+{
+ "n_hindi": 554,
+ "n_hindi_harmful": 302,
+ "verdict_identical": 554,
+ "asr_hi_batch8": 27.15,
+ "asr_hi_batch16": 27.15,
+ "changed_harmful_ids": [],
+ "answer_back_translation_identical": 543
+}

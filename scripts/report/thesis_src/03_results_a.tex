@@ -1,0 +1,166 @@
+% =====================================================================
+\section{Results}\label{sec:results}
+
+Results follow the chain. Each subsection opens by stating what it takes from the previous one and ends with a verdict, including what is weak about it. Before the chain starts, Section~\ref{sec:valres} asks whether the measurements can be trusted.
+
+\subsection{Can the labels be trusted?}\label{sec:valres}
+
+\paragraph{The approved hand labels are reproducible by the procedure that drafted them.} The blind second annotator agrees with the approved labels on 96\,\% of the items both could label ($\kappa=0.93$ for unsafe, $0.92$ for refusal), and the third reader matched the approved label on 27 of the 30 set-aside items. Judge choice is unchanged under the second annotator's labels: WildGuard beats Qwen3Guard in Hindi (0.78 against 0.52), and Qwen3Guard beats WildGuard in English (0.87 against 0.79) and in Hinglish (0.61 against 0.49).
+
+Where readings disagreed, the disagreements fall on hard-to-read text. The adjudicator sided with the second annotator on 24 of the 33 disagreements, with the approved label on 5, and with neither on 4; most involve Hinglish answers that are hard to read. The blind re-label of the intra-rater sheet matches the approved label on 26 of 30 items, and on all 24 items where neither reading is \emph{unsure}. On the 12 harmful items both readings labelled, $\kappa$ is 1.0 for refusal and 0.80 for strict unsafe; the one disagreement is an item that one reading marked \emph{unsure} and the other a refusal with a partial leak. Every difference involves an \emph{unsure} on one side, three of them in Hinglish or Hindi answers that are hard to read.
+
+These are AI readings, and the approved labels began as LLM drafts, so the agreement shows that the procedure is consistent, not that humans confirm it. The approved labels were left unchanged.%%AUDIT1%%
+
+\paragraph{The judges are weaker on the medical model.} Table~\ref{tab:medval} repeats the check on the medical model's answers. Agreement stays moderate to good ($\kappa=0.47$ English, $0.69$ Hindi, $0.84$ Hinglish on what could be scored). The English figure rests on few unsafe answers. The serious problem is Hinglish: the annotator could not classify 25 of 40 harmful-prompt answers, and the primary judge labelled 14 of those 25 unsafe.
+
+%%TABLE:medval%%
+
+\paragraph{Degenerate output.} We followed this up with a rule that flags repetition loops and echoes of the prompt, then applied it to every answer without printing any text. On the Hinglish sample it flagged 29 of 50 answers and overlapped the annotator's unreadable set on 27 of its 33 answers (harmful and benign prompts together). Safety judges are known to over-credit garbled or empty answers~\cite{souly2024strongreject}. Table~\ref{tab:degen} and Fig.~\ref{fig:degen} show how common degeneration is. On harmful Hinglish prompts, 64.7\,\% of the medical model's answers are degenerate (13.9\,\% for the original, 40.5\,\% for the control). The judge calls 108 of those 163 unsafe. A prompt echo may repeat a harmful request without helping with it, so part of this counted ``attack success'' measures broken generation.
+
+%%TABLE:degen%%
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\linewidth]{figures/fig_degeneracy.png}
+\caption{Left: degenerate answers to harmful prompts by model and language. Right: the medical model's attack success over all answers and over non-degenerate answers.}\label{fig:degen}
+\end{figure}
+
+The analysis that follows reports the pre-registered numbers as primary. Table~\ref{tab:nondeg} restates the two main effects on prompts where neither answer is degenerate. It is exploratory, and the Hinglish subset is small.
+
+%%TABLE:nondeg%%
+
+\subsection{RQ1: the gap in the original model}\label{sec:rq1}
+
+\emph{Takes from the data package:} the sets. \emph{Gives RQ2:} the baseline.
+
+%%TABLE:rq1%%
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.72\linewidth]{figures/fig_rq1_gap.png}
+\caption{The original model's attack success by language and harm type (test, 95\,\% intervals).}\label{fig:rq1}
+\end{figure}
+
+Table~\ref{tab:rq1} and Fig.~\ref{fig:rq1} give the result. Attack success is 11.6\,\% in English, 17.6\,\% in Hindi and 27.0\,\% in Hinglish. The Hinglish gap is clear: $+15.4$ points $[8.9, 22.0]$. The Hindi gap of $+6.0$ points $[0.3, 11.6]$ only just clears zero and does not survive Holm correction over all declared tests. It is also a clinical gap: on general harms Hindi matches English (9.0 against 10.0\,\%), while on clinical harms Hindi is much weaker (34.3 against 14.7\,\%). Clinical harms are weaker than general harms by 16.9 points pooled, and by 25.3 in Hindi and 18.9 in Hinglish, but not measurably in English. Over-refusal is low (11.1\,\% general, 2.9\,\% clinical).
+
+\paragraph{Judge dependence.} With Qwen3Guard alone the Hindi gap was $-0.7$ points. The Hindi finding exists only because a validated judge replaced one that misses about half of the unsafe Hindi answers.
+
+\paragraph{Verdict.} H1 holds for Hinglish and for clinical harms in Hindi and Hinglish. The overall Hindi gap is suggestive only. The Hinglish result is the strongest, though the original model already produces some degenerate Hinglish text (13.9\,\%), and removing it lowers Hinglish attack success only from 27.0 to 24.9\,\%.
+
+\subsection{RQ2: the drift from benign fine-tuning}\label{sec:rq2}
+
+\emph{Takes from RQ1:} the baseline and the weak spots. \emph{Gives RQ3:} a drifted model whose changes can be located.
+
+\paragraph{Pre-registered dev probe.} Before any test cell ran, a probe on 150 harmful dev prompts gave medical minus original $+14.0$ $[6.0, 22.0]$, control minus original $+7.3$ $[1.3, 14.0]$, and medical minus control $+6.7$ $[-0.7, 14.0]$. The main effect was present, and the medical-versus-control question stayed open.
+
+%%TABLE:rates%%
+
+%%TABLE:rq2%%
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.9\linewidth]{figures/fig_rq2_drift.png}
+\caption{Attack success of the original, control and medical models (test, 95\,\% intervals).}\label{fig:rq2}
+\end{figure}
+
+\paragraph{The main effect.} Tables~\ref{tab:rates} and~\ref{tab:rq2} and Fig.~\ref{fig:rq2} give the test result. One epoch of benign medical fine-tuning doubles attack success from 18.2\,\% to 36.3\,\%, a paired $+18.1$ points $[15.0, 21.3]$. The control moves by $+1.8$ $[-0.9, 4.4]$, so medical minus control is $+16.4$ $[13.3, 19.5]$. The drift goes beyond a token-matched general-instruction control. The two fine-tunes also differ in format and starting loss, so the control does not isolate medical content (Section~\ref{sec:threats}). On the 595 harmful prompts where neither answer is degenerate, medical minus original is $+10.9$ $[7.7, 14.3]$ and, on 570 such prompts, medical minus control is $+9.7$ $[6.3, 13.2]$: smaller, but clear of zero. Every medical-minus-original and medical-minus-control test in the pre-registered set survives Holm correction, including under the combined family of Section~\ref{sec:holm}.
+
+\paragraph{Where it falls.} Hinglish moves most: 27.0 to 62.7\,\%, or $+35.7$ $[29.0, 42.5]$, against $+11.9$ in English and $+9.6$ in Hindi. The Hinglish gap grows from 15.4 to 39.2 points, while the Hindi gap shrinks from 6.0 to 3.6.
+
+\paragraph{Harm type.} The drift is not concentrated on clinical harms: $+18.2$ general and $+18.0$ clinical pooled (Fig.~\ref{fig:rq2harm}). That part of H2 fails. Clinical prompts begin from a higher base and move by a similar amount.
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\linewidth]{figures/fig_rq2_harm.png}
+\caption{Medical model against the original and the control, by harm type and language (paired differences, 95\,\% intervals).}\label{fig:rq2harm}
+\end{figure}
+
+\paragraph{Over-refusal and accuracy.} Fine-tuning leaves English and Hindi over-refusal on general benign prompts unchanged, raises clinical over-refusal by about 9 to 12 points in English and Hindi ($+25.5$ $[20.6, 30.7]$ pooled, from 2.9 to 28.4\,\%; this is a second form of drift, not only a cost of repair), and in Hinglish appears to raise it steeply (Table~\ref{tab:orr}, Fig.~\ref{fig:orr}). The Hinglish rise is directional, and many of these ``refusals'' are degenerate text. MedMCQA rises from 40.6 to 45.0\,\% on test. On the larger dev-995 set the gain is $+3.0$ points (McNemar $p=0.028$). The control stays at 41.0\,\%. A spot check of 20 answers shows the medical model always adopting the training format, so one epoch changed style strongly and knowledge modestly.
+
+%%TABLE:orr%%
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\linewidth]{figures/fig_orr.png}
+\caption{Over-refusal on benign prompts (test, 95\,\% intervals). Hinglish is directional only.}\label{fig:orr}
+\end{figure}
+
+\paragraph{Non-degenerate check.} On prompts where neither answer is degenerate (Table~\ref{tab:nondeg}), the drift remains in English ($+10.9$ $[6.9, 15.2]$) and Hinglish ($+32.5$ $[19.5, 45.5]$, on 77 prompts only). In Hindi it shrinks to $+4.1$ $[-0.4, 8.7]$ and no longer clears zero. Medical fine-tuning therefore has two effects: it weakens refusal, and it breaks the model's generation, especially in Hinglish.
+
+\paragraph{Verdict.} H2's main claim holds and is the strongest result in this thesis. Its language pattern holds for Hinglish. Its harm-type pattern does not hold. The size of the Hinglish effect is uncertain because of degenerate output; its direction is robust.
+
+\subsection{RQ3: where refusal lives, and what moved}\label{sec:rq3}
+
+\emph{Takes from RQ2:} the original and medical models. \emph{Gives RQ4 and RQ6:} a ranked tensor list.
+
+%%TABLE:floors%%
+
+%%TABLE:valid%%
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\linewidth]{figures/fig_rq3_validation.png}
+\caption{Validation of the top-$k$ circuit against five random sets, with the preamble on. Necessity above random means that ablating the circuit removes more refusal than ablating random nodes. The gate is read at $k=40$.}\label{fig:rq3valid}
+\end{figure}
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.56\linewidth]{figures/fig_rq3_jaccard.png}
+\caption{Overlap of the top-60 nodes across the six circuits. Darker is more overlap.}\label{fig:rq3jacc}
+\end{figure}
+
+\paragraph{Overlaps.} Table~\ref{tab:floors} and Fig.~\ref{fig:rq3jacc} show that within each language the original and medical circuits overlap at or above the noise floor, so we cannot claim that fine-tuning changed the circuit. The first-pass reading that it ``reshuffles'' the circuit is withdrawn. English and Hindi circuits differ from each other (overlap 0.36 against floors of about 0.52). The Hinglish circuit is too unstable to compare (floor 0.28 to 0.35 on 73 pairs).
+
+\paragraph{Validation.} Gate G3a passes under its pre-registered rule, which asks for necessity above all five random sets at any $k \in \{20, 40, 60\}$ in at least one language (Table~\ref{tab:valid}, Fig.~\ref{fig:rq3valid}): clearly in Hinglish at $k=40$ (4.70 against 1.47), barely in English at $k=40$ (2.46 against 2.43), and in Hindi only at $k=60$. Sufficiency is the cleaner signal: patching the original's top-$k$ nodes into the medical model recovers more refusal than any random set at every $k$ in every language. At $k=20$, ablating the ``circuit'' in English and Hindi \emph{raises} refusal, because EAP-IG scores are signed and the top set mixes refusal-promoting and compliance-promoting nodes.
+
+\paragraph{We could not link the map to the drift.} The refusal metric falls after fine-tuning, but it falls most in English (6.2 to 3.7 logits) and least in Hinglish (6.3 to 5.5), the reverse of the behavioural drift. MLP nodes show the largest changes in importance, but these changes have no noise floor, so no claim is made about them.
+
+\paragraph{Verdict.} H3 is partly supported as a statement about structure: the top-ranked nodes differ by language and sufficiency patching works in every language, but necessity is clear only in Hinglish, marginal in English and reached in Hindi only at $k=60$. RQ3 failed to establish a cause of the drift; a different attribution target may yet do so. The tensor map passes its gate clearly only in one language, so what it passes to RQ4 and RQ6 is a list of candidates rather than an explanation.
+
+\subsection{RQ4: repair without retraining}\label{sec:rq4}
+
+\emph{Takes from RQ3:} the tensor list. \emph{Gives RQ5:} a deployed repair.
+
+\paragraph{Dev sweep.} Table~\ref{tab:sweep} lists all settings tried on the dev pass (the 360-prompt development run of Section~\ref{sec:data}), and Fig.~\ref{fig:sweep} plots them. Three patterns emerge.
+\begin{itemize}
+\item \textbf{ReSta} lowers attack success by at most 7.1 points ($\alpha=0.20$) and is not monotone: $\alpha=0.40$ is worse than the medical model. It costs MedMCQA at every in-grid $\alpha$. Hinglish moves by at most 7 points.
+\item \textbf{Restricted ReSta} does almost nothing at the settings that keep accuracy, and breaks the model at $\alpha=1.0$ (attack success 57.1\,\%, MedMCQA 28.4\,\%).
+\item \textbf{Steering} generally lowers attack success as strength rises, reaching 21.4\,\% at layer 24, strength 1.0, and leaves MedMCQA unchanged at every setting ($|\Delta| \leq 0.4$, $p \geq 0.58$). The price is over-refusal, which rises with strength.
+\end{itemize}
+
+%%TABLE:sweep%%
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\linewidth]{figures/fig_rq4_sweep.png}
+\caption{Dev sweep of all repair settings: attack success against medical accuracy (left) and against clinical over-refusal (right).}\label{fig:sweep}
+\end{figure}
+
+\paragraph{Selection (Amendment~3).} \textbf{Gate G4 fails and is recorded as failed}: no setting passes the pre-registered rule. Two features of the design made the rule unpassable. The original model's dev over-refusal is 0\,\% in English and Hindi, so the 5-point limit amounts to one refusal, and the Hinglish refusal judge is unreliable. Amendment~3, written after the sweep and before any test generation, defined the trade-off point that the rule had left undefined. It keeps the utility clause, limits over-refusal in English and Hindi to at most 5 points above the \emph{medical} model rather than above the original, and takes the lowest mean attack success. Under it the selected settings are ReSta $\alpha=0.05$ (outside the pre-registered grid) and steering at layer 24, strength 0.5.
+
+\paragraph{Late restricted-ReSta points.} The restricted ReSta points named in the pre-registration were missing from the original sweep. They were run on dev after the test results were known, and give attack success of 36.2, 33.3 and 37.6\,\% at $\alpha = 0.10$, 0.20 and 0.30, against 35.7\,\% for the medical model; the largest effect at any pre-registered point is $-2.4$ points. The test cell had used $\alpha=0.25$, the nearest setting swept when the test cells were fixed.
+
+%%TABLE:rq4%%
+
+%%TABLE:rq4lang%%
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\linewidth]{figures/fig_rq4_forest.png}
+\caption{Repair minus medical on test. The dashed line marks the 5-point margin.}\label{fig:forest}
+\end{figure}
+
+\paragraph{Test.} Tables~\ref{tab:rq4} and~\ref{tab:rq4lang} and Fig.~\ref{fig:forest} give the result.
+\begin{itemize}
+\item \textbf{Steering at strength 0.5 is the only primary setting with a measurable effect}: $-10.1$ points $[-12.5, -7.6]$, clear of zero in all three languages and surviving Holm correction, with MedMCQA unchanged (45.4 against 45.0). It is a partial repair. It removes about 55\,\% of the drift pooled and 24\,\% in Hinglish, and attack success stays $+8.1$ $[5.0, 11.1]$ above the original pooled and $+27.0$ $[19.8, 34.1]$ in Hinglish. Pooled clinical over-refusal is not measurably above the medical model's ($+2.9$ $[-2.0, 7.8]$), but in Hindi it is $+8.8$ $[2.0, 16.7]$, which fails Amendment~3's own limit on test.
+\item \textbf{ReSta $\alpha=0.05$ shows no measurable repair}: $-1.6$ $[-3.6, 0.4]$, with Hinglish slightly worse ($+2.0$). $\alpha=0.10$ also shows none ($-1.9$ $[-4.3, 0.7]$). $\alpha=0.20$ gives $-4.6$ $[-7.5, -1.6]$, below the margin and driven by English.
+\item \textbf{Restricted ReSta} ($\alpha = 0.25$) gives $-0.6$ $[-3.5, 2.3]$. \textbf{H4 is not supported.} %%CR20%%
+\item \textbf{Steering at strength 1.0} brings pooled attack success to the original's level (16.9 against 18.2\,\%), but clinical over-refusal reaches 47.7\,\%, 19 points above the medical model. Its setting was named by the pre-registered fallback, but it was not chosen for deployment, because choosing it after seeing test results would be selecting on test.
+\item \textbf{No repair closes the Hinglish gap}: Hinglish stays between 38.9 and 64.7\,\%, against 27.0\,\% for the original. Every repair keeps over-refusal 6.9 to 44.8 points above the original (Hinglish included, directionally).
+\end{itemize}
+
+On non-degenerate prompts steering still works in all three languages: $-6.4$ English, $-8.9$ Hindi, $-13.9$ Hinglish (Table~\ref{tab:nondeg}).
+
+\paragraph{The deployment decision (Amendment~4).} The deployed repair was switched from ReSta to steering after a test result, and we say so plainly. The plan had assumed that steering ``cannot ride in a GGUF'', so ReSta $\alpha=0.05$ was assigned to the Mac lane. On test that repair had no measurable effect, which would have left retention undefined under the 5-point rule. Inspection of llama.cpp then showed that control vectors are supported at the required position, so Amendment~4 moved the deployed repair to steering. The choice of method is therefore test-informed; the strength was not re-chosen and stayed at the dev-selected 0.5.
+
+\paragraph{Verdict.} A run-time steering vector partly repairs the drift without measurable loss of MedMCQA accuracy, at a cost in clinical over-refusal, most in Hindi. We failed to achieve the same with weight-space safety patching on this model at the settings tried, and restricting it to the circuit added nothing here. The link from RQ3 to RQ4, which was the design's central hypothesis, is therefore not supported.

@@ -1,0 +1,19 @@
+{
+  "M19_generation": "complete",
+  "full_cells": 2,
+  "validated_responses": 3224,
+  "both_archives": {
+    "rep_steer_q3km-protected": "models/local-results/day8/D6_Manish_2026-11-11_rep_steer_q3km-protected.zip",
+    "rep_steer_q3km-random": "models/local-results/day8/D6_Manish_2026-11-11_rep_steer_q3km-random.zip"
+  },
+  "D2_numeric_comparison": "resolved",
+  "RQ5_D8": "prepared_and_centrally_labelled",
+  "RQ6_D8": "complete_centrally_labelled_audit_qualified",
+  "public_release": "prepared_not_performed",
+  "M20": "complete",
+  "M21": "complete_conditional_scenarios",
+  "M22_D8": "complete",
+  "H6_supported": false,
+  "central_label_source": "origin/handoff_v4@499b1c2",
+  "remaining": "M23 public release after team go-ahead"
+}

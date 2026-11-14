@@ -1,0 +1,127 @@
+{
+ "lang": "hinglish",
+ "scores": "results/circuits/v2/orig_hinglish_eap-ig_scores.json",
+ "n_prompts": 100,
+ "ks": [
+  20,
+  40,
+  60
+ ],
+ "R": [
+  "मैं",
+  "Ek",
+  "M"
+ ],
+ "C": [
+  "Mere"
+ ],
+ "leading_newline": "12/16 -> appended",
+ "m_orig_clean": 6.263315949440003,
+ "necessity_drop": {
+  "top20": 0.3766135072708128,
+  "rand20_0": -0.6029982948303223,
+  "rand20_1": -1.1618780088424678,
+  "rand20_2": -0.623309283256531,
+  "rand20_3": 0.41089029788970954,
+  "rand20_4": 0.13408252716064428,
+  "top40": 4.704305648803711,
+  "rand40_0": 0.2764725828170782,
+  "rand40_1": -0.3353756952285769,
+  "rand40_2": 0.5131494522094728,
+  "rand40_3": 1.465830779075623,
+  "rand40_4": 0.3741419219970705,
+  "top60": 2.8214123821258545,
+  "rand60_0": 0.8965454626083371,
+  "rand60_1": 0.46685821056366006,
+  "rand60_2": 1.2336414766311643,
+  "rand60_3": -0.10976254463195811,
+  "rand60_4": 0.13962861537933335
+ },
+ "m_med_clean": 5.453363399505616,
+ "sufficiency_recovery": {
+  "top20": 0.9293230247497553,
+  "rand20_0": 0.052797884941100826,
+  "rand20_1": 0.26090178489685023,
+  "rand20_2": 0.42148416042327863,
+  "rand20_3": 0.07035583019256553,
+  "rand20_4": 0.050281424522399476,
+  "top40": 0.7300030946731564,
+  "rand40_0": 0.15272260189056386,
+  "rand40_1": 0.5718470954895016,
+  "rand40_2": 0.39803540229797285,
+  "rand40_3": 0.1924131488800045,
+  "rand40_4": 0.2541375064849847,
+  "top60": 0.7436090660095207,
+  "rand60_0": 0.4154160690307611,
+  "rand60_1": 0.5092971944808955,
+  "rand60_2": 0.005941185951232164,
+  "rand60_3": 0.2444992733001703,
+  "rand60_4": 0.33887393474578786
+ },
+ "verdict": {
+  "k20": {
+   "necessity_top": 0.3766,
+   "necessity_random": [
+    -0.603,
+    -1.1619,
+    -0.6233,
+    0.4109,
+    0.1341
+   ],
+   "necessity_beats_all_random": false,
+   "sufficiency_top": 0.9293,
+   "sufficiency_random": [
+    0.0528,
+    0.2609,
+    0.4215,
+    0.0704,
+    0.0503
+   ],
+   "sufficiency_beats_all_random": true
+  },
+  "k40": {
+   "necessity_top": 4.7043,
+   "necessity_random": [
+    0.2765,
+    -0.3354,
+    0.5131,
+    1.4658,
+    0.3741
+   ],
+   "necessity_beats_all_random": true,
+   "sufficiency_top": 0.73,
+   "sufficiency_random": [
+    0.1527,
+    0.5718,
+    0.398,
+    0.1924,
+    0.2541
+   ],
+   "sufficiency_beats_all_random": true
+  },
+  "k60": {
+   "necessity_top": 2.8214,
+   "necessity_random": [
+    0.8965,
+    0.4669,
+    1.2336,
+    -0.1098,
+    0.1396
+   ],
+   "necessity_beats_all_random": true,
+   "sufficiency_top": 0.7436,
+   "sufficiency_random": [
+    0.4154,
+    0.5093,
+    0.0059,
+    0.2445,
+    0.3389
+   ],
+   "sufficiency_beats_all_random": true
+  }
+ },
+ "G3a_pass_k40": true,
+ "seconds": 1688,
+ "peak_gb": 9.46,
+ "method": "heads in z-space (hook_z; patch = zero z_h + add r_h on hook_attn_out); MLPs on hook_mlp_out; preamble on; decision position = last prompt token"
+}

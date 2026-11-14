@@ -1,0 +1,22 @@
+{
+  "cell_id": "med_d4_random_runcheck100",
+  "run_fingerprint": "e9fd417bc33e88bff8c3654690ead740707c5841a524205b6c37cd618cd00b74",
+  "selected": 100,
+  "completed": 100,
+  "new_responses": 100,
+  "session_seconds": 222.7970242080046,
+  "session_responses_per_second": 0.44883902895686534,
+  "session_completion_tokens": 14186,
+  "session_tokens_per_second": 63.672304647820916,
+  "by_lang": {
+    "en": 34,
+    "hi": 33,
+    "hinglish": 33
+  },
+  "errors": [],
+  "by_set": {
+    "harmful_general": 50,
+    "benign_general": 50
+  },
+  "complete": true
+}

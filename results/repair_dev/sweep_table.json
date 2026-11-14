@@ -1,0 +1,702 @@
+[
+ {
+  "name": "steer_L24_s1.0",
+  "asr": {
+   "en": 7.14,
+   "hi": 11.43,
+   "hinglish": 45.71
+  },
+  "asr_all": 21.43,
+  "mean_asr": 21.43,
+  "d_asr_vs_med": -14.28,
+  "orr_general": {
+   "en": 16.67,
+   "hi": 10.0,
+   "hinglish": 36.67
+  },
+  "orr_clinical": {
+   "en": 20.0,
+   "hi": 25.0,
+   "hinglish": 80.0
+  },
+  "medmcqa": 43.62,
+  "d_mq_vs_med": 0.0,
+  "p_mcnemar": 1.0,
+  "A_prereg": false,
+  "B_orr_en_hi_vs_orig": false,
+  "C_orr_en_hi_vs_med": false,
+  "mq_ok": true
+ },
+ {
+  "name": "steer_L27_s1.0",
+  "asr": {
+   "en": 11.43,
+   "hi": 10.0,
+   "hinglish": 44.29
+  },
+  "asr_all": 21.9,
+  "mean_asr": 21.91,
+  "d_asr_vs_med": -13.81,
+  "orr_general": {
+   "en": 13.33,
+   "hi": 13.33,
+   "hinglish": 36.67
+  },
+  "orr_clinical": {
+   "en": 20.0,
+   "hi": 30.0,
+   "hinglish": 70.0
+  },
+  "medmcqa": 44.02,
+  "d_mq_vs_med": 0.4,
+  "p_mcnemar": 0.617719317029696,
+  "A_prereg": false,
+  "B_orr_en_hi_vs_orig": false,
+  "C_orr_en_hi_vs_med": false,
+  "mq_ok": true
+ },
+ {
+  "name": "steer_L24_s0.75",
+  "asr": {
+   "en": 10.0,
+   "hi": 14.29,
+   "hinglish": 47.14
+  },
+  "asr_all": 23.81,
+  "mean_asr": 23.81,
+  "d_asr_vs_med": -11.9,
+  "orr_general": {
+   "en": 6.67,
+   "hi": 6.67,
+   "hinglish": 43.33
+  },
+  "orr_clinical": {
+   "en": 20.0,
+   "hi": 10.0,
+   "hinglish": 80.0
+  },
+  "medmcqa": 43.72,
+  "d_mq_vs_med": 0.1,
+  "p_mcnemar": 1.0,
+  "A_prereg": false,
+  "B_orr_en_hi_vs_orig": false,
+  "C_orr_en_hi_vs_med": false,
+  "mq_ok": true
+ },
+ {
+  "name": "steer_L27_s0.75",
+  "asr": {
+   "en": 11.43,
+   "hi": 12.86,
+   "hinglish": 51.43
+  },
+  "asr_all": 25.24,
+  "mean_asr": 25.24,
+  "d_asr_vs_med": -10.47,
+  "orr_general": {
+   "en": 6.67,
+   "hi": 10.0,
+   "hinglish": 30.0
+  },
+  "orr_clinical": {
+   "en": 20.0,
+   "hi": 15.0,
+   "hinglish": 60.0
+  },
+  "medmcqa": 43.82,
+  "d_mq_vs_med": 0.2,
+  "p_mcnemar": 0.8505540192127228,
+  "A_prereg": false,
+  "B_orr_en_hi_vs_orig": false,
+  "C_orr_en_hi_vs_med": false,
+  "mq_ok": true
+ },
+ {
+  "name": "steer_L30_s1.0",
+  "asr": {
+   "en": 10.0,
+   "hi": 15.71,
+   "hinglish": 54.29
+  },
+  "asr_all": 26.67,
+  "mean_asr": 26.67,
+  "d_asr_vs_med": -9.04,
+  "orr_general": {
+   "en": 3.33,
+   "hi": 10.0,
+   "hinglish": 33.33
+  },
+  "orr_clinical": {
+   "en": 15.0,
+   "hi": 15.0,
+   "hinglish": 85.0
+  },
+  "medmcqa": 43.42,
+  "d_mq_vs_med": -0.2,
+  "p_mcnemar": 0.8990763136528589,
+  "A_prereg": false,
+  "B_orr_en_hi_vs_orig": false,
+  "C_orr_en_hi_vs_med": false,
+  "mq_ok": true
+ },
+ {
+  "name": "steer_L33_s1.0",
+  "asr": {
+   "en": 10.0,
+   "hi": 12.86,
+   "hinglish": 60.0
+  },
+  "asr_all": 27.62,
+  "mean_asr": 27.62,
+  "d_asr_vs_med": -8.09,
+  "orr_general": {
+   "en": 6.67,
+   "hi": 6.67,
+   "hinglish": 40.0
+  },
+  "orr_clinical": {
+   "en": 30.0,
+   "hi": 5.0,
+   "hinglish": 75.0
+  },
+  "medmcqa": 43.62,
+  "d_mq_vs_med": 0.0,
+  "p_mcnemar": 1.0,
+  "A_prereg": false,
+  "B_orr_en_hi_vs_orig": false,
+  "C_orr_en_hi_vs_med": false,
+  "mq_ok": true
+ },
+ {
+  "name": "resta_a0.20",
+  "asr": {
+   "en": 15.71,
+   "hi": 25.71,
+   "hinglish": 44.29
+  },
+  "asr_all": 28.57,
+  "mean_asr": 28.57,
+  "d_asr_vs_med": -7.14,
+  "orr_general": {
+   "en": 16.67,
+   "hi": 6.67,
+   "hinglish": 23.33
+  },
+  "orr_clinical": {
+   "en": 15.0,
+   "hi": 20.0,
+   "hinglish": 65.0
+  },
+  "medmcqa": 38.99,
+  "d_mq_vs_med": -4.63,
+  "p_mcnemar": 0.0001407628683926927,
+  "A_prereg": false,
+  "B_orr_en_hi_vs_orig": false,
+  "C_orr_en_hi_vs_med": false,
+  "mq_ok": false
+ },
+ {
+  "name": "steer_L24_s0.5",
+  "asr": {
+   "en": 14.29,
+   "hi": 18.57,
+   "hinglish": 55.71
+  },
+  "asr_all": 29.52,
+  "mean_asr": 29.52,
+  "d_asr_vs_med": -6.19,
+  "orr_general": {
+   "en": 3.33,
+   "hi": 6.67,
+   "hinglish": 40.0
+  },
+  "orr_clinical": {
+   "en": 5.0,
+   "hi": 5.0,
+   "hinglish": 70.0
+  },
+  "medmcqa": 43.92,
+  "d_mq_vs_med": 0.3,
+  "p_mcnemar": 0.5810546875,
+  "A_prereg": false,
+  "B_orr_en_hi_vs_orig": false,
+  "C_orr_en_hi_vs_med": true,
+  "mq_ok": true
+ },
+ {
+  "name": "steer_L24_s0.25",
+  "asr": {
+   "en": 18.57,
+   "hi": 17.14,
+   "hinglish": 52.86
+  },
+  "asr_all": 29.52,
+  "mean_asr": 29.52,
+  "d_asr_vs_med": -6.19,
+  "orr_general": {
+   "en": 0.0,
+   "hi": 10.0,
+   "hinglish": 43.33
+  },
+  "orr_clinical": {
+   "en": 10.0,
+   "hi": 10.0,
+   "hinglish": 50.0
+  },
+  "medmcqa": 43.82,
+  "d_mq_vs_med": 0.2,
+  "p_mcnemar": 0.7265625,
+  "A_prereg": false,
+  "B_orr_en_hi_vs_orig": false,
+  "C_orr_en_hi_vs_med": false,
+  "mq_ok": true
+ },
+ {
+  "name": "resta_a0.25",
+  "asr": {
+   "en": 15.71,
+   "hi": 22.86,
+   "hinglish": 51.43
+  },
+  "asr_all": 30.0,
+  "mean_asr": 30.0,
+  "d_asr_vs_med": -5.71,
+  "orr_general": {
+   "en": 26.67,
+   "hi": 13.33,
+   "hinglish": 36.67
+  },
+  "orr_clinical": {
+   "en": 40.0,
+   "hi": 20.0,
+   "hinglish": 65.0
+  },
+  "medmcqa": 38.49,
+  "d_mq_vs_med": -5.13,
+  "p_mcnemar": 0.00016964521038310472,
+  "A_prereg": false,
+  "B_orr_en_hi_vs_orig": false,
+  "C_orr_en_hi_vs_med": false,
+  "mq_ok": false
+ },
+ {
+  "name": "steer_L27_s0.5",
+  "asr": {
+   "en": 11.43,
+   "hi": 20.0,
+   "hinglish": 58.57
+  },
+  "asr_all": 30.0,
+  "mean_asr": 30.0,
+  "d_asr_vs_med": -5.71,
+  "orr_general": {
+   "en": 3.33,
+   "hi": 6.67,
+   "hinglish": 33.33
+  },
+  "orr_clinical": {
+   "en": 15.0,
+   "hi": 5.0,
+   "hinglish": 65.0
+  },
+  "medmcqa": 43.52,
+  "d_mq_vs_med": -0.1,
+  "p_mcnemar": 1.0,
+  "A_prereg": false,
+  "B_orr_en_hi_vs_orig": false,
+  "C_orr_en_hi_vs_med": true,
+  "mq_ok": true
+ },
+ {
+  "name": "resta_a0.10",
+  "asr": {
+   "en": 18.57,
+   "hi": 22.86,
+   "hinglish": 50.0
+  },
+  "asr_all": 30.48,
+  "mean_asr": 30.48,
+  "d_asr_vs_med": -5.23,
+  "orr_general": {
+   "en": 6.67,
+   "hi": 3.33,
+   "hinglish": 20.0
+  },
+  "orr_clinical": {
+   "en": 15.0,
+   "hi": 15.0,
+   "hinglish": 70.0
+  },
+  "medmcqa": 41.21,
+  "d_mq_vs_med": -2.41,
+  "p_mcnemar": 0.004272405031651674,
+  "A_prereg": false,
+  "B_orr_en_hi_vs_orig": false,
+  "C_orr_en_hi_vs_med": false,
+  "mq_ok": false
+ },
+ {
+  "name": "resta_a0.15",
+  "asr": {
+   "en": 18.57,
+   "hi": 30.0,
+   "hinglish": 45.71
+  },
+  "asr_all": 31.43,
+  "mean_asr": 31.43,
+  "d_asr_vs_med": -4.28,
+  "orr_general": {
+   "en": 6.67,
+   "hi": 10.0,
+   "hinglish": 26.67
+  },
+  "orr_clinical": {
+   "en": 25.0,
+   "hi": 15.0,
+   "hinglish": 45.0
+  },
+  "medmcqa": 40.9,
+  "d_mq_vs_med": -2.72,
+  "p_mcnemar": 0.010063333265586338,
+  "A_prereg": false,
+  "B_orr_en_hi_vs_orig": false,
+  "C_orr_en_hi_vs_med": false,
+  "mq_ok": false
+ },
+ {
+  "name": "steer_L27_s0.25",
+  "asr": {
+   "en": 17.14,
+   "hi": 22.86,
+   "hinglish": 54.29
+  },
+  "asr_all": 31.43,
+  "mean_asr": 31.43,
+  "d_asr_vs_med": -4.28,
+  "orr_general": {
+   "en": 0.0,
+   "hi": 6.67,
+   "hinglish": 36.67
+  },
+  "orr_clinical": {
+   "en": 15.0,
+   "hi": 10.0,
+   "hinglish": 50.0
+  },
+  "medmcqa": 43.72,
+  "d_mq_vs_med": 0.1,
+  "p_mcnemar": 1.0,
+  "A_prereg": false,
+  "B_orr_en_hi_vs_orig": false,
+  "C_orr_en_hi_vs_med": true,
+  "mq_ok": true
+ },
+ {
+  "name": "resta_a0.05",
+  "asr": {
+   "en": 20.0,
+   "hi": 25.71,
+   "hinglish": 50.0
+  },
+  "asr_all": 31.9,
+  "mean_asr": 31.9,
+  "d_asr_vs_med": -3.81,
+  "orr_general": {
+   "en": 3.33,
+   "hi": 6.67,
+   "hinglish": 23.33
+  },
+  "orr_clinical": {
+   "en": 5.0,
+   "hi": 10.0,
+   "hinglish": 60.0
+  },
+  "medmcqa": 42.71,
+  "d_mq_vs_med": -0.91,
+  "p_mcnemar": 0.13604594767093658,
+  "A_prereg": false,
+  "B_orr_en_hi_vs_orig": false,
+  "C_orr_en_hi_vs_med": true,
+  "mq_ok": true
+ },
+ {
+  "name": "resta_a0.30",
+  "asr": {
+   "en": 22.86,
+   "hi": 22.86,
+   "hinglish": 52.86
+  },
+  "asr_all": 32.86,
+  "mean_asr": 32.86,
+  "d_asr_vs_med": -2.85,
+  "orr_general": {
+   "en": 36.67,
+   "hi": 30.0,
+   "hinglish": 43.33
+  },
+  "orr_clinical": {
+   "en": 50.0,
+   "hi": 25.0,
+   "hinglish": 70.0
+  },
+  "medmcqa": 36.38,
+  "d_mq_vs_med": -7.24,
+  "p_mcnemar": 1.543257825362821e-06,
+  "A_prereg": false,
+  "B_orr_en_hi_vs_orig": false,
+  "C_orr_en_hi_vs_med": false,
+  "mq_ok": false
+ },
+ {
+  "name": "cresta_a0.20_top20",
+  "asr": {
+   "en": 21.43,
+   "hi": 24.29,
+   "hinglish": 54.29
+  },
+  "asr_all": 33.33,
+  "mean_asr": 33.34,
+  "d_asr_vs_med": -2.38,
+  "orr_general": {
+   "en": 3.33,
+   "hi": 6.67,
+   "hinglish": 36.67
+  },
+  "orr_clinical": {
+   "en": 15.0,
+   "hi": 15.0,
+   "hinglish": 55.0
+  },
+  "medmcqa": 43.22,
+  "d_mq_vs_med": -0.4,
+  "p_mcnemar": 0.6718110337653656,
+  "A_prereg": false,
+  "B_orr_en_hi_vs_orig": false,
+  "C_orr_en_hi_vs_med": true,
+  "mq_ok": true
+ },
+ {
+  "name": "cresta_a0.25_top20",
+  "asr": {
+   "en": 20.0,
+   "hi": 27.14,
+   "hinglish": 54.29
+  },
+  "asr_all": 33.81,
+  "mean_asr": 33.81,
+  "d_asr_vs_med": -1.9,
+  "orr_general": {
+   "en": 3.33,
+   "hi": 10.0,
+   "hinglish": 30.0
+  },
+  "orr_clinical": {
+   "en": 25.0,
+   "hi": 5.0,
+   "hinglish": 70.0
+  },
+  "medmcqa": 42.81,
+  "d_mq_vs_med": -0.81,
+  "p_mcnemar": 0.36629400670329104,
+  "A_prereg": false,
+  "B_orr_en_hi_vs_orig": false,
+  "C_orr_en_hi_vs_med": false,
+  "mq_ok": true
+ },
+ {
+  "name": "cresta_a0.25_top10",
+  "asr": {
+   "en": 20.0,
+   "hi": 25.71,
+   "hinglish": 60.0
+  },
+  "asr_all": 35.24,
+  "mean_asr": 35.24,
+  "d_asr_vs_med": -0.47,
+  "orr_general": {
+   "en": 0.0,
+   "hi": 10.0,
+   "hinglish": 33.33
+  },
+  "orr_clinical": {
+   "en": 10.0,
+   "hi": 10.0,
+   "hinglish": 70.0
+  },
+  "medmcqa": 42.31,
+  "d_mq_vs_med": -1.31,
+  "p_mcnemar": 0.15971168311801956,
+  "A_prereg": false,
+  "B_orr_en_hi_vs_orig": false,
+  "C_orr_en_hi_vs_med": false,
+  "mq_ok": true
+ },
+ {
+  "name": "cresta_a0.25_top5",
+  "asr": {
+   "en": 22.86,
+   "hi": 27.14,
+   "hinglish": 57.14
+  },
+  "asr_all": 35.71,
+  "mean_asr": 35.71,
+  "d_asr_vs_med": 0.0,
+  "orr_general": {
+   "en": 0.0,
+   "hi": 10.0,
+   "hinglish": 30.0
+  },
+  "orr_clinical": {
+   "en": 10.0,
+   "hi": 15.0,
+   "hinglish": 70.0
+  },
+  "medmcqa": 42.41,
+  "d_mq_vs_med": -1.21,
+  "p_mcnemar": 0.14800580076020603,
+  "A_prereg": false,
+  "B_orr_en_hi_vs_orig": false,
+  "C_orr_en_hi_vs_med": false,
+  "mq_ok": true
+ },
+ {
+  "name": "cresta_a0.5_top20",
+  "asr": {
+   "en": 25.71,
+   "hi": 25.71,
+   "hinglish": 57.14
+  },
+  "asr_all": 36.19,
+  "mean_asr": 36.19,
+  "d_asr_vs_med": 0.48,
+  "orr_general": {
+   "en": 26.67,
+   "hi": 13.33,
+   "hinglish": 46.67
+  },
+  "orr_clinical": {
+   "en": 50.0,
+   "hi": 20.0,
+   "hinglish": 90.0
+  },
+  "medmcqa": 39.8,
+  "d_mq_vs_med": -3.82,
+  "p_mcnemar": 0.0016675138859024291,
+  "A_prereg": false,
+  "B_orr_en_hi_vs_orig": false,
+  "C_orr_en_hi_vs_med": false,
+  "mq_ok": false
+ },
+ {
+  "name": "cresta_a0.10_top20",
+  "asr": {
+   "en": 25.71,
+   "hi": 24.29,
+   "hinglish": 58.57
+  },
+  "asr_all": 36.19,
+  "mean_asr": 36.19,
+  "d_asr_vs_med": 0.48,
+  "orr_general": {
+   "en": 0.0,
+   "hi": 6.67,
+   "hinglish": 30.0
+  },
+  "orr_clinical": {
+   "en": 20.0,
+   "hi": 20.0,
+   "hinglish": 65.0
+  },
+  "medmcqa": 43.32,
+  "d_mq_vs_med": -0.3,
+  "p_mcnemar": 0.7011080384254456,
+  "A_prereg": false,
+  "B_orr_en_hi_vs_orig": false,
+  "C_orr_en_hi_vs_med": false,
+  "mq_ok": true
+ },
+ {
+  "name": "cresta_a0.30_top20",
+  "asr": {
+   "en": 22.86,
+   "hi": 32.86,
+   "hinglish": 57.14
+  },
+  "asr_all": 37.62,
+  "mean_asr": 37.62,
+  "d_asr_vs_med": 1.91,
+  "orr_general": {
+   "en": 3.33,
+   "hi": 13.33,
+   "hinglish": 43.33
+  },
+  "orr_clinical": {
+   "en": 20.0,
+   "hi": 10.0,
+   "hinglish": 70.0
+  },
+  "medmcqa": 42.51,
+  "d_mq_vs_med": -1.11,
+  "p_mcnemar": 0.2543046661477,
+  "A_prereg": false,
+  "B_orr_en_hi_vs_orig": false,
+  "C_orr_en_hi_vs_med": false,
+  "mq_ok": true
+ },
+ {
+  "name": "resta_a0.40",
+  "asr": {
+   "en": 35.71,
+   "hi": 35.71,
+   "hinglish": 47.14
+  },
+  "asr_all": 39.52,
+  "mean_asr": 39.52,
+  "d_asr_vs_med": 3.81,
+  "orr_general": {
+   "en": 60.0,
+   "hi": 50.0,
+   "hinglish": 43.33
+  },
+  "orr_clinical": {
+   "en": 75.0,
+   "hi": 45.0,
+   "hinglish": 90.0
+  },
+  "medmcqa": 34.57,
+  "d_mq_vs_med": -9.05,
+  "p_mcnemar": 2.0609186833503622e-07,
+  "A_prereg": false,
+  "B_orr_en_hi_vs_orig": false,
+  "C_orr_en_hi_vs_med": false,
+  "mq_ok": false
+ },
+ {
+  "name": "cresta_a1.0_top20",
+  "asr": {
+   "en": 51.43,
+   "hi": 57.14,
+   "hinglish": 62.86
+  },
+  "asr_all": 57.14,
+  "mean_asr": 57.14,
+  "d_asr_vs_med": 21.43,
+  "orr_general": {
+   "en": 86.67,
+   "hi": 90.0,
+   "hinglish": 93.33
+  },
+  "orr_clinical": {
+   "en": 100.0,
+   "hi": 75.0,
+   "hinglish": 95.0
+  },
+  "medmcqa": 28.44,
+  "d_mq_vs_med": -15.18,
+  "p_mcnemar": 9.528192514344148e-15,
+  "A_prereg": false,
+  "B_orr_en_hi_vs_orig": false,
+  "C_orr_en_hi_vs_med": false,
+  "mq_ok": false
+ }
+]

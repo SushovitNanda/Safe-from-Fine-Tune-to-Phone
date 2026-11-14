@@ -1,0 +1,27 @@
+{
+  "rep_steer_f16": {
+    "zip_sha256_verified": true,
+    "exact_1612_ids": true,
+    "record_fingerprint_matches_source": true
+  },
+  "rep_steer_q4km": {
+    "zip_sha256_verified": true,
+    "exact_1612_ids": true,
+    "record_fingerprint_matches_source": true
+  },
+  "rep_steer_q3km": {
+    "zip_sha256_verified": true,
+    "exact_1612_ids": true,
+    "record_fingerprint_matches_source": true
+  },
+  "rep_steer_q4km-nopre": {
+    "zip_sha256_verified": true,
+    "exact_1612_ids": true,
+    "record_fingerprint_matches_source": true
+  },
+  "rep_steer_budget-phone": {
+    "zip_sha256_verified": true,
+    "exact_1612_ids": true,
+    "record_fingerprint_matches_source": true
+  }
+}

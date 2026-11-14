@@ -1,0 +1,19 @@
+{
+  "illustrative_only": true,
+  "currency": "USD",
+  "assumptions_source": "Measured Mac steeredQ3 evaluation throughput and token means; official listed GPT4.1mini price verified2026-11-11 (deprecated reference); all demand, hardware valuation, allocation, hours, power, electricity and support costs below are assumed sensitivity inputs. Not clinic savings or capability-equivalent model pricing.",
+  "requests_per_month": 10000,
+  "input_tokens_per_request": 391.08684863523575,
+  "output_tokens_per_request": 127.36290322580645,
+  "api_input_per_million": 0.4,
+  "api_output_per_million": 1.6,
+  "hardware_cost": 600,
+  "amortization_months": 36,
+  "hardware_allocation": 0.5,
+  "available_hours_per_month": 30,
+  "utilization": 0.5,
+  "requests_per_second": 0.6032425868532275,
+  "wall_power_watts": 40,
+  "electricity_per_kwh": 0.2,
+  "other_local_monthly_cost": 5
+}

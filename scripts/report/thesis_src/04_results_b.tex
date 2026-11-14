@@ -1,0 +1,64 @@
+\subsection{RQ5: does the repair survive deployment?}\label{sec:rq5}
+
+\emph{Takes from RQ4:} the deployed repair, steering at layer 24 and strength 0.5. \emph{Gives RQ6:} the stock Q3\_K\_M reference with the vector attached.
+
+\paragraph{4-bit weights on the laptop.} NF4 costs the original model 4.6 points of attack success pooled $[2.0, 7.1]$ (Table~\ref{tab:nf4}): 22.8 against 18.2\,\%, concentrated in English and Hinglish. By the non-inferiority rule, the original model does not keep its safety at NF4. The medical model loses 3.4 points. $\Delta\Delta(\mathrm{NF4})$, the extra loss the medical model suffers from NF4 beyond the original's, is $-1.2$ $[-4.8, 2.5]$, so fine-tuning does not make the model more fragile to 4-bit weights. The steering repair keeps its effect at NF4: retention is 1.16 $[0.85, 1.59]$ pooled, and the steered model's NF4 loss is non-inferior pooled (Table~\ref{tab:ret}). ReSta's retention is undefined because its FP16 effect is below the 5-point floor.
+
+%%TABLE:nf4%%
+
+%%TABLE:ret%%
+
+\paragraph{The steering gate in llama.cpp.} Before any repaired GGUF cell was generated, the steered medical F16 GGUF on the Mac matched the laptop's steered FP16 reference on 50 of 50 safety labels and 50 of 50 refusal labels, with token counts identical on 45 of 50. The same Mac outputs agree with the \emph{unsteered} reference on only 47 and 43 of 50, so the vector has its effect through llama.cpp. On the full test set, the steered Mac F16 cell and the steered laptop FP16 cell agree on 99.2\,\% of safety labels, and their pooled attack success differs by $-0.5$ points $[-1.2, 0.1]$ (Table~\ref{tab:platform}).
+
+\paragraph{GGUF settings.} Table~\ref{tab:gguf} and Fig.~\ref{fig:rq5} give the main result. The vector lowers pooled attack success by 11.0 points at F16, 12.2 at Q4\_K\_M, 11.1 at Q3\_K\_M, 9.4 without the preamble and 8.6 on the budget-phone stack. Every interval clears zero, and every effect survives Holm correction within the deployment family. In every language and at every setting the effect is at least 6 points with an interval clear of zero.
+
+%%TABLE:gguf%%
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\linewidth]{figures/fig_rq5_gguf.png}
+\caption{Attack success of the medical model with and without the steering vector across the deployment chain on the Mac (95\,\% bands).}\label{fig:rq5}
+\end{figure}
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.85\linewidth]{figures/fig_rq5_retention.png}
+\caption{Retention $R(s)$ of the steering effect at each GGUF setting against the Mac F16 gain, with 95\,\% intervals (Mac lane). Every interval contains 1.}\label{fig:retention}
+\end{figure}
+
+\paragraph{Retention.} H5 is not supported: no deployment setting measurably lost the repair. Relative to the Mac F16 cells, retention is 1.11 at Q4\_K\_M, 1.01 at Q3\_K\_M, 0.85 without the preamble and 0.79 on the budget-phone stack, and every interval contains 1 (Table~\ref{tab:retention}, Fig.~\ref{fig:retention}). H5 had predicted retention below 1 at Q3\_K\_M and without the preamble, most of all in Hinglish. At Q3\_K\_M pooled, $R = 1.01$ $[0.74, 1.36]$, although the steered model's Hinglish attack success is 8.7 points $[2.8, 15.5]$ higher there than at F16. The losses without the preamble and on the budget-phone stack are within noise. The language pattern is unclear: Hinglish has the lowest point estimate at Q3\_K\_M (0.92) and on the budget-phone stack (0.76) but the highest without the preamble (1.16), and every interval is wide and contains 1. An independent re-run of the second author's statistics script on the same labels reproduced every retention point estimate exactly.
+
+%%TABLE:retention%%
+
+\paragraph{Quantization and the preamble.} Three side results. First, quantization costs the unsteered medical model little: 2.6 points at Q4\_K\_M and 2.2 at Q3\_K\_M. Both losses are non-inferior pooled (upper bounds 4.9 and 4.8) but not in most single languages. Second, removing the preamble did not raise attack success. The medical model's attack success \emph{fell} by 6.2 points at Q4\_K\_M and the steered model's by 3.4, while the original moved by $+1.4$ $[-0.7, 3.5]$ (Table~\ref{tab:lastmile}). We have no explanation for this direction, and it should be checked on another model. Degenerate text does not explain it: the medical model's degeneracy rate on the Mac is 26.3\,\% with the preamble and 23.1\,\% without. Third, the budget-phone stack, which removes the preamble and quantizes the KV cache, has a last-mile gap (its attack success minus the F16 reference on the same engine) of $-2.0$ $[-4.8, 0.8]$ for the medical model and $+0.4$ $[-2.3, 3.0]$ for the steered one. $\Delta\Delta$ at Q4\_K\_M, the extra loss the fine-tuned model suffers from quantization beyond the original's, is $+2.9$ $[-0.2, 6.1]$; as at NF4, there is no evidence that fine-tuning makes the model more fragile to quantization.
+
+%%TABLE:lastmile%%
+
+\paragraph{The cost.} Along the deployment chain the vector raises over-refusal. Clinical over-refusal rises by up to 8.5 points pooled on the budget-phone stack, and Hindi clinical by up to 11.8. General over-refusal rises by 7.1 points without the preamble. At F16 none of these changes clears zero pooled.
+
+\paragraph{Throughput and cost.} Quantization raised throughput by about 1.45 times and removing the preamble by a further 1.35 times, but at the volumes we assume, local deployment is not cheaper than an API. The throughput figures come from the Mac serving eight concurrent requests on the evaluation workload: a mean of 391 prompt tokens with the preamble and 33 without, and 126 to 137 completion tokens per answer. The steered server produced 54 completion tokens per second at F16, 78 at Q4\_K\_M, 77 at Q3\_K\_M, 103 at Q4\_K\_M without the preamble and 106 on the budget-phone stack, or 0.42 to 0.78 requests per second (Table~\ref{tab:throughput}). About 30\,\% of answers reach the 256-token cap, so these are evaluation figures, not clinic throughput.
+
+The cost scenario is the second author's and is conditional on its assumptions (Appendix~\ref{app:tables}): 10,000 requests a month; a 600 USD machine amortised over 36 months at half allocation; 40 W; and a listed API price of 0.40 USD per million input tokens and 1.60 USD per million output tokens. On these assumptions a local deployment costs about 13.6 USD a month against 3.6 USD through the API, or 1.36 USD per 1,000 replies locally against 0.36 USD. Local deployment breaks even at about 37,700 requests a month, above the measured capacity of about 32,600. No clinic saving is claimed; the case for local deployment rests on data control and offline use.
+
+\paragraph{Verdict.} The steering effect stays clear of zero in every deployment setting we tested, on another machine and another engine. Retention point estimates across the GGUF settings lie between 0.79 and 1.11, but the intervals are wide (lower bounds 0.54 to 0.85), so losing up to about half of the effect cannot be ruled out. This is the most practically useful positive result of this thesis. Its limits are the rising over-refusal and the fact that the deployer must ship a run-time flag.
+
+\paragraph{A note on the difference-in-differences.} Because no original-model Mac F16 cell exists, $\Delta\Delta$ at GGUF uses the laptop FP16 cells as the full-precision reference on both sides. It is a mixed-engine quantity: its two sides come from different inference engines. The Mac lane keeps it as a labelled sensitivity in its lane report and does not use it as a primary result; we do the same.
+
+\subsection{RQ6: protecting the repair at equal size}\label{sec:rq6}
+
+\emph{Takes from RQ3:} the ranked tensor families. \emph{Takes from RQ5:} the stock Q3\_K\_M reference with the vector.
+
+%%RQ6%%
+
+%%AUDIT6%%
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.9\linewidth]{figures/fig_rq6_protection.png}
+\caption{RQ6: attack success of stock, protected and random Q3\_K\_M builds with the steering vector, pooled and per language, with 95\,\% intervals from the central labels (same values as Table~\ref{tab:rq6}). The Hinglish contrasts are a judge artefact (see text).}\label{fig:rq6}
+\end{figure}
+
+\subsection{One family for all pre-declared tests}\label{sec:holm}
+Every headline result survives when all pre-declared tests are corrected as one family; the exceptions are the Hindi gap and a set of secondary tests. The pre-registration names one Holm family, but the analyses were first run as separate families: twelve RQ2 tests plus $\Delta\Delta$, and fourteen RQ4 tests. Table~\ref{tab:holm} repeats the correction over all 35 declared tests. Of these, 24 are rejected. The 11 not rejected fall into four groups: the Hindi gap, the English clinical-minus-general difference and the change in the Hindi gap; the four ReSta $\alpha=0.05$ attack-success effects (its two over-refusal tests are rejected); both MedMCQA tests, where no measurable change is the desired result; and $\Delta\Delta(\mathrm{NF4})$ together with the medical model's NF4 loss. The deployment tests of Section~\ref{sec:rq5} form a separate family of 15, because they were added by amendment; in that family all five steering effects are rejected and no loss or $\Delta\Delta$ test is. With the eight RQ6 tests added as pre-registered by the Mac lane, the family has 23 tests and the same pattern holds, plus the English protected-minus-random contrast. The second author independently recomputed all RQ5 and RQ6 contrasts from the central labels and reproduced them exactly. The second author also ran a conservative union of all 58 declared tests: every headline result survives it, and the English RQ6 contrast does not (adjusted $p = 0.075$).
+
+%%TABLE:holm%%

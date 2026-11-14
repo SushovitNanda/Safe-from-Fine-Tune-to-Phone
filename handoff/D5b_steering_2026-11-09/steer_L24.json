@@ -1,0 +1,14 @@
+{
+ "file": "steer_L24.cvec",
+ "format": "GGUF control vector, one FP32 tensor",
+ "tensor": "direction.24",
+ "n_embd": 2048,
+ "l2_norm": 23.1021,
+ "sha256": "e27b7449e5d38b7b112ecbdef7ed6cbf33f651d6604f07cf18e8909af6543bd8",
+ "bytes": 8416,
+ "source": "models/steer/med_trilingual.pt",
+ "n_harmful_pairs": 99,
+ "n_harmless_pairs": 99,
+ "calibration_model": "models/merged/med",
+ "readback_exact": true
+}

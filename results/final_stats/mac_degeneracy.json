@@ -1,0 +1,314 @@
+{
+ "med_f16": {
+  "en": {
+   "n": 302,
+   "degenerate_pct": 8.6,
+   "asr_all": 24.83,
+   "asr_non_degenerate": 21.38
+  },
+  "hi": {
+   "n": 302,
+   "degenerate_pct": 18.9,
+   "asr_all": 27.48,
+   "asr_non_degenerate": 19.59
+  },
+  "hinglish": {
+   "n": 252,
+   "degenerate_pct": 64.7,
+   "asr_all": 62.3,
+   "asr_non_degenerate": 56.18
+  },
+  "all": {
+   "n": 856,
+   "degenerate_pct": 28.7,
+   "asr_all": 36.8,
+   "asr_non_degenerate": 25.74
+  }
+ },
+ "med_q4km": {
+  "en": {
+   "n": 302,
+   "degenerate_pct": 7.9,
+   "asr_all": 28.15,
+   "asr_non_degenerate": 25.54
+  },
+  "hi": {
+   "n": 302,
+   "degenerate_pct": 14.2,
+   "asr_all": 30.13,
+   "asr_non_degenerate": 23.94
+  },
+  "hinglish": {
+   "n": 252,
+   "degenerate_pct": 62.7,
+   "asr_all": 63.89,
+   "asr_non_degenerate": 56.38
+  },
+  "all": {
+   "n": 856,
+   "degenerate_pct": 26.3,
+   "asr_all": 39.37,
+   "asr_non_degenerate": 29.48
+  }
+ },
+ "med_q3km": {
+  "en": {
+   "n": 302,
+   "degenerate_pct": 7.6,
+   "asr_all": 20.2,
+   "asr_non_degenerate": 17.92
+  },
+  "hi": {
+   "n": 302,
+   "degenerate_pct": 19.5,
+   "asr_all": 31.79,
+   "asr_non_degenerate": 23.46
+  },
+  "hinglish": {
+   "n": 252,
+   "degenerate_pct": 75.8,
+   "asr_all": 70.24,
+   "asr_non_degenerate": 62.3
+  },
+  "all": {
+   "n": 856,
+   "degenerate_pct": 31.9,
+   "asr_all": 39.02,
+   "asr_non_degenerate": 24.87
+  }
+ },
+ "med_q4km-nopre": {
+  "en": {
+   "n": 302,
+   "degenerate_pct": 4.6,
+   "asr_all": 19.21,
+   "asr_non_degenerate": 17.36
+  },
+  "hi": {
+   "n": 302,
+   "degenerate_pct": 7.3,
+   "asr_all": 24.17,
+   "asr_non_degenerate": 20.36
+  },
+  "hinglish": {
+   "n": 252,
+   "degenerate_pct": 64.3,
+   "asr_all": 60.71,
+   "asr_non_degenerate": 50.0
+  },
+  "all": {
+   "n": 856,
+   "degenerate_pct": 23.1,
+   "asr_all": 33.18,
+   "asr_non_degenerate": 23.1
+  }
+ },
+ "med_budget-phone": {
+  "en": {
+   "n": 302,
+   "degenerate_pct": 3.3,
+   "asr_all": 16.89,
+   "asr_non_degenerate": 16.1
+  },
+  "hi": {
+   "n": 302,
+   "degenerate_pct": 14.9,
+   "asr_all": 26.49,
+   "asr_non_degenerate": 20.62
+  },
+  "hinglish": {
+   "n": 252,
+   "degenerate_pct": 74.2,
+   "asr_all": 66.27,
+   "asr_non_degenerate": 60.0
+  },
+  "all": {
+   "n": 856,
+   "degenerate_pct": 28.3,
+   "asr_all": 34.81,
+   "asr_non_degenerate": 22.64
+  }
+ },
+ "rep_steer_f16": {
+  "en": {
+   "n": 302,
+   "degenerate_pct": 7.0,
+   "asr_all": 16.23,
+   "asr_non_degenerate": 13.52
+  },
+  "hi": {
+   "n": 302,
+   "degenerate_pct": 12.3,
+   "asr_all": 13.25,
+   "asr_non_degenerate": 9.06
+  },
+  "hinglish": {
+   "n": 252,
+   "degenerate_pct": 56.0,
+   "asr_all": 52.38,
+   "asr_non_degenerate": 37.84
+  },
+  "all": {
+   "n": 856,
+   "degenerate_pct": 23.2,
+   "asr_all": 25.82,
+   "asr_non_degenerate": 15.83
+  }
+ },
+ "rep_steer_q4km": {
+  "en": {
+   "n": 302,
+   "degenerate_pct": 7.0,
+   "asr_all": 16.89,
+   "asr_non_degenerate": 15.66
+  },
+  "hi": {
+   "n": 302,
+   "degenerate_pct": 11.3,
+   "asr_all": 13.58,
+   "asr_non_degenerate": 10.82
+  },
+  "hinglish": {
+   "n": 252,
+   "degenerate_pct": 61.9,
+   "asr_all": 55.95,
+   "asr_non_degenerate": 42.71
+  },
+  "all": {
+   "n": 856,
+   "degenerate_pct": 24.6,
+   "asr_all": 27.22,
+   "asr_non_degenerate": 17.67
+  }
+ },
+ "rep_steer_q3km": {
+  "en": {
+   "n": 302,
+   "degenerate_pct": 8.9,
+   "asr_all": 10.26,
+   "asr_non_degenerate": 8.0
+  },
+  "hi": {
+   "n": 302,
+   "degenerate_pct": 14.2,
+   "asr_all": 17.88,
+   "asr_non_degenerate": 14.67
+  },
+  "hinglish": {
+   "n": 252,
+   "degenerate_pct": 68.7,
+   "asr_all": 61.11,
+   "asr_non_degenerate": 45.57
+  },
+  "all": {
+   "n": 856,
+   "degenerate_pct": 28.4,
+   "asr_all": 27.92,
+   "asr_non_degenerate": 15.66
+  }
+ },
+ "rep_steer_q4km-nopre": {
+  "en": {
+   "n": 302,
+   "degenerate_pct": 4.6,
+   "asr_all": 12.91,
+   "asr_non_degenerate": 11.46
+  },
+  "hi": {
+   "n": 302,
+   "degenerate_pct": 8.3,
+   "asr_all": 13.58,
+   "asr_non_degenerate": 11.55
+  },
+  "hinglish": {
+   "n": 252,
+   "degenerate_pct": 53.2,
+   "asr_all": 49.21,
+   "asr_non_degenerate": 33.9
+  },
+  "all": {
+   "n": 856,
+   "degenerate_pct": 20.2,
+   "asr_all": 23.83,
+   "asr_non_degenerate": 15.37
+  }
+ },
+ "rep_steer_budget-phone": {
+  "en": {
+   "n": 302,
+   "degenerate_pct": 4.6,
+   "asr_all": 9.93,
+   "asr_non_degenerate": 8.68
+  },
+  "hi": {
+   "n": 302,
+   "degenerate_pct": 7.3,
+   "asr_all": 15.23,
+   "asr_non_degenerate": 12.86
+  },
+  "hinglish": {
+   "n": 252,
+   "degenerate_pct": 70.2,
+   "asr_all": 58.73,
+   "asr_non_degenerate": 41.33
+  },
+  "all": {
+   "n": 856,
+   "degenerate_pct": 24.9,
+   "asr_all": 26.17,
+   "asr_non_degenerate": 14.31
+  }
+ },
+ "orig_q4km": {
+  "en": {
+   "n": 302,
+   "degenerate_pct": 0.7,
+   "asr_all": 11.59,
+   "asr_non_degenerate": 11.33
+  },
+  "hi": {
+   "n": 302,
+   "degenerate_pct": 1.0,
+   "asr_all": 16.23,
+   "asr_non_degenerate": 15.72
+  },
+  "hinglish": {
+   "n": 252,
+   "degenerate_pct": 15.1,
+   "asr_all": 28.97,
+   "asr_non_degenerate": 27.1
+  },
+  "all": {
+   "n": 856,
+   "degenerate_pct": 5.0,
+   "asr_all": 18.34,
+   "asr_non_degenerate": 17.1
+  }
+ },
+ "orig_q4km-nopre": {
+  "en": {
+   "n": 302,
+   "degenerate_pct": 0.0,
+   "asr_all": 12.58,
+   "asr_non_degenerate": 12.58
+  },
+  "hi": {
+   "n": 302,
+   "degenerate_pct": 0.7,
+   "asr_all": 15.89,
+   "asr_non_degenerate": 15.33
+  },
+  "hinglish": {
+   "n": 252,
+   "degenerate_pct": 21.8,
+   "asr_all": 32.94,
+   "asr_non_degenerate": 26.4
+  },
+  "all": {
+   "n": 856,
+   "degenerate_pct": 6.7,
+   "asr_all": 19.74,
+   "asr_non_degenerate": 17.02
+  }
+ }
+}

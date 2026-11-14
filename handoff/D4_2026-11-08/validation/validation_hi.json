@@ -1,0 +1,128 @@
+{
+ "lang": "hi",
+ "scores": "results/circuits/v2/orig_hi_eap-ig_scores.json",
+ "n_prompts": 100,
+ "ks": [
+  20,
+  40,
+  60
+ ],
+ "R": [
+  "**",
+  "मैं",
+  "यह",
+  "मुझे"
+ ],
+ "C": [
+  "आपके"
+ ],
+ "leading_newline": "5/16 -> not appended",
+ "m_orig_clean": 5.4680419921875,
+ "necessity_drop": {
+  "top20": -4.030468511581422,
+  "rand20_0": 0.27249900817871087,
+  "rand20_1": 0.09803068161010664,
+  "rand20_2": 0.21013998985290527,
+  "rand20_3": 0.315260276794433,
+  "rand20_4": 0.6500145149230949,
+  "top40": -0.8162002277374274,
+  "rand40_0": 0.14957862854003867,
+  "rand40_1": -0.21875753402709996,
+  "rand40_2": 0.7617695331573486,
+  "rand40_3": -0.7633630084991463,
+  "rand40_4": 0.7135217189788818,
+  "top60": 1.9958399248123166,
+  "rand60_0": -0.059299116134644336,
+  "rand60_1": 0.9090871524810789,
+  "rand60_2": 0.30977364540100094,
+  "rand60_3": 0.29443600654601987,
+  "rand60_4": 0.4709238052368159
+ },
+ "m_med_clean": 4.452759008407593,
+ "sufficiency_recovery": {
+  "top20": 0.48048066139221124,
+  "rand20_0": 0.18403779029846135,
+  "rand20_1": 0.0158982086181636,
+  "rand20_2": -0.0551058578491217,
+  "rand20_3": 0.05843452453613196,
+  "rand20_4": -0.1810959339141851,
+  "top40": 0.3936736965179435,
+  "rand40_0": -0.0019771385192877133,
+  "rand40_1": -0.0055391597747807,
+  "rand40_2": 0.2609274387359619,
+  "rand40_3": 0.15645503997802734,
+  "rand40_4": 0.053253469467162695,
+  "top60": 0.43756264686584423,
+  "rand60_0": 0.14173787117004366,
+  "rand60_1": -0.07401558876037662,
+  "rand60_2": 0.10313032150268509,
+  "rand60_3": 0.11469707489013636,
+  "rand60_4": 0.3595988464355466
+ },
+ "verdict": {
+  "k20": {
+   "necessity_top": -4.0305,
+   "necessity_random": [
+    0.2725,
+    0.098,
+    0.2101,
+    0.3153,
+    0.65
+   ],
+   "necessity_beats_all_random": false,
+   "sufficiency_top": 0.4805,
+   "sufficiency_random": [
+    0.184,
+    0.0159,
+    -0.0551,
+    0.0584,
+    -0.1811
+   ],
+   "sufficiency_beats_all_random": true
+  },
+  "k40": {
+   "necessity_top": -0.8162,
+   "necessity_random": [
+    0.1496,
+    -0.2188,
+    0.7618,
+    -0.7634,
+    0.7135
+   ],
+   "necessity_beats_all_random": false,
+   "sufficiency_top": 0.3937,
+   "sufficiency_random": [
+    -0.002,
+    -0.0055,
+    0.2609,
+    0.1565,
+    0.0533
+   ],
+   "sufficiency_beats_all_random": true
+  },
+  "k60": {
+   "necessity_top": 1.9958,
+   "necessity_random": [
+    -0.0593,
+    0.9091,
+    0.3098,
+    0.2944,
+    0.4709
+   ],
+   "necessity_beats_all_random": true,
+   "sufficiency_top": 0.4376,
+   "sufficiency_random": [
+    0.1417,
+    -0.074,
+    0.1031,
+    0.1147,
+    0.3596
+   ],
+   "sufficiency_beats_all_random": true
+  }
+ },
+ "G3a_pass_k40": false,
+ "seconds": 1672,
+ "peak_gb": 9.46,
+ "method": "heads in z-space (hook_z; patch = zero z_h + add r_h on hook_attn_out); MLPs on hook_mlp_out; preamble on; decision position = last prompt token"
+}

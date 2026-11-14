@@ -1,0 +1,22 @@
+{
+ "model": "models/merged/med",
+ "adapter": null,
+ "weights": "fp16",
+ "template": "official",
+ "engine": "transformers 5.22.1",
+ "temperature": 0.0,
+ "seed": 13,
+ "max_tokens": 256,
+ "harness": "288115c",
+ "resta_alpha": 0.25,
+ "resta_tensors": "locate/cresta_tensors_v2_top10.json",
+ "resta_patched": 25,
+ "cell": "dev_pass__cresta_a0.25_top10",
+ "n_prompts": 360,
+ "generated_this_run": 360,
+ "seconds": 287,
+ "gen_per_min": 75.3,
+ "tok_per_s": 321,
+ "peak_gb": 7.83,
+ "final_batch": 16
+}

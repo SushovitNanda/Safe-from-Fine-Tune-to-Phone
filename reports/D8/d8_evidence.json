@@ -1,0 +1,630 @@
+{
+  "source_sha256": {
+    "handoff/D7_2026-11-08/summary.json": "530607f9b7189ce7670dccb8f8e0fb37f9963213fee4b2b5ccb8dec932678268",
+    "handoff/D7_2026-11-10/summary.json": "09a47f430930981fa596c3c0e136b55a6c84181704f71128b847b9bc55ce4859",
+    "results/mac/nov11/analysis/deployment_analysis.json": "cbf9cbe78d4a8c474ce4f4c787546d3639714a1f97aca57299a206ac5d536c75",
+    "results/mac/nov11/d2_med_numeric.json": "bf0b4b3d4f37d887b2f907470a14e10b06577a8bfa47f2d16c920f2a45b17f9e",
+    "results/mac/nov11/d2_ctrl_numeric.json": "661f26f009332a3e77e0872f3801305e6c0cd91f26b017e8d79bf21e1f4ab5cc",
+    "handoff/D7_2026-11-11/laptop_rq6_analysis.json": "614d4cdcd332d8421b13a22452376326f693ebc723f4e613a527caac55a13e78",
+    "handoff/D7_2026-11-11/README.md": "265a445c2e167b7d7f886a2bb2436ac6efc076694ea19ec44f7cf4ee8f62ac92",
+    "results/review_final/majority_vote.json": "d75951c10aee5a32a87b9ebd427cd5860db4f9a600a8546add3113ed4069b27e",
+    "results/mac/nov11/rq6_handoff_verification.json": "d40891cfd0095bbcc313a14548e6f9c28eee876d9228fd98c37d8d5cdefca33a"
+  },
+  "rq5_rows": [
+    {
+      "setting": "f16",
+      "medical_ASR": 36.8,
+      "steered_ASR": 25.82,
+      "steering_difference_pp": -10.981308411214954,
+      "steering_ci95": [
+        -13.551401869158877,
+        -8.528037383177569
+      ],
+      "retention": null,
+      "medical_ORR_general": 22.0,
+      "steered_ORR_general": 20.89,
+      "medical_ORR_clinical": 29.08,
+      "steered_ORR_clinical": 31.05
+    },
+    {
+      "setting": "q4km",
+      "medical_ASR": 39.37,
+      "steered_ASR": 27.22,
+      "steering_difference_pp": -12.149532710280374,
+      "steering_ci95": [
+        -14.953271028037381,
+        -9.228971962616821
+      ],
+      "retention": {
+        "reference_gain_pp": 10.981308411214954,
+        "reference_gain_ci95_pp": [
+          8.528037383177569,
+          13.551401869158877
+        ],
+        "bootstrap_denominator_below_5pp": 0,
+        "bootstrap_denominator_nonpositive": 0,
+        "bootstrap_resamples": 10000,
+        "available": true,
+        "retention": 1.1063829787234043,
+        "ci95": [
+          0.8421052631578947,
+          1.4415659921473876
+        ],
+        "dropped_ratio_resamples": 0,
+        "interval_status": "All positive denominators retained, including samples below the observed-gain floor; near-floor count disclosed"
+      },
+      "medical_ORR_general": 20.22,
+      "steered_ORR_general": 22.0,
+      "medical_ORR_clinical": 27.12,
+      "steered_ORR_clinical": 32.68
+    },
+    {
+      "setting": "q3km",
+      "medical_ASR": 39.02,
+      "steered_ASR": 27.92,
+      "steering_difference_pp": -11.098130841121495,
+      "steering_ci95": [
+        -13.785046728971961,
+        -8.528037383177569
+      ],
+      "retention": {
+        "reference_gain_pp": 10.981308411214954,
+        "reference_gain_ci95_pp": [
+          8.528037383177569,
+          13.551401869158877
+        ],
+        "bootstrap_denominator_below_5pp": 0,
+        "bootstrap_denominator_nonpositive": 0,
+        "bootstrap_resamples": 10000,
+        "available": true,
+        "retention": 1.0106382978723405,
+        "ci95": [
+          0.742570507050705,
+          1.3564533239038188
+        ],
+        "dropped_ratio_resamples": 0,
+        "interval_status": "All positive denominators retained, including samples below the observed-gain floor; near-floor count disclosed"
+      },
+      "medical_ORR_general": 25.78,
+      "steered_ORR_general": 28.44,
+      "medical_ORR_clinical": 31.37,
+      "steered_ORR_clinical": 35.62
+    },
+    {
+      "setting": "q4km-nopre",
+      "medical_ASR": 33.18,
+      "steered_ASR": 23.83,
+      "steering_difference_pp": -9.345794392523365,
+      "steering_ci95": [
+        -11.91588785046729,
+        -6.775700934579438
+      ],
+      "retention": {
+        "reference_gain_pp": 10.981308411214954,
+        "reference_gain_ci95_pp": [
+          8.528037383177569,
+          13.551401869158877
+        ],
+        "bootstrap_denominator_below_5pp": 0,
+        "bootstrap_denominator_nonpositive": 0,
+        "bootstrap_resamples": 10000,
+        "available": true,
+        "retention": 0.851063829787234,
+        "ci95": [
+          0.6103841074180058,
+          1.1625
+        ],
+        "dropped_ratio_resamples": 0,
+        "interval_status": "All positive denominators retained, including samples below the observed-gain floor; near-floor count disclosed"
+      },
+      "medical_ORR_general": 17.33,
+      "steered_ORR_general": 24.44,
+      "medical_ORR_clinical": 25.49,
+      "steered_ORR_clinical": 31.7
+    },
+    {
+      "setting": "budget-phone",
+      "medical_ASR": 34.81,
+      "steered_ASR": 26.17,
+      "steering_difference_pp": -8.644859813084112,
+      "steering_ci95": [
+        -11.214953271028037,
+        -6.191588785046729
+      ],
+      "retention": {
+        "reference_gain_pp": 10.981308411214954,
+        "reference_gain_ci95_pp": [
+          8.528037383177569,
+          13.551401869158877
+        ],
+        "bootstrap_denominator_below_5pp": 0,
+        "bootstrap_denominator_nonpositive": 0,
+        "bootstrap_resamples": 10000,
+        "available": true,
+        "retention": 0.7872340425531915,
+        "ci95": [
+          0.5370370370370371,
+          1.1095932175075174
+        ],
+        "dropped_ratio_resamples": 0,
+        "interval_status": "All positive denominators retained, including samples below the observed-gain floor; near-floor count disclosed"
+      },
+      "medical_ORR_general": 22.89,
+      "steered_ORR_general": 27.78,
+      "medical_ORR_clinical": 28.76,
+      "steered_ORR_clinical": 37.25
+    }
+  ],
+  "incoming_laptop_reference_DID_sensitivity": {
+    "q4km": {
+      "en": {
+        "n": 302,
+        "diff": 4.64,
+        "ci95": [
+          0.66,
+          8.61
+        ],
+        "p": 0.0272,
+        "clear_of_zero": true,
+        "claimed": false
+      },
+      "hi": {
+        "n": 302,
+        "diff": 4.3,
+        "ci95": [
+          -0.66,
+          8.94
+        ],
+        "p": 0.0886,
+        "clear_of_zero": false,
+        "claimed": false
+      },
+      "hinglish": {
+        "n": 252,
+        "diff": -0.79,
+        "ci95": [
+          -8.73,
+          7.14
+        ],
+        "p": 0.8742,
+        "clear_of_zero": false,
+        "claimed": false
+      },
+      "all": {
+        "n": 856,
+        "diff": 2.92,
+        "ci95": [
+          -0.23,
+          6.07
+        ],
+        "p": 0.072,
+        "clear_of_zero": false,
+        "claimed": false
+      }
+    },
+    "q4km-nopre": {
+      "en": {
+        "n": 302,
+        "diff": -5.3,
+        "ci95": [
+          -10.26,
+          -0.33
+        ],
+        "p": 0.0474,
+        "clear_of_zero": true,
+        "claimed": true
+      },
+      "hi": {
+        "n": 302,
+        "diff": -1.32,
+        "ci95": [
+          -6.63,
+          4.3
+        ],
+        "p": 0.6766,
+        "clear_of_zero": false,
+        "claimed": false
+      },
+      "hinglish": {
+        "n": 252,
+        "diff": -7.94,
+        "ci95": [
+          -16.27,
+          0.4
+        ],
+        "p": 0.0746,
+        "clear_of_zero": false,
+        "claimed": false
+      },
+      "all": {
+        "n": 856,
+        "diff": -4.67,
+        "ci95": [
+          -8.29,
+          -1.05
+        ],
+        "p": 0.014,
+        "clear_of_zero": true,
+        "claimed": false
+      }
+    }
+  },
+  "DID_sensitivity_scope": "Supplied mixed-engine/laptop FP16 references for both models; not the unavailable same-engine primary Mac DID",
+  "rq6_tests": {
+    "RQ6 protected minus rep_steer_q3km all": {
+      "n": 856,
+      "difference_pp": -0.35046728971962615,
+      "ci95_pp": [
+        -2.570093457943925,
+        1.9859813084112148
+      ],
+      "p_boot": 0.813,
+      "noninferiority_upper_below_5": true,
+      "a": "rep_steer_q3km-protected",
+      "b": "rep_steer_q3km",
+      "metric": "asr",
+      "subset": "pooled",
+      "lang": "all",
+      "directional_Hinglish_included": false
+    },
+    "RQ6 protected minus rep_steer_q3km en": {
+      "n": 302,
+      "difference_pp": 2.6490066225165565,
+      "ci95_pp": [
+        -0.33112582781456956,
+        5.960264900662252
+      ],
+      "p_boot": 0.126,
+      "noninferiority_upper_below_5": false,
+      "a": "rep_steer_q3km-protected",
+      "b": "rep_steer_q3km",
+      "metric": "asr",
+      "subset": "pooled",
+      "lang": "en",
+      "directional_Hinglish_included": false
+    },
+    "RQ6 protected minus rep_steer_q3km hi": {
+      "n": 302,
+      "difference_pp": -2.980132450331126,
+      "ci95_pp": [
+        -6.95364238410596,
+        0.6622516556291391
+      ],
+      "p_boot": 0.1454,
+      "noninferiority_upper_below_5": true,
+      "a": "rep_steer_q3km-protected",
+      "b": "rep_steer_q3km",
+      "metric": "asr",
+      "subset": "pooled",
+      "lang": "hi",
+      "directional_Hinglish_included": false
+    },
+    "RQ6 protected minus rep_steer_q3km hinglish": {
+      "n": 252,
+      "difference_pp": -0.7936507936507936,
+      "ci95_pp": [
+        -5.952380952380952,
+        4.365079365079365
+      ],
+      "p_boot": 0.8164,
+      "noninferiority_upper_below_5": true,
+      "a": "rep_steer_q3km-protected",
+      "b": "rep_steer_q3km",
+      "metric": "asr",
+      "subset": "pooled",
+      "lang": "hinglish",
+      "directional_Hinglish_included": false
+    },
+    "RQ6 protected minus rep_steer_q3km-random all": {
+      "n": 856,
+      "difference_pp": 0.0,
+      "ci95_pp": [
+        -2.5730140186915857,
+        2.570093457943925
+      ],
+      "p_boot": 1.0,
+      "noninferiority_upper_below_5": true,
+      "a": "rep_steer_q3km-protected",
+      "b": "rep_steer_q3km-random",
+      "metric": "asr",
+      "subset": "pooled",
+      "lang": "all",
+      "directional_Hinglish_included": false
+    },
+    "RQ6 protected minus rep_steer_q3km-random en": {
+      "n": 302,
+      "difference_pp": -6.291390728476822,
+      "ci95_pp": [
+        -10.264900662251655,
+        -2.3178807947019866
+      ],
+      "p_boot": 0.0026,
+      "noninferiority_upper_below_5": true,
+      "a": "rep_steer_q3km-protected",
+      "b": "rep_steer_q3km-random",
+      "metric": "asr",
+      "subset": "pooled",
+      "lang": "en",
+      "directional_Hinglish_included": false
+    },
+    "RQ6 protected minus rep_steer_q3km-random hi": {
+      "n": 302,
+      "difference_pp": -0.6622516556291391,
+      "ci95_pp": [
+        -4.304635761589404,
+        2.980132450331126
+      ],
+      "p_boot": 0.7742,
+      "noninferiority_upper_below_5": true,
+      "a": "rep_steer_q3km-protected",
+      "b": "rep_steer_q3km-random",
+      "metric": "asr",
+      "subset": "pooled",
+      "lang": "hi",
+      "directional_Hinglish_included": false
+    },
+    "RQ6 protected minus rep_steer_q3km-random hinglish": {
+      "n": 252,
+      "difference_pp": 8.333333333333332,
+      "ci95_pp": [
+        2.380952380952381,
+        14.285714285714285
+      ],
+      "p_boot": 0.0062,
+      "noninferiority_upper_below_5": false,
+      "a": "rep_steer_q3km-protected",
+      "b": "rep_steer_q3km-random",
+      "metric": "asr",
+      "subset": "pooled",
+      "lang": "hinglish",
+      "directional_Hinglish_included": false
+    }
+  },
+  "deployment23_Mac_order_holm": {
+    "deployment:steering effect at f16": 0.0023,
+    "deployment:steering effect at q4km": 0.0023,
+    "deployment:steering effect at q3km": 0.0023,
+    "deployment:steering effect at q4km-nopre": 0.0023,
+    "deployment:steering effect at budget-phone": 0.0023,
+    "deployment:steered loss q4km vs F16": 1.0,
+    "deployment:steered loss q3km vs F16": 1.0,
+    "deployment:steered loss q4km-nopre vs F16": 1.0,
+    "deployment:steered loss budget-phone vs F16": 1.0,
+    "deployment:medical loss q4km vs F16": 0.5152,
+    "deployment:medical loss q3km vs F16": 1.0,
+    "deployment:medical loss q4km-nopre vs F16": 0.1248,
+    "deployment:medical loss budget-phone vs F16": 1.0,
+    "deployment:DeltaDelta q4km": 0.9359999999999999,
+    "deployment:DeltaDelta q4km-nopre": 0.21,
+    "RQ6 protected minus rep_steer_q3km all": 1.0,
+    "RQ6 protected minus rep_steer_q3km en": 1.0,
+    "RQ6 protected minus rep_steer_q3km hi": 1.0,
+    "RQ6 protected minus rep_steer_q3km hinglish": 1.0,
+    "RQ6 protected minus rep_steer_q3km-random all": 1.0,
+    "RQ6 protected minus rep_steer_q3km-random en": 0.046799999999999994,
+    "RQ6 protected minus rep_steer_q3km-random hi": 1.0,
+    "RQ6 protected minus rep_steer_q3km-random hinglish": 0.1054
+  },
+  "deployment23_central_source": {
+    "m": 23,
+    "tests": {
+      "steering effect at f16": {
+        "p": 0.0001,
+        "reject": true
+      },
+      "steering effect at q4km": {
+        "p": 0.0001,
+        "reject": true
+      },
+      "steering effect at q3km": {
+        "p": 0.0001,
+        "reject": true
+      },
+      "steering effect at q4km-nopre": {
+        "p": 0.0001,
+        "reject": true
+      },
+      "steering effect at budget-phone": {
+        "p": 0.0001,
+        "reject": true
+      },
+      "steered loss q4km vs F16": {
+        "p": 0.2094,
+        "reject": false
+      },
+      "steered loss q3km vs F16": {
+        "p": 0.122,
+        "reject": false
+      },
+      "steered loss q4km-nopre vs F16": {
+        "p": 0.119,
+        "reject": false
+      },
+      "steered loss budget-phone vs F16": {
+        "p": 0.8372,
+        "reject": false
+      },
+      "medical loss q4km vs F16": {
+        "p": 0.0368,
+        "reject": false
+      },
+      "medical loss q3km vs F16": {
+        "p": 0.1038,
+        "reject": false
+      },
+      "medical loss q4km-nopre vs F16": {
+        "p": 0.0078,
+        "reject": false
+      },
+      "medical loss budget-phone vs F16": {
+        "p": 0.1792,
+        "reject": false
+      },
+      "DeltaDelta q4km": {
+        "p": 0.072,
+        "reject": false
+      },
+      "DeltaDelta q4km-nopre": {
+        "p": 0.014,
+        "reject": false
+      },
+      "RQ6 protected minus stock en": {
+        "p": 0.1228,
+        "reject": false
+      },
+      "RQ6 protected minus stock hi": {
+        "p": 0.1524,
+        "reject": false
+      },
+      "RQ6 protected minus stock hinglish": {
+        "p": 0.8086,
+        "reject": false
+      },
+      "RQ6 protected minus stock all": {
+        "p": 0.8058,
+        "reject": false
+      },
+      "RQ6 protected minus random en": {
+        "p": 0.0026,
+        "reject": true
+      },
+      "RQ6 protected minus random hi": {
+        "p": 0.792,
+        "reject": false
+      },
+      "RQ6 protected minus random hinglish": {
+        "p": 0.007,
+        "reject": false
+      },
+      "RQ6 protected minus random all": {
+        "p": 1.0,
+        "reject": false
+      }
+    }
+  },
+  "rq6_verdict": {
+    "H6_supported": false,
+    "pooled_interpretation": "No demonstrated protection benefit versus stock or matched random; not equivalence.",
+    "english": "Protected is lower than random, surviving the 23-test deployment family, but not different from stock. The 58-test conservative union does not retain that English significance.",
+    "hinglish": "Frozen judge scores retained for reproducibility, but blind audit identifies the apparent language contrasts as an artefact on degenerate text; do not interpret as safety effects.",
+    "clinical_ORR": "Protected versus stock increases 6.2pp pooled and 13.7pp Hindi; pointwise supporting outcomes, pooled includes directional Hinglish."
+  },
+  "rq6_central_labels_complete": true,
+  "supplied_core_family_size": 35,
+  "supplied_deployment_family_size": 15,
+  "prospective_rq6_family_size": 8,
+  "conservative_available_union_holm": {
+    "core:RQ1 gap hi": 0.6592,
+    "core:RQ1 gap hinglish": 0.005,
+    "core:RQ1 clinical-general en": 1.0,
+    "core:RQ1 clinical-general hi": 0.005,
+    "core:RQ1 clinical-general hinglish": 0.0184,
+    "core:RQ2 medical-original pooled": 0.005,
+    "core:RQ2 medical-original en": 0.005,
+    "core:RQ2 medical-original hi": 0.005200000000000001,
+    "core:RQ2 medical-original hinglish": 0.005,
+    "core:RQ2 medical-control pooled": 0.005,
+    "core:RQ2 medical-control en": 0.005200000000000001,
+    "core:RQ2 medical-control hi": 0.005,
+    "core:RQ2 medical-control hinglish": 0.005,
+    "core:RQ2 change in gap hi": 1.0,
+    "core:RQ2 change in gap hinglish": 0.005,
+    "core:RQ2 medical-original harmful_general": 0.005,
+    "core:RQ2 medical-original harmful_clinical": 0.005,
+    "core:RQ4 ReSta a0.05 ASR vs medical pooled": 1.0,
+    "core:RQ4 ReSta a0.05 ASR vs medical en": 1.0,
+    "core:RQ4 ReSta a0.05 ASR vs medical hi": 0.6444,
+    "core:RQ4 ReSta a0.05 ASR vs medical hinglish": 1.0,
+    "core:RQ4 ReSta a0.05 ORR vs original general": 0.005,
+    "core:RQ4 ReSta a0.05 ORR vs original clinical": 0.005,
+    "core:RQ4 ReSta a0.05 MedMCQA McNemar": 1.0,
+    "core:RQ4 Steering L24 s0.5 ASR vs medical pooled": 0.005,
+    "core:RQ4 Steering L24 s0.5 ASR vs medical en": 0.005,
+    "core:RQ4 Steering L24 s0.5 ASR vs medical hi": 0.005,
+    "core:RQ4 Steering L24 s0.5 ASR vs medical hinglish": 0.005200000000000001,
+    "core:RQ4 Steering L24 s0.5 ORR vs original general": 0.005,
+    "core:RQ4 Steering L24 s0.5 ORR vs original clinical": 0.005,
+    "core:RQ4 Steering L24 s0.5 MedMCQA McNemar": 1.0,
+    "core:RQ5 DeltaDelta(NF4) pooled": 1.0,
+    "core:RQ5 NF4 loss original pooled": 0.022,
+    "core:RQ5 NF4 loss medical pooled": 0.26,
+    "core:RQ5 steering effect at NF4 pooled": 0.005,
+    "deployment:steering effect at f16": 0.005,
+    "deployment:steering effect at q4km": 0.005,
+    "deployment:steering effect at q3km": 0.005,
+    "deployment:steering effect at q4km-nopre": 0.005,
+    "deployment:steering effect at budget-phone": 0.005,
+    "deployment:steered loss q4km vs F16": 1.0,
+    "deployment:steered loss q3km vs F16": 1.0,
+    "deployment:steered loss q4km-nopre vs F16": 1.0,
+    "deployment:steered loss budget-phone vs F16": 1.0,
+    "deployment:medical loss q4km vs F16": 0.6444,
+    "deployment:medical loss q3km vs F16": 1.0,
+    "deployment:medical loss q4km-nopre vs F16": 0.1638,
+    "deployment:medical loss budget-phone vs F16": 1.0,
+    "deployment:DeltaDelta q4km": 1.0,
+    "deployment:DeltaDelta q4km-nopre": 0.266
+  },
+  "complete_union_including_rq6_holm": {
+    "core:RQ1 gap hi": 0.9064,
+    "core:RQ1 gap hinglish": 0.0058000000000000005,
+    "core:RQ1 clinical-general en": 1.0,
+    "core:RQ1 clinical-general hi": 0.0058000000000000005,
+    "core:RQ1 clinical-general hinglish": 0.024800000000000003,
+    "core:RQ2 medical-original pooled": 0.0058000000000000005,
+    "core:RQ2 medical-original en": 0.0058000000000000005,
+    "core:RQ2 medical-original hi": 0.0068000000000000005,
+    "core:RQ2 medical-original hinglish": 0.0058000000000000005,
+    "core:RQ2 medical-control pooled": 0.0058000000000000005,
+    "core:RQ2 medical-control en": 0.0068000000000000005,
+    "core:RQ2 medical-control hi": 0.0058000000000000005,
+    "core:RQ2 medical-control hinglish": 0.0058000000000000005,
+    "core:RQ2 change in gap hi": 1.0,
+    "core:RQ2 change in gap hinglish": 0.0058000000000000005,
+    "core:RQ2 medical-original harmful_general": 0.0058000000000000005,
+    "core:RQ2 medical-original harmful_clinical": 0.0058000000000000005,
+    "core:RQ4 ReSta a0.05 ASR vs medical pooled": 1.0,
+    "core:RQ4 ReSta a0.05 ASR vs medical en": 1.0,
+    "core:RQ4 ReSta a0.05 ASR vs medical hi": 0.8592,
+    "core:RQ4 ReSta a0.05 ASR vs medical hinglish": 1.0,
+    "core:RQ4 ReSta a0.05 ORR vs original general": 0.0058000000000000005,
+    "core:RQ4 ReSta a0.05 ORR vs original clinical": 0.0058000000000000005,
+    "core:RQ4 ReSta a0.05 MedMCQA McNemar": 1.0,
+    "core:RQ4 Steering L24 s0.5 ASR vs medical pooled": 0.0058000000000000005,
+    "core:RQ4 Steering L24 s0.5 ASR vs medical en": 0.0058000000000000005,
+    "core:RQ4 Steering L24 s0.5 ASR vs medical hi": 0.0058000000000000005,
+    "core:RQ4 Steering L24 s0.5 ASR vs medical hinglish": 0.0068000000000000005,
+    "core:RQ4 Steering L24 s0.5 ORR vs original general": 0.0058000000000000005,
+    "core:RQ4 Steering L24 s0.5 ORR vs original clinical": 0.0058000000000000005,
+    "core:RQ4 Steering L24 s0.5 MedMCQA McNemar": 1.0,
+    "core:RQ5 DeltaDelta(NF4) pooled": 1.0,
+    "core:RQ5 NF4 loss original pooled": 0.03,
+    "core:RQ5 NF4 loss medical pooled": 0.33799999999999997,
+    "core:RQ5 steering effect at NF4 pooled": 0.0058000000000000005,
+    "deployment:steering effect at f16": 0.0058000000000000005,
+    "deployment:steering effect at q4km": 0.0058000000000000005,
+    "deployment:steering effect at q3km": 0.0058000000000000005,
+    "deployment:steering effect at q4km-nopre": 0.0058000000000000005,
+    "deployment:steering effect at budget-phone": 0.0058000000000000005,
+    "deployment:steered loss q4km vs F16": 1.0,
+    "deployment:steered loss q3km vs F16": 1.0,
+    "deployment:steered loss q4km-nopre vs F16": 1.0,
+    "deployment:steered loss budget-phone vs F16": 1.0,
+    "deployment:medical loss q4km vs F16": 0.8592,
+    "deployment:medical loss q3km vs F16": 1.0,
+    "deployment:medical loss q4km-nopre vs F16": 0.21059999999999998,
+    "deployment:medical loss budget-phone vs F16": 1.0,
+    "deployment:DeltaDelta q4km": 1.0,
+    "deployment:DeltaDelta q4km-nopre": 0.35000000000000003,
+    "RQ6 protected minus rep_steer_q3km all": 1.0,
+    "RQ6 protected minus rep_steer_q3km en": 1.0,
+    "RQ6 protected minus rep_steer_q3km hi": 1.0,
+    "RQ6 protected minus rep_steer_q3km hinglish": 1.0,
+    "RQ6 protected minus rep_steer_q3km-random all": 1.0,
+    "RQ6 protected minus rep_steer_q3km-random en": 0.0754,
+    "RQ6 protected minus rep_steer_q3km-random hi": 1.0,
+    "RQ6 protected minus rep_steer_q3km-random hinglish": 0.1736
+  },
+  "complete_union_size": 58,
+  "scope_note": "Source core/deployment families retain their declared scopes. Conservative cross-family union is a sensitivity; original registration timing and omissions remain disclosed. All eight RQ6 tests are available; frozen Hinglish scores remain measurement-limited by the blind audit. Retention/NI intervals remain pointwise."
+}

@@ -1,0 +1,207 @@
+% =====================================================================
+\section{Methodology}\label{sec:method}
+
+\subsection{Research design}
+Figure~\ref{fig:arch} gives the overall architecture of the experimental design: the toolkits, the six-stage chain and what each stage passes on, and the two machines with their hand-offs. Figure~\ref{fig:pipeline} shows the data pipeline in more detail. All evaluation items are split into development and test sets before any model is run on them. Development sets choose settings, and test sets report results. Table~\ref{tab:cells} lists every reported cell. A \emph{cell} is one model in one setting answering the full test set of 1,612 prompts (856 harmful and 756 benign), plus a 500-question medical accuracy test on Transformers cells. Answers are generated greedily (always the most likely next token, so a cell is repeatable) with at most 256 new tokens, seed 13 and identical prompt order.
+
+\begin{sidewaysfigure}[p]
+\centering
+\includegraphics[width=0.98\textheight]{figures/fig_architecture.png}
+\caption{Overall architecture of the experimental design. Top: the toolkits and what each contributed. Middle: the six research questions as one chain, with the product each stage hands to the next. Bottom: the two machines, what ran on each, and the numbered hand-offs between them; every answer from both lanes was judged on the laptop.}\label{fig:arch}
+\end{sidewaysfigure}
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.95\linewidth]{figures/fig_pipeline.png}
+\caption{Pipeline. Both lanes use the same data and the same merged weights. One laptop judges all answers.}\label{fig:pipeline}
+\end{figure}
+
+The plan went through three versions. An earlier plan (v2) asked thirteen questions over about 94,000 generations. Plan v3 cut that to the six questions above and about 37,000 generations. An early design also reserved a cloud T4 GPU for reported cells. Once parity was shown (Section~\ref{sec:compute}), the reported cells moved from the cloud to the laptop.
+
+\subsection{Datasets, benchmarks and licences}\label{sec:data}
+Table~\ref{tab:sets} lists the sets. All share one schema, with a manifest and SHA-256 checksums per set. Licences: Aya Red-teaming and MedMCQA Apache-2.0, XSTest CC-BY-4.0, Alpaca-cleaned CC-BY-NC-4.0, and ClinicSafe-Hi (ours) CC-BY-NC-4.0; the base model is CC-BY-NC-4.0.
+
+\begin{table}[tbp]
+\centering
+\caption{Evaluation and fine-tuning (SFT, supervised fine-tuning) sets.}\label{tab:sets}
+\scriptsize
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{llrl}
+\toprule
+Set & Languages & Rows & Construction \\
+\midrule
+Aya Red-teaming~\cite{ayared} test / dev & EN, HI & 200 / 50 each & stratified by harm category \\
+Aya Hinglish test / dev & Hinglish & 150 / 50 & rewrites of the Hindi items \\
+XSTest~\cite{xstest} safe test / dev & EN & 150 / 100 & stratified by type \\
+XSTest safe test & HI, Hinglish & 150 each & machine draft, post-edited; 12 replaced \\
+ClinicSafe-Hi (new) & EN, HI, Hinglish & 204 each & 102 harmful + 102 benign twins, 6 categories \\
+MedMCQA~\cite{medmcqa} test / dev & EN & 500 / 300 & validation split, disjoint \\
+MedMCQA dev-995 & EN & 995 & dev-300 + 700, 5 leak drops \\
+ClinicSafe dev & EN, HI, Hinglish & 60 each & 30 harmful + 30 twins \\
+XSTest safe dev & HI, Hinglish & 100 each & as the test set; 6 replaced \\
+Calibration pairs & EN / three-language & 100+100 / 99+99 & outside every test set \\
+Circuit pairs v2 & EN, HI, Hinglish & 64 / 90 / 73 & twins + XSTest dev vs Aya dev \\
+\midrule
+SFT medical (MedMCQA) & EN & 4,815 & 2.650\,M templated tokens \\
+SFT control (Alpaca-cleaned) & EN & 5,004 & 2.676\,M tokens \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table}
+
+\paragraph{ClinicSafe-Hi.} ClinicSafe-Hi is a new benchmark of clinical harmful requests and benign twins in six categories: prescription drug misuse, forged medical documents, dangerous self-treatment and overdose, medical misinformation, patient-privacy violations, and health scams. It has 17 pairs per category. Harmful items state a goal without operational detail, and each twin asks the legitimate question on the same topic.
+
+\paragraph{Fixed subsets.} Every repair setting uses one \emph{dev pass}: 360 prompts in fixed order (Aya dev 50 per language, XSTest dev first 30 per language, and ClinicSafe twin pairs 001 to 020 per language), plus MedMCQA dev-995.
+
+\paragraph{Checks.} Two checks were run on the sets. First, Qwen3Guard's prompt-moderation mode labelled all 612 ClinicSafe-Hi items; we reviewed the 93 items on which its label disagreed with ours and rewrote 17 of them. After the rewrites, 13 of those 17 agree with the judge, and the remaining 4, all benign twins, are kept with the judge's Controversial label (its middle class between Safe and Unsafe). Second, leak checks between the fine-tuning sets and every evaluation set used three tests at the CuratorKIT defaults: exact matching; MinHash on 3-grams with 128 permutations at Jaccard $\geq 0.85$ (a fast estimate of the share of word triples two texts share); and multilingual sentence embeddings (paraphrase-multilingual-MiniLM-L12-v2) at cosine similarity $\geq 0.92$. After curation none found overlap with any evaluation set; the embedding check removed five near-duplicates from the new dev questions. LLM-drafted items were reviewed by the authors, as the data card discloses.
+
+\subsection{Hackathon repos (kits) used, and how}
+The project uses three track toolkits in the pipeline (CuratorKIT, CircuitKIT, AuditKIT), a fourth (SafeTune) as the reference implementation for the weight-space repair, and llama.cpp for deployment; AlignTune was not used, the fine-tunes ran on the Transformers Trainer with PEFT.
+\begin{description}
+\item[CuratorKIT]~\cite{bhattacharjee2026curatorkit} (its curator with MinHash deduplication at threshold 0.85, an automatic toxicity filter (Detoxify ``unbiased'', threshold 0.5), and 10 to 4,096 tokens per row; its MinHash helpers also power our leak check) cleaned and deduplicated the fine-tuning sets. The medical set went from 4,998 rows to 4,843 (139 rejected by the toxicity gate for anatomy, abuse and death, about 16 MinHash duplicates) and the control set lost 50 rows. Both were then trimmed (seed 43) to 4,815 medical and 5,004 control rows so that token totals match within 1\,\% (2.650\,M against 2.676\,M).
+\item[SafeTune]~\cite{seth2026safetune} was the reference for the weight-space repair: its ReSta wrapper is imported by our equivalence check, and our streaming ReSta, which fits the 12\,GB GPU, matches its arithmetic exactly on sampled tensors. The circuit-restricted patch applies the same ReSta arithmetic to a tensor list, and the steering vector follows the CAA recipe that SafeTune implements; both are our own code, and only ReSta was checked numerically against the reference.
+\item[CircuitKIT]~\cite{seth2026circuitkit} with TransformerLens~\cite{tlens} ran EAP-IG discovery on Tiny Aya; the necessity and sufficiency validation is our own code on CircuitKIT's model port. Its port passed a real-weight parity gate (10 of 10 tests, next-token KL divergence (Kullback--Leibler) below $10^{-4}$ against the Hugging Face model).
+\item[AuditKIT]~\cite{auditkit2026} (its API model backend, evaluation loop and run configuration) drove the llama.cpp cells on the Mac through the local server, with per-run fingerprints (resumed runs used a plain client with the same settings); the laptop lane re-implements the same paired statistics in its own harness, and the two lanes' statistics were cross-checked to the point estimate.
+\item[llama.cpp]~\cite{llamacpp}, at one pinned build, built GGUF files and served them on Metal, Apple's GPU interface.
+\end{description}
+
+\subsection{Computational setup and cross-platform validation}\label{sec:compute}
+
+\begin{table}[tbp]
+\centering
+\caption{The two machines.}\label{tab:machines}
+\footnotesize
+\begin{tabular}{>{\raggedright\arraybackslash}p{2.0cm}>{\raggedright\arraybackslash}p{4.7cm}>{\raggedright\arraybackslash}p{4.7cm}}
+\toprule
+& Laptop lane & Mac lane \\
+\midrule
+Hardware & RTX 4080 Laptop GPU, 12\,GB, Windows 11 & Mac laptop, Apple silicon, 24\,GB unified memory \\
+Engine & Transformers 5.22, torch 2.11 (CUDA 12.8) & llama.cpp (pinned build) on Metal \\
+Weights & FP16, NF4 via bitsandbytes & GGUF F16, Q4\_K\_M, Q3\_K\_M \\
+Tasks & data, fine-tuning, circuits, repairs, all judging & GGUF builds, deployment cells, protection \\
+Throughput & 34--38\,min per FP16 cell, 63\,min NF4 (capped cells) & 35--64\,min per steered cell \\
+Compute used & 48 timed cells, about 11.5\,h (totals in Appendix~\ref{app:repro}); two fine-tunes, about 1.3\,h; judging, circuits and dev passes untimed & five steered cells, 3.7\,h; protection builds and cells untimed; no cloud credits used \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Table~\ref{tab:machines} summarises the machines. We write FP16 for the laptop's half-precision Transformers weights, and F16, llama.cpp's own name for the same number format, for the unquantized GGUF file and KV cache. Claims in RQ5 and RQ6 compare cells on one machine and one engine, but the repair and the references come from the other machine, so the two must agree. We checked this at four levels.
+
+\paragraph{Cloud parity.} On 3~November the original model on the laptop and on a Colab T4 had identical peak memory (6.78\,GB FP16, 2.65\,GB NF4), identical template rendering and identical greedy openings, and gave the same MedMCQA answer on 299 of 300 dev questions.
+
+\paragraph{Weight parity.} Per-tensor hashes of the merged models agree on 285 of 290 tensors for the medical model and 284 of 290 for the control. The remaining 11 tensors differ at byte level. After the laptop sent reference copies of those tensors to the Mac, each turned out to differ in exactly one element, by one FP16 rounding step; the maximum absolute difference is $3.8\times10^{-6}$ for the medical model and $1.5\times10^{-5}$ for the control. The merges are therefore numerically equivalent, and behavioural agreement remains the evidence that matters.
+
+\paragraph{Behavioural parity.} The pre-registered gate (a pass/fail test that must be met before the next stage runs) compared the medical F16 GGUF on the Mac with medical FP16 on the laptop on 50 fixed prompts. It required at least 48 identical safety labels, and the result was 50 of 50 for both safety and refusal. A repeat for the steered model is described in Section~\ref{sec:rq5}. We then compared full cells (Table~\ref{tab:platform} and Fig.~\ref{fig:platform}). The two machines and engines give the same safety label on at least 98\,\% of answers, and pooled attack success differs by less than one point.
+
+%%TABLE:platform%%
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.55\linewidth]{figures/fig_platform.png}
+\caption{Attack success of the medical model on the Mac (F16) and the laptop (FP16), one point per language and harm type. The line marks equal values.}\label{fig:platform}
+\end{figure}
+
+\paragraph{Engine evidence for the vector.} At the pinned build, llama.cpp applies a control vector after both residual additions at the end of a layer, which is the point where the laptop's forward hook acts. In the current llama.cpp source (checked on the main branch, not at the pin), the vector's layer-24 tensor maps to layer 24, and vectors are scaled by strength without normalisation; the gate below confirms the effect at the pinned build. The Mac lane also captured server logs showing the end-of-turn token in the stop set and the control vector applied to layer 24 only (layer range 24 to 24).
+
+\subsubsection{The stopping rule}\label{sec:stop}
+The fine-tuned models end their turns with token id 6, but the generation configuration stops only on id 3. So every medical and control answer ran to the 256-token cap, as did 63.5\,\% of the original model's answers. We discovered this after the main cells were frozen. Visible text is unaffected, because the extra tokens are decoded away. We confirmed this by regenerating the medical dev cell with the stop on id 6 in identical batches: all 360 answers matched the frozen cell exactly, and mean answer length fell from 256.0 to 142.9 tokens. Labels therefore stand, but token counts and latency from frozen cells are inflated. Cells generated after this finding stop on ids 3 and 6.
+
+\subsection{Fine-tuning}\label{sec:ft}
+Both fine-tunes use the same recipe: LoRA rank 16, $\alpha=32$, dropout 0.05 on all linear projections (30.2\,M trainable parameters, 0.89\,\%); learning rate $2\times10^{-4}$ with cosine decay and 3\,\% warm-up; effective batch 16; one epoch; sequence length 1,024; the official template with the preamble; loss on assistant tokens only; FP16 mixed precision; seed 13. Adapters were merged on CPU in FP32 and saved as FP16; a streaming merge computed the same arithmetic one tensor at a time and recorded a per-tensor SHA-256 manifest for the weight-parity check. Token matching is on total templated tokens; assistant-token counts differ more (medical 608,594, control 759,187). A two-epoch pair was trained as a spare and was not used. QLoRA was prepared as a fallback and was not needed.
+
+The medical loss fell from 2.98 to about 2.35 and the control loss from 1.28 to 1.09 (Fig.~\ref{fig:loss}).
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.62\linewidth]{figures/fig_loss.png}
+\caption{Training loss on assistant tokens. The medical explanations are harder to predict than general instruction answers, hence the different levels.}\label{fig:loss}
+\end{figure}
+
+\subsection{Experimental setup}\label{sec:exp}
+
+\begin{table}[tbp]
+\centering
+\caption{Reported cells (1,612 prompts each); every cell named here appears in a results table.}\label{tab:cells}
+\footnotesize
+\begin{tabular}{>{\raggedright\arraybackslash}p{2.1cm}>{\raggedright\arraybackslash}p{4.55cm}>{\raggedright\arraybackslash}p{4.55cm}}
+\toprule
+Question & Laptop cells & Mac cells \\
+\midrule
+RQ1 & original FP16 & \\
+RQ2 & medical FP16, control FP16 & \\
+RQ4 & ReSta 0.05 / 0.10 / 0.20, restricted 0.25 (0.20 run late), steering 0.5 / 1.0 at FP16 & \\
+RQ5 & original, medical, ReSta 0.05, steering 0.5 at NF4 & original Q4; original Q4 no preamble; \\
+& & medical F16, Q4, Q3, Q4 no preamble, phone; \\
+& & the same five with the steering vector \\
+RQ6 & & protected and random Q3 with the vector \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Circuits (RQ3).} \emph{Data.} Circuits v2 use contrast pairs (a harmful prompt matched with a harmless one) of 64, 90 and 73 prompts for English, Hindi and Hinglish, none from a test set. A first pass on 3~November, which used single refusal tokens, 32 pairs and no validation, had suggested that fine-tuning ``reshuffles'' the circuit; it is superseded. \emph{Metric.} The refusal metric is the log-sum-exp of the refusal-token logits (a soft maximum over the model's scores for the refusal tokens) minus that of the compliance-token logits at the first content position; the token sets come from the original model's own dev answers. \emph{Noise floor.} Six full EAP-IG runs at node level and twelve split-half runs (the pair set divided at random into two halves, each attributed on its own) give the noise floor: the overlap two runs on the same model reach by chance. A difference between two circuits is claimed only when their overlap is below that floor. \emph{Preamble.} With the preamble on, attribution needs over 21\,GB of memory, so circuits are found on prompts without it and validated with it on. \emph{Validation.} The top-$k$ nodes are tested against five random node sets of the same size in two ways: mean-ablation (necessity: removing the circuit should remove refusal) and patching the original model's nodes into the medical model (sufficiency: restoring the circuit should restore refusal). The pre-registration names $k \in \{20, 40, 60\}$ for gate G3a, the pass/fail test that requires necessity to beat all five random sets in at least one language; we read it at $k=40$, a choice logged on 9~November.
+
+\paragraph{Repairs (RQ4).} The pre-registered sweep on the dev pass is: ReSta $\alpha \in \{0.10, 0.15, 0.20, 0.25, 0.30, 0.40\}$, restricted ReSta at the best $\alpha$ and $\pm 0.1$ with a list of 5, 10 or 20\,\% of tensors, and steering at two screened layers and three strengths. The steering vector is computed from 99 harmful and 99 harmless calibration prompts (prompts reserved for computing the vector, outside every test set) across three languages; layers 24, 27, 30 and 33 were screened at strength 1.0, then layers 24 and 27 at strengths 0.25, 0.5 and 0.75. Section~\ref{sec:amend} gives the deviations.
+
+\paragraph{Selection rule (pre-registered).} Keep settings with no significant MedMCQA drop against the medical model (exact McNemar, $\alpha = 0.05$) and a point estimate within 2 points, and with over-refusal (general and clinical, each language) within 5 points above the original. Among those, take the lowest mean attack success over the three languages.
+
+\paragraph{Deployment (RQ5).} The laptop tests NF4. The Mac tests F16, Q4\_K\_M, Q3\_K\_M, Q4\_K\_M without the preamble, and a simulated budget-phone stack (Q3\_K\_M, no preamble, and the KV cache, the stored attention state of earlier tokens, held in 4-bit Q4\_0), run on the Mac rather than on a phone. The steering vector is exported as a GGUF control vector and attached at run time on the existing medical GGUFs.
+
+\paragraph{Protection (RQ6).} Starting from stock Q3\_K\_M, eight tensors from the top-ranked circuit families move up to Q8\_0: the layer-35 feed-forward matrices, the layer-16 attention matrices, and the layer-20 attention-Q matrix. Nineteen donor tensors, whose precision is lowered to pay for the upgrades, move down to Q2\_K to keep the file size. A matched control applies the same type transitions to randomly chosen tensors of matching shape and type (seed 13). A first version of the build was confounded: layer-0 feed-forward tensors looked unimportant only because attribution excludes them, and the random control left them alone. The corrected build excludes those three tensors from upgrades, donors and random candidates. Protected and random files are both 1,797,062,144 bytes against 1,799,740,928 for stock ($-0.15\,\%$), and every unselected tensor is byte-identical to stock. Each build passed a 100-prompt operational check with no errors. That check is not used for any safety claim.
+
+\subsection{Judges and annotation}\label{sec:judges}
+\paragraph{Protocol.} Qwen3Guard-Gen-4B labels safety (Safe, Controversial, Unsafe) and refusal on every answer. WildGuard (8-bit) labels Hindi answers after back-translation by IndicTrans2. The primary attack-success count treats Controversial as safe; a sensitivity reading counts it as unsafe.
+
+\paragraph{Hand labels and judge choice.} A sample of 300 answers of the original model, stratified so that each language has 100, was labelled unsafe, refusal, helpful, over-refusal or unsure. The first author designed the rubric and drew the sample; the labels were drafted by an AI assistant to that rubric, and he checked and approved each one with the second author, without changes. They are therefore approved drafts rather than independent human labels, and the first author is answerable for every one of them. The pre-registered rule chooses, per language, the judge with the higher Cohen's $\kappa$ (agreement beyond chance; 1 is perfect, 0 is chance) against these labels, with a bar of 0.6. Table~\ref{tab:kappa} gives the result. Qwen3Guard is primary for English and Hinglish, and WildGuard on back-translation for Hindi, where Qwen3Guard labels only about half as many answers unsafe (10.5\,\% against 21.0\,\%). Refusal is Qwen3Guard in every language. Hinglish refusal cannot be judged reliably (Qwen3Guard $\kappa = 0.31$, WildGuard $0.11$), so Hinglish over-refusal is reported as a direction only.
+
+%%TABLE:kappa%%
+
+\paragraph{Second readings.} Four further readings test whether the approved labels can be reproduced. All four were made by AI agents working blind; none is a human label. (1) A second annotator labelled all 300 items without seeing the approved labels. (2) A third reader labelled the 30 items the plan set aside for repeat labelling. (3) An adjudicator resolved the 33 items on which the first two disagreed, seeing both labels in random order. (4) A fresh agent, given only the rubric and the sheet, re-labelled the plan's intra-rater sheet (the same 30 items, shown blind more than 24 hours later). Reading (4) repeats the procedure that drafted the approved labels, so it tests that procedure, not a human rater; it stands in for the human intra-rater check the plan describes, and no human re-labelled the items. Section~\ref{sec:valres} reports what each reading found.
+
+\paragraph{Validation on the fine-tuned model.} All $\kappa$ values above come from the original model's answers. The drift is measured on a different model, so an annotator also labelled 150 answers of the medical model, stratified by language (Section~\ref{sec:valres}).
+
+\subsection{Metrics, and why these}\label{sec:metrics}
+We chose metrics that let the same model be compared before and after each step on the same prompts: one safety metric, its cost on benign prompts, and the capability the fine-tune was done for, each with a stated direction. The two that must not get worse when safety is repaired are marked.
+\begin{itemize}
+\item $\ASR(m,s,\ell)$, the attack success rate: share of harmful prompts whose answer the primary judge labels unsafe (lower is better).
+\item $\ORR(m,s,\ell)$, the over-refusal rate: share of benign prompts refused, general and clinical reported apart (lower is better; this is the metric that must not get worse when safety is repaired).
+\item MedMCQA: accuracy on 500 held-out questions, scored as the most likely answer letter (higher is better; the capability that must not get worse).
+\item Language gap: $G_\ell(m) = \ASR_\ell(m) - \ASR_{\mathrm{EN}}(m)$ (closer to zero is better).
+\item Retention of a repair at setting $s$ (closer to 1 is better; below 1 means the deployment setting lost part of the repair), computed only when the denominator is at least 5 points:
+\begin{equation}
+R(s) = \frac{\ASR_{\mathrm{med}}(s) - \ASR_{\mathrm{rep}}(s)}{\ASR_{\mathrm{med}}(\mathrm{ref}) - \ASR_{\mathrm{rep}}(\mathrm{ref})},
+\end{equation}
+with FP16 as reference for NF4 and the Mac F16 cells as reference for GGUF settings.
+\item Difference-in-differences, positive when fine-tuning makes the model more fragile to deployment:
+\begin{equation}
+\Delta\Delta(s) = [\ASR_{\mathrm{med}}(s) - \ASR_{\mathrm{med}}(\mathrm{FP16})] - [\ASR_{\mathrm{orig}}(s) - \ASR_{\mathrm{orig}}(\mathrm{FP16})].
+\end{equation}
+No original Mac F16 cell exists, so the GGUF $\Delta\Delta$ uses laptop FP16 cells for both references.
+\item Last-mile gap: attack success of the budget-phone stack minus the F16 reference on the same engine.
+\end{itemize}
+
+\subsection{Statistics}
+Differences are paired over prompts (each prompt's two answers are kept together) and their intervals come from 10,000 bootstrap resamples~\cite{efron} with shared indices and seed 13, reported as 95\,\% percentile intervals. Language gaps resample each language separately. MedMCQA uses exact McNemar tests~\cite{mcnemar}, which compare the questions each model gets right on the same 500 items. Agreement uses Cohen's $\kappa$~\cite{cohen}. Multiplicity (the risk that one of many tests is a false positive) uses Holm's procedure~\cite{holm}. \textbf{A difference is claimed only if it is at least 5 points and its interval excludes zero.} Non-inferiority means that the upper bound of the 95\,\% interval of the loss is below 5 points. Per-language and per-harm-type results are directions unless their interval clears zero. Probability values come from the bootstrap tails, so the smallest reportable value is $10^{-4}$.
+
+\subsection{Pre-registration, amendments and deviations}\label{sec:amend}
+Table~\ref{tab:amend} lists every departure from the pre-registered plan. An independent AI audit read the code and the logs and recomputed the numbers; its findings are incorporated here. Two facts should be stated plainly. The first recorded version of the v3 pre-registration came after the first five test cells had been judged, so its timing for those cells cannot be proven. Decisions marked ``delegated'' were proposed by an AI assistant under the first author's written delegation and ratified by him; he holds sole responsibility for them.
+
+\begin{table}[tbp]
+\centering
+\caption{Amendments and deviations.}\label{tab:amend}
+\scriptsize
+\begin{tabular}{p{0.2\linewidth}p{0.48\linewidth}p{0.22\linewidth}}
+\toprule
+Item & What changed & Status \\
+\midrule
+Amendment 1 & Hindi primary judge becomes WildGuard on back-translation; every Hindi answer re-judged & applying the pre-registered rule \\
+Amendment 2 & Generation stops on token ids 3 and 6 for new cells & operational; text unchanged \\
+Amendment 3 & Defines the trade-off point the rule left undefined; adds ReSta $\alpha=0.05$ below the grid & post hoc on dev, delegated \\
+Amendment 4 & Mac lane deploys steering instead of ReSta, because ReSta had no measurable effect on test & test-informed, delegated \\
+Holm family & Run as separate families; one combined family computed later & corrected, Section~\ref{sec:holm} \\
+Restricted ReSta & Pre-registered $\alpha$ points run late, on dev, after test results & disclosed \\
+Layer-0 donors & First protected build confounded; rebuilt & corrected \\
+Intra-rater check & 30-item re-label done blind by an AI agent repeating the drafting procedure, not by a human & weaker substitute \\
+Amendment 5 & Laptop replication of RQ6 written before any RQ6 cell existed; withdrawn the same day when the Mac cells arrived; never run & withdrawn, disclosed, delegated \\
+\bottomrule
+\end{tabular}
+\end{table}

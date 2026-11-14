@@ -1,0 +1,37 @@
+% =====================================================================
+\appendix
+\section{Supplementary Tables}\label{app:tables}
+
+\subsection{Measured evaluation throughput on the Mac}
+Table~\ref{tab:throughput} gives the server throughput of each steered deployment cell on the Mac (eight concurrent slots, F16 KV cache except the budget-phone stack, 1,612 requests per cell). The workload is the safety evaluation itself, not a clinic workload.
+
+\begin{table}[htbp]
+\centering
+\caption{Throughput of the steered cells on the Mac. Prompt tokens include the preamble (about 360 tokens) where used; capped answers reached the 256-token limit.}\label{tab:throughput}
+\scriptsize
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{lrrrrrr}
+\toprule
+Setting & Wall time (s) & Requests/s & Completion tok/s & Mean prompt tok & Mean completion tok & Capped of 1,612 \\
+\midrule
+F16 & 3,857 & 0.42 & 53.5 & 391 & 128 & 484 \\
+Q4\_K\_M & 2,591 & 0.62 & 78.4 & 391 & 126 & 467 \\
+Q3\_K\_M & 2,672 & 0.60 & 76.8 & 391 & 127 & 500 \\
+Q4\_K\_M, no preamble & 2,104 & 0.77 & 103.3 & 33 & 135 & 515 \\
+Budget-phone & 2,078 & 0.78 & 106.1 & 33 & 137 & 551 \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table}
+
+\subsection{Cost scenario assumptions}
+The conditional cost scenario in Section~\ref{sec:rq5} assumes 10,000 requests a month at the measured Q3\_K\_M token means (391 input, 127 output), a 600 USD machine amortised over 36 months at 50\,\% allocation, 30 available hours a month at 50\,\% utilisation, 40 W at 0.20 USD per kWh, 5 USD of other monthly cost, and a listed API price of 0.40 USD per million input and 1.60 USD per million output tokens (GPT-4.1 mini list price checked on 11 November 2026, marked deprecated at the source). Result: 13.6 USD a month local against 3.6 USD API; capacity about 32,600 requests a month; break-even about 37,700. Sensitivity runs at 1,000 requests and 20 to 60 W do not change the sign. Quality equivalence between the local model and the API model was not measured.
+
+\subsection{RQ6 over-refusal per language}
+Table~\ref{tab:rq6orr} gives over-refusal for the three steered Q3\_K\_M builds per language. The protected build raises clinical over-refusal against stock in Hindi by 13.7 points; the Hinglish rows are directional only.
+%%TABLE:rq6orr%%
+
+\subsection{Conservative union of all declared tests}
+Table~\ref{tab:union58} applies Holm over the union of the 35 pre-registered core tests, the 15 deployment tests and the 8 RQ6 tests (58 in all), as computed by the second author from the central labels. The families were declared at different times, so this union is a sensitivity analysis, not the registered correction.
+
+%%TABLE:union58%%

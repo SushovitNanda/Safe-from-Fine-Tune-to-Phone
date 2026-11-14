@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-09",
+  "branch": "manishshaw-nov9",
+  "M12": "complete",
+  "M13": "complete_both_100_prompt_checks",
+  "M14": "updated_with_D4_D7_and_amendments",
+  "M15": "cancelled_replaced_by_runtime_steering",
+  "steering_fidelity_generation": "complete_50_of_50",
+  "steering_fidelity_verdict": "pending_central_judging",
+  "M16": "blocked_until_new_gate_passes",
+  "M20": "available_D7_comparisons_complete_remaining_references_and_global_family_pending",
+  "numeric_merge_difference": "5_medical_and_6_control_tensors_require_reference_weights",
+  "M21_ROI": "method_ready_actual_clinic_measurements_missing"
+}

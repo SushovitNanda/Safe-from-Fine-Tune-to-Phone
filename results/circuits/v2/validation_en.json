@@ -1,0 +1,130 @@
+{
+ "lang": "en",
+ "scores": "results/circuits/v2/orig_en_eap-ig_scores.json",
+ "n_prompts": 100,
+ "ks": [
+  20,
+  40,
+  60
+ ],
+ "R": [
+  "Here",
+  "It's",
+  "I'm",
+  "**",
+  "I"
+ ],
+ "C": [
+  "When",
+  "To"
+ ],
+ "leading_newline": "6/16 -> not appended",
+ "m_orig_clean": 6.247018585205078,
+ "necessity_drop": {
+  "top20": -3.0385435485839842,
+  "rand20_0": 0.19098925590515137,
+  "rand20_1": 0.8339002990722655,
+  "rand20_2": -0.08539190292358434,
+  "rand20_3": 0.3105022335052485,
+  "rand20_4": 0.7311615085601808,
+  "top40": 2.4609558486938474,
+  "rand40_0": 1.4506288623809809,
+  "rand40_1": 0.7817717075347899,
+  "rand40_2": 2.432744207382202,
+  "rand40_3": 0.6587088298797603,
+  "rand40_4": 0.7415509891510004,
+  "top60": 3.746524782180786,
+  "rand60_0": 0.8332944965362543,
+  "rand60_1": 2.819731559753418,
+  "rand60_2": 1.7281380939483642,
+  "rand60_3": 1.762979393005371,
+  "rand60_4": 0.9189896297454831
+ },
+ "m_med_clean": 3.7340478515625,
+ "sufficiency_recovery": {
+  "top20": 0.573186807632446,
+  "rand20_0": 0.2904427146911619,
+  "rand20_1": 0.22775428771972672,
+  "rand20_2": -0.024652357101440536,
+  "rand20_3": 0.06208003997802747,
+  "rand20_4": 0.20223221778869638,
+  "top40": 0.8460996818542483,
+  "rand40_0": 0.06612480163574208,
+  "rand40_1": 0.25221961021423356,
+  "rand40_2": 0.2892073535919186,
+  "rand40_3": 0.06560488700866696,
+  "rand40_4": 0.21606648445129384,
+  "top60": 1.3471160411834715,
+  "rand60_0": 0.1267932033538819,
+  "rand60_1": 0.48210347175598134,
+  "rand60_2": 0.1546908378601075,
+  "rand60_3": 0.21243052482604963,
+  "rand60_4": 0.3425623989105224
+ },
+ "verdict": {
+  "k20": {
+   "necessity_top": -3.0385,
+   "necessity_random": [
+    0.191,
+    0.8339,
+    -0.0854,
+    0.3105,
+    0.7312
+   ],
+   "necessity_beats_all_random": false,
+   "sufficiency_top": 0.5732,
+   "sufficiency_random": [
+    0.2904,
+    0.2278,
+    -0.0247,
+    0.0621,
+    0.2022
+   ],
+   "sufficiency_beats_all_random": true
+  },
+  "k40": {
+   "necessity_top": 2.461,
+   "necessity_random": [
+    1.4506,
+    0.7818,
+    2.4327,
+    0.6587,
+    0.7416
+   ],
+   "necessity_beats_all_random": true,
+   "sufficiency_top": 0.8461,
+   "sufficiency_random": [
+    0.0661,
+    0.2522,
+    0.2892,
+    0.0656,
+    0.2161
+   ],
+   "sufficiency_beats_all_random": true
+  },
+  "k60": {
+   "necessity_top": 3.7465,
+   "necessity_random": [
+    0.8333,
+    2.8197,
+    1.7281,
+    1.763,
+    0.919
+   ],
+   "necessity_beats_all_random": true,
+   "sufficiency_top": 1.3471,
+   "sufficiency_random": [
+    0.1268,
+    0.4821,
+    0.1547,
+    0.2124,
+    0.3426
+   ],
+   "sufficiency_beats_all_random": true
+  }
+ },
+ "G3a_pass_k40": true,
+ "seconds": 1747,
+ "peak_gb": 9.44,
+ "method": "heads in z-space (hook_z; patch = zero z_h + add r_h on hook_attn_out); MLPs on hook_mlp_out; preamble on; decision position = last prompt token"
+}

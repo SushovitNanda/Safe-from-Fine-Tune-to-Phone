@@ -1,0 +1,62 @@
+% =====================================================================
+\section{Threats to Validity}\label{sec:threats}
+
+\subsection{Internal validity}
+\begin{description}
+\item[Timing of the pre-registration.] The v3 pre-registration was first recorded after the five main test cells had been judged and read, and its logged fingerprint could not be matched to any reconstructable version. Its protection against post hoc choice is therefore weaker for RQ1, RQ2 and the NF4 results than the plan intended.
+\item[Post hoc and test-informed choices.] Amendment~3 was written after seeing the dev sweep. Amendment~4 used a test result to choose the deployed method. We kept the steering strength at its dev value and did not adopt strength 1.0, but the choice of method is test-informed.
+\item[Delegated decisions.] Several later decisions were proposed by an AI assistant under the first author's written delegation and ratified by him, and the blind annotations and the audit were made by AI agents at his request. They are recorded and were reviewed by him; they are not independent human review.
+\item[Control matched on tokens only.] The control fine-tune is matched for total tokens, but not for format (templated exam explanations against general instructions), starting loss or assistant tokens. The medical-minus-control contrast therefore shows drift beyond a generic fine-tune, not that medical content as such causes it.
+\item[One training run per model.] Each fine-tune is one run with one seed. The bootstrap resamples prompts, not training runs, so the intervals exclude variation between fine-tunes.
+\item[Single random control.] The RQ6 random build is one draw (seed 13). Prompt-level intervals do not cover tensor-selection variance.
+\item[Token matching.] Fine-tuning sets are matched on total tokens within 1\,\%. Assistant tokens, which carry the loss, differ more (608,594 medical, 759,187 control).
+\item[Stopping rule.] Frozen cells ran to the token cap, while later cells stop at the end of a turn. An identical-batch regeneration showed the visible text to be unchanged on the dev pass. We did not repeat this on every frozen cell.
+\item[Back-translation batch size.] Frozen cells were back-translated at batch 8 and later cells at batch 16. %%BT%%
+\item[Cross-machine differences.] Eleven tensors differ between the two machines' merges, each in one element by one FP16 rounding step (at most $1.5\times10^{-5}$). Behavioural agreement is high.
+\end{description}
+
+\subsection{Construct validity}
+\begin{description}
+\item[Attack success is a judge's label.] It measures what a safety classifier says about an answer. Degenerate text exposes the gap between that and real harm: 64.7\,\% of the medical model's Hinglish answers to harmful prompts are degenerate, and the judge marks most of them unsafe (Section~\ref{sec:valres}). We report the pre-registered numbers as primary and the non-degenerate analysis beside them.
+\item[Different judges per language.] English and Hinglish use Qwen3Guard and Hindi uses WildGuard on back-translation, so comparisons across languages also compare judges. The back-translation step can lose or add content.
+\item[Judges validated on another model.] The pre-registered $\kappa$ values use the original model's answers. On the medical model, a blind AI annotator gives $\kappa=0.47$ in English (on few positives). In Hinglish, 25 of 40 answers cannot be read at all.
+\item[Judge labels on degenerate Hinglish.] A blind audit of RQ6 answers found that nearly every Hinglish answer the judge called unsafe was degenerate text that two readers called not unsafe (Section~\ref{sec:rq6}). Hinglish attack-success rates for the medical model and its repairs are upper bounds inflated by this artefact; the English and Hindi rates are not affected in the same way.
+\item[Greedy decoding is not bit-reproducible.] The 300 hand-labelled answers come from a separate generation run of the original model on test prompts. A final integrity audit found that 16 of those 300 answers differ in length from the main test cell's answers to the same prompts, and 6 judge labels differ, 3 of which change a Hinglish primary label. Hand labels and judge labels were taken on the same answers within each cell, so $\kappa$ is unaffected, but exact replay of a cell is not guaranteed.
+\item[Hand labels began as LLM drafts.] Both authors approved them unchanged, so every $\kappa$ measures agreement between judges and reviewed LLM labels. The planned human intra-rater check was replaced by a blind AI re-label of the same 30 items (Section~\ref{sec:valres}), which tests the drafting procedure rather than a human rater.
+\item[Hinglish refusal is unreliable.] Qwen3Guard reaches only $\kappa=0.31$ and WildGuard $0.11$, so all Hinglish over-refusal figures are directions. Pooled over-refusal includes them.
+\item[Medical accuracy.] MedMCQA scores the most likely answer letter on a closed question. It does not measure the quality or safety of free-text clinical advice. The medical model also over-selects option A.
+\item[Circuit metric.] Token sets come from the model's own answers and include a few compliant openers. Scores are signed, so a top set by magnitude mixes both directions. Circuits are found without the preamble and validated with it.
+\item[The word ``repair''.] A steered model that stays 8 points above the original pooled and 27 points in Hinglish is a partial repair at best.
+\end{description}
+
+\subsection{External validity}
+\begin{description}
+\item[One model, one domain, one recipe.] All results concern Tiny Aya Global, one epoch of LoRA, one medical dataset and one control. Other models, longer training or other domains may behave differently.
+\item[Languages.] Hinglish items are rewrites of Hindi items in Latin script, not natural Hinglish conversations. Three languages say little about other Indian languages.
+\item[Attacks.] Prompts are direct red-team requests. We did not test adaptive attacks, jailbreak suffixes or multi-turn pressure, where a steering vector may fail.
+\item[Benchmark size.] ClinicSafe-Hi has 102 harmful items per language and 17 per category, with LLM drafting and review by the authors. Per-category claims are not made.
+\item[Deployment realism.] The ``budget-phone'' cell simulates a low-resource configuration on a laptop-class Mac. It does not run on a phone. A real deployment may also add its own system prompt, which we did not test.
+\item[Vector portability.] The direction is computed on this medical model from 99 pairs per class. It would need recomputing for another fine-tune.
+\end{description}
+
+\subsection{Statistical conclusion validity}
+\begin{description}
+\item[Multiplicity.] The planned family was run as separate families. Over one combined family the Hindi gap does not survive (Section~\ref{sec:holm}). The deployment tests are a separate family added by amendment.
+\item[Small dev sets.] The selection rule rests on 20 to 30 benign items per set per language. One refusal is 3 to 5 points.
+\item[Exploratory analyses.] The non-degenerate analysis was designed after the audit, and its Hinglish subset is 63 to 77 prompts. Treat it as a robustness check.
+\item[Gate power.] The 50-prompt GGUF gate has no clinical items and four unsafe answers. It shows that the vector is applied, not that its full effect transfers.
+\end{description}
+
+% =====================================================================
+\section{Limitations, Dual-Use and Ethical Considerations}\label{sec:limits}
+\begin{itemize}
+\item No clinician or professional medical safety expert reviewed the benchmark, answers or labels.
+\item The planned human intra-rater check was replaced by a blind AI re-label, a weaker consistency check.
+\item Hinglish generation from the medical model is mostly degenerate, so the safety behaviour of a usable Hinglish clinical model remains unmeasured.
+\item No original-model Mac F16 cell exists, so GGUF difference-in-differences relies on a cross-engine reference.
+\item The throughput figures and the cost scenario (Section~\ref{sec:rq5}) use the evaluation workload, in which many answers hit the token cap; a clinic workload with useful-answer lengths, latency targets and real demand was not measured, so no clinic cost or saving is established.
+\item Steering needs a run-time flag, so a deployer who ships only the weights does not get the repair.
+\item We did not test whether the vector degrades other capabilities beyond MedMCQA and over-refusal.
+\item Dual-use and ethics: the risk of publishing which deployment settings weaken refusals, the handling of harmful completions and responsible disclosure are set out in the Ethics Statement (end matter).
+\item The datasets, adapters and control vector were published on 15 November; the Q3\_K\_M weight files were still being added by the Mac lane when this thesis was finalised. Harmful completions are kept out of every release.
+\end{itemize}

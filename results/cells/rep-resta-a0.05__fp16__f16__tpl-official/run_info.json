@@ -1,0 +1,23 @@
+{
+ "model": "models/merged/rep-resta-a0.05",
+ "adapter": null,
+ "weights": "fp16",
+ "template": "official",
+ "engine": "transformers 5.22.1",
+ "temperature": 0.0,
+ "seed": 13,
+ "max_tokens": 256,
+ "stop_token_ids": [
+  3,
+  6
+ ],
+ "harness": "e34e7c6",
+ "cell": "rep-resta-a0.05__fp16__f16__tpl-official",
+ "n_prompts": 1612,
+ "generated_this_run": 1612,
+ "seconds": 1540,
+ "gen_per_min": 62.8,
+ "tok_per_s": 116,
+ "peak_gb": 7.95,
+ "final_batch": 16
+}

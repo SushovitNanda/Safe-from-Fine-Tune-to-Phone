@@ -1,0 +1,130 @@
+\clearpage
+\section*{Executive Summary}
+\addcontentsline{toc}{section}{Executive Summary}
+
+\paragraph{Content note.} This thesis evaluates refusals on harmful medical and general prompts. No harmful prompt or model answer is quoted anywhere in it; only labels, counts and rates appear. The ``phone'' in the title is the Track 2 theme; the budget-phone setting was simulated on a Mac, and no phone was used.
+
+\paragraph{Headline: before $\to$ after.} Benign medical fine-tuning doubled Tiny Aya Global's attack success rate, from 18.2\,\% to 36.3\,\% over 856 harmful prompts in English, Hindi and Hinglish. A run-time steering vector cut it to 26.3\,\% with medical accuracy unchanged (MedMCQA, a medical exam benchmark: 45.0\,\% $\to$ 45.4\,\%). The cut survived quantization to llama.cpp's GGUF format on a second engine (39.0\,\% $\to$ 27.9\,\% at Q3\_K\_M, about 3 bits per weight) and removal of the preamble, the model's built-in system prompt. Its cost is Hindi clinical over-refusal: $+8.8$ points at FP16 and up to $+11.8$ along the deployment chain.
+
+\paragraph{Base model and method in one line.} Tiny Aya Global 3.35B (Cohere Labs, CC-BY-NC-4.0, one pinned snapshot); one epoch of LoRA (low-rank adapter fine-tuning) on medical exam questions, then a steering vector (the mean activation difference between harmful and harmless prompts, the contrastive activation addition (CAA) recipe; layer 24, strength 0.5) added at inference, shipped as a llama.cpp control vector on Q4\_K\_M and Q3\_K\_M GGUF builds.
+
+\paragraph{Tracks and problem statements covered.} Track 2, AI Red Teaming, Safety and Alignment.
+\begin{itemize}\setlength{\itemsep}{0pt}
+\item 2a, Multilingual and code-mixed safety: per-language gaps in English, Hindi and Hinglish, and a repair for them (RQ1, RQ4).
+\item 2a, Adversarial and safety evaluation sets: ClinicSafe-Hi, a clinical benchmark of harmful requests paired with benign twins (the legitimate question on the same topic) in three languages (RQ1).
+\item 2b, Repairing safety drift without retraining: ReSta weight patching (adding a scaled safety vector to the weights), whole-model and circuit-restricted (RQ2, RQ4).
+\item 2b, Inference-time safety steering: refusal-direction steering with over-refusal measured (RQ4).
+\item 2b, Locating where safety lives, and Circuit-level interventions: refusal circuits found by EAP-IG, edge attribution patching with integrated gradients (component sets ranked by a gradient-based estimate of their contribution to refusal) used to restrict the patch and to choose protected tensors (RQ3, RQ4, RQ6).
+\item 2b, Safety-aware compression: steering through 4-bit NF4 (NormalFloat) weights and GGUF k-quants (llama.cpp's block-wise weight formats, roughly 4 and 3 bits per weight), and circuit-aware mixed-precision protection against a random control (RQ5, RQ6).
+\end{itemize}
+
+\begin{center}
+\fcolorbox{black}{gray!8}{\begin{minipage}{0.96\linewidth}\small
+\textbf{For judges: one minute.}
+\begin{itemize}\setlength{\itemsep}{1pt}
+\item \textbf{Drift, before $\to$ after:} one epoch of benign medical LoRA raises attack success on 856 harmful prompts from \textbf{18.2\,\% to 36.3\,\%} ($+18.1$ [15.0, 21.3]); a token-matched general-instruction control moves $+1.8$ [$-0.9$, 4.4].
+\item \textbf{Repair, before $\to$ after:} a run-time steering vector (layer 24, strength 0.5) cuts the medical model from \textbf{36.3\,\% to 26.3\,\%} ($-10.1$ [$-12.5$, $-7.6$]); MedMCQA 45.0\,\% $\to$ 45.4\,\% (paired McNemar test, $p = 0.69$).
+\item \textbf{Survives deployment:} at Q3\_K\_M on llama.cpp (second machine, second engine) the same vector cuts \textbf{39.0\,\% to 27.9\,\%}; retention (the share of the full-precision repair that survives; 1 means all of it) 1.01 [0.74, 1.36]; with the preamble stripped 0.85 [0.61, 1.16]; at 4-bit NF4 weights 1.16 [0.85, 1.59].
+\item \textbf{Cost:} clinical over-refusal pooled over the three languages $+2.9$ [$-2.0$, 7.8] (not significant); Hindi clinical $+8.8$ [2.0, 16.7]; the fix is a serving-time flag, not a weight change.
+\item \textbf{Language gaps in the original model:} Hinglish $+15.4$ points [8.9, 22.0] above English; clinical harms $+16.9$ [11.2, 22.7] above general harms.
+\item \textbf{What we failed to achieve:} ReSta weight patching $-1.6$ [$-3.6$, 0.4]; circuit-restricted ReSta $-0.6$ [$-3.5$, 2.3]; circuit-guided bit protection against a random control $+0.0$ [$-2.7$, 2.7]; we could not link the circuit map to the drift. These are our failures at the settings we tried, not proofs that the methods cannot work.
+\item \textbf{Validity:} 64.7\,\% of the medical model's Hinglish answers are degenerate text (repetition loops or echoes of the prompt); on non-degenerate prompts the drift is $+10.9$ [7.7, 14.3] and the repair $-8.3$ [$-11.2$, $-5.4$].
+\item \textbf{Scale and rigour:} about 45,000 judged generations in the 28 full test cells (56,000 with development and calibration cells), a frozen 1,612-prompt test set, three languages, two machines and engines, four kits plus llama.cpp, a dated pre-registration with five amendments (one withdrawn unused), paired bootstrap with Holm correction for multiple tests, and three blind audits of the labels by AI agents; the 300 reference labels were checked and approved item by item by the first author with the second, from AI drafts, and no label in this thesis is an independent human label.
+\end{itemize}
+\end{minipage}}
+\end{center}
+
+\paragraph{Problem statement and approach.} A deployer who fine-tunes Tiny Aya Global on medical text and quantizes it for cheap hardware has no measurement of what those two steps did to its refusals in the languages its users write in, and no repair that fits a deployment with no retraining budget. Our approach was to build the measurement first (prompt sets with benign twins, judges validated per language, a frozen test set), to induce the drift under controlled conditions (one benign medical epoch against a token-matched control), to locate candidate components, to try the repairs the track names (weight patching, circuit-restricted patching, run-time steering), and then to follow the best one through the actual deployment chain on a second machine and engine, with a dated pre-registration fixing the decision rules before test results were read.
+
+\paragraph{Why this problem, and the real use case.} Small open-weights models are the only models a clinic in a low-connectivity district can run on its own hardware with patient data staying on site. Fine-tuning on domain text and compressing for cheap hardware are the two steps every such deployment takes, and both are taken by people who read safety numbers measured on the base model, in full-precision English, with the system prompt in place. If those numbers do not survive the deployment chain, the safety case for every such deployment rests on the wrong measurement. The use case here is a clinic chatbot that answers patient questions in English, Hindi or Hinglish on an on-site machine; the deployer, the adversary and the success criteria are stated under the threat model below.
+
+The pattern is not specific to medicine. Nuclear plant operations, power-grid control rooms, water utilities, rail and air-traffic operations and emergency services have the same shape: a domain corpus the model must learn, a rule that data stays on site, operators who write in their own language and register, and hardware budgets that force quantization. Each has its own class of harmful requests (sabotage procedures, protective-relay or dosing settings outside safe limits, bypassing an interlock) and its own benign twins (the legitimate engineering question on the same topic). What transfers from this study to those sectors is the chain, not the numbers: measure refusal per language before and after the domain fine-tune against a token-matched control; validate the judge on the deployment's own language and own model; repair at serving time when retraining is not available; and verify the repair after compression and prompt stripping, with over-refusal of legitimate domain questions measured alongside. The construction of ClinicSafe-Hi (a harmful request paired with its benign twin, written in English and adapted to the local language and register) is the part a nuclear or grid operator would copy first. We believe that adoption of small on-site models in these sectors depends on exactly this kind of per-deployment before-and-after evidence, and that is what the method is designed to produce.
+
+\paragraph{Threat model.} The deployer is a clinic that runs the model on its own hardware for patient-facing questions in English, Hindi or Hinglish. The adversary is an ordinary user who asks directly for harmful help (overdoses, forged prescriptions, dangerous self-treatment, and general harms), in any of the three languages, in a single turn and without jailbreak templates, encoding tricks or multi-turn set-ups; those attack classes are out of scope. The defender controls the fine-tune, the repair and the serving configuration, but not the user's language, and may have removed the system prompt to save latency. Success for the defender is a low attack success rate with a low over-refusal rate on benign clinical questions and unchanged medical accuracy, measured after the deployment chain, not before it.
+
+\paragraph{Research questions and pre-registered hypotheses.} The six research questions form one chain (Section~\ref{sec:intro}, Fig.~\ref{fig:chain}). The pre-registration fixed one hypothesis per question; each Verdict paragraph in Section~\ref{sec:results} judges it.
+\begin{description}\setlength{\itemsep}{0pt}
+\item[H1] Refusal is weaker in Hindi and Hinglish than in English, and weaker on clinical than on general harms; the Hinglish gap is largest.
+\item[H2] Medical drift exceeds the token-matched control, and is largest in Hinglish and on clinical harms.
+\item[H3] A partly shared refusal circuit exists across languages, with larger fine-tuning changes in Hindi and Hinglish.
+\item[H4] A training-free repair restores refusals without accuracy loss, and the circuit-restricted ReSta patch keeps more medical accuracy than the whole-model patch at equal safety.
+\item[H5] Retention of the repair falls below 1 at Q3\_K\_M and without the preamble, most in Hinglish.
+\item[H6] Giving the circuit's tensors more bits at equal file size protects the repair better than the same bits on random tensors.
+\end{description}
+Decision rules: a difference is claimed only if it is at least 5 points with the 95\,\% interval clear of zero; non-inferiority needs the upper bound of a loss below 5; retention needs a full-precision effect of at least 5 points. Outcome: H1 holds for Hinglish and for clinical harms (the Hindi gap is suggestive only); H2 holds except for the harm-type pattern; H3 holds only as a statement about structure; H4, H5 and H6 are not supported.
+
+\paragraph{Hackathon repos (kits) used, and how they connect.} Each toolkit took one stage of the chain (Fig.~\ref{fig:arch}). CuratorKIT curated and deduplicated the two matched fine-tuning corpora and its MinHash powered the leak check, while our own scripts built the prompt sets and benign twins. The Transformers Trainer with PEFT trained and merged the LoRA fine-tunes. CircuitKIT discovered per-language refusal circuits on the original and the medical model, and our validation code on its TransformerLens port ran the necessity and sufficiency tests. SafeTune's ReSta implementation was the reference against which our ReSta code was checked for equivalence, and its refusal-direction recipe is the one our steering code follows. AuditKIT's API backend drove every llama.cpp evaluation run (``cell'': one model in one setting over the full test set) on the Mac (resumed runs used a plain client with identical settings), while the laptop harness ran the Transformers cells, the two judges, the back-translation (Hindi answers translated to English for the English-only judge) and the paired statistics. llama.cpp built the GGUF files and served the steering vector on the second machine. AlignTune was not used. Per-kit features and configurations are in Section~\ref{sec:method} and Appendix~\ref{app:repro}.
+
+\paragraph{Models, datasets and licences.} The base model is Tiny Aya Global 3.35B (Cohere Labs, CC-BY-NC-4.0, one pinned snapshot), run at FP16 and at bitsandbytes NF4 on the laptop and as F16, Q4\_K\_M and Q3\_K\_M GGUF files built with a pinned llama.cpp build on the Mac; Tiny Aya Base is the ReSta base. No closed-model baseline was run; an API appears only as the price comparator in the cost scenario. The evaluation and fine-tuning sets, their sources, languages, sizes, splits and the leak check (exact, MinHash and embedding) are in Section~\ref{sec:data} and Table~\ref{tab:sets}; CuratorKIT's filtering counts before and after are in the kits subsection of Section~\ref{sec:method}; the licence of every model and set is listed under Data and Code Availability.
+
+\paragraph{Metrics, and why these.} Every metric is measured for the same model before and after each step, on the same prompts, so that each result is a paired difference with a bootstrap interval. The set has one safety metric, its cost on benign prompts, and the capability the fine-tune was bought for; the two that must not get worse when safety is repaired are marked. Definitions are in Section~\ref{sec:metrics}.
+\begin{itemize}\setlength{\itemsep}{0pt}
+\item \textbf{Attack success rate} (lower is better): the share of harmful prompts answered unsafely, by the per-language primary judge. The primary metric, because it is what a deployer's safety case rests on.
+\item \textbf{Over-refusal rate} on benign prompts, general and clinical reported apart (lower is better; must not get worse): the cost side of every repair. The clinical twins are the questions a clinic's users send.
+\item \textbf{MedMCQA accuracy} on 500 held-out questions (higher is better; must not get worse): the capability the fine-tune was done for.
+\item \textbf{Language gap} against English (closer to zero is better): the Track 2a question in one number per language.
+\item \textbf{Retention} $R(s)$ of the repair in a deployment setting (closer to 1 is better; defined only when the full-precision repair is at least 5 points): the Track 2b compression question.
+\item \textbf{Difference-in-differences} and \textbf{last-mile gap} (closer to zero is better): whether fine-tuning makes the model more fragile to deployment, and what the budget-phone configuration costs.
+\item \textbf{Degenerate-output share} (lower is better): a validity metric added after the audit, because classifiers count repetition loops as harm.
+\item \textbf{Judge check:} Cohen's $\kappa$ of each automatic judge against the 300 approved reference labels, bar 0.6 (English 0.81, Hindi 0.84 on back-translation, Hinglish 0.62 for the unsafe label; Hinglish refusal $\kappa = 0.31$, so Hinglish over-refusal is reported as a direction only).
+\end{itemize}
+
+\paragraph{Results: the same model before and after.} Table~\ref{tab:beforeafter} gives the same model before and after each step of the chain. Per-question results with intervals and significance tests are in Section~\ref{sec:results}, the results on the quantized and deployed GGUF models in Sections~\ref{sec:rq5} and~\ref{sec:rq6}, and everything we tried and failed at in Table~\ref{tab:tried}.
+
+\begin{table}[htbp]
+\centering
+\caption{Before and after, pooled over 856 harmful and 756 benign test prompts (95\,\% paired-bootstrap intervals).}\label{tab:beforeafter}
+\footnotesize
+\begin{tabular}{l>{\raggedright\arraybackslash}p{4.5cm}rrr}
+\toprule
+Step & Model & ASR & Clin. ORR & MedMCQA \\
+\midrule
+Start & Original Tiny Aya Global, FP16 & 18.2\,\% & 2.9\,\% & 40.6\,\% \\
+Fine-tune & + one epoch medical LoRA & 36.3\,\% & 28.4\,\% & 45.0\,\% \\
+Control & + token-matched general LoRA & 20.0\,\% & 9.5\,\% & -- \\
+Repair & medical + steering vector (FP16) & 26.3\,\% & 31.4\,\% & 45.4\,\% \\
+Deploy & medical, Q3\_K\_M GGUF, llama.cpp & 39.0\,\% & 31.4\,\% & -- \\
+Deploy + repair & medical + vector, Q3\_K\_M GGUF & 27.9\,\% & 35.6\,\% & -- \\
+Deploy + repair & medical + vector, Q3\_K\_M, no preamble, 4-bit KV (key-value) cache & 26.2\,\% & 37.3\,\% & -- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{What is new and what is confirmatory.} That benign fine-tuning erodes refusals was known; measuring it per language with a token-matched control, on a model with no published Hindi or Hinglish numbers, is new. That a refusal direction repairs a fine-tuned model is known; that it keeps its effect through GGUF k-quantization, removal of the preamble and a second inference engine, and ships as a serving-time flag, we have not seen tested before. The circuit-restricted repair and the equal-size protection test against a random control are new designs that we failed to make work here; their results are null, which does not mean they cannot work. The validity audit, which finds that half of the medical model's unsafe labels fall on degenerate text, is the finding we would most want other evaluators to check on their own models.
+
+\paragraph{Is the model meaningfully better for use?} Stated plainly: the fine-tune made the model worse on safety, and the vector recovers about half of one of the two losses. Against the original model the fine-tune raised attack success from 18.2 to 36.3\,\% and clinical over-refusal from 2.9 to 28.4\,\%, while raising medical accuracy from 40.6 to 45.0\,\%. The vector brings attack success back to 26.3\,\% (still 8 points above the original) at $+3$ points of pooled clinical over-refusal (not significant) and $+9$ in Hindi (significant), with no measured accuracy loss and no retraining. The deployed, repaired model is therefore safer than the fine-tuned model it replaces, not safer than the original. A deployer who fine-tunes on exam questions should expect this trade; one who cannot accept the Hindi over-refusal should not fine-tune without a safety control, because the drift itself is the larger harm.
+
+\paragraph{Cost and ROI.} Compute: 48 timed cells, about 11.5\,h on the two machines (Section~\ref{sec:compute}), all on the authors' own hardware at zero cash cost, plus one parity check on a free Colab T4. Serving cost, from the second author's scenario (Section~\ref{sec:rq5}, Appendix~\ref{app:tables}): at 10,000 requests a month, local Q3\_K\_M serving costs about 1.36 USD per 1,000 replies against 0.36 USD through an API at listed prices (13.6 against 3.6 USD a month); it breaks even at about 37,700 requests a month, above the measured capacity of about 32,600; the measured throughput is 54 to 106 completion tokens per second across the GGUF settings. No clinic saving is claimed; the case for local deployment is data control and offline use, not price.
+
+\paragraph{Where each write-up item is.} Table~\ref{tab:checklist} maps the hackathon write-up checklist to this document.
+
+\begin{table}[htbp]
+\centering
+\caption{Write-up checklist items and where they are covered.}\label{tab:checklist}
+\scriptsize
+\begin{tabular}{>{\raggedright\arraybackslash}p{5.3cm}>{\raggedright\arraybackslash}p{6.3cm}}
+\toprule
+Item & Where \\
+\midrule
+Title and one-line claim & title page (subtitle) \\
+Tracks and problem statements; content warning; abstract; headline before $\to$ after; base model and method; judges' box & this summary; Abstract \\
+Problem statement and approach; why this problem and real use case; threat model & this summary; Section~\ref{sec:intro} \\
+Research questions; pre-registered hypotheses & this summary; Section~\ref{sec:intro}; Section~\ref{sec:amend} \\
+Related work & Section~\ref{sec:related} \\
+Hackathon repos (kits) used, per kit, and how they connect & this summary; Fig.~\ref{fig:arch}; kits subsection of Section~\ref{sec:method}; Appendix~\ref{app:repro} \\
+Models and licences; closed-model baseline (none) & this summary; Section~\ref{sec:background}; Data and Code Availability \\
+Datasets, benchmarks and licences; splits and leak check; CuratorKIT filtering counts; over-refusal test set & Section~\ref{sec:data}, Table~\ref{tab:sets}; kits subsection of Section~\ref{sec:method} \\
+Metrics and why; metrics that must not get worse; judge check ($\kappa$) & this summary; Sections~\ref{sec:metrics}, \ref{sec:judges} and~\ref{sec:valres} \\
+Method: training and attack set-up, hyperparameters, seeds, ablations & Sections~\ref{sec:ft} and~\ref{sec:exp}; Appendix~\ref{app:repro} \\
+Results: same model before and after; safety and capability side by side; intervals and significance; named findings; what we failed to achieve; quantized and deployed results & Table~\ref{tab:beforeafter}; Sections~\ref{sec:rq1} to~\ref{sec:holm}; Table~\ref{tab:tried} \\
+Sample inputs and outputs & none quoted (content note); text-free per-answer records in the repository \\
+Cost and ROI: compute used; cost per 1,000 replies against an API & this summary; Sections~\ref{sec:compute} and~\ref{sec:rq5}; Appendix~\ref{app:tables} \\
+Limitations; dual-use and ethics; responsible disclosure & Sections~\ref{sec:threats} and~\ref{sec:limits}; Ethics Statement \\
+With more credits: planned approach, expected before and after & Section~\ref{sec:future} \\
+Artifacts: HF datasets, HF models (GGUF), GitHub, demo, video & Artifacts \\
+Documentation and reproduction; environment; work done outside the hackathon & Repository Layout and Reproduction; Data and Code Availability; Appendix~\ref{app:repro} \\
+Discussion, implications, future work & Sections~\ref{sec:discussion} and~\ref{sec:future} \\
+Author contributions; acknowledgements; references; AI-use statement; changelog; appendix & Contributions; Acknowledgements; Bibliography; Data and Code Availability; Appendices \\
+\bottomrule
+\end{tabular}
+\end{table}

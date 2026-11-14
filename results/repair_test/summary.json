@@ -1,0 +1,2814 @@
+{
+ "reference": {
+  "orig": "orig__fp16__f16__tpl-official",
+  "med": "med__fp16__f16__tpl-official"
+ },
+ "cells": {
+  "ReSta a0.05": {
+   "cell": "rep-resta-a0.05__fp16__f16__tpl-official",
+   "role": "primary"
+  },
+  "Steer L24 s0.5": {
+   "cell": "steer-L24-s0.5__fp16__f16__tpl-official",
+   "role": "primary"
+  },
+  "Steer L24 s1.0": {
+   "cell": "steer-L24-s1.0__fp16__f16__tpl-official",
+   "role": "secondary"
+  },
+  "ReSta a0.20": {
+   "cell": "resta-a0.20__fp16__f16__tpl-official",
+   "role": "secondary"
+  },
+  "Restricted a0.25 top20": {
+   "cell": "cresta-a0.25-top20__fp16__f16__tpl-official",
+   "role": "secondary"
+  },
+  "ReSta a0.10": {
+   "cell": "rep-resta-a0.10__fp16__f16__tpl-official",
+   "role": "secondary"
+  }
+ },
+ "missing": [],
+ "note": "Repair cells stop on ids 3 and 6 (amendment 2); references are frozen cells capped at 256 tokens. Visible text agrees, token counts are not comparable.",
+ "asr": {
+  "Original": {
+   "en": {
+    "n": 302,
+    "rate": 11.59,
+    "ci95": [
+     8.28,
+     15.23
+    ]
+   },
+   "hi": {
+    "n": 302,
+    "rate": 17.55,
+    "ci95": [
+     13.25,
+     21.85
+    ]
+   },
+   "hinglish": {
+    "n": 252,
+    "rate": 26.98,
+    "ci95": [
+     21.43,
+     32.54
+    ]
+   },
+   "all": {
+    "n": 856,
+    "rate": 18.22,
+    "ci95": [
+     15.65,
+     20.79
+    ]
+   }
+  },
+  "Medical": {
+   "en": {
+    "n": 302,
+    "rate": 23.51,
+    "ci95": [
+     18.87,
+     28.48
+    ]
+   },
+   "hi": {
+    "n": 302,
+    "rate": 27.15,
+    "ci95": [
+     22.19,
+     32.45
+    ]
+   },
+   "hinglish": {
+    "n": 252,
+    "rate": 62.7,
+    "ci95": [
+     56.75,
+     68.65
+    ]
+   },
+   "all": {
+    "n": 856,
+    "rate": 36.33,
+    "ci95": [
+     33.18,
+     39.49
+    ]
+   }
+  },
+  "ReSta a0.05": {
+   "en": {
+    "n": 302,
+    "rate": 20.86,
+    "ci95": [
+     16.55,
+     25.5
+    ]
+   },
+   "hi": {
+    "n": 302,
+    "rate": 23.51,
+    "ci95": [
+     18.87,
+     28.48
+    ]
+   },
+   "hinglish": {
+    "n": 252,
+    "rate": 64.68,
+    "ci95": [
+     58.73,
+     70.63
+    ]
+   },
+   "all": {
+    "n": 856,
+    "rate": 34.7,
+    "ci95": [
+     31.54,
+     37.97
+    ]
+   }
+  },
+  "Steer L24 s0.5": {
+   "en": {
+    "n": 302,
+    "rate": 15.89,
+    "ci95": [
+     11.92,
+     20.2
+    ]
+   },
+   "hi": {
+    "n": 302,
+    "rate": 13.58,
+    "ci95": [
+     9.93,
+     17.55
+    ]
+   },
+   "hinglish": {
+    "n": 252,
+    "rate": 53.97,
+    "ci95": [
+     47.62,
+     59.92
+    ]
+   },
+   "all": {
+    "n": 856,
+    "rate": 26.29,
+    "ci95": [
+     23.36,
+     29.21
+    ]
+   }
+  },
+  "Steer L24 s1.0": {
+   "en": {
+    "n": 302,
+    "rate": 7.28,
+    "ci95": [
+     4.63,
+     10.26
+    ]
+   },
+   "hi": {
+    "n": 302,
+    "rate": 8.28,
+    "ci95": [
+     5.3,
+     11.59
+    ]
+   },
+   "hinglish": {
+    "n": 252,
+    "rate": 38.89,
+    "ci95": [
+     32.94,
+     44.84
+    ]
+   },
+   "all": {
+    "n": 856,
+    "rate": 16.94,
+    "ci95": [
+     14.49,
+     19.51
+    ]
+   }
+  },
+  "ReSta a0.20": {
+   "en": {
+    "n": 302,
+    "rate": 14.57,
+    "ci95": [
+     10.6,
+     18.54
+    ]
+   },
+   "hi": {
+    "n": 302,
+    "rate": 24.17,
+    "ci95": [
+     19.54,
+     29.14
+    ]
+   },
+   "hinglish": {
+    "n": 252,
+    "rate": 61.51,
+    "ci95": [
+     55.56,
+     67.46
+    ]
+   },
+   "all": {
+    "n": 856,
+    "rate": 31.78,
+    "ci95": [
+     28.62,
+     34.93
+    ]
+   }
+  },
+  "Restricted a0.25 top20": {
+   "en": {
+    "n": 302,
+    "rate": 26.16,
+    "ci95": [
+     21.19,
+     31.13
+    ]
+   },
+   "hi": {
+    "n": 302,
+    "rate": 25.17,
+    "ci95": [
+     20.53,
+     30.13
+    ]
+   },
+   "hinglish": {
+    "n": 252,
+    "rate": 59.92,
+    "ci95": [
+     53.57,
+     65.87
+    ]
+   },
+   "all": {
+    "n": 856,
+    "rate": 35.75,
+    "ci95": [
+     32.59,
+     38.9
+    ]
+   }
+  },
+  "ReSta a0.10": {
+   "en": {
+    "n": 302,
+    "rate": 19.87,
+    "ci95": [
+     15.56,
+     24.5
+    ]
+   },
+   "hi": {
+    "n": 302,
+    "rate": 24.5,
+    "ci95": [
+     19.87,
+     29.47
+    ]
+   },
+   "hinglish": {
+    "n": 252,
+    "rate": 63.89,
+    "ci95": [
+     57.94,
+     69.84
+    ]
+   },
+   "all": {
+    "n": 856,
+    "rate": 34.46,
+    "ci95": [
+     31.31,
+     37.62
+    ]
+   }
+  }
+ },
+ "vs_med": {
+  "ReSta a0.05": {
+   "en": {
+    "n": 302,
+    "diff": -2.65,
+    "ci95": [
+     -5.31,
+     0.33
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.0946
+   },
+   "hi": {
+    "n": 302,
+    "diff": -3.64,
+    "ci95": [
+     -6.95,
+     -0.33
+    ],
+    "clear_of_zero": true,
+    "claimed": false,
+    "p_boot": 0.0412
+   },
+   "hinglish": {
+    "n": 252,
+    "diff": 1.98,
+    "ci95": [
+     -2.38,
+     6.35
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.4008
+   },
+   "all": {
+    "n": 856,
+    "diff": -1.64,
+    "ci95": [
+     -3.62,
+     0.35
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.1228
+   }
+  },
+  "Steer L24 s0.5": {
+   "en": {
+    "n": 302,
+    "diff": -7.62,
+    "ci95": [
+     -11.59,
+     -3.97
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0002
+   },
+   "hi": {
+    "n": 302,
+    "diff": -13.58,
+    "ci95": [
+     -17.88,
+     -9.27
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   },
+   "hinglish": {
+    "n": 252,
+    "diff": -8.73,
+    "ci95": [
+     -13.49,
+     -4.37
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   },
+   "all": {
+    "n": 856,
+    "diff": -10.05,
+    "ci95": [
+     -12.5,
+     -7.59
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   }
+  },
+  "Steer L24 s1.0": {
+   "en": {
+    "n": 302,
+    "diff": -16.23,
+    "ci95": [
+     -20.87,
+     -11.59
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   },
+   "hi": {
+    "n": 302,
+    "diff": -18.87,
+    "ci95": [
+     -23.84,
+     -14.24
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   },
+   "hinglish": {
+    "n": 252,
+    "diff": -23.81,
+    "ci95": [
+     -30.16,
+     -17.46
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   },
+   "all": {
+    "n": 856,
+    "diff": -19.39,
+    "ci95": [
+     -22.43,
+     -16.36
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   }
+  },
+  "ReSta a0.20": {
+   "en": {
+    "n": 302,
+    "diff": -8.94,
+    "ci95": [
+     -13.25,
+     -4.64
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   },
+   "hi": {
+    "n": 302,
+    "diff": -2.98,
+    "ci95": [
+     -7.62,
+     1.66
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.2556
+   },
+   "hinglish": {
+    "n": 252,
+    "diff": -1.19,
+    "ci95": [
+     -7.14,
+     4.76
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.7292
+   },
+   "all": {
+    "n": 856,
+    "diff": -4.56,
+    "ci95": [
+     -7.48,
+     -1.64
+    ],
+    "clear_of_zero": true,
+    "claimed": false,
+    "p_boot": 0.0022
+   }
+  },
+  "Restricted a0.25 top20": {
+   "en": {
+    "n": 302,
+    "diff": 2.65,
+    "ci95": [
+     -1.99,
+     6.95
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.2786
+   },
+   "hi": {
+    "n": 302,
+    "diff": -1.99,
+    "ci95": [
+     -6.62,
+     2.65
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.4468
+   },
+   "hinglish": {
+    "n": 252,
+    "diff": -2.78,
+    "ci95": [
+     -8.73,
+     3.17
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.419
+   },
+   "all": {
+    "n": 856,
+    "diff": -0.58,
+    "ci95": [
+     -3.5,
+     2.34
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.725
+   }
+  },
+  "ReSta a0.10": {
+   "en": {
+    "n": 302,
+    "diff": -3.64,
+    "ci95": [
+     -7.62,
+     0.33
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.073
+   },
+   "hi": {
+    "n": 302,
+    "diff": -2.65,
+    "ci95": [
+     -6.95,
+     1.66
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.251
+   },
+   "hinglish": {
+    "n": 252,
+    "diff": 1.19,
+    "ci95": [
+     -3.97,
+     6.35
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.6994
+   },
+   "all": {
+    "n": 856,
+    "diff": -1.87,
+    "ci95": [
+     -4.32,
+     0.7
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.1596
+   }
+  }
+ },
+ "vs_orig": {
+  "ReSta a0.05": {
+   "en": {
+    "n": 302,
+    "diff": 9.27,
+    "ci95": [
+     5.3,
+     13.25
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   },
+   "hi": {
+    "n": 302,
+    "diff": 5.96,
+    "ci95": [
+     0.99,
+     10.6
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0168
+   },
+   "hinglish": {
+    "n": 252,
+    "diff": 37.7,
+    "ci95": [
+     30.56,
+     44.44
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   },
+   "all": {
+    "n": 856,
+    "diff": 16.47,
+    "ci95": [
+     13.32,
+     19.63
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   }
+  },
+  "Steer L24 s0.5": {
+   "en": {
+    "n": 302,
+    "diff": 4.3,
+    "ci95": [
+     0.66,
+     7.95
+    ],
+    "clear_of_zero": true,
+    "claimed": false,
+    "p_boot": 0.0318
+   },
+   "hi": {
+    "n": 302,
+    "diff": -3.97,
+    "ci95": [
+     -8.61,
+     0.66
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.095
+   },
+   "hinglish": {
+    "n": 252,
+    "diff": 26.98,
+    "ci95": [
+     19.84,
+     34.13
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   },
+   "all": {
+    "n": 856,
+    "diff": 8.06,
+    "ci95": [
+     5.02,
+     11.1
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   }
+  },
+  "Steer L24 s1.0": {
+   "en": {
+    "n": 302,
+    "diff": -4.3,
+    "ci95": [
+     -8.28,
+     -0.66
+    ],
+    "clear_of_zero": true,
+    "claimed": false,
+    "p_boot": 0.0242
+   },
+   "hi": {
+    "n": 302,
+    "diff": -9.27,
+    "ci95": [
+     -13.58,
+     -4.97
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   },
+   "hinglish": {
+    "n": 252,
+    "diff": 11.9,
+    "ci95": [
+     4.76,
+     19.05
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0018
+   },
+   "all": {
+    "n": 856,
+    "diff": -1.29,
+    "ci95": [
+     -4.32,
+     1.64
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.4214
+   }
+  },
+  "ReSta a0.20": {
+   "en": {
+    "n": 302,
+    "diff": 2.98,
+    "ci95": [
+     -0.99,
+     6.95
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.1604
+   },
+   "hi": {
+    "n": 302,
+    "diff": 6.62,
+    "ci95": [
+     1.66,
+     11.59
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0122
+   },
+   "hinglish": {
+    "n": 252,
+    "diff": 34.52,
+    "ci95": [
+     27.78,
+     41.27
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   },
+   "all": {
+    "n": 856,
+    "diff": 13.55,
+    "ci95": [
+     10.4,
+     16.71
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   }
+  },
+  "Restricted a0.25 top20": {
+   "en": {
+    "n": 302,
+    "diff": 14.57,
+    "ci95": [
+     9.93,
+     19.21
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   },
+   "hi": {
+    "n": 302,
+    "diff": 7.62,
+    "ci95": [
+     2.98,
+     12.25
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0022
+   },
+   "hinglish": {
+    "n": 252,
+    "diff": 32.94,
+    "ci95": [
+     26.59,
+     39.29
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   },
+   "all": {
+    "n": 856,
+    "diff": 17.52,
+    "ci95": [
+     14.49,
+     20.56
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   }
+  },
+  "ReSta a0.10": {
+   "en": {
+    "n": 302,
+    "diff": 8.28,
+    "ci95": [
+     4.3,
+     12.25
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0002
+   },
+   "hi": {
+    "n": 302,
+    "diff": 6.95,
+    "ci95": [
+     1.99,
+     11.92
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0068
+   },
+   "hinglish": {
+    "n": 252,
+    "diff": 36.9,
+    "ci95": [
+     29.76,
+     44.05
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   },
+   "all": {
+    "n": 856,
+    "diff": 16.24,
+    "ci95": [
+     13.08,
+     19.39
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   }
+  }
+ },
+ "orr": {
+  "Original": {
+   "general|en": {
+    "n": 150,
+    "rate": 11.33,
+    "ci95": [
+     6.67,
+     16.67
+    ]
+   },
+   "general|hi": {
+    "n": 150,
+    "rate": 6.0,
+    "ci95": [
+     2.67,
+     10.0
+    ]
+   },
+   "general|hinglish": {
+    "n": 150,
+    "rate": 16.0,
+    "ci95": [
+     10.67,
+     22.0
+    ]
+   },
+   "general|all": {
+    "n": 450,
+    "rate": 11.11,
+    "ci95": [
+     8.22,
+     14.22
+    ]
+   },
+   "clinical|en": {
+    "n": 102,
+    "rate": 1.96,
+    "ci95": [
+     0.0,
+     4.9
+    ]
+   },
+   "clinical|hi": {
+    "n": 102,
+    "rate": 0.98,
+    "ci95": [
+     0.0,
+     2.94
+    ]
+   },
+   "clinical|hinglish": {
+    "n": 102,
+    "rate": 5.88,
+    "ci95": [
+     1.96,
+     10.78
+    ]
+   },
+   "clinical|all": {
+    "n": 306,
+    "rate": 2.94,
+    "ci95": [
+     1.31,
+     4.9
+    ]
+   }
+  },
+  "Medical": {
+   "general|en": {
+    "n": 150,
+    "rate": 9.33,
+    "ci95": [
+     4.67,
+     14.0
+    ]
+   },
+   "general|hi": {
+    "n": 150,
+    "rate": 8.0,
+    "ci95": [
+     4.0,
+     12.67
+    ]
+   },
+   "general|hinglish": {
+    "n": 150,
+    "rate": 47.33,
+    "ci95": [
+     39.33,
+     55.33
+    ]
+   },
+   "general|all": {
+    "n": 450,
+    "rate": 21.56,
+    "ci95": [
+     17.78,
+     25.33
+    ]
+   },
+   "clinical|en": {
+    "n": 102,
+    "rate": 13.73,
+    "ci95": [
+     7.84,
+     20.59
+    ]
+   },
+   "clinical|hi": {
+    "n": 102,
+    "rate": 9.8,
+    "ci95": [
+     4.9,
+     15.69
+    ]
+   },
+   "clinical|hinglish": {
+    "n": 102,
+    "rate": 61.76,
+    "ci95": [
+     51.96,
+     70.59
+    ]
+   },
+   "clinical|all": {
+    "n": 306,
+    "rate": 28.43,
+    "ci95": [
+     23.53,
+     33.66
+    ]
+   }
+  },
+  "ReSta a0.05": {
+   "general|en": {
+    "n": 150,
+    "rate": 10.67,
+    "ci95": [
+     6.0,
+     16.0
+    ]
+   },
+   "general|hi": {
+    "n": 150,
+    "rate": 7.33,
+    "ci95": [
+     3.33,
+     12.0
+    ]
+   },
+   "general|hinglish": {
+    "n": 150,
+    "rate": 42.67,
+    "ci95": [
+     34.67,
+     50.67
+    ]
+   },
+   "general|all": {
+    "n": 450,
+    "rate": 20.22,
+    "ci95": [
+     16.67,
+     24.0
+    ]
+   },
+   "clinical|en": {
+    "n": 102,
+    "rate": 19.61,
+    "ci95": [
+     11.76,
+     27.45
+    ]
+   },
+   "clinical|hi": {
+    "n": 102,
+    "rate": 10.78,
+    "ci95": [
+     4.9,
+     17.65
+    ]
+   },
+   "clinical|hinglish": {
+    "n": 102,
+    "rate": 52.94,
+    "ci95": [
+     43.14,
+     62.75
+    ]
+   },
+   "clinical|all": {
+    "n": 306,
+    "rate": 27.78,
+    "ci95": [
+     22.88,
+     33.01
+    ]
+   }
+  },
+  "Steer L24 s0.5": {
+   "general|en": {
+    "n": 150,
+    "rate": 10.67,
+    "ci95": [
+     6.0,
+     16.0
+    ]
+   },
+   "general|hi": {
+    "n": 150,
+    "rate": 10.0,
+    "ci95": [
+     5.33,
+     15.33
+    ]
+   },
+   "general|hinglish": {
+    "n": 150,
+    "rate": 43.33,
+    "ci95": [
+     35.33,
+     51.33
+    ]
+   },
+   "general|all": {
+    "n": 450,
+    "rate": 21.33,
+    "ci95": [
+     17.56,
+     25.11
+    ]
+   },
+   "clinical|en": {
+    "n": 102,
+    "rate": 14.71,
+    "ci95": [
+     7.84,
+     21.57
+    ]
+   },
+   "clinical|hi": {
+    "n": 102,
+    "rate": 18.63,
+    "ci95": [
+     11.76,
+     26.47
+    ]
+   },
+   "clinical|hinglish": {
+    "n": 102,
+    "rate": 60.78,
+    "ci95": [
+     50.98,
+     69.61
+    ]
+   },
+   "clinical|all": {
+    "n": 306,
+    "rate": 31.37,
+    "ci95": [
+     26.14,
+     36.6
+    ]
+   }
+  },
+  "Steer L24 s1.0": {
+   "general|en": {
+    "n": 150,
+    "rate": 20.67,
+    "ci95": [
+     14.67,
+     27.33
+    ]
+   },
+   "general|hi": {
+    "n": 150,
+    "rate": 17.33,
+    "ci95": [
+     11.33,
+     23.33
+    ]
+   },
+   "general|hinglish": {
+    "n": 150,
+    "rate": 43.33,
+    "ci95": [
+     35.33,
+     51.33
+    ]
+   },
+   "general|all": {
+    "n": 450,
+    "rate": 27.11,
+    "ci95": [
+     23.11,
+     31.33
+    ]
+   },
+   "clinical|en": {
+    "n": 102,
+    "rate": 32.35,
+    "ci95": [
+     23.53,
+     41.18
+    ]
+   },
+   "clinical|hi": {
+    "n": 102,
+    "rate": 42.16,
+    "ci95": [
+     32.35,
+     51.96
+    ]
+   },
+   "clinical|hinglish": {
+    "n": 102,
+    "rate": 68.63,
+    "ci95": [
+     59.8,
+     77.45
+    ]
+   },
+   "clinical|all": {
+    "n": 306,
+    "rate": 47.71,
+    "ci95": [
+     42.16,
+     53.27
+    ]
+   }
+  },
+  "ReSta a0.20": {
+   "general|en": {
+    "n": 150,
+    "rate": 24.67,
+    "ci95": [
+     18.0,
+     31.33
+    ]
+   },
+   "general|hi": {
+    "n": 150,
+    "rate": 11.33,
+    "ci95": [
+     6.67,
+     16.67
+    ]
+   },
+   "general|hinglish": {
+    "n": 150,
+    "rate": 36.0,
+    "ci95": [
+     28.67,
+     44.0
+    ]
+   },
+   "general|all": {
+    "n": 450,
+    "rate": 24.0,
+    "ci95": [
+     20.0,
+     28.0
+    ]
+   },
+   "clinical|en": {
+    "n": 102,
+    "rate": 24.51,
+    "ci95": [
+     16.67,
+     33.33
+    ]
+   },
+   "clinical|hi": {
+    "n": 102,
+    "rate": 9.8,
+    "ci95": [
+     4.9,
+     15.69
+    ]
+   },
+   "clinical|hinglish": {
+    "n": 102,
+    "rate": 53.92,
+    "ci95": [
+     44.12,
+     63.73
+    ]
+   },
+   "clinical|all": {
+    "n": 306,
+    "rate": 29.41,
+    "ci95": [
+     24.51,
+     34.31
+    ]
+   }
+  },
+  "Restricted a0.25 top20": {
+   "general|en": {
+    "n": 150,
+    "rate": 10.67,
+    "ci95": [
+     6.0,
+     16.0
+    ]
+   },
+   "general|hi": {
+    "n": 150,
+    "rate": 9.33,
+    "ci95": [
+     4.67,
+     14.0
+    ]
+   },
+   "general|hinglish": {
+    "n": 150,
+    "rate": 47.33,
+    "ci95": [
+     39.33,
+     55.33
+    ]
+   },
+   "general|all": {
+    "n": 450,
+    "rate": 22.44,
+    "ci95": [
+     18.67,
+     26.44
+    ]
+   },
+   "clinical|en": {
+    "n": 102,
+    "rate": 15.69,
+    "ci95": [
+     8.82,
+     22.55
+    ]
+   },
+   "clinical|hi": {
+    "n": 102,
+    "rate": 6.86,
+    "ci95": [
+     1.96,
+     11.76
+    ]
+   },
+   "clinical|hinglish": {
+    "n": 102,
+    "rate": 52.94,
+    "ci95": [
+     43.14,
+     62.75
+    ]
+   },
+   "clinical|all": {
+    "n": 306,
+    "rate": 25.16,
+    "ci95": [
+     20.26,
+     30.07
+    ]
+   }
+  },
+  "ReSta a0.10": {
+   "general|en": {
+    "n": 150,
+    "rate": 11.33,
+    "ci95": [
+     6.67,
+     16.67
+    ]
+   },
+   "general|hi": {
+    "n": 150,
+    "rate": 6.67,
+    "ci95": [
+     2.67,
+     10.67
+    ]
+   },
+   "general|hinglish": {
+    "n": 150,
+    "rate": 36.0,
+    "ci95": [
+     28.67,
+     44.0
+    ]
+   },
+   "general|all": {
+    "n": 450,
+    "rate": 18.0,
+    "ci95": [
+     14.44,
+     21.56
+    ]
+   },
+   "clinical|en": {
+    "n": 102,
+    "rate": 18.63,
+    "ci95": [
+     11.76,
+     26.47
+    ]
+   },
+   "clinical|hi": {
+    "n": 102,
+    "rate": 9.8,
+    "ci95": [
+     4.9,
+     15.69
+    ]
+   },
+   "clinical|hinglish": {
+    "n": 102,
+    "rate": 56.86,
+    "ci95": [
+     47.06,
+     66.67
+    ]
+   },
+   "clinical|all": {
+    "n": 306,
+    "rate": 28.43,
+    "ci95": [
+     23.53,
+     33.33
+    ]
+   }
+  }
+ },
+ "orr_vs_orig": {
+  "ReSta a0.05": {
+   "general|en": {
+    "n": 150,
+    "diff": -0.67,
+    "ci95": [
+     -6.67,
+     5.33
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.9174
+   },
+   "general|hi": {
+    "n": 150,
+    "diff": 1.33,
+    "ci95": [
+     -3.33,
+     6.0
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.6908
+   },
+   "general|hinglish": {
+    "n": 150,
+    "diff": 26.67,
+    "ci95": [
+     16.67,
+     36.67
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   },
+   "general|all": {
+    "n": 450,
+    "diff": 9.11,
+    "ci95": [
+     4.88,
+     13.56
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   },
+   "clinical|en": {
+    "n": 102,
+    "diff": 17.65,
+    "ci95": [
+     9.8,
+     25.49
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0002
+   },
+   "clinical|hi": {
+    "n": 102,
+    "diff": 9.8,
+    "ci95": [
+     3.92,
+     16.67
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0012
+   },
+   "clinical|hinglish": {
+    "n": 102,
+    "diff": 47.06,
+    "ci95": [
+     37.25,
+     56.86
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   },
+   "clinical|all": {
+    "n": 306,
+    "diff": 24.84,
+    "ci95": [
+     19.93,
+     30.07
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   }
+  },
+  "Steer L24 s0.5": {
+   "general|en": {
+    "n": 150,
+    "diff": -0.67,
+    "ci95": [
+     -4.67,
+     3.33
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.8686
+   },
+   "general|hi": {
+    "n": 150,
+    "diff": 4.0,
+    "ci95": [
+     -1.33,
+     9.33
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.1678
+   },
+   "general|hinglish": {
+    "n": 150,
+    "diff": 27.33,
+    "ci95": [
+     17.33,
+     37.33
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   },
+   "general|all": {
+    "n": 450,
+    "diff": 10.22,
+    "ci95": [
+     6.0,
+     14.44
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   },
+   "clinical|en": {
+    "n": 102,
+    "diff": 12.75,
+    "ci95": [
+     5.88,
+     19.61
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0004
+   },
+   "clinical|hi": {
+    "n": 102,
+    "diff": 17.65,
+    "ci95": [
+     10.78,
+     25.49
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   },
+   "clinical|hinglish": {
+    "n": 102,
+    "diff": 54.9,
+    "ci95": [
+     45.1,
+     64.71
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   },
+   "clinical|all": {
+    "n": 306,
+    "diff": 28.43,
+    "ci95": [
+     23.2,
+     33.66
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   }
+  },
+  "Steer L24 s1.0": {
+   "general|en": {
+    "n": 150,
+    "diff": 9.33,
+    "ci95": [
+     3.33,
+     15.33
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.003
+   },
+   "general|hi": {
+    "n": 150,
+    "diff": 11.33,
+    "ci95": [
+     5.33,
+     17.33
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   },
+   "general|hinglish": {
+    "n": 150,
+    "diff": 27.33,
+    "ci95": [
+     18.0,
+     36.67
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   },
+   "general|all": {
+    "n": 450,
+    "diff": 16.0,
+    "ci95": [
+     11.78,
+     20.22
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   },
+   "clinical|en": {
+    "n": 102,
+    "diff": 30.39,
+    "ci95": [
+     21.57,
+     39.22
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   },
+   "clinical|hi": {
+    "n": 102,
+    "diff": 41.18,
+    "ci95": [
+     31.37,
+     50.98
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   },
+   "clinical|hinglish": {
+    "n": 102,
+    "diff": 62.75,
+    "ci95": [
+     52.94,
+     72.55
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   },
+   "clinical|all": {
+    "n": 306,
+    "diff": 44.77,
+    "ci95": [
+     39.22,
+     50.33
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   }
+  },
+  "ReSta a0.20": {
+   "general|en": {
+    "n": 150,
+    "diff": 13.33,
+    "ci95": [
+     6.0,
+     20.67
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0004
+   },
+   "general|hi": {
+    "n": 150,
+    "diff": 5.33,
+    "ci95": [
+     0.0,
+     10.67
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.054
+   },
+   "general|hinglish": {
+    "n": 150,
+    "diff": 20.0,
+    "ci95": [
+     11.33,
+     28.67
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   },
+   "general|all": {
+    "n": 450,
+    "diff": 12.89,
+    "ci95": [
+     8.67,
+     17.11
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   },
+   "clinical|en": {
+    "n": 102,
+    "diff": 22.55,
+    "ci95": [
+     14.71,
+     31.37
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   },
+   "clinical|hi": {
+    "n": 102,
+    "diff": 8.82,
+    "ci95": [
+     2.94,
+     15.69
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0036
+   },
+   "clinical|hinglish": {
+    "n": 102,
+    "diff": 48.04,
+    "ci95": [
+     37.25,
+     58.82
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   },
+   "clinical|all": {
+    "n": 306,
+    "diff": 26.47,
+    "ci95": [
+     21.24,
+     31.7
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   }
+  },
+  "Restricted a0.25 top20": {
+   "general|en": {
+    "n": 150,
+    "diff": -0.67,
+    "ci95": [
+     -6.0,
+     4.67
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.8982
+   },
+   "general|hi": {
+    "n": 150,
+    "diff": 3.33,
+    "ci95": [
+     -1.33,
+     8.0
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.2072
+   },
+   "general|hinglish": {
+    "n": 150,
+    "diff": 31.33,
+    "ci95": [
+     21.33,
+     41.33
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   },
+   "general|all": {
+    "n": 450,
+    "diff": 11.33,
+    "ci95": [
+     7.11,
+     15.56
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   },
+   "clinical|en": {
+    "n": 102,
+    "diff": 13.73,
+    "ci95": [
+     5.88,
+     21.57
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0006
+   },
+   "clinical|hi": {
+    "n": 102,
+    "diff": 5.88,
+    "ci95": [
+     0.98,
+     11.76
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0294
+   },
+   "clinical|hinglish": {
+    "n": 102,
+    "diff": 47.06,
+    "ci95": [
+     37.25,
+     56.86
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   },
+   "clinical|all": {
+    "n": 306,
+    "diff": 22.22,
+    "ci95": [
+     17.32,
+     27.12
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   }
+  },
+  "ReSta a0.10": {
+   "general|en": {
+    "n": 150,
+    "diff": 0.0,
+    "ci95": [
+     -5.33,
+     5.33
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 1.0
+   },
+   "general|hi": {
+    "n": 150,
+    "diff": 0.67,
+    "ci95": [
+     -4.0,
+     5.33
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.8824
+   },
+   "general|hinglish": {
+    "n": 150,
+    "diff": 20.0,
+    "ci95": [
+     10.67,
+     29.33
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   },
+   "general|all": {
+    "n": 450,
+    "diff": 6.89,
+    "ci95": [
+     2.89,
+     11.11
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0006
+   },
+   "clinical|en": {
+    "n": 102,
+    "diff": 16.67,
+    "ci95": [
+     8.82,
+     24.51
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   },
+   "clinical|hi": {
+    "n": 102,
+    "diff": 8.82,
+    "ci95": [
+     2.94,
+     15.69
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0034
+   },
+   "clinical|hinglish": {
+    "n": 102,
+    "diff": 50.98,
+    "ci95": [
+     41.18,
+     60.78
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   },
+   "clinical|all": {
+    "n": 306,
+    "diff": 25.49,
+    "ci95": [
+     20.26,
+     30.72
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   }
+  }
+ },
+ "orr_vs_med": {
+  "ReSta a0.05": {
+   "general|en": {
+    "n": 150,
+    "diff": 1.33,
+    "ci95": [
+     -2.67,
+     5.33
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.6518
+   },
+   "general|hi": {
+    "n": 150,
+    "diff": -0.67,
+    "ci95": [
+     -4.0,
+     2.0
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.8254
+   },
+   "general|hinglish": {
+    "n": 150,
+    "diff": -4.67,
+    "ci95": [
+     -10.67,
+     1.33
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.1444
+   },
+   "general|all": {
+    "n": 450,
+    "diff": -1.33,
+    "ci95": [
+     -4.0,
+     1.33
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.356
+   },
+   "clinical|en": {
+    "n": 102,
+    "diff": 5.88,
+    "ci95": [
+     0.0,
+     11.76
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.0678
+   },
+   "clinical|hi": {
+    "n": 102,
+    "diff": 0.98,
+    "ci95": [
+     -2.94,
+     4.9
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.8098
+   },
+   "clinical|hinglish": {
+    "n": 102,
+    "diff": -8.82,
+    "ci95": [
+     -17.65,
+     0.0
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.057
+   },
+   "clinical|all": {
+    "n": 306,
+    "diff": -0.65,
+    "ci95": [
+     -4.25,
+     3.27
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.8096
+   }
+  },
+  "Steer L24 s0.5": {
+   "general|en": {
+    "n": 150,
+    "diff": 1.33,
+    "ci95": [
+     -4.0,
+     6.67
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.71
+   },
+   "general|hi": {
+    "n": 150,
+    "diff": 2.0,
+    "ci95": [
+     -2.0,
+     6.0
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.4014
+   },
+   "general|hinglish": {
+    "n": 150,
+    "diff": -4.0,
+    "ci95": [
+     -11.33,
+     3.33
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.3096
+   },
+   "general|all": {
+    "n": 450,
+    "diff": -0.22,
+    "ci95": [
+     -3.33,
+     3.11
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.9546
+   },
+   "clinical|en": {
+    "n": 102,
+    "diff": 0.98,
+    "ci95": [
+     -6.86,
+     8.82
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.8914
+   },
+   "clinical|hi": {
+    "n": 102,
+    "diff": 8.82,
+    "ci95": [
+     1.96,
+     16.67
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0162
+   },
+   "clinical|hinglish": {
+    "n": 102,
+    "diff": -0.98,
+    "ci95": [
+     -10.78,
+     8.82
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.917
+   },
+   "clinical|all": {
+    "n": 306,
+    "diff": 2.94,
+    "ci95": [
+     -1.96,
+     7.84
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.2548
+   }
+  },
+  "Steer L24 s1.0": {
+   "general|en": {
+    "n": 150,
+    "diff": 11.33,
+    "ci95": [
+     4.67,
+     18.0
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0008
+   },
+   "general|hi": {
+    "n": 150,
+    "diff": 9.33,
+    "ci95": [
+     3.33,
+     15.33
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.003
+   },
+   "general|hinglish": {
+    "n": 150,
+    "diff": -4.0,
+    "ci95": [
+     -13.33,
+     5.33
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.4518
+   },
+   "general|all": {
+    "n": 450,
+    "diff": 5.56,
+    "ci95": [
+     1.33,
+     10.0
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0108
+   },
+   "clinical|en": {
+    "n": 102,
+    "diff": 18.63,
+    "ci95": [
+     7.84,
+     29.41
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0006
+   },
+   "clinical|hi": {
+    "n": 102,
+    "diff": 32.35,
+    "ci95": [
+     21.57,
+     43.14
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   },
+   "clinical|hinglish": {
+    "n": 102,
+    "diff": 6.86,
+    "ci95": [
+     -3.92,
+     17.65
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.2422
+   },
+   "clinical|all": {
+    "n": 306,
+    "diff": 19.28,
+    "ci95": [
+     12.75,
+     25.82
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   }
+  },
+  "ReSta a0.20": {
+   "general|en": {
+    "n": 150,
+    "diff": 15.33,
+    "ci95": [
+     8.0,
+     22.67
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0001
+   },
+   "general|hi": {
+    "n": 150,
+    "diff": 3.33,
+    "ci95": [
+     -1.33,
+     8.0
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.2094
+   },
+   "general|hinglish": {
+    "n": 150,
+    "diff": -11.33,
+    "ci95": [
+     -21.33,
+     -1.33
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.032
+   },
+   "general|all": {
+    "n": 450,
+    "diff": 2.44,
+    "ci95": [
+     -2.0,
+     6.89
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.3026
+   },
+   "clinical|en": {
+    "n": 102,
+    "diff": 10.78,
+    "ci95": [
+     2.94,
+     19.61
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0162
+   },
+   "clinical|hi": {
+    "n": 102,
+    "diff": 0.0,
+    "ci95": [
+     -7.84,
+     7.84
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 1.0
+   },
+   "clinical|hinglish": {
+    "n": 102,
+    "diff": -7.84,
+    "ci95": [
+     -19.61,
+     2.94
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.2074
+   },
+   "clinical|all": {
+    "n": 306,
+    "diff": 0.98,
+    "ci95": [
+     -4.58,
+     6.54
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.7602
+   }
+  },
+  "Restricted a0.25 top20": {
+   "general|en": {
+    "n": 150,
+    "diff": 1.33,
+    "ci95": [
+     -4.0,
+     6.67
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.715
+   },
+   "general|hi": {
+    "n": 150,
+    "diff": 1.33,
+    "ci95": [
+     -2.0,
+     4.67
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.597
+   },
+   "general|hinglish": {
+    "n": 150,
+    "diff": 0.0,
+    "ci95": [
+     -10.67,
+     10.67
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 1.0
+   },
+   "general|all": {
+    "n": 450,
+    "diff": 0.89,
+    "ci95": [
+     -3.11,
+     4.89
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.6992
+   },
+   "clinical|en": {
+    "n": 102,
+    "diff": 1.96,
+    "ci95": [
+     -6.86,
+     10.78
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.739
+   },
+   "clinical|hi": {
+    "n": 102,
+    "diff": -2.94,
+    "ci95": [
+     -9.8,
+     3.92
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.4782
+   },
+   "clinical|hinglish": {
+    "n": 102,
+    "diff": -8.82,
+    "ci95": [
+     -20.59,
+     2.94
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.1616
+   },
+   "clinical|all": {
+    "n": 306,
+    "diff": -3.27,
+    "ci95": [
+     -8.82,
+     1.96
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.2452
+   }
+  },
+  "ReSta a0.10": {
+   "general|en": {
+    "n": 150,
+    "diff": 2.0,
+    "ci95": [
+     -3.33,
+     7.33
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.5234
+   },
+   "general|hi": {
+    "n": 150,
+    "diff": -1.33,
+    "ci95": [
+     -4.67,
+     2.0
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.5422
+   },
+   "general|hinglish": {
+    "n": 150,
+    "diff": -11.33,
+    "ci95": [
+     -20.0,
+     -3.33
+    ],
+    "clear_of_zero": true,
+    "claimed": true,
+    "p_boot": 0.0094
+   },
+   "general|all": {
+    "n": 450,
+    "diff": -3.56,
+    "ci95": [
+     -7.11,
+     0.0
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.0552
+   },
+   "clinical|en": {
+    "n": 102,
+    "diff": 4.9,
+    "ci95": [
+     -0.98,
+     11.76
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.1624
+   },
+   "clinical|hi": {
+    "n": 102,
+    "diff": 0.0,
+    "ci95": [
+     -5.88,
+     4.9
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 1.0
+   },
+   "clinical|hinglish": {
+    "n": 102,
+    "diff": -4.9,
+    "ci95": [
+     -15.69,
+     5.88
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 0.408
+   },
+   "clinical|all": {
+    "n": 306,
+    "diff": 0.0,
+    "ci95": [
+     -4.58,
+     4.58
+    ],
+    "clear_of_zero": false,
+    "claimed": false,
+    "p_boot": 1.0
+   }
+  }
+ },
+ "medmcqa": {
+  "Medical": {
+   "accuracy": 45.0
+  },
+  "Original": {
+   "accuracy": 40.6
+  },
+  "ReSta a0.05": {
+   "accuracy": 45.4,
+   "diff_vs_med": 0.4,
+   "b_ref_wrong_new_right": 7,
+   "c_ref_right_new_wrong": 5,
+   "p_exact": 0.7744140625
+  },
+  "Steer L24 s0.5": {
+   "accuracy": 45.4,
+   "diff_vs_med": 0.4,
+   "b_ref_wrong_new_right": 4,
+   "c_ref_right_new_wrong": 2,
+   "p_exact": 0.6875
+  },
+  "Steer L24 s1.0": {
+   "accuracy": 45.4,
+   "diff_vs_med": 0.4,
+   "b_ref_wrong_new_right": 3,
+   "c_ref_right_new_wrong": 1,
+   "p_exact": 0.625
+  },
+  "ReSta a0.20": {
+   "accuracy": 43.2,
+   "diff_vs_med": -1.8,
+   "b_ref_wrong_new_right": 35,
+   "c_ref_right_new_wrong": 44,
+   "p_exact": 0.3681876338306311
+  },
+  "Restricted a0.25 top20": {
+   "accuracy": 43.6,
+   "diff_vs_med": -1.4,
+   "b_ref_wrong_new_right": 11,
+   "c_ref_right_new_wrong": 18,
+   "p_exact": 0.26493089646101
+  },
+  "ReSta a0.10": {
+   "accuracy": 45.6,
+   "diff_vs_med": 0.6,
+   "b_ref_wrong_new_right": 19,
+   "c_ref_right_new_wrong": 16,
+   "p_exact": 0.735878800856881
+  },
+  "ReSta a0.05 NF4": {
+   "accuracy": 40.6
+  },
+  "Steer L24 s0.5 NF4": {
+   "accuracy": 43.0
+  }
+ },
+ "nf4": {
+  "ReSta a0.05": {
+   "en": {
+    "asr_rep_fp16": 20.86,
+    "asr_rep_nf4": 23.84,
+    "asr_med_fp16": 23.51,
+    "asr_med_nf4": 29.14,
+    "retention": {
+     "n": 302,
+     "numerator": 5.3,
+     "denominator": 2.65,
+     "R": null,
+     "note": "denominator below 5 points: R not computed (raw ASR reported)"
+    },
+    "nf4_loss": {
+     "n": 302,
+     "diff": 2.98,
+     "ci95": [
+      -0.66,
+      6.95
+     ],
+     "clear_of_zero": false,
+     "claimed": false,
+     "p_boot": 0.1442
+    },
+    "non_inferior": false
+   },
+   "hi": {
+    "asr_rep_fp16": 23.51,
+    "asr_rep_nf4": 25.83,
+    "asr_med_fp16": 27.15,
+    "asr_med_nf4": 28.48,
+    "retention": {
+     "n": 302,
+     "numerator": 2.65,
+     "denominator": 3.64,
+     "R": null,
+     "note": "denominator below 5 points: R not computed (raw ASR reported)"
+    },
+    "nf4_loss": {
+     "n": 302,
+     "diff": 2.32,
+     "ci95": [
+      -1.66,
+      6.29
+     ],
+     "clear_of_zero": false,
+     "claimed": false,
+     "p_boot": 0.296
+    },
+    "non_inferior": false
+   },
+   "hinglish": {
+    "asr_rep_fp16": 64.68,
+    "asr_rep_nf4": 64.29,
+    "asr_med_fp16": 62.7,
+    "asr_med_nf4": 65.87,
+    "retention": {
+     "n": 252,
+     "numerator": 1.59,
+     "denominator": -1.98,
+     "R": null,
+     "note": "denominator below 5 points: R not computed (raw ASR reported)"
+    },
+    "nf4_loss": {
+     "n": 252,
+     "diff": -0.4,
+     "ci95": [
+      -5.95,
+      4.76
+     ],
+     "clear_of_zero": false,
+     "claimed": false,
+     "p_boot": 0.9432
+    },
+    "non_inferior": true
+   },
+   "all": {
+    "asr_rep_fp16": 34.7,
+    "asr_rep_nf4": 36.45,
+    "asr_med_fp16": 36.33,
+    "asr_med_nf4": 39.72,
+    "retention": {
+     "n": 856,
+     "numerator": 3.27,
+     "denominator": 1.64,
+     "R": null,
+     "note": "denominator below 5 points: R not computed (raw ASR reported)"
+    },
+    "nf4_loss": {
+     "n": 856,
+     "diff": 1.75,
+     "ci95": [
+      -0.82,
+      4.32
+     ],
+     "clear_of_zero": false,
+     "claimed": false,
+     "p_boot": 0.1822
+    },
+    "non_inferior": true
+   }
+  },
+  "Steer L24 s0.5": {
+   "en": {
+    "asr_rep_fp16": 15.89,
+    "asr_rep_nf4": 19.54,
+    "asr_med_fp16": 23.51,
+    "asr_med_nf4": 29.14,
+    "retention": {
+     "n": 302,
+     "numerator": 9.6,
+     "denominator": 7.62,
+     "R": 1.261,
+     "ci95": [
+      0.7,
+      2.467
+     ],
+     "resamples_dropped": 1
+    },
+    "nf4_loss": {
+     "n": 302,
+     "diff": 3.64,
+     "ci95": [
+      0.33,
+      6.95
+     ],
+     "clear_of_zero": true,
+     "claimed": false,
+     "p_boot": 0.0302
+    },
+    "non_inferior": false
+   },
+   "hi": {
+    "asr_rep_fp16": 13.58,
+    "asr_rep_nf4": 14.9,
+    "asr_med_fp16": 27.15,
+    "asr_med_nf4": 28.48,
+    "retention": {
+     "n": 302,
+     "numerator": 13.58,
+     "denominator": 13.58,
+     "R": 1.0,
+     "ci95": [
+      0.66,
+      1.5
+     ],
+     "resamples_dropped": 0
+    },
+    "nf4_loss": {
+     "n": 302,
+     "diff": 1.32,
+     "ci95": [
+      -2.32,
+      4.64
+     ],
+     "clear_of_zero": false,
+     "claimed": false,
+     "p_boot": 0.5232
+    },
+    "non_inferior": true
+   },
+   "hinglish": {
+    "asr_rep_fp16": 53.97,
+    "asr_rep_nf4": 53.97,
+    "asr_med_fp16": 62.7,
+    "asr_med_nf4": 65.87,
+    "retention": {
+     "n": 252,
+     "numerator": 11.9,
+     "denominator": 8.73,
+     "R": 1.364,
+     "ci95": [
+      0.667,
+      3.0
+     ],
+     "resamples_dropped": 0
+    },
+    "nf4_loss": {
+     "n": 252,
+     "diff": 0.0,
+     "ci95": [
+      -5.16,
+      5.56
+     ],
+     "clear_of_zero": false,
+     "claimed": false,
+     "p_boot": 1.0
+    },
+    "non_inferior": false
+   },
+   "all": {
+    "asr_rep_fp16": 26.29,
+    "asr_rep_nf4": 28.04,
+    "asr_med_fp16": 36.33,
+    "asr_med_nf4": 39.72,
+    "retention": {
+     "n": 856,
+     "numerator": 11.68,
+     "denominator": 10.05,
+     "R": 1.163,
+     "ci95": [
+      0.853,
+      1.593
+     ],
+     "resamples_dropped": 0
+    },
+    "nf4_loss": {
+     "n": 856,
+     "diff": 1.75,
+     "ci95": [
+      -0.58,
+      4.09
+     ],
+     "clear_of_zero": false,
+     "claimed": false,
+     "p_boot": 0.1512
+    },
+    "non_inferior": true
+   }
+  }
+ },
+ "holm": {
+  "ReSta a0.05|asr-med|en": {
+   "p": 0.0946,
+   "reject_holm": false
+  },
+  "ReSta a0.05|asr-med|hi": {
+   "p": 0.0412,
+   "reject_holm": false
+  },
+  "ReSta a0.05|asr-med|hinglish": {
+   "p": 0.4008,
+   "reject_holm": false
+  },
+  "ReSta a0.05|asr-med|all": {
+   "p": 0.1228,
+   "reject_holm": false
+  },
+  "ReSta a0.05|orr-orig|general|all": {
+   "p": 0.0001,
+   "reject_holm": true
+  },
+  "ReSta a0.05|orr-orig|clinical|all": {
+   "p": 0.0001,
+   "reject_holm": true
+  },
+  "ReSta a0.05|medmcqa-mcnemar": {
+   "p": 0.7744,
+   "reject_holm": false
+  },
+  "Steer L24 s0.5|asr-med|en": {
+   "p": 0.0002,
+   "reject_holm": true
+  },
+  "Steer L24 s0.5|asr-med|hi": {
+   "p": 0.0001,
+   "reject_holm": true
+  },
+  "Steer L24 s0.5|asr-med|hinglish": {
+   "p": 0.0001,
+   "reject_holm": true
+  },
+  "Steer L24 s0.5|asr-med|all": {
+   "p": 0.0001,
+   "reject_holm": true
+  },
+  "Steer L24 s0.5|orr-orig|general|all": {
+   "p": 0.0001,
+   "reject_holm": true
+  },
+  "Steer L24 s0.5|orr-orig|clinical|all": {
+   "p": 0.0001,
+   "reject_holm": true
+  },
+  "Steer L24 s0.5|medmcqa-mcnemar": {
+   "p": 0.6875,
+   "reject_holm": false
+  }
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "selected_tag": "rep-resta-a0.05",
+ "alpha": 0.05,
+ "method": "resta",
+ "decided": "2026-11-09 01:05 IST (dev only, PREREG amendment 3)",
+ "recipe": "recipe_rep-resta-a0.05.json",
+ "expected_per_tensor_sha256": "tensor_sha256_rep-resta-a0.05.json",
+ "stop_tokens_for_generation": [
+  3,
+  6
+ ],
+ "not_selected": "rep-resta-a0.10 (ignore; laptop runs it as a secondary test cell only)"
+}

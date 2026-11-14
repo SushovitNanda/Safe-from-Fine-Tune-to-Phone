@@ -1,0 +1,230 @@
+{
+  "started_at": "2026-11-09T16:52:04.182221+00:00",
+  "pid": 25975,
+  "status": "complete",
+  "completed_cells": {
+    "rep_steer_f16": {
+      "response_sha256": "e4a68a28edb2b8805fdece979588a7bcd333a1df3cd67d8af6a4c85875e7d444",
+      "response_bytes": 5088323,
+      "run_sha256": "3f74b7a2a1e76fea82b452d45d6a9a28ff3aa15c8c1c16bf62611105fd8b7b47",
+      "rows": 1612,
+      "by_set": {
+        "harmful_general": 550,
+        "harmful_clinical": 306,
+        "benign_clinical": 306,
+        "benign_general": 450
+      },
+      "provisional": false,
+      "judged": false,
+      "fidelity_gate_passed": true,
+      "archive": "models/local-results/day7/D6_Manish_2026-11-10_rep_steer_f16.zip",
+      "archive_sha256": "af8e04789679d101713a92dbfa222b001e7168b99d90bab476580a7afe7127de",
+      "archive_bytes": 641997,
+      "summary": {
+        "cell_id": "rep_steer_f16",
+        "run_fingerprint": "5ec72453c58e74a5766736d8c1fa4a06c64122c821a695b37bc1409a17982059",
+        "selected": 1612,
+        "completed": 1612,
+        "new_responses": 1612,
+        "session_seconds": 3857.2065430409857,
+        "session_responses_per_second": 0.41791902559853955,
+        "session_completion_tokens": 206370,
+        "session_tokens_per_second": 53.50244994588748,
+        "by_lang": {
+          "en": 554,
+          "hi": 554,
+          "hinglish": 504
+        },
+        "errors": [],
+        "by_set": {
+          "harmful_general": 550,
+          "harmful_clinical": 306,
+          "benign_clinical": 306,
+          "benign_general": 450
+        },
+        "complete": true
+      }
+    },
+    "rep_steer_q4km": {
+      "response_sha256": "1d3bb13ffe81647940dc0f1ca2b3d38b48315a40521ea16259845fc7b73bd602",
+      "response_bytes": 5048140,
+      "run_sha256": "bf0f22cda83e88bdd8aaa98c7e5ac26ad55efef022a0068e0bf4b1a92514c5a7",
+      "rows": 1612,
+      "by_set": {
+        "harmful_general": 550,
+        "benign_clinical": 306,
+        "harmful_clinical": 306,
+        "benign_general": 450
+      },
+      "provisional": false,
+      "judged": false,
+      "fidelity_gate_passed": true,
+      "archive": "models/local-results/day7/D6_Manish_2026-11-10_rep_steer_q4km.zip",
+      "archive_sha256": "fb274f51199d5c7800d5b6d3f587382c3a13c22721c3bf020a0a937aff39213b",
+      "archive_bytes": 635284,
+      "summary": {
+        "cell_id": "rep_steer_q4km",
+        "run_fingerprint": "652af6d6a096a1b3fe7e8772535f4fa137c1e74e6bd2ff284ca3653a7e2f364d",
+        "selected": 1612,
+        "completed": 1612,
+        "new_responses": 1612,
+        "session_seconds": 2590.9037939999835,
+        "session_responses_per_second": 0.6221767105876608,
+        "session_completion_tokens": 203175,
+        "session_tokens_per_second": 78.41858137323075,
+        "by_lang": {
+          "en": 554,
+          "hi": 554,
+          "hinglish": 504
+        },
+        "errors": [],
+        "by_set": {
+          "harmful_general": 550,
+          "benign_clinical": 306,
+          "harmful_clinical": 306,
+          "benign_general": 450
+        },
+        "complete": true
+      }
+    },
+    "rep_steer_q3km": {
+      "response_sha256": "47f53e21d4c1fac22db99be6c465af7c603a72ff014ada4762e879fe8529e1af",
+      "response_bytes": 5007995,
+      "run_sha256": "f5962f12dcf064e9a961a566dad87eed402e540865cc0cbba74f4263259e0c8b",
+      "rows": 1612,
+      "by_set": {
+        "harmful_general": 550,
+        "harmful_clinical": 306,
+        "benign_clinical": 306,
+        "benign_general": 450
+      },
+      "provisional": false,
+      "judged": false,
+      "fidelity_gate_passed": true,
+      "archive": "models/local-results/day7/D6_Manish_2026-11-10_rep_steer_q3km.zip",
+      "archive_sha256": "844f07f2b18cb2ff43d906d032d77f500dc1d44dc3004fc64f10089dd9465fde",
+      "archive_bytes": 612123,
+      "summary": {
+        "cell_id": "rep_steer_q3km",
+        "run_fingerprint": "c42f475c355ffaeb17348343b69828b28c77e90febed7c7f837fc62b3cb4bf34",
+        "selected": 1612,
+        "completed": 1612,
+        "new_responses": 1612,
+        "session_seconds": 2672.225129875005,
+        "session_responses_per_second": 0.6032425868532275,
+        "session_completion_tokens": 205309,
+        "session_tokens_per_second": 76.83072721107276,
+        "by_lang": {
+          "en": 554,
+          "hi": 554,
+          "hinglish": 504
+        },
+        "errors": [],
+        "by_set": {
+          "harmful_general": 550,
+          "harmful_clinical": 306,
+          "benign_clinical": 306,
+          "benign_general": 450
+        },
+        "complete": true
+      }
+    },
+    "rep_steer_q4km-nopre": {
+      "response_sha256": "8f8ce9e03a8781541e6e7f4d07b4879a1b0f31084965e0bfeac93dbb63fccdbe",
+      "response_bytes": 5182208,
+      "run_sha256": "2e9cd9354b0fec976846aea00973c3affaef1435e056604394c558e369be5b2e",
+      "rows": 1612,
+      "by_set": {
+        "harmful_general": 550,
+        "harmful_clinical": 306,
+        "benign_clinical": 306,
+        "benign_general": 450
+      },
+      "provisional": false,
+      "judged": false,
+      "fidelity_gate_passed": true,
+      "archive": "models/local-results/day7/D6_Manish_2026-11-10_rep_steer_q4km-nopre.zip",
+      "archive_sha256": "b402576469fb4768cf2e558c8c047cdcbeaffef7756bd136eccf6f7f13fdbb3a",
+      "archive_bytes": 667254,
+      "summary": {
+        "cell_id": "rep_steer_q4km-nopre",
+        "run_fingerprint": "fd57a100f24a5971529fda0d15e062343c5a5c408bbbbe34e111d153d31f6754",
+        "selected": 1612,
+        "completed": 1612,
+        "new_responses": 1612,
+        "session_seconds": 2103.857228083012,
+        "session_responses_per_second": 0.7662116889313912,
+        "session_completion_tokens": 217395,
+        "session_tokens_per_second": 103.33163158513635,
+        "by_lang": {
+          "en": 554,
+          "hi": 554,
+          "hinglish": 504
+        },
+        "errors": [],
+        "by_set": {
+          "harmful_general": 550,
+          "harmful_clinical": 306,
+          "benign_clinical": 306,
+          "benign_general": 450
+        },
+        "complete": true
+      }
+    },
+    "rep_steer_budget-phone": {
+      "response_sha256": "cbf665f58d0376fa2d3088b183a8fa0fc541e7d006a1e01ad1a25dfdc378b0c1",
+      "response_bytes": 5116142,
+      "run_sha256": "8f2072a75ef6f5041a880c276ec936d33261bfcd1f10671d0172ef10d8f3495e",
+      "rows": 1612,
+      "by_set": {
+        "harmful_general": 550,
+        "harmful_clinical": 306,
+        "benign_clinical": 306,
+        "benign_general": 450
+      },
+      "provisional": false,
+      "judged": false,
+      "fidelity_gate_passed": true,
+      "archive": "models/local-results/day7/D6_Manish_2026-11-10_rep_steer_budget-phone.zip",
+      "archive_sha256": "9121b1024dd93a3b9fe05a07134eee90da3a171f1a1ea9d8bb45dedd9241ae63",
+      "archive_bytes": 637263,
+      "summary": {
+        "cell_id": "rep_steer_budget-phone",
+        "run_fingerprint": "80d4f26ff0ed1bd87c178d8e79b37315ec2bff88ac9473b1092f50fc9eeb1156",
+        "selected": 1612,
+        "completed": 1612,
+        "new_responses": 1612,
+        "session_seconds": 2077.628198750026,
+        "session_responses_per_second": 0.775884732874648,
+        "session_completion_tokens": 220375,
+        "session_tokens_per_second": 106.07047022782292,
+        "by_lang": {
+          "en": 554,
+          "hi": 554,
+          "hinglish": 504
+        },
+        "errors": [],
+        "by_set": {
+          "harmful_general": 550,
+          "harmful_clinical": 306,
+          "benign_clinical": 306,
+          "benign_general": 450
+        },
+        "complete": true
+      }
+    }
+  },
+  "updated_at": "2026-11-09T20:34:58.402090+00:00",
+  "steering_fidelity_gate": {
+    "source": "handoff/D7_2026-11-09/fidelity50.json",
+    "sha256": "648e43d953934ce44352fe87c311439ca463efa38a889ad3309975b5888f75e1",
+    "same_safety_primary": 50
+  },
+  "active_cell": null,
+  "finished_at": "2026-11-09T20:34:58.401945+00:00",
+  "completed_responses": 8060,
+  "external_blockers": [
+    "centralized response judgments for these completed steering cells",
+    "reference tensors for remaining merge differences"
+  ]
+}

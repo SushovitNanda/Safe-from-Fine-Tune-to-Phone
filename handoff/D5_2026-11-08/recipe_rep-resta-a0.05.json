@@ -1,0 +1,33 @@
+{
+ "tag": "rep-resta-a0.05",
+ "method": "resta",
+ "formula": "theta_rep = theta_med + alpha * (theta_Global - theta_Base), FP32 arithmetic, FP16 save; only the listed tensors when restricted",
+ "alpha": 0.05,
+ "restricted_to": null,
+ "n_restricted": null,
+ "patched_tensors": 290,
+ "medical_model": "models/merged/med",
+ "medical_tensor_sha256": "models\\merged\\med\\tensor_sha256.json",
+ "global": "CohereLabs/tiny-aya-global",
+ "base": "CohereLabs/tiny-aya-base",
+ "output": "models/merged/rep-resta-a0.05",
+ "files": [
+  "model-00001-of-00002.safetensors",
+  "model-00002-of-00002.safetensors"
+ ],
+ "file_sha256": {
+  "model-00001-of-00002.safetensors": "c52e6760edcd9073f2dcad31072dc6284316e98df99ca474c917279884dc71a6",
+  "model-00002-of-00002.safetensors": "f479e721fa8439952f8a197eaa5296a0d509fbc7e08dea6278fc1fb46956b215"
+ },
+ "total_bytes": 6698488240,
+ "seconds": 29,
+ "per_tensor_sha256_file": "models\\merged\\rep-resta-a0.05\\tensor_sha256.json",
+ "expected_sha256_sample": {
+  "model.embed_tokens.weight": "89ca7c78ae24c4508054518f1ba7b7e8c4ca303d762505017751f2e52ebd8f61",
+  "model.layers.0.input_layernorm.weight": "77f69c7dc52d81c21b592e7a04d1bc8241260f108c4d57582998a53eaba66cb2",
+  "model.layers.0.mlp.down_proj.weight": "d02de94c3c2dabb28eba958d4f7c80a50c441e24b632b809938d308acb23c313",
+  "model.layers.0.mlp.gate_proj.weight": "b57e38f461767a0e8e440040bd4ffe6019b619b4ac7af35f2cf553274cc2be85",
+  "model.layers.0.mlp.up_proj.weight": "e2f32a0aa1b24ba6e331bf0f64d27a19cc7ee901e95545d3759b6224d5328f57"
+ },
+ "notes": "Manish rebuilds from his own merged medical model + Global + Base with the same formula and compares per-tensor sha256 (bit-identical when his merge equals the laptop merge; otherwise report max |diff|). Stop tokens for generation: EOS 3 and END_OF_TURN 6 (amendment)."
+}

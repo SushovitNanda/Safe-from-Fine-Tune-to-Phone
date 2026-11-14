@@ -1,0 +1,380 @@
+{
+ "run": "aggregate_orig_en_hi_hinglish",
+ "model": "CohereLabs/tiny-aya-global",
+ "lang": "en+hi+hinglish",
+ "alg": "eap-ig",
+ "recipe": "per language: EAP-IG node scores (original model, full run, MLP 0 excluded) summed per layer x matrix family (heads -> the four attention matrices, MLP -> the three FFN matrices), |score| normalised by the run's maximum, then summed over the three languages; identical to the ranking behind locate/cresta_tensors_v2_top{5,10,20}.json",
+ "layer_x_matrix": [
+  {
+   "layer": 0,
+   "attn_q": 0.012026,
+   "attn_k": 0.012026,
+   "attn_v": 0.012026,
+   "attn_output": 0.012026,
+   "ffn_gate": 0.0,
+   "ffn_up": 0.0,
+   "ffn_down": 0.0
+  },
+  {
+   "layer": 1,
+   "attn_q": 0.009881,
+   "attn_k": 0.009881,
+   "attn_v": 0.009881,
+   "attn_output": 0.009881,
+   "ffn_gate": 0.006518,
+   "ffn_up": 0.006518,
+   "ffn_down": 0.006518
+  },
+  {
+   "layer": 2,
+   "attn_q": 0.007798,
+   "attn_k": 0.007798,
+   "attn_v": 0.007798,
+   "attn_output": 0.007798,
+   "ffn_gate": 0.007449,
+   "ffn_up": 0.007449,
+   "ffn_down": 0.007449
+  },
+  {
+   "layer": 3,
+   "attn_q": 0.002771,
+   "attn_k": 0.002771,
+   "attn_v": 0.002771,
+   "attn_output": 0.002771,
+   "ffn_gate": 0.01444,
+   "ffn_up": 0.01444,
+   "ffn_down": 0.01444
+  },
+  {
+   "layer": 4,
+   "attn_q": 0.010803,
+   "attn_k": 0.010803,
+   "attn_v": 0.010803,
+   "attn_output": 0.010803,
+   "ffn_gate": 0.004745,
+   "ffn_up": 0.004745,
+   "ffn_down": 0.004745
+  },
+  {
+   "layer": 5,
+   "attn_q": 0.006771,
+   "attn_k": 0.006771,
+   "attn_v": 0.006771,
+   "attn_output": 0.006771,
+   "ffn_gate": 0.003662,
+   "ffn_up": 0.003662,
+   "ffn_down": 0.003662
+  },
+  {
+   "layer": 6,
+   "attn_q": 0.007921,
+   "attn_k": 0.007921,
+   "attn_v": 0.007921,
+   "attn_output": 0.007921,
+   "ffn_gate": 0.003081,
+   "ffn_up": 0.003081,
+   "ffn_down": 0.003081
+  },
+  {
+   "layer": 7,
+   "attn_q": 0.001926,
+   "attn_k": 0.001926,
+   "attn_v": 0.001926,
+   "attn_output": 0.001926,
+   "ffn_gate": 0.003914,
+   "ffn_up": 0.003914,
+   "ffn_down": 0.003914
+  },
+  {
+   "layer": 8,
+   "attn_q": 0.007659,
+   "attn_k": 0.007659,
+   "attn_v": 0.007659,
+   "attn_output": 0.007659,
+   "ffn_gate": 0.003918,
+   "ffn_up": 0.003918,
+   "ffn_down": 0.003918
+  },
+  {
+   "layer": 9,
+   "attn_q": 0.007717,
+   "attn_k": 0.007717,
+   "attn_v": 0.007717,
+   "attn_output": 0.007717,
+   "ffn_gate": 0.00524,
+   "ffn_up": 0.00524,
+   "ffn_down": 0.00524
+  },
+  {
+   "layer": 10,
+   "attn_q": 0.010112,
+   "attn_k": 0.010112,
+   "attn_v": 0.010112,
+   "attn_output": 0.010112,
+   "ffn_gate": 0.002339,
+   "ffn_up": 0.002339,
+   "ffn_down": 0.002339
+  },
+  {
+   "layer": 11,
+   "attn_q": 0.005217,
+   "attn_k": 0.005217,
+   "attn_v": 0.005217,
+   "attn_output": 0.005217,
+   "ffn_gate": 0.002914,
+   "ffn_up": 0.002914,
+   "ffn_down": 0.002914
+  },
+  {
+   "layer": 12,
+   "attn_q": 0.008075,
+   "attn_k": 0.008075,
+   "attn_v": 0.008075,
+   "attn_output": 0.008075,
+   "ffn_gate": 0.002473,
+   "ffn_up": 0.002473,
+   "ffn_down": 0.002473
+  },
+  {
+   "layer": 13,
+   "attn_q": 0.007278,
+   "attn_k": 0.007278,
+   "attn_v": 0.007278,
+   "attn_output": 0.007278,
+   "ffn_gate": 0.004257,
+   "ffn_up": 0.004257,
+   "ffn_down": 0.004257
+  },
+  {
+   "layer": 14,
+   "attn_q": 0.014551,
+   "attn_k": 0.014551,
+   "attn_v": 0.014551,
+   "attn_output": 0.014551,
+   "ffn_gate": 0.006924,
+   "ffn_up": 0.006924,
+   "ffn_down": 0.006924
+  },
+  {
+   "layer": 15,
+   "attn_q": 0.006067,
+   "attn_k": 0.006067,
+   "attn_v": 0.006067,
+   "attn_output": 0.006067,
+   "ffn_gate": 0.002323,
+   "ffn_up": 0.002323,
+   "ffn_down": 0.002323
+  },
+  {
+   "layer": 16,
+   "attn_q": 0.021469,
+   "attn_k": 0.021469,
+   "attn_v": 0.021469,
+   "attn_output": 0.021469,
+   "ffn_gate": 0.002472,
+   "ffn_up": 0.002472,
+   "ffn_down": 0.002472
+  },
+  {
+   "layer": 17,
+   "attn_q": 0.012944,
+   "attn_k": 0.012944,
+   "attn_v": 0.012944,
+   "attn_output": 0.012944,
+   "ffn_gate": 0.000989,
+   "ffn_up": 0.000989,
+   "ffn_down": 0.000989
+  },
+  {
+   "layer": 18,
+   "attn_q": 0.006696,
+   "attn_k": 0.006696,
+   "attn_v": 0.006696,
+   "attn_output": 0.006696,
+   "ffn_gate": 0.002999,
+   "ffn_up": 0.002999,
+   "ffn_down": 0.002999
+  },
+  {
+   "layer": 19,
+   "attn_q": 0.007291,
+   "attn_k": 0.007291,
+   "attn_v": 0.007291,
+   "attn_output": 0.007291,
+   "ffn_gate": 0.005881,
+   "ffn_up": 0.005881,
+   "ffn_down": 0.005881
+  },
+  {
+   "layer": 20,
+   "attn_q": 0.018225,
+   "attn_k": 0.018225,
+   "attn_v": 0.018225,
+   "attn_output": 0.018225,
+   "ffn_gate": 0.00355,
+   "ffn_up": 0.00355,
+   "ffn_down": 0.00355
+  },
+  {
+   "layer": 21,
+   "attn_q": 0.013972,
+   "attn_k": 0.013972,
+   "attn_v": 0.013972,
+   "attn_output": 0.013972,
+   "ffn_gate": 0.003164,
+   "ffn_up": 0.003164,
+   "ffn_down": 0.003164
+  },
+  {
+   "layer": 22,
+   "attn_q": 0.010094,
+   "attn_k": 0.010094,
+   "attn_v": 0.010094,
+   "attn_output": 0.010094,
+   "ffn_gate": 0.002045,
+   "ffn_up": 0.002045,
+   "ffn_down": 0.002045
+  },
+  {
+   "layer": 23,
+   "attn_q": 0.006043,
+   "attn_k": 0.006043,
+   "attn_v": 0.006043,
+   "attn_output": 0.006043,
+   "ffn_gate": 0.004653,
+   "ffn_up": 0.004653,
+   "ffn_down": 0.004653
+  },
+  {
+   "layer": 24,
+   "attn_q": 0.007796,
+   "attn_k": 0.007796,
+   "attn_v": 0.007796,
+   "attn_output": 0.007796,
+   "ffn_gate": 0.005464,
+   "ffn_up": 0.005464,
+   "ffn_down": 0.005464
+  },
+  {
+   "layer": 25,
+   "attn_q": 0.010844,
+   "attn_k": 0.010844,
+   "attn_v": 0.010844,
+   "attn_output": 0.010844,
+   "ffn_gate": 0.002623,
+   "ffn_up": 0.002623,
+   "ffn_down": 0.002623
+  },
+  {
+   "layer": 26,
+   "attn_q": 0.013021,
+   "attn_k": 0.013021,
+   "attn_v": 0.013021,
+   "attn_output": 0.013021,
+   "ffn_gate": 0.001331,
+   "ffn_up": 0.001331,
+   "ffn_down": 0.001331
+  },
+  {
+   "layer": 27,
+   "attn_q": 0.005691,
+   "attn_k": 0.005691,
+   "attn_v": 0.005691,
+   "attn_output": 0.005691,
+   "ffn_gate": 0.004028,
+   "ffn_up": 0.004028,
+   "ffn_down": 0.004028
+  },
+  {
+   "layer": 28,
+   "attn_q": 0.010676,
+   "attn_k": 0.010676,
+   "attn_v": 0.010676,
+   "attn_output": 0.010676,
+   "ffn_gate": 0.007056,
+   "ffn_up": 0.007056,
+   "ffn_down": 0.007056
+  },
+  {
+   "layer": 29,
+   "attn_q": 0.00877,
+   "attn_k": 0.00877,
+   "attn_v": 0.00877,
+   "attn_output": 0.00877,
+   "ffn_gate": 0.003024,
+   "ffn_up": 0.003024,
+   "ffn_down": 0.003024
+  },
+  {
+   "layer": 30,
+   "attn_q": 0.005839,
+   "attn_k": 0.005839,
+   "attn_v": 0.005839,
+   "attn_output": 0.005839,
+   "ffn_gate": 0.002536,
+   "ffn_up": 0.002536,
+   "ffn_down": 0.002536
+  },
+  {
+   "layer": 31,
+   "attn_q": 0.006418,
+   "attn_k": 0.006418,
+   "attn_v": 0.006418,
+   "attn_output": 0.006418,
+   "ffn_gate": 0.001162,
+   "ffn_up": 0.001162,
+   "ffn_down": 0.001162
+  },
+  {
+   "layer": 32,
+   "attn_q": 0.010601,
+   "attn_k": 0.010601,
+   "attn_v": 0.010601,
+   "attn_output": 0.010601,
+   "ffn_gate": 0.001227,
+   "ffn_up": 0.001227,
+   "ffn_down": 0.001227
+  },
+  {
+   "layer": 33,
+   "attn_q": 0.006693,
+   "attn_k": 0.006693,
+   "attn_v": 0.006693,
+   "attn_output": 0.006693,
+   "ffn_gate": 0.002578,
+   "ffn_up": 0.002578,
+   "ffn_down": 0.002578
+  },
+  {
+   "layer": 34,
+   "attn_q": 0.003151,
+   "attn_k": 0.003151,
+   "attn_v": 0.003151,
+   "attn_output": 0.003151,
+   "ffn_gate": 0.006239,
+   "ffn_up": 0.006239,
+   "ffn_down": 0.006239
+  },
+  {
+   "layer": 35,
+   "attn_q": 0.003885,
+   "attn_k": 0.003885,
+   "attn_v": 0.003885,
+   "attn_output": 0.003885,
+   "ffn_gate": 0.024669,
+   "ffn_up": 0.024669,
+   "ffn_down": 0.024669
+  }
+ ],
+ "layer_suggestions": [
+  16,
+  35,
+  20,
+  14,
+  21,
+  28,
+  1,
+  4
+ ],
+ "note": "scores are equal across a layer's four attention matrices and across its three FFN matrices by construction (node-level attribution); rank at the layer x family level"
+}

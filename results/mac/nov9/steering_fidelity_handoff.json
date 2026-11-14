@@ -1,0 +1,29 @@
+{
+  "cell_id": "rep_steer_f16_fidelity50",
+  "rows": 50,
+  "run_fingerprint": "37c26af53bbda1e917f9c8619850d250daa515ac329d740e7002611e123f37a9",
+  "input_sha": "84ed7f2ccb388a35552c101992814c590b7c8220a80e9bc05b056f29c743a9fb",
+  "response_sha256": "46c5507bc712a4ba715e3d3d202a3888f3302623fa290d988297faf005c83e19",
+  "archive": "models/local-results/day6/D6_Manish_2026-11-09_steering_fidelity50.zip",
+  "archive_sha256": "9e37d6fa165936621f8e6c13ab81de17573f1358999de5699c92a65c257da388",
+  "archive_bytes": 34137,
+  "stop_token_ids": [
+    3,
+    6
+  ],
+  "control_vector_sha256": "e27b7449e5d38b7b112ecbdef7ed6cbf33f651d6604f07cf18e8909af6543bd8",
+  "tensor": "direction.24",
+  "strength": 0.5,
+  "layer_range": [
+    24,
+    24
+  ],
+  "vector_l2_norm": 23.102102478683822,
+  "execution_errors": 0,
+  "capped_at_256": 19,
+  "completion_tokens": 6671,
+  "steering_fidelity_gate_status": "PENDING_CENTRAL_JUDGING",
+  "original_unsteered_fidelity_gate": "PASSED_50_OF_50_D7",
+  "M16_status": "BLOCKED_UNTIL_NEW_GATE_PASSES",
+  "stop_eog_source_check": "Pinned llama-vocab.cpp inserts overridden special_eot_id into special_eog_ids; receipt contains int6 override; old GGUF unchanged."
+}

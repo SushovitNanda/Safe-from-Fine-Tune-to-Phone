@@ -1,0 +1,57 @@
+{
+  "diagnostic_model": "med-q3km.gguf",
+  "generation_performed": false,
+  "command": [
+    "KITS/llama.cpp/build/bin/llama-server",
+    "-m",
+    "models/gguf/med-q3km.gguf",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "8082",
+    "-ngl",
+    "99",
+    "-np",
+    "1",
+    "-c",
+    "512",
+    "-fa",
+    "on",
+    "--control-vector-scaled",
+    "handoff/D5b_steering_2026-11-09/steer_L24.cvec:0.5",
+    "--control-vector-layer-range",
+    "24",
+    "24",
+    "--override-kv",
+    "tokenizer.ggml.eot_token_id=int:6",
+    "--log-verbosity",
+    "5"
+  ],
+  "log_excerpt": [
+    "0.00.177.541 I validate_override: Using metadata override (  int) 'tokenizer.ggml.eot_token_id' = 0.00.177.543 I 6",
+    "0.00.208.275 I load: printing all EOG tokens:",
+    "0.00.234.340 I print_info: EOS token             = 3 '<EOS_TOKEN>'",
+    "0.00.234.340 I print_info: EOT token             = 6 '<|END_OF_TURN_TOKEN|>'",
+    "0.00.234.341 I print_info: EOG token             = 0 '<PAD>'",
+    "0.00.234.341 I print_info: EOG token             = 3 '<EOS_TOKEN>'",
+    "0.00.234.342 I print_info: EOG token             = 6 '<|END_OF_TURN_TOKEN|>'",
+    "0.00.365.337 I validate_override: Using metadata override (  int) 'tokenizer.ggml.eot_token_id' = 0.00.365.339 I 6",
+    "0.00.411.115 I load: printing all EOG tokens:",
+    "0.00.435.789 I print_info: EOS token             = 3 '<EOS_TOKEN>'",
+    "0.00.435.789 I print_info: EOT token             = 6 '<|END_OF_TURN_TOKEN|>'",
+    "0.00.435.790 I print_info: EOG token             = 0 '<PAD>'",
+    "0.00.435.790 I print_info: EOG token             = 3 '<EOS_TOKEN>'",
+    "0.00.435.791 I print_info: EOG token             = 6 '<|END_OF_TURN_TOKEN|>'",
+    "0.00.749.950 D set_adapter_cvec: il_start = 24, il_end = 24"
+  ],
+  "note": "Separate diagnostic load with verbose logging; same pinned engine/vector/layer/scale/stop override as reported runs, reduced context/slots. No fidelity or safety result is inferred. Engine also marks PAD0 as EOG by default; configured EOS/EOT policy is3,6. The native set_adapter_cvec line confirms layer range24..24.",
+  "effective_engine_eog_token_ids": [
+    0,
+    3,
+    6
+  ],
+  "configured_policy_stop_token_ids": [
+    3,
+    6
+  ]
+}

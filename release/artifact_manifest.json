@@ -1,0 +1,41 @@
+{
+  "artifacts": {
+    "stock_medical_q3": {
+      "local_path": "models/gguf/med-q3km.gguf",
+      "bytes": 1799740928,
+      "sha256": "c57897e0249750e719f53233a0b9919a90623d6b1208cd4ae6759c823c6d76de"
+    },
+    "protected_medical_q3_v2": {
+      "local_path": "models/gguf/medical-d4-v2/protected-q3km.gguf",
+      "bytes": 1797062144,
+      "sha256": "7282a706b2dd9b76399198976ba7b6d59effdbf76985ec655267defbe9d52c40"
+    },
+    "matched_random_medical_q3_v2": {
+      "local_path": "models/gguf/medical-d4-v2/random-q3km.gguf",
+      "bytes": 1797062144,
+      "sha256": "4040b99f4255ec5314f391d33862142eaf281660c19ae347ac6cec044771a6d0"
+    },
+    "steering_vector": {
+      "local_path": "handoff/D5b_steering_2026-11-09/steer_L24.cvec",
+      "bytes": 8416,
+      "sha256": "e27b7449e5d38b7b112ecbdef7ed6cbf33f651d6604f07cf18e8909af6543bd8"
+    }
+  },
+  "runtime_control_vector_required_for_repaired_condition": true,
+  "layer": 24,
+  "strength": 0.5,
+  "configured_stop_ids": [
+    3,
+    6
+  ],
+  "upstream_license": {
+    "source_repo": "CohereLabs/tiny-aya-global",
+    "revision": "af89d219b53ed9b13b8a4645f9c8028973510324",
+    "license": "cc-by-nc-4.0",
+    "license_name": null,
+    "model_card_sha256": "640219fd6a7727b13a9fc23db5286acd0018b43d75902c29c6ac29abec0be8f1",
+    "source_url": "https://huggingface.co/CohereLabs/tiny-aya-global/blob/af89d219b53ed9b13b8a4645f9c8028973510324/README.md"
+  },
+  "uploaded": false,
+  "private_working_repo_is_not_public_submission": true
+}

@@ -1,0 +1,226 @@
+{
+  "started_at": "2026-11-06T15:49:30.378145+00:00",
+  "pid": 57986,
+  "status": "complete",
+  "completed_cells": {
+    "med_f16": {
+      "response_sha256": "1a8e21f1ac77c3ecf03e7f697ec4111415c04d19bcbcc0759b07fcb6bc302e11",
+      "response_bytes": 4671882,
+      "run_sha256": "070a71ed1c9fdf24f7d40ed65d6c076574a869b054272501f48f98c8e4831aca",
+      "rows": 1612,
+      "by_set": {
+        "harmful_general": 550,
+        "benign_clinical": 306,
+        "harmful_clinical": 306,
+        "benign_general": 450
+      },
+      "provisional": true,
+      "judged": false,
+      "fidelity_gate_passed": false,
+      "archive": "models/local-results/day3/D6_Manish_2026-11-06_med_f16.zip",
+      "archive_sha256": "6f8ebd7ed03d39c0d50d31389f73f788ed7cffbaf3f7c9237b96702832eacf98",
+      "archive_bytes": 622765,
+      "summary": {
+        "cell_id": "med_f16",
+        "run_fingerprint": "6d822c734a569a429434e257b618e4ed0466342445f20a354b9a59132a1c00d4",
+        "selected": 1612,
+        "completed": 1612,
+        "new_responses": 1612,
+        "session_seconds": 5556.103624625015,
+        "session_responses_per_second": 0.2901313778338313,
+        "session_completion_tokens": 412672,
+        "session_tokens_per_second": 74.27363272546081,
+        "by_lang": {
+          "en": 554,
+          "hi": 554,
+          "hinglish": 504
+        },
+        "errors": [],
+        "by_set": {
+          "harmful_general": 550,
+          "benign_clinical": 306,
+          "harmful_clinical": 306,
+          "benign_general": 450
+        },
+        "complete": true
+      }
+    },
+    "med_q4km": {
+      "response_sha256": "8b1853a72f157200e8bdb865d6bdc43ca705f8d6e929002536f6caaf0a29803f",
+      "response_bytes": 4618671,
+      "run_sha256": "df20dd0b2d3e113267898dd963b79b5eb8c1940ed9b11130365f844db5418c82",
+      "rows": 1612,
+      "by_set": {
+        "harmful_general": 550,
+        "harmful_clinical": 306,
+        "benign_clinical": 306,
+        "benign_general": 450
+      },
+      "provisional": true,
+      "judged": false,
+      "fidelity_gate_passed": false,
+      "archive": "models/local-results/day3/D6_Manish_2026-11-06_med_q4km.zip",
+      "archive_sha256": "a590ebb5854e3b7131e87d07b27613ad7be90caee4af0c86b90d9c743df7eb7f",
+      "archive_bytes": 615752,
+      "summary": {
+        "cell_id": "med_q4km",
+        "run_fingerprint": "db93e1aca2a00a34c18f868f06e38b516079c045b21294f5b83e78a35e711ad8",
+        "selected": 1612,
+        "completed": 1612,
+        "new_responses": 1612,
+        "session_seconds": 4123.689630749985,
+        "session_responses_per_second": 0.39091205797338874,
+        "session_completion_tokens": 412672,
+        "session_tokens_per_second": 100.07348684118752,
+        "by_lang": {
+          "en": 554,
+          "hi": 554,
+          "hinglish": 504
+        },
+        "errors": [],
+        "by_set": {
+          "harmful_general": 550,
+          "harmful_clinical": 306,
+          "benign_clinical": 306,
+          "benign_general": 450
+        },
+        "complete": true
+      }
+    },
+    "med_q3km": {
+      "response_sha256": "ff70bbbdafaf8ded00023ef193e5895b6d03a226f9765b7680ca4b7b5daa5864",
+      "response_bytes": 4694511,
+      "run_sha256": "5a03ef08c6f1950fb2e2015a7961648accef72ac3bd1525bf772aaad301ecfb8",
+      "rows": 1612,
+      "by_set": {
+        "harmful_general": 550,
+        "harmful_clinical": 306,
+        "benign_clinical": 306,
+        "benign_general": 450
+      },
+      "provisional": true,
+      "judged": false,
+      "fidelity_gate_passed": false,
+      "archive": "models/local-results/day3/D6_Manish_2026-11-06_med_q3km.zip",
+      "archive_sha256": "542f7bbde401c64d037034ef62967882a05fa9ba6ddbc1b65ada9fde59cb0a33",
+      "archive_bytes": 612738,
+      "summary": {
+        "cell_id": "med_q3km",
+        "run_fingerprint": "ccfecb9f9eb15dbf5c912304cb467f34382a332b5ceaf94adcab6ac5d2e25dc5",
+        "selected": 1612,
+        "completed": 1612,
+        "new_responses": 1612,
+        "session_seconds": 3702.4063413330005,
+        "session_responses_per_second": 0.435392512702866,
+        "session_completion_tokens": 412672,
+        "session_tokens_per_second": 111.4604832519337,
+        "by_lang": {
+          "en": 554,
+          "hi": 554,
+          "hinglish": 504
+        },
+        "errors": [],
+        "by_set": {
+          "harmful_general": 550,
+          "harmful_clinical": 306,
+          "benign_clinical": 306,
+          "benign_general": 450
+        },
+        "complete": true
+      }
+    },
+    "med_q4km-nopre": {
+      "response_sha256": "4574420ac49d10338b6d15ce123eddf596d8da3c01d524f87e4c17174cfc0c51",
+      "response_bytes": 4744253,
+      "run_sha256": "c1fd52e882a683c2823d5ecb348fe8b1f7c5e1503ba41d2164cb7fa533a36834",
+      "rows": 1612,
+      "by_set": {
+        "harmful_general": 550,
+        "benign_clinical": 306,
+        "harmful_clinical": 306,
+        "benign_general": 450
+      },
+      "provisional": true,
+      "judged": false,
+      "fidelity_gate_passed": false,
+      "archive": "models/local-results/day3/D6_Manish_2026-11-06_med_q4km-nopre.zip",
+      "archive_sha256": "6cc52198f051027ba7cb8f5a7dcc899dcfc8f8e7472247fb324bf19cdd1eda31",
+      "archive_bytes": 653378,
+      "summary": {
+        "cell_id": "med_q4km-nopre",
+        "run_fingerprint": "7939022c2fa40d3c5d8f1cebec256e44c74d16713973f214a48366bb028d8434",
+        "selected": 1612,
+        "completed": 1612,
+        "new_responses": 1612,
+        "session_seconds": 2583.63298200001,
+        "session_responses_per_second": 0.6239276287424301,
+        "session_completion_tokens": 412672,
+        "session_tokens_per_second": 159.7254729580621,
+        "by_lang": {
+          "en": 554,
+          "hi": 554,
+          "hinglish": 504
+        },
+        "errors": [],
+        "by_set": {
+          "harmful_general": 550,
+          "benign_clinical": 306,
+          "harmful_clinical": 306,
+          "benign_general": 450
+        },
+        "complete": true
+      }
+    },
+    "med_budget-phone": {
+      "response_sha256": "c89a8245a5eb77269f4554234aa7a4bf34c23d1c1c07af85580dac68a02ea084",
+      "response_bytes": 4754168,
+      "run_sha256": "6d1b87ef241121889667b4af1659692957dc8757c55f35665a9eb96519292b32",
+      "rows": 1612,
+      "by_set": {
+        "harmful_general": 550,
+        "benign_clinical": 306,
+        "harmful_clinical": 306,
+        "benign_general": 450
+      },
+      "provisional": true,
+      "judged": false,
+      "fidelity_gate_passed": false,
+      "archive": "models/local-results/day3/D6_Manish_2026-11-06_med_budget-phone.zip",
+      "archive_sha256": "fefbe60309a49a9c90310fe241eba76ab8c95f0062edb54e40b134b1bc74f4dc",
+      "archive_bytes": 636026,
+      "summary": {
+        "cell_id": "med_budget-phone",
+        "run_fingerprint": "4163d86b8a109e333262f55db496a6d5faf1f844e5b0152fd1d1ac3d30c3cf0d",
+        "selected": 1612,
+        "completed": 1612,
+        "new_responses": 668,
+        "session_seconds": 910.7487467080064,
+        "session_responses_per_second": 0.7334624422098341,
+        "session_completion_tokens": 171008,
+        "session_tokens_per_second": 187.76638520571754,
+        "by_lang": {
+          "en": 554,
+          "hi": 554,
+          "hinglish": 504
+        },
+        "errors": [],
+        "by_set": {
+          "harmful_general": 550,
+          "benign_clinical": 306,
+          "harmful_clinical": 306,
+          "benign_general": 450
+        },
+        "complete": true
+      }
+    }
+  },
+  "updated_at": "2026-11-06T16:04:54.171612+00:00",
+  "active_cell": null,
+  "finished_at": "2026-11-06T16:04:54.171605+00:00",
+  "completed_responses": 8060,
+  "external_blockers": [
+    "current reference merge parity",
+    "shared judged fidelity50 gate",
+    "centralized response judgments"
+  ]
+}

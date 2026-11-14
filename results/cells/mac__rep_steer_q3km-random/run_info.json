@@ -1,0 +1,21 @@
+{
+ "cell": "mac__rep_steer_q3km-random",
+ "source_zip": "D6_Manish_2026-11-11_rep_steer_q3km-random.zip",
+ "member": "cells/rep_steer_q3km-random.jsonl",
+ "n": 1612,
+ "unknown_prompt_ids": 0,
+ "sha256_zip": "1117349d8286b9c35649371ea9d82f0796a7df0b57cc39282329e37883567cb1",
+ "stop_token_ids": [
+  3,
+  6
+ ],
+ "control_vector": {
+  "path": "handoff/D5b_steering_2026-11-09/steer_L24.cvec",
+  "sha256": "e27b7449e5d38b7b112ecbdef7ed6cbf33f651d6604f07cf18e8909af6543bd8",
+  "strength": 0.5,
+  "layer_range": [
+   24,
+   24
+  ]
+ }
+}

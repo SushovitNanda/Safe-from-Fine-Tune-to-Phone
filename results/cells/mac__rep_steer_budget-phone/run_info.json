@@ -1,0 +1,21 @@
+{
+ "cell": "mac__rep_steer_budget-phone",
+ "source_zip": "D6_Manish_2026-11-10_rep_steer_budget-phone.zip",
+ "member": "cells/rep_steer_budget-phone.jsonl",
+ "n": 1612,
+ "unknown_prompt_ids": 0,
+ "sha256_zip": "9121b1024dd93a3b9fe05a07134eee90da3a171f1a1ea9d8bb45dedd9241ae63",
+ "stop_token_ids": [
+  3,
+  6
+ ],
+ "control_vector": {
+  "path": "handoff/D5b_steering_2026-11-09/steer_L24.cvec",
+  "sha256": "e27b7449e5d38b7b112ecbdef7ed6cbf33f651d6604f07cf18e8909af6543bd8",
+  "strength": 0.5,
+  "layer_range": [
+   24,
+   24
+  ]
+ }
+}
