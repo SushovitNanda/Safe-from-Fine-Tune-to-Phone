@@ -1,5 +1,6 @@
-"""Headline figure: pooled attack success (856 harmful prompts) along the deployment chain, read from the result files.
-Writes Report/figures/fig_headline.png (used by the report's executive summary and the submission README)."""
+"""Headline figure: attack success along the deployment chain, pooled (856 harmful prompts) and English plus Hindi only
+(604 prompts; Hinglish excluded because most of the fine-tuned model's Hinglish answers are degenerate). Every value is
+read from the result files. Writes Report/figures/fig_headline.png (report executive summary and submission README)."""
 import json
 from pathlib import Path
 
@@ -8,51 +9,49 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 ROOT = Path(__file__).resolve().parents[2]
-rep = json.loads((ROOT / "results/repair_test/summary.json").read_text(encoding="utf-8"))["asr"]
-fin = json.loads((ROOT / "results/final_stats/final.json").read_text(encoding="utf-8"))
-mac = json.loads((ROOT / "results/mac_judged/summary.json").read_text(encoding="utf-8"))
+A = json.loads((ROOT / "results/repair_test/summary.json").read_text(encoding="utf-8"))["asr"]
+G = json.loads((ROOT / "results/final_stats/final.json").read_text(encoding="utf-8"))["gguf"]["rates"]
 
 
-def mac_rate(cell_key_part: str) -> float:
-    """Pooled steered/unsteered ASR for a Mac cell, from the central label summary."""
-    for k, v in mac.items():
-        if isinstance(v, dict) and cell_key_part in k and "asr" in v:
-            a = v["asr"]
-            return a["all"]["rate"] if isinstance(a, dict) and "all" in a else a
-    raise KeyError(cell_key_part)
+def enhi(d):
+    """Rate over English + Hindi from the per-language rates and counts."""
+    k = sum(round(d[l]["rate"] * d[l]["n"] / 100) for l in ("en", "hi")); n = d["en"]["n"] + d["hi"]["n"]
+    return 100 * k / n
 
 
 steps = [
-    ("Original\nTiny Aya Global\n(FP16)", rep["Original"]["all"]["rate"]),
-    ("+ one epoch\nmedical LoRA\n(FP16)", rep["Medical"]["all"]["rate"]),
-    ("medical\n+ steering vector\n(FP16)", rep["Steer L24 s0.5"]["all"]["rate"]),
-    ("medical\nQ3_K_M GGUF\n(llama.cpp)", 39.0),
-    ("medical + vector\nQ3_K_M GGUF", 27.9),
-    ("medical + vector\nQ3_K_M, no preamble,\n4-bit KV cache", 26.2),
+    ("Original\n(FP16)", A["Original"]),
+    ("+ medical LoRA\n(FP16)", A["Medical"]),
+    ("+ steering\nvector (FP16)", A["Steer L24 s0.5"]),
+    ("medical,\nQ3_K_M GGUF", G["q3km"]["med"]),
+    ("+ vector,\nQ3_K_M GGUF", G["q3km"]["steer"]),
+    ("+ vector, Q3_K_M,\nno preamble,\n4-bit KV cache", G["budget-phone"]["steer"]),
 ]
-# the three GGUF values are the deployment cells of the Mac lane (final.json carries them under gguf/asr when present)
-try:
-    g = fin["gguf"]["asr"]
-    steps[3] = (steps[3][0], g["q3km"]["med"]["all"]["rate"]) if "q3km" in g else steps[3]
-except Exception:
-    pass
+pooled = [d["all"]["rate"] for _, d in steps]
+eh = [enhi(d) for _, d in steps]
 
-INK = "#2b2b2b"; MUTED = "#6b6b6b"; BAR = "#4f7cac"; GRID = "#e3e3e3"
-fig, ax = plt.subplots(figsize=(8.6, 3.9), dpi=200)
-x = range(len(steps)); vals = [v for _, v in steps]
-bars = ax.bar(x, vals, width=0.58, color=BAR, edgecolor="white", linewidth=1.5, zorder=3)
-ax.axhline(vals[0], color=MUTED, lw=1, ls=(0, (4, 3)), zorder=2)
-ax.text(2.5, vals[0] - 0.9, "original", ha="center", va="top", fontsize=8, color=MUTED)
-for b, v in zip(bars, vals):
-    ax.text(b.get_x() + b.get_width() / 2, v + 0.9, f"{v:.1f} %", ha="center", va="bottom", fontsize=9.5, color=INK, weight="bold")
-ax.set_xticks(list(x)); ax.set_xticklabels([s for s, _ in steps], fontsize=8, color=INK)
-ax.set_ylabel("Attack success rate (%)\n856 harmful prompts, EN + HI + Hinglish", fontsize=8.5, color=INK)
-ax.set_ylim(0, max(vals) * 1.22)
+INK, MUTED, GRID = "#2b2b2b", "#6b6b6b", "#e3e3e3"
+C_POOL, C_EH = "#4f7cac", "#d08c3a"
+fig, ax = plt.subplots(figsize=(8.8, 4.5), dpi=200)
+w = 0.36; xs = list(range(len(steps)))
+b1 = ax.bar([x - w / 2 - 0.01 for x in xs], pooled, w, color=C_POOL, label="All three languages (856 prompts)", zorder=3)
+b2 = ax.bar([x + w / 2 + 0.01 for x in xs], eh, w, color=C_EH, label="English + Hindi only (604 prompts)", zorder=3)
+for bars, vals in ((b1, pooled), (b2, eh)):
+    for b, v in zip(bars, vals):
+        ax.text(b.get_x() + b.get_width() / 2, v + 0.7, f"{v:.1f}", ha="center", va="bottom", fontsize=8, color=INK)
+ax.axvline(2.5, color=GRID, lw=1.2, zorder=1)
+ax.text(1.0, max(pooled) * 1.16, "Full precision (laptop, Transformers)", ha="center", fontsize=8, color=MUTED)
+ax.text(4.0, max(pooled) * 1.16, "Deployed GGUF (Mac, llama.cpp)", ha="center", fontsize=8, color=MUTED)
+ax.set_xticks(xs); ax.set_xticklabels([s for s, _ in steps], fontsize=8, color=INK)
+ax.set_ylabel("Attack success rate (%)", fontsize=9, color=INK)
+ax.set_ylim(0, max(pooled) * 1.26)
 ax.yaxis.grid(True, color=GRID, lw=0.8, zorder=0); ax.set_axisbelow(True)
 for s in ("top", "right"): ax.spines[s].set_visible(False)
 for s in ("left", "bottom"): ax.spines[s].set_color(GRID)
 ax.tick_params(axis="y", colors=MUTED, labelsize=8); ax.tick_params(axis="x", length=0)
-ax.set_title("Before and after along the chain: fine-tune, repair, quantize", fontsize=10.5, color=INK, loc="left", pad=10)
+ax.legend(frameon=False, fontsize=8.5, loc="upper center", bbox_to_anchor=(0.5, -0.24), ncol=2)
+ax.set_title("Fine-tune, repair, deploy: attack success on the frozen test set", fontsize=10.5, color=INK, loc="left", pad=8)
 fig.tight_layout()
 out = ROOT / "Report/figures/fig_headline.png"; out.parent.mkdir(parents=True, exist_ok=True)
-fig.savefig(out); print("wrote", out, vals)
+fig.savefig(out)
+print("pooled", [round(v, 1) for v in pooled]); print("en+hi ", [round(v, 1) for v in eh])

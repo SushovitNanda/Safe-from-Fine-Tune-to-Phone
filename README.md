@@ -1,6 +1,6 @@
 # Safe from Fine-Tune to Phone
 
-**One-line claim.** Benign medical LoRA doubles Tiny Aya Global's attack success (18.2 % to 36.3 %); a run-time steering vector cuts it to 26.3 % and survives GGUF quantization.
+**One-line claim.** Benign medical LoRA doubles Tiny Aya Global's attack success (18.2 % to 36.3 %); a run-time steering vector cuts it to 26.3 % and survives GGUF quantization. Without Hinglish, where most fine-tuned answers are degenerate, the rise is 14.6 % to 25.3 % and steering returns it to 14.7 %.
 
 **Lexsi AI Safety and Alignment Hackathon, Track 2 (AI Red Teaming, Safety and Alignment).** Problem statements covered:
 
@@ -17,7 +17,7 @@
 
 | Item | Where |
 |---|---|
-| Full report (PDF, 72 pages: executive summary, hypotheses, all tables and figures) | [`report/Safe-from-Fine-Tune-to-Phone.pdf`](report/Safe-from-Fine-Tune-to-Phone.pdf) in this repository, also attached to the entry; this README is the write-up |
+| Full report (PDF, 73 pages: executive summary, hypotheses, all tables and figures) | [`report/Safe-from-Fine-Tune-to-Phone.pdf`](report/Safe-from-Fine-Tune-to-Phone.pdf) in this repository, also attached to the entry; this README is the write-up |
 | Pre-registration and its five dated amendments; Mac lane pre-registrations; decision log | `PREREG.md`, `MAC_PREREG.md`, `DECISIONS.md` |
 | Hugging Face dataset collection | https://huggingface.co/collections/SushiOrbit/safe-from-fine-tune-to-phone-datasets |
 | Hugging Face model collection | https://huggingface.co/collections/SushiOrbit/safe-from-fine-tune-to-phone-models |
@@ -112,7 +112,7 @@ Leak check between fine-tuning and evaluation sets: exact match on normalised te
 | Difference-in-differences; last-mile gap | closer to zero is better | fragility of the fine-tuned model to deployment |
 | Degenerate-output share | lower is better | validity: classifiers count repetition loops as harm |
 
-Judge check: Cohen's κ against 300 reference labels (AI drafts to the rubric, each checked and approved by the first author; no independent human label), bar 0.6 (English 0.81, Hindi 0.84 on back-translation, Hinglish 0.62 for the unsafe label; Hinglish refusal κ 0.31, so Hinglish over-refusal is reported as a direction only). Statistics: paired bootstrap (10,000 resamples, seed 13), exact McNemar for MedMCQA, Holm correction; a difference is claimed only if at least 5 points with the interval clear of zero.
+Judge check: Cohen's κ against 300 reference labels (AI drafts to the rubric, each checked and approved by the first author; no independent human label), bar 0.6 (unsafe label: English 0.81 [0.57, 1.00], n = 55; Hindi 0.84 [0.62, 1.00], n = 57, on back-translation; Hinglish 0.62 [0.35, 0.84], n = 51, so Hinglish clears the bar only within noise; Hinglish refusal κ 0.31 [0.18, 0.47], so Hinglish over-refusal is reported as a direction only; 95 % bootstrap intervals over items). Statistics: paired bootstrap (10,000 resamples, seed 13), exact McNemar for MedMCQA, Holm correction; a difference is claimed only if at least 5 points with the interval clear of zero.
 
 ## 7. Method and experiments (summary)
 

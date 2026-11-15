@@ -22,9 +22,9 @@ def dci(x, bold=True):
     t = f"{sg(x['diff'])} {ci(x)}".replace("[-", "[$-$").replace(", -", ", $-$")
     cl = x.get("claimed", bool(x.get("clear_of_zero") and x.get("ge5")))
     return r"\textbf{" + t + "}" if bold and cl else t
-def tab(label, cap, cols, head, rows, size="scriptsize", wide=False):
+def tab(label, cap, cols, head, rows, size="footnotesize", wide=False):
     b = "\n".join(r for r in rows)
-    return "\\begin{table}[tbp]\n\\centering\n\\caption{" + cap + "}\\label{" + label + "}\n\\" + size + "\n\\begin{adjustbox}{max width=\\linewidth}\n\\begin{tabular}{" + cols + "}\n\\toprule\n" + head + " \\\\\n\\midrule\n" + b + "\n\\bottomrule\n\\end{tabular}\n\\end{adjustbox}\n\\end{table}"
+    return "\\begin{table}[tbp]\n\\centering\n\\caption{" + cap + "}\\label{" + label + "}\n\\" + size + "\n\\begin{adjustbox}{max width=1.3\\linewidth,center}\n\\begin{tabular}{" + cols + "}\n\\toprule\n" + head + " \\\\\n\\midrule\n" + b + "\n\\bottomrule\n\\end{tabular}\n\\end{adjustbox}\n\\end{table}"
 T = {}
 # ---- platform
 cp = F["cross_platform"]; rows = []
@@ -34,10 +34,13 @@ for n, c in cp.items():
 T["platform"] = tab("tab:platform", "Mac (llama.cpp, F16 GGUF) against laptop (Transformers, FP16) on the same prompts. Agreement is on the judge's safety and refusal labels. ASR is pooled over 856 harmful prompts, Mac then laptop; the last column is the paired Mac minus laptop difference with 95\\,\\% interval.", "lrrrrr", "Model & Safety, all & Safety, harmful & Refusal, all & ASR Mac / laptop & Paired difference", rows)
 # ---- kappa
 def k(j, t, l): return K[f"{j}|{t}|{l}"]["kappa"]
+def kc(j, t, l):
+    x = K[f"{j}|{t}|{l}"]; c = x.get("ci95")
+    return f"{x['kappa']:.2f} [{c[0]:.2f}, {c[1]:.2f}] ({x['n']})" if c else f"{x['kappa']:.2f} ({x['n']})"
 rows = []
 for n, j, t in (("Qwen3Guard, unsafe (primary)", "qwen3guard", "unsafe_primary"), ("Qwen3Guard, unsafe or controversial", "qwen3guard_sensitivity", "unsafe_primary"), ("WildGuard on back-translation, unsafe", "wildguard", "unsafe_primary"), ("Qwen3Guard, refusal", "qwen3guard", "refusal"), ("WildGuard on back-translation, refusal", "wildguard", "refusal")):
-    rows.append(f"{n} & " + " & ".join(f"{k(j,t,l):.2f}" for l in L3) + f" & {k(j,t,'all'):.2f} \\\\")
-T["kappa"] = tab("tab:kappa", "Cohen's $\\kappa$ of each judge against the 300 approved hand labels, on the original model's answers. Unsafe is scored on harmful prompts, refusal on all prompts. The pre-registered bar is 0.6, and the higher $\\kappa$ per language becomes the primary judge.", "lrrrr", "Judge and task & EN & HI & Hinglish & All", rows)
+    rows.append(f"{n} & " + " & ".join(kc(j, t, l) for l in L3) + f" & {kc(j, t, 'all')} \\\\")
+T["kappa"] = tab("tab:kappa", "Cohen's $\\kappa$ of each judge against the 300 approved hand labels, on the original model's answers. Unsafe is scored on harmful prompts, refusal on all prompts. The pre-registered bar is 0.6, and the higher $\\kappa$ per language becomes the primary judge. Each cell gives $\\kappa$, its 95\\,\\% bootstrap interval over items (10,000 resamples, seed 13) and the number of items scored; with 51 to 57 harmful items per language the intervals are wide, and Hinglish clears the bar only within noise.", "lrrrr", "Judge and task & EN & HI & Hinglish & All", rows)
 # ---- judge validation
 m = V["medical_validation"]; rows = []
 for l, n in (("en", "English"), ("hi", "Hindi"), ("hinglish", "Hinglish"), ("all", "Pooled")):
